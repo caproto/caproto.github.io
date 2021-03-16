@@ -1,0 +1,66 @@
+﻿caproto.ChannelChar
+===================
+
+
+.. currentmodule:: caproto
+
+.. autoclass:: ChannelChar
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~ChannelChar.auth_read
+       ~ChannelChar.auth_write
+       ~ChannelChar.calculate_length
+       ~ChannelChar.check_access
+       ~ChannelChar.is_compatible_array
+       ~ChannelChar.post_state_change
+       ~ChannelChar.pre_state_change
+       ~ChannelChar.preprocess_value
+       ~ChannelChar.publish
+       ~ChannelChar.read
+       ~ChannelChar.subscribe
+       ~ChannelChar.unsubscribe
+       ~ChannelChar.update_fields
+       ~ChannelChar.verify_value
+       ~ChannelChar.write
+       ~ChannelChar.write_from_dbr
+       ~ChannelChar.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~ChannelChar.alarm
+       ~ChannelChar.data_type
+       ~ChannelChar.epics_timestamp
+       ~ChannelChar.length
+       ~ChannelChar.long_string_max_length
+       ~ChannelChar.max_length
+       ~ChannelChar.severity
+       ~ChannelChar.status
+       ~ChannelChar.timestamp
+       ~ChannelChar.value
+    
+
+    

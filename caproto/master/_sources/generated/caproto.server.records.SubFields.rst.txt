@@ -37,7 +37,7 @@
            - CHAR 
            - 
                  Length(29)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_acknowledge_severity
@@ -46,7 +46,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_acknowledge_transient
@@ -55,7 +55,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_deadband
@@ -63,6 +63,7 @@
            - Alarm Deadband
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - alarm_status
@@ -71,7 +72,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - archive_deadband
@@ -79,6 +80,7 @@
            - Archive Deadband
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
                  **Get**
                  **Put**
            - 
@@ -88,6 +90,7 @@
            - Bad Return Severity
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - current_alarm_severity
@@ -96,7 +99,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - dbputfield_process
@@ -105,7 +108,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - description
@@ -114,9 +117,7 @@
            - CHAR 
            - 
                  Length(41)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Get**
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - device_type
@@ -124,7 +125,7 @@
            - Device Type
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable
@@ -132,7 +133,7 @@
            - Disable
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_alarm_severity
@@ -140,7 +141,7 @@
            - Disable Alarm Sevrty
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_putfield
@@ -148,7 +149,7 @@
            - Disable putField
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_value
@@ -156,7 +157,7 @@
            - Disable Value
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - display_precision
@@ -164,6 +165,7 @@
            - Display Precision
            - INT 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
                  **Get**
                  **Put**
            - 
@@ -174,6 +176,7 @@
            - CHAR 
            - 
                  Length(16)
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - event_name
@@ -182,7 +185,7 @@
            - CHAR 
            - 
                  Length(40)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - forward_link
@@ -190,7 +193,7 @@
            - Forward Process Link
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - high_alarm_limit
@@ -198,7 +201,7 @@
            - High Alarm Limit
            - DOUBLE 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
                  **Get**
                  **Put**
            - 
@@ -208,7 +211,7 @@
            - High Operating Range
            - DOUBLE 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
                  **Get**
                  **Put**
            - 
@@ -218,7 +221,7 @@
            - High Severity
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
            - 
     
         *  - hihi_alarm_limit
@@ -226,7 +229,7 @@
            - Hihi Alarm Limit
            - DOUBLE 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
                  **Get**
                  **Put**
            - 
@@ -236,7 +239,7 @@
            - Hihi Severity
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
            - 
     
         *  - init_routine_name
@@ -246,6 +249,7 @@
            - 
                  **Read-only**
                  Length(40)
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - input_a
@@ -253,6 +257,7 @@
            - Input A
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - input_b
@@ -260,6 +265,7 @@
            - Input B
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - input_c
@@ -267,6 +273,7 @@
            - Input C
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - input_d
@@ -274,6 +281,7 @@
            - Input D
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - input_e
@@ -281,6 +289,7 @@
            - Input E
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - input_f
@@ -288,6 +297,7 @@
            - Input F
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - input_g
@@ -295,6 +305,7 @@
            - Input G
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - input_h
@@ -302,6 +313,7 @@
            - Input H
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - input_i
@@ -309,6 +321,7 @@
            - Input I
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - input_j
@@ -316,6 +329,7 @@
            - Input J
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - input_k
@@ -323,6 +337,7 @@
            - Input K
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - input_l
@@ -330,6 +345,7 @@
            - Input L
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - last_value_alarmed
@@ -338,6 +354,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - last_value_archived
@@ -346,6 +363,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - last_value_monitored
@@ -354,6 +372,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - lock_count
@@ -362,7 +381,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - lolo_alarm_limit
@@ -370,7 +389,7 @@
            - Lolo Alarm Limit
            - DOUBLE 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
                  **Get**
                  **Put**
            - 
@@ -380,7 +399,7 @@
            - Lolo Severity
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
            - 
     
         *  - low_alarm_limit
@@ -388,7 +407,7 @@
            - Low Alarm Limit
            - DOUBLE 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
                  **Get**
                  **Put**
            - 
@@ -398,7 +417,7 @@
            - Low Operating Range
            - DOUBLE 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
                  **Get**
                  **Put**
            - 
@@ -408,7 +427,7 @@
            - Low Severity
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
            - 
     
         *  - monitor_deadband
@@ -416,6 +435,7 @@
            - Monitor Deadband
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
                  **Get**
                  **Put**
            - 
@@ -426,7 +446,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - new_alarm_status
@@ -435,7 +455,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - prev_value_of_a
@@ -444,6 +464,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - prev_value_of_b
@@ -452,6 +473,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - prev_value_of_c
@@ -460,6 +482,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - prev_value_of_d
@@ -468,6 +491,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - prev_value_of_e
@@ -476,6 +500,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - prev_value_of_f
@@ -484,6 +509,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - prev_value_of_g
@@ -492,6 +518,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - prev_value_of_h
@@ -500,6 +527,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - prev_value_of_i
@@ -508,6 +536,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - prev_value_of_j
@@ -516,6 +545,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - prev_value_of_k
@@ -524,6 +554,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - prev_value_of_l
@@ -532,6 +563,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - process_at_iocinit
@@ -539,7 +571,7 @@
            - Process at iocInit
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - process_record
@@ -547,8 +579,7 @@
            - Force Processing
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_active
@@ -557,7 +588,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_name
@@ -567,7 +598,7 @@
            - 
                  **Read-only**
                  Length(61)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_type
@@ -576,7 +607,7 @@
            - STRING 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
            - 
     
         *  - reprocess
@@ -585,7 +616,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scan_phase
@@ -593,7 +624,7 @@
            - Scan Phase
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scan_rate
@@ -601,8 +632,7 @@
            - Scan Mechanism
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scanning_disable
@@ -610,7 +640,7 @@
            - Scanning Disable
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scheduling_priority
@@ -618,7 +648,7 @@
            - Scheduling Priority
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - subroutine_name
@@ -627,6 +657,7 @@
            - CHAR 
            - 
                  Length(40)
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - time_stamp_event
@@ -634,7 +665,7 @@
            - Time Stamp Event
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - time_stamp_link
@@ -642,7 +673,7 @@
            - Time Stamp Link
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - trace_processing
@@ -650,7 +681,7 @@
            - Trace Processing
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - undefined
@@ -658,7 +689,7 @@
            - Undefined
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - undefined_alarm_severity
@@ -666,7 +697,7 @@
            - Undefined Alarm Sevrty
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - value_of_input_a
@@ -674,6 +705,7 @@
            - Value of Input A
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - value_of_input_b
@@ -681,6 +713,7 @@
            - Value of Input B
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - value_of_input_c
@@ -688,6 +721,7 @@
            - Value of Input C
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - value_of_input_d
@@ -695,6 +729,7 @@
            - Value of Input D
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - value_of_input_e
@@ -702,6 +737,7 @@
            - Value of Input E
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - value_of_input_f
@@ -709,6 +745,7 @@
            - Value of Input F
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - value_of_input_g
@@ -716,6 +753,7 @@
            - Value of Input G
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - value_of_input_h
@@ -723,6 +761,7 @@
            - Value of Input H
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - value_of_input_i
@@ -730,6 +769,7 @@
            - Value of Input I
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - value_of_input_j
@@ -737,6 +777,7 @@
            - Value of Input J
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - value_of_input_k
@@ -744,6 +785,7 @@
            - Value of Input K
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
         *  - value_of_input_l
@@ -751,6 +793,7 @@
            - Value of Input L
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
     
     
@@ -767,6 +810,7 @@
        ~SubFields.group_read
        ~SubFields.group_write
        ~SubFields.publish
+       ~SubFields.value_write_hook
     
     
 
@@ -790,99 +834,89 @@
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
-    .. method:: description.getter(self, instance)
-        
-
-    
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
-        :language: python
-        :linenos:
-        :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: display_precision.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: high_alarm_limit.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: high_operating_range.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: hihi_alarm_limit.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: lolo_alarm_limit.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: low_alarm_limit.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: low_operating_range.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: monitor_deadband.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40

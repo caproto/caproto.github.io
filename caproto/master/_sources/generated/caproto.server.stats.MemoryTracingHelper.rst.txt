@@ -28,7 +28,7 @@
         *  - diff_results
            - ``TraceDiffResults``
            - Trace diff from snapshot to snapshot
-           - str (:class:`waveform <caproto.server.records.WaveformFields>`)
+           - str (:class:`waveform <caproto.server.records.records.WaveformFields>`)
            - 
                  **Read-only**
                  Length(20000)
@@ -37,15 +37,14 @@
         *  - enable_tracing
            - ``EnableTracing``
            - Enable/disable in-depth memory analysis
-           - ENUM (:class:`bo <caproto.server.records.BoFields>`)
+           - ENUM (:class:`bo <caproto.server.records.records.BoFields>`)
            - 
-                 **Startup**
            - 
     
         *  - top_allocations
            - ``TraceTopAllocations``
            - Top allocations in snapshot
-           - str (:class:`waveform <caproto.server.records.WaveformFields>`)
+           - str (:class:`waveform <caproto.server.records.records.WaveformFields>`)
            - 
                  **Read-only**
                  Length(20000)
@@ -54,7 +53,7 @@
         *  - trace_count
            - ``TraceCount``
            - Number of top allocations to view
-           - int (:class:`ao <caproto.server.records.AoFields>`)
+           - int (:class:`ao <caproto.server.records.records.AoFields>`)
            - 
            - 
     
@@ -88,26 +87,3 @@
 
     
     .. rubric:: pvproperty methods
-    .. method:: enable_tracing.startup(self, instance, async_lib)
-        
-
-    
-    .. raw:: html
-
-        <details>
-        <summary>Source code: enable_tracing.startup</summary>
-
-    
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/server.py
-        :language: python
-        :linenos:
-        :dedent: 0
-        :lineno-start: 766
-        :lines: 766-795
-
-    .. raw:: html
-
-        </details>
-        <br/>
-
-    

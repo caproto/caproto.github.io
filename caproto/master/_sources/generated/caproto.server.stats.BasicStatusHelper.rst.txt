@@ -28,7 +28,7 @@
         *  - application_directory
            - ``APP_DIR``
            - Startup directory (__main__)
-           - str (:class:`waveform <caproto.server.records.WaveformFields>`)
+           - str (:class:`waveform <caproto.server.records.records.WaveformFields>`)
            - 
                  **Read-only**
                  Length(255)
@@ -37,7 +37,7 @@
         *  - cpu_count
            - ``CPU_CNT``
            - Number of CPUs
-           - int (:class:`longin <caproto.server.records.LonginFields>`)
+           - int (:class:`longin <caproto.server.records.records.LonginFields>`)
            - 
                  **Read-only**
            - 
@@ -45,7 +45,7 @@
         *  - engineer
            - ``ENGINEER``
            - Who is responsible for this abomination
-           - str (:class:`stringin <caproto.server.records.StringinFields>`)
+           - str (:class:`stringin <caproto.server.records.records.StringinFields>`)
            - 
                  **Read-only**
                  Length(40)
@@ -54,7 +54,7 @@
         *  - hostname
            - ``HOSTNAME``
            - 
-           - str (:class:`stringin <caproto.server.records.StringinFields>`)
+           - str (:class:`stringin <caproto.server.records.records.StringinFields>`)
            - 
                  **Read-only**
                  Length(255)
@@ -63,7 +63,7 @@
         *  - kernel_version
            - ``KERNEL_VERS``
            - OS/Kernel Version
-           - str (:class:`stringin <caproto.server.records.StringinFields>`)
+           - str (:class:`stringin <caproto.server.records.records.StringinFields>`)
            - 
                  **Read-only**
            - 
@@ -71,7 +71,7 @@
         *  - location
            - ``LOCATION``
            - 
-           - str (:class:`stringin <caproto.server.records.StringinFields>`)
+           - str (:class:`stringin <caproto.server.records.records.StringinFields>`)
            - 
                  **Read-only**
                  Length(40)
@@ -80,7 +80,7 @@
         *  - parent_pid
            - ``PARENT_ID``
            - Parent Process ID
-           - int (:class:`ai <caproto.server.records.AiFields>`)
+           - int (:class:`ai <caproto.server.records.records.AiFields>`)
            - 
                  **Read-only**
            - 
@@ -88,7 +88,7 @@
         *  - process_id
            - ``PROCESS_ID``
            - 
-           - int (:class:`ai <caproto.server.records.AiFields>`)
+           - int (:class:`ai <caproto.server.records.records.AiFields>`)
            - 
                  **Read-only**
                  **Startup**
@@ -97,7 +97,7 @@
         *  - source_filename
            - ``SOURCE_FILE``
            - Top-level PVGroup source filename
-           - str (:class:`waveform <caproto.server.records.WaveformFields>`)
+           - str (:class:`waveform <caproto.server.records.records.WaveformFields>`)
            - 
                  **Read-only**
                  Length(255)
@@ -106,7 +106,7 @@
         *  - sysreset
            - ``SYSRESET``
            - IOC exit / restart (if using procServ)
-           - int (:class:`sub <caproto.server.records.SubFields>`)
+           - int (:class:`sub <caproto.server.records.records.SubFields>`)
            - 
                  **Put**
            - 
@@ -114,7 +114,7 @@
         *  - version
            - ``EPICS_VERSION``
            - EPICS (caproto) version
-           - str (:class:`stringin <caproto.server.records.StringinFields>`)
+           - str (:class:`stringin <caproto.server.records.records.StringinFields>`)
            - 
                  **Read-only**
            - 
@@ -159,7 +159,7 @@
         <summary>Source code: process_id.startup</summary>
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/stats.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/stats.py
         :language: python
         :linenos:
         :dedent: 0

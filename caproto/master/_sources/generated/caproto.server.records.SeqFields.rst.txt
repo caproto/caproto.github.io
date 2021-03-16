@@ -37,7 +37,7 @@
            - CHAR 
            - 
                  Length(29)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_acknowledge_severity
@@ -46,7 +46,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_acknowledge_transient
@@ -55,7 +55,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_status
@@ -64,7 +64,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - current_alarm_severity
@@ -73,7 +73,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - dbputfield_process
@@ -82,7 +82,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - delay_0
@@ -90,6 +90,7 @@
            - Delay 0
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_1
@@ -97,6 +98,7 @@
            - Delay 1
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_10
@@ -104,6 +106,7 @@
            - Delay 10
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_11
@@ -111,6 +114,7 @@
            - Delay 11
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_12
@@ -118,6 +122,7 @@
            - Delay 12
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_13
@@ -125,6 +130,7 @@
            - Delay 13
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_14
@@ -132,6 +138,7 @@
            - Delay 14
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_15
@@ -139,6 +146,7 @@
            - Delay 15
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_2
@@ -146,6 +154,7 @@
            - Delay 2
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_3
@@ -153,6 +162,7 @@
            - Delay 3
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_4
@@ -160,6 +170,7 @@
            - Delay 4
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_5
@@ -167,6 +178,7 @@
            - Delay 5
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_6
@@ -174,6 +186,7 @@
            - Delay 6
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_7
@@ -181,6 +194,7 @@
            - Delay 7
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_8
@@ -188,6 +202,7 @@
            - Delay 8
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - delay_9
@@ -195,6 +210,7 @@
            - Delay 9
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - description
@@ -203,9 +219,7 @@
            - CHAR 
            - 
                  Length(41)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Get**
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - device_type
@@ -213,7 +227,7 @@
            - Device Type
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable
@@ -221,7 +235,7 @@
            - Disable
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_alarm_severity
@@ -229,7 +243,7 @@
            - Disable Alarm Sevrty
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_putfield
@@ -237,7 +251,7 @@
            - Disable putField
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_value
@@ -245,7 +259,7 @@
            - Disable Value
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - display_precision
@@ -253,6 +267,7 @@
            - Display Precision
            - INT 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
                  **Get**
                  **Put**
            - 
@@ -263,7 +278,7 @@
            - CHAR 
            - 
                  Length(40)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - forward_link
@@ -271,7 +286,7 @@
            - Forward Process Link
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - input_link1
@@ -279,6 +294,7 @@
            - Input link1
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_0
@@ -286,6 +302,7 @@
            - Input link 0
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_10
@@ -293,6 +310,7 @@
            - Input link 10
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_11
@@ -300,6 +318,7 @@
            - Input link 11
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_12
@@ -307,6 +326,7 @@
            - Input link 12
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_13
@@ -314,6 +334,7 @@
            - Input link 13
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_14
@@ -321,6 +342,7 @@
            - Input link 14
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_15
@@ -328,6 +350,7 @@
            - Input link 15
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_2
@@ -335,6 +358,7 @@
            - Input link 2
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_3
@@ -342,6 +366,7 @@
            - Input link 3
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_4
@@ -349,6 +374,7 @@
            - Input link 4
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_5
@@ -356,6 +382,7 @@
            - Input link 5
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_6
@@ -363,6 +390,7 @@
            - Input link 6
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_7
@@ -370,6 +398,7 @@
            - Input link 7
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_8
@@ -377,6 +406,7 @@
            - Input link 8
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - input_link_9
@@ -384,6 +414,7 @@
            - Input link 9
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - link_selection
@@ -391,6 +422,7 @@
            - Link Selection
            - INT 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - link_selection_loc
@@ -398,6 +430,7 @@
            - Link Selection Loc
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - lock_count
@@ -406,7 +439,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - new_alarm_severity
@@ -415,7 +448,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - new_alarm_status
@@ -424,7 +457,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - offset_for_specified
@@ -432,6 +465,7 @@
            - Offset for Specified
            - INT 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - old_selection
@@ -439,6 +473,7 @@
            - Old Selection
            - INT 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_0
@@ -446,6 +481,7 @@
            - Output Link 0
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_1
@@ -453,6 +489,7 @@
            - Output Link 1
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_10
@@ -460,6 +497,7 @@
            - Output Link 10
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_11
@@ -467,6 +505,7 @@
            - Output Link 11
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_12
@@ -474,6 +513,7 @@
            - Output Link 12
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_13
@@ -481,6 +521,7 @@
            - Output Link 13
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_14
@@ -488,6 +529,7 @@
            - Output Link 14
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_15
@@ -495,6 +537,7 @@
            - Output Link 15
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_2
@@ -502,6 +545,7 @@
            - Output Link 2
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_3
@@ -509,6 +553,7 @@
            - Output Link 3
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_4
@@ -516,6 +561,7 @@
            - Output Link 4
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_5
@@ -523,6 +569,7 @@
            - Output Link 5
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_6
@@ -530,6 +577,7 @@
            - Output Link 6
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_7
@@ -537,6 +585,7 @@
            - Output Link 7
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_8
@@ -544,6 +593,7 @@
            - Output Link 8
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - output_link_9
@@ -551,6 +601,7 @@
            - Output Link 9
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - process_at_iocinit
@@ -558,7 +609,7 @@
            - Process at iocInit
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - process_record
@@ -566,8 +617,7 @@
            - Force Processing
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_active
@@ -576,7 +626,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_name
@@ -586,7 +636,7 @@
            - 
                  **Read-only**
                  Length(61)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_type
@@ -595,7 +645,7 @@
            - STRING 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
            - 
     
         *  - reprocess
@@ -604,7 +654,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scan_phase
@@ -612,7 +662,7 @@
            - Scan Phase
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scan_rate
@@ -620,8 +670,7 @@
            - Scan Mechanism
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scanning_disable
@@ -629,7 +678,7 @@
            - Scanning Disable
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scheduling_priority
@@ -637,7 +686,7 @@
            - Scheduling Priority
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - select_mechanism
@@ -645,6 +694,7 @@
            - Select Mechanism
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - shift_for_mask_mode
@@ -652,6 +702,7 @@
            - Shift for Mask mode
            - INT 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - time_stamp_event
@@ -659,7 +710,7 @@
            - Time Stamp Event
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - time_stamp_link
@@ -667,7 +718,7 @@
            - Time Stamp Link
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - trace_processing
@@ -675,7 +726,7 @@
            - Trace Processing
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - undefined
@@ -683,7 +734,7 @@
            - Undefined
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - undefined_alarm_severity
@@ -691,7 +742,7 @@
            - Undefined Alarm Sevrty
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - value_0
@@ -699,6 +750,7 @@
            - Value 0
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_1
@@ -706,6 +758,7 @@
            - Value 1
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_10
@@ -713,6 +766,7 @@
            - Value 10
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_11
@@ -720,6 +774,7 @@
            - Value 11
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_12
@@ -727,6 +782,7 @@
            - Value 12
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_13
@@ -734,6 +790,7 @@
            - Value 13
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_14
@@ -741,6 +798,7 @@
            - Value 14
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_15
@@ -748,6 +806,7 @@
            - Value 15
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_2
@@ -755,6 +814,7 @@
            - Value 2
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_3
@@ -762,6 +822,7 @@
            - Value 3
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_4
@@ -769,6 +830,7 @@
            - Value 4
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_5
@@ -776,6 +838,7 @@
            - Value 5
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_6
@@ -783,6 +846,7 @@
            - Value 6
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_7
@@ -790,6 +854,7 @@
            - Value 7
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_8
@@ -797,6 +862,7 @@
            - Value 8
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
         *  - value_9
@@ -804,6 +870,7 @@
            - Value 9
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
     
     
@@ -820,6 +887,7 @@
        ~SeqFields.group_read
        ~SeqFields.group_write
        ~SeqFields.publish
+       ~SeqFields.value_write_hook
     
     
 
@@ -839,23 +907,13 @@
 
     
     .. rubric:: pvproperty methods
-    .. method:: description.getter(self, instance)
-        
-
-    
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
-        :language: python
-        :linenos:
-        :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
     .. method:: display_precision.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40

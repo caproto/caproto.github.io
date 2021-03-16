@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.server.server &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>caproto.server.server &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
         <script src="../../../_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="../../../index.html" class="icon icon-home"> caproto
           
 
           
@@ -61,7 +62,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -97,8 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../servers.html">Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -158,6 +160,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -197,9 +201,9 @@
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span><span class="p">,</span> <span class="n">defaultdict</span><span class="p">,</span> <span class="n">namedtuple</span>
 <span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">MethodType</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 
 <span class="kn">from</span> <span class="nn">caproto._log</span> <span class="kn">import</span> <span class="n">_set_handler_with_logger</span><span class="p">,</span> <span class="n">set_handler</span>
 
@@ -218,6 +222,7 @@
            <span class="s1">&#39;NestedPvproperty&#39;</span><span class="p">,</span> <span class="s1">&#39;PVGroup&#39;</span><span class="p">,</span> <span class="s1">&#39;PVSpec&#39;</span><span class="p">,</span> <span class="s1">&#39;SubGroup&#39;</span><span class="p">,</span>
            <span class="s1">&#39;channeldata_from_pvspec&#39;</span><span class="p">,</span> <span class="s1">&#39;data_class_from_pvspec&#39;</span><span class="p">,</span>
            <span class="s1">&#39;expand_macros&#39;</span><span class="p">,</span> <span class="s1">&#39;get_pv_pair_wrapper&#39;</span><span class="p">,</span> <span class="s1">&#39;pvfunction&#39;</span><span class="p">,</span> <span class="s1">&#39;pvproperty&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;scan_wrapper&#39;</span><span class="p">,</span>
 
            <span class="s1">&#39;PvpropertyData&#39;</span><span class="p">,</span> <span class="s1">&#39;PvpropertyReadOnlyData&#39;</span><span class="p">,</span>
            <span class="s1">&#39;PvpropertyByte&#39;</span><span class="p">,</span> <span class="s1">&#39;PvpropertyByteRO&#39;</span><span class="p">,</span>
@@ -227,9 +232,10 @@
            <span class="s1">&#39;PvpropertyBoolEnum&#39;</span><span class="p">,</span> <span class="s1">&#39;PvpropertyBoolEnumRO&#39;</span><span class="p">,</span>
            <span class="s1">&#39;PvpropertyEnum&#39;</span><span class="p">,</span> <span class="s1">&#39;PvpropertyEnumRO&#39;</span><span class="p">,</span>
            <span class="s1">&#39;PvpropertyInteger&#39;</span><span class="p">,</span> <span class="s1">&#39;PvpropertyIntegerRO&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;PvpropertyShort&#39;</span><span class="p">,</span> <span class="s1">&#39;PvpropertyShortRO&#39;</span><span class="p">,</span>
            <span class="s1">&#39;PvpropertyString&#39;</span><span class="p">,</span> <span class="s1">&#39;PvpropertyStringRO&#39;</span><span class="p">,</span>
 
-           <span class="s1">&#39;ioc_arg_parser&#39;</span><span class="p">,</span> <span class="s1">&#39;template_arg_parser&#39;</span>
+           <span class="s1">&#39;ioc_arg_parser&#39;</span><span class="p">,</span> <span class="s1">&#39;template_arg_parser&#39;</span><span class="p">,</span> <span class="s1">&#39;run&#39;</span><span class="p">,</span>
            <span class="p">]</span>
 
 
@@ -297,48 +303,62 @@
 <span class="sd">        Passed to the superclass, along with reported_record_type.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">pvname</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">pvspec</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mock_record</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">record</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">pvname</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">pvspec</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">record</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pvname</span> <span class="o">=</span> <span class="n">pvname</span>  <span class="c1"># the full, expanded PV name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">pvspec</span><span class="o">.</span><span class="n">attr</span><span class="si">}</span><span class="s1">&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="n">group</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">log</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span> <span class="o">=</span> <span class="n">pvspec</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">getter</span> <span class="o">=</span> <span class="p">(</span><span class="n">MethodType</span><span class="p">(</span><span class="n">pvspec</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
-                       <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">get</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-                       <span class="k">else</span> <span class="n">group</span><span class="o">.</span><span class="n">group_read</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">putter</span> <span class="o">=</span> <span class="p">(</span><span class="n">MethodType</span><span class="p">(</span><span class="n">pvspec</span><span class="o">.</span><span class="n">put</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
-                       <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">put</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-                       <span class="k">else</span> <span class="n">group</span><span class="o">.</span><span class="n">group_write</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">startup</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="c1"># enable the startup hook for this instance only:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">server_startup</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_server_startup</span>
-            <span class="c1"># bind the startup method to the group (used in server_startup)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">startup</span> <span class="o">=</span> <span class="n">MethodType</span><span class="p">(</span><span class="n">pvspec</span><span class="o">.</span><span class="n">startup</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">shutdown</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="c1"># enable the shutdown hook for this instance only:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">server_shutdown</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_server_shutdown</span>
-            <span class="c1"># bind the shutdown method to the group (used in server_shutdown)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span> <span class="o">=</span> <span class="n">MethodType</span><span class="p">(</span><span class="n">pvspec</span><span class="o">.</span><span class="n">shutdown</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">group</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">pvspec</span><span class="o">.</span><span class="n">attr</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="n">group</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">log</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">getter</span> <span class="o">=</span> <span class="p">(</span><span class="n">MethodType</span><span class="p">(</span><span class="n">pvspec</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+                           <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">get</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                           <span class="k">else</span> <span class="n">group</span><span class="o">.</span><span class="n">group_read</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">putter</span> <span class="o">=</span> <span class="p">(</span><span class="n">MethodType</span><span class="p">(</span><span class="n">pvspec</span><span class="o">.</span><span class="n">put</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+                           <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">put</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                           <span class="k">else</span> <span class="n">group</span><span class="o">.</span><span class="n">group_write</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">startup</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># enable the startup hook for this instance only:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">server_startup</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_server_startup</span>
+                <span class="c1"># bind the startup method to the group (used in server_startup)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">startup</span> <span class="o">=</span> <span class="n">MethodType</span><span class="p">(</span><span class="n">pvspec</span><span class="o">.</span><span class="n">startup</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">scan</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># enable the scan hook for this instance only:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">server_scan</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_server_scan</span>
+                <span class="c1"># bind the scan method to the group (used in server_scan)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">scan</span> <span class="o">=</span> <span class="n">MethodType</span><span class="p">(</span><span class="n">pvspec</span><span class="o">.</span><span class="n">scan</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">shutdown</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># enable the shutdown hook for this instance only:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">server_shutdown</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_server_shutdown</span>
+                <span class="c1"># bind the shutdown method to the group (used in server_shutdown)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span> <span class="o">=</span> <span class="n">MethodType</span><span class="p">(</span><span class="n">pvspec</span><span class="o">.</span><span class="n">shutdown</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Without a group, some things are easier and some aren&#39;t...</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">attr</span> <span class="ow">or</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">name</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">logger</span> <span class="ow">or</span> <span class="n">module_logger</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">getter</span> <span class="o">=</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">get</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">putter</span> <span class="o">=</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">put</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">startup</span> <span class="o">=</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">startup</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span> <span class="o">=</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">shutdown</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scan</span> <span class="o">=</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">scan</span>
+            <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">startup</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">server_startup</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_server_startup</span>
+            <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">scan</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">server_scan</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_server_scan</span>
+            <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">shutdown</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">server_shutdown</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_server_shutdown</span>
 
         <span class="k">if</span> <span class="n">doc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">doc</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">record_type</span> <span class="o">=</span> <span class="n">record</span> <span class="ow">or</span> <span class="n">mock_record</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">record_type</span> <span class="o">=</span> <span class="n">record</span>
 
         <span class="c1"># This should not be allowed to be different from record_type</span>
         <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;reported_record_type&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">reported_record_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">record_type</span> <span class="ow">or</span> <span class="s1">&#39;caproto&#39;</span><span class="p">,</span>
                          <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">mock_record</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">record</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="s1">&#39;Cannot specify both `mock_record` and `record`; &#39;</span>
-                    <span class="s1">&#39;please use only `record`&#39;</span><span class="p">)</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-                <span class="s1">&#39;`mock_record` is deprecated. Use `pvproperty(record=)`&#39;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">record_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="kn">from</span> <span class="nn">.records</span> <span class="kn">import</span> <span class="n">records</span>
@@ -386,15 +406,11 @@
 <span class="sd">        data_type : ChannelType</span>
 <span class="sd">            The type of data to return.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">getter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span><span class="o">.</span><span class="n">get</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;group read value for </span><span class="si">%s</span><span class="s1"> updated: </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
-                               <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;value for </span><span class="si">%s</span><span class="s1"> updated: </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-            <span class="c1"># update the internal state</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">getter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># Update the internal state</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read</span><span class="p">(</span><span class="n">data_type</span><span class="p">)</span>
 
     <span class="k">async</span> <span class="k">def</span> <span class="nf">verify_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
@@ -411,7 +427,13 @@
 <span class="sd">            The value to write.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">value</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">verify_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">putter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">putter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">putter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">update_fields</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This is a hook to update field instance data.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_inst</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_inst</span><span class="o">.</span><span class="n">value_write_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
     <span class="k">async</span> <span class="k">def</span> <span class="nf">_server_startup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;A per-pvproperty startup hook; enabled at __init__ time.&quot;&quot;&quot;</span>
@@ -420,6 +442,10 @@
     <span class="k">async</span> <span class="k">def</span> <span class="nf">_server_shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;A per-pvproperty shutdown hook; enabled at __init__ time.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_server_scan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;A per-pvproperty &#39;scan&#39; hook; enabled at __init__ time.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">get_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -445,35 +471,37 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyChar</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelChar</span><span class="p">):</span>
-    <span class="o">...</span>
+<div class="viewcode-block" id="PvpropertyChar"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyChar.html#caproto.server.PvpropertyChar">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyChar</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelChar</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-write 8-bit CHAR data for pvproperty with string encoding.&quot;&quot;&quot;</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyByte</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelByte</span><span class="p">):</span>
-    <span class="o">...</span>
+<div class="viewcode-block" id="PvpropertyByte"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyByte.html#caproto.server.PvpropertyByte">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyByte</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelByte</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-write 8-bit CHAR data for pvproperty for bytes.&quot;&quot;&quot;</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyShort</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelShort</span><span class="p">):</span>
-    <span class="o">...</span>
+<div class="viewcode-block" id="PvpropertyShort"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyShort.html#caproto.server.PvpropertyShort">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyShort</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelShort</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-write SHORT/INT data for pvproperty (16 bits).&quot;&quot;&quot;</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyInteger</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelInteger</span><span class="p">):</span>
-    <span class="o">...</span>
+<div class="viewcode-block" id="PvpropertyInteger"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyInteger.html#caproto.server.PvpropertyInteger">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyInteger</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelInteger</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-write LONG data for pvproperty (32 bits).&quot;&quot;&quot;</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyFloat</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelFloat</span><span class="p">):</span>
-    <span class="o">...</span>
+<div class="viewcode-block" id="PvpropertyFloat"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyFloat.html#caproto.server.PvpropertyFloat">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyFloat</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelFloat</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-write FLOAT data for pvproperty (32 bits).&quot;&quot;&quot;</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyDouble</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelDouble</span><span class="p">):</span>
-    <span class="o">...</span>
+<div class="viewcode-block" id="PvpropertyDouble"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyDouble.html#caproto.server.PvpropertyDouble">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyDouble</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelDouble</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-write DOUBLE data for pvproperty (64 bits).&quot;&quot;&quot;</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyString</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelString</span><span class="p">):</span>
-    <span class="o">...</span>
+<div class="viewcode-block" id="PvpropertyString"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyString.html#caproto.server.PvpropertyString">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyString</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelString</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-write STRING data for pvproperty (up to 40 chars).&quot;&quot;&quot;</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyEnum</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelEnum</span><span class="p">):</span>
+<div class="viewcode-block" id="PvpropertyEnum"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyEnum.html#caproto.server.PvpropertyEnum">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyEnum</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelEnum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-write ENUM data for pvproperty.&quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">enum_strings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">enum</span><span class="o">.</span><span class="n">IntEnum</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">enum_strings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -484,54 +512,56 @@
             <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">name</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">enum_strings</span><span class="o">=</span><span class="n">enum_strings</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span>
-                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyBoolEnum</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelEnum</span><span class="p">):</span>
+<div class="viewcode-block" id="PvpropertyBoolEnum"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyBoolEnum.html#caproto.server.PvpropertyBoolEnum">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyBoolEnum</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelEnum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-write ENUM data for pvproperty, with Off/On as default strings.&quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">enum_strings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">enum_strings</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">enum_strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Off&#39;</span><span class="p">,</span> <span class="s1">&#39;On&#39;</span><span class="p">]</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">enum_strings</span><span class="o">=</span><span class="n">enum_strings</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">enum_strings</span><span class="o">=</span><span class="n">enum_strings</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <span class="k">class</span> <span class="nc">PvpropertyReadOnlyData</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A mixin class which marks this data as read-only from channel access.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;A mixin class which marks this data as read-only from channel access.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">check_access</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">AccessRights</span><span class="o">.</span><span class="n">READ</span>
 
 
 <span class="k">class</span> <span class="nc">PvpropertyCharRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelChar</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="sd">&quot;&quot;&quot;Read-only 8-bit CHAR data for pvproperty with string encoding.&quot;&quot;&quot;</span>
 
 
 <span class="k">class</span> <span class="nc">PvpropertyByteRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelByte</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="sd">&quot;&quot;&quot;Read-only 8-bit CHAR data for pvproperty for bytes.&quot;&quot;&quot;</span>
 
 
 <span class="k">class</span> <span class="nc">PvpropertyShortRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelShort</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="sd">&quot;&quot;&quot;Read-only SHORT/INT data for pvproperty (16 bits).&quot;&quot;&quot;</span>
 
 
 <span class="k">class</span> <span class="nc">PvpropertyIntegerRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelInteger</span><span class="p">):</span>
-    <span class="o">...</span>
-
-
-<span class="k">class</span> <span class="nc">PvpropertyDoubleRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelDouble</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="sd">&quot;&quot;&quot;Read-only LONG data for pvproperty (32 bits).&quot;&quot;&quot;</span>
 
 
 <span class="k">class</span> <span class="nc">PvpropertyFloatRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelFloat</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="sd">&quot;&quot;&quot;Read-only FLOAT data for pvproperty (32 bits).&quot;&quot;&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">PvpropertyDoubleRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelDouble</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-only DOUBLE data for pvproperty (64 bits).&quot;&quot;&quot;</span>
 
 
 <span class="k">class</span> <span class="nc">PvpropertyStringRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelString</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="sd">&quot;&quot;&quot;Read-only STRING data for pvproperty (up to 40 chars).&quot;&quot;&quot;</span>
 
 
 <span class="k">class</span> <span class="nc">PvpropertyEnumRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelEnum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-only ENUM data for pvproperty.&quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">enum_strings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">enum</span><span class="o">.</span><span class="n">IntEnum</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">enum_strings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -546,21 +576,71 @@
 
 
 <span class="k">class</span> <span class="nc">PvpropertyBoolEnumRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelEnum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-only ENUM data for pvproperty, with Off/On as default strings.&quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">enum_strings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">enum_strings</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">enum_strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Off&#39;</span><span class="p">,</span> <span class="s1">&#39;On&#39;</span><span class="p">]</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">enum_strings</span><span class="o">=</span><span class="n">enum_strings</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 
+<span class="n">_hook_signature_info</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;get&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">,</span> <span class="s2">&quot;instance&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;put&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">,</span> <span class="s2">&quot;instance&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;startup&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">,</span> <span class="s2">&quot;instance&quot;</span><span class="p">,</span> <span class="s2">&quot;async_lib&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;shutdown&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">,</span> <span class="s2">&quot;instance&quot;</span><span class="p">,</span> <span class="s2">&quot;async_lib&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;scan&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">,</span> <span class="s2">&quot;instance&quot;</span><span class="p">,</span> <span class="s2">&quot;async_lib&quot;</span><span class="p">),</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">check_signature</span><span class="p">(</span><span class="n">type_</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">callable</span><span class="p">],</span> <span class="n">expect_method</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check the signature of a hook method.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="n">_hook_signature_info</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">expect_method</span><span class="p">:</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="c1"># no need for `group`</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sig</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="n">sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">bound</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">bound</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">bound</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">inspect</span><span class="o">.</span><span class="n">iscoroutinefunction</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">source_file</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getsourcefile</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">source_line</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getsourcelines</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+            <span class="n">source_info</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">source_file</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">source_line</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">source_info</span> <span class="o">=</span> <span class="s1">&#39;location unknown&#39;</span>
+
+        <span class="k">raise</span> <span class="n">CaprotoRuntimeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">The </span><span class="si">{</span><span class="n">type_</span><span class="si">}</span><span class="s2"> hook </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">source_info</span><span class="si">}</span><span class="s2">) must be callable with a</span>
+<span class="s2">signature like the following:</span>
+<span class="s2">    async def </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="si">}</span><span class="s2">)</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+
 <span class="k">class</span> <span class="nc">PVSpec</span><span class="p">(</span><span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;PVSpec&#39;</span><span class="p">,</span>
                         <span class="s1">&#39;get put startup shutdown attr name dtype value &#39;</span>
-                        <span class="s1">&#39;max_length alarm_group read_only doc fields &#39;</span>
+                        <span class="s1">&#39;max_length alarm_group read_only doc fields scan &#39;</span>
+                        <span class="s1">&#39;record &#39;</span>
                         <span class="s1">&#39;cls_kwargs&#39;</span><span class="p">)):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    PV information specification.</span>
 
 <span class="sd">    This is an immutable tuple that contains everything needed to generate</span>
 <span class="sd">    a `ChannelData` instance from a `pvproperty`.</span>
+
+<span class="sd">    This additional layer was intended to allow for alternate APIs outside of</span>
+<span class="sd">    `pvproperty`, but still allowing for the ease of specification of values</span>
+<span class="sd">    and data types rather than `ChannelData` class instances.  There are no</span>
+<span class="sd">    current additional APIs; this remains a hook for potential future use.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -571,6 +651,8 @@
 <span class="sd">    startup : async callable, optional</span>
 <span class="sd">        Called at start of server; a hook for initialization and background</span>
 <span class="sd">        processing</span>
+<span class="sd">    scan : async callable, optional</span>
+<span class="sd">        Called at periodic rates.</span>
 <span class="sd">    shutdown : async callable, optional</span>
 <span class="sd">        Called at shutdown of server; a hook for cleanup</span>
 <span class="sd">    attr : str, optional</span>
@@ -592,6 +674,10 @@
 <span class="sd">        Docstring associated with PV</span>
 <span class="sd">    fields : tuple, optional</span>
 <span class="sd">        Specification for record fields</span>
+<span class="sd">    scan : async callable, optional</span>
+<span class="sd">        Called at periodic rates.</span>
+<span class="sd">    record : str, optional</span>
+<span class="sd">        The record type to report for the PV.</span>
 <span class="sd">    cls_kwargs : dict, optional</span>
 <span class="sd">        Keyword arguments for the ChannelData-based class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -601,7 +687,7 @@
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">get</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">put</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">startup</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shutdown</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">attr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">alarm_group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                <span class="n">cls_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                <span class="n">scan</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">record</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cls_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">dtype</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">default_dtype</span>
@@ -610,50 +696,21 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">dtype</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">get</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="n">inspect</span><span class="o">.</span><span class="n">iscoroutinefunction</span><span class="p">(</span><span class="n">get</span><span class="p">),</span> <span class="s1">&#39;required async def get&#39;</span>
-            <span class="n">sig</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">get</span><span class="p">)</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;instance&#39;</span><span class="p">)</span>
-            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="n">CaprotoRuntimeError</span><span class="p">(</span><span class="s1">&#39;Invalid signature for getter </span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span>
-                                          <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">get</span><span class="p">,</span> <span class="n">sig</span><span class="p">))</span>
-
         <span class="k">if</span> <span class="n">put</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="n">inspect</span><span class="o">.</span><span class="n">iscoroutinefunction</span><span class="p">(</span><span class="n">put</span><span class="p">),</span> <span class="s1">&#39;required async def put&#39;</span>
             <span class="k">assert</span> <span class="ow">not</span> <span class="n">read_only</span><span class="p">,</span> <span class="s1">&#39;Read-only signal cannot have putter&#39;</span>
-            <span class="n">sig</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">put</span><span class="p">)</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;instance&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
-            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="n">CaprotoRuntimeError</span><span class="p">(</span><span class="s1">&#39;Invalid signature for putter </span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span>
-                                          <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">put</span><span class="p">,</span> <span class="n">sig</span><span class="p">))</span>
 
-        <span class="k">if</span> <span class="n">startup</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="n">inspect</span><span class="o">.</span><span class="n">iscoroutinefunction</span><span class="p">(</span><span class="n">startup</span><span class="p">),</span> \
-                <span class="s1">&#39;required async def startup&#39;</span>
-            <span class="n">sig</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">startup</span><span class="p">)</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;instance&#39;</span><span class="p">,</span> <span class="s1">&#39;async_library&#39;</span><span class="p">)</span>
-            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="n">CaprotoRuntimeError</span><span class="p">(</span><span class="s1">&#39;Invalid signature for startup </span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span>
-                                          <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">startup</span><span class="p">,</span> <span class="n">sig</span><span class="p">))</span>
-
-        <span class="k">if</span> <span class="n">shutdown</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="n">inspect</span><span class="o">.</span><span class="n">iscoroutinefunction</span><span class="p">(</span><span class="n">shutdown</span><span class="p">),</span> \
-                <span class="s1">&#39;required async def shutdown&#39;</span>
-            <span class="n">sig</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">shutdown</span><span class="p">)</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;instance&#39;</span><span class="p">,</span> <span class="s1">&#39;async_library&#39;</span><span class="p">)</span>
-            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="n">CaprotoRuntimeError</span><span class="p">(</span><span class="s1">&#39;Invalid signature for shutdown </span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span>
-                                          <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">shutdown</span><span class="p">,</span> <span class="n">sig</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="s1">&#39;.&#39;</span> <span class="ow">in</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">record</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CaprotoValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;Cannot specify `record` on PV with a &quot;.&quot; in it: </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s1">&#39;</span>
+            <span class="p">)</span>
 
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">get</span><span class="o">=</span><span class="n">get</span><span class="p">,</span> <span class="n">put</span><span class="o">=</span><span class="n">put</span><span class="p">,</span> <span class="n">startup</span><span class="o">=</span><span class="n">startup</span><span class="p">,</span>
                                <span class="n">shutdown</span><span class="o">=</span><span class="n">shutdown</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="n">attr</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
                                <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="n">max_length</span><span class="p">,</span>
                                <span class="n">alarm_group</span><span class="o">=</span><span class="n">alarm_group</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="n">read_only</span><span class="p">,</span>
-                               <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span> <span class="n">cls_kwargs</span><span class="o">=</span><span class="n">cls_kwargs</span><span class="p">)</span>
+                               <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span> <span class="n">scan</span><span class="o">=</span><span class="n">scan</span><span class="p">,</span>
+                               <span class="n">record</span><span class="o">=</span><span class="n">record</span><span class="p">,</span>
+                               <span class="n">cls_kwargs</span><span class="o">=</span><span class="n">cls_kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">new_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">attr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -661,6 +718,180 @@
         <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">attr</span><span class="o">=</span><span class="n">attr</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_data_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the data class for a given PVSpec in a group.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        group : PVGroup, optional</span>
+<span class="sd">            If unspecified, module-global type maps will be used.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">group</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">type_map</span> <span class="o">=</span> <span class="n">pvspec_type_map</span>
+            <span class="n">type_map_read_only</span> <span class="o">=</span> <span class="n">pvspec_type_map</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">type_map</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">type_map</span>
+            <span class="n">type_map_read_only</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">type_map_read_only</span>
+
+        <span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span>
+
+        <span class="c1"># A special case for integer enums:</span>
+        <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">enum</span><span class="o">.</span><span class="n">IntEnum</span><span class="p">):</span>
+            <span class="n">dtype</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">IntEnum</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_only</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">type_map_read_only</span><span class="p">[</span><span class="n">dtype</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">type_map</span><span class="p">[</span><span class="n">dtype</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_instantiation_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get class and instantiation arguments, given a parent group.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        group : PVGroup, optional</span>
+<span class="sd">            The parent group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        cls : Type[ChannelData]</span>
+<span class="sd">            The class to instantiate.</span>
+
+<span class="sd">        kwargs : dict</span>
+<span class="sd">            Instantiation keyword arguments.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">group</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">full_pvname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># No defaults without a group.</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Value required for </span><span class="si">{</span><span class="n">full_pvname</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Without a group, you&#39;ll need to specify the alarm instance:</span>
+            <span class="n">alarm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">alarm_group</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">alarm</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">alarms</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">alarm_group</span><span class="p">]</span>
+            <span class="n">full_pvname</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span> <span class="n">expand_macros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">group</span><span class="o">.</span><span class="n">macros</span><span class="p">)</span>
+
+        <span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_data_class</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">alarm</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">alarm</span><span class="p">,</span> <span class="n">ChannelAlarm</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Alarm instance required for </span><span class="si">{</span><span class="n">full_pvname</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">value</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="k">else</span> <span class="n">group</span><span class="o">.</span><span class="n">default_values</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
+            <span class="n">pvspec</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span>
+            <span class="n">max_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_length</span><span class="p">,</span>
+            <span class="n">alarm</span><span class="o">=</span><span class="n">alarm</span><span class="p">,</span>
+            <span class="n">pvname</span><span class="o">=</span><span class="n">full_pvname</span><span class="p">,</span>
+            <span class="n">record</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="p">,</span>
+            <span class="o">**</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cls_kwargs</span> <span class="ow">or</span> <span class="p">{})</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a ChannelData instance based on this PVSpec.&quot;&quot;&quot;</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_instantiation_info</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">inst</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CaprotoRuntimeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Failed to instantiate </span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">!r}</span><span class="s2"> from PVSpec: </span><span class="si">{</span><span class="n">ex</span><span class="si">}</span><span class="s2"> &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;(kwargs=</span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">)&quot;</span>
+            <span class="p">)</span> <span class="kn">from</span> <span class="nn">ex</span>
+        <span class="n">inst</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">doc</span>
+        <span class="k">return</span> <span class="n">inst</span>
+
+
+<div class="viewcode-block" id="scan_wrapper"><a class="viewcode-back" href="../../../generated/caproto.server.scan_wrapper.html#caproto.server.scan_wrapper">[docs]</a><span class="k">def</span> <span class="nf">scan_wrapper</span><span class="p">(</span>
+    <span class="n">scan_function</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">subtract_elapsed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stop_on_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">failure_severity</span><span class="o">=</span><span class="n">AlarmSeverity</span><span class="o">.</span><span class="n">MAJOR_ALARM</span><span class="p">,</span> <span class="n">use_scan_field</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wrap a function intended for `pvproperty.scan` with common logic to</span>
+<span class="sd">    periodically call it.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    scan_function : async callable</span>
+<span class="sd">        The scan function to wrap, with expected signature:</span>
+<span class="sd">            (group, instance, async_library)</span>
+<span class="sd">    period : float</span>
+<span class="sd">        Wait `period` seconds between calls to the scanned function</span>
+<span class="sd">    subtract_elapsed : bool, optional</span>
+<span class="sd">        Subtract the elapsed time of the previous call from the period for</span>
+<span class="sd">        the subsequent iteration</span>
+<span class="sd">    stop_on_error : bool, optional</span>
+<span class="sd">        Fail (and stop scanning) when unhandled exceptions occur</span>
+<span class="sd">    use_scan_field : bool, optional</span>
+<span class="sd">        Use the .SCAN field if this pvproperty is a mocked record.  Raises</span>
+<span class="sd">        ValueError if ``record`` is not used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    wrapped : callable</span>
+<span class="sd">        The wrapped ``scan`` function.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">call_scan_function</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">scan_function</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">prop</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Scan exception&#39;</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">prop</span><span class="o">.</span><span class="n">alarm</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                <span class="n">status</span><span class="o">=</span><span class="n">AlarmStatus</span><span class="o">.</span><span class="n">SCAN</span><span class="p">,</span>
+                <span class="n">severity</span><span class="o">=</span><span class="n">failure_severity</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">stop_on_error</span><span class="p">:</span>
+                <span class="k">raise</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">prop</span><span class="o">.</span><span class="n">alarm</span><span class="o">.</span><span class="n">severity</span><span class="p">,</span> <span class="n">prop</span><span class="o">.</span><span class="n">alarm</span><span class="o">.</span><span class="n">status</span><span class="p">)</span> <span class="o">==</span>
+                    <span class="p">(</span><span class="n">failure_severity</span><span class="p">,</span> <span class="n">AlarmStatus</span><span class="o">.</span><span class="n">SCAN</span><span class="p">)):</span>
+                <span class="k">await</span> <span class="n">prop</span><span class="o">.</span><span class="n">alarm</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                    <span class="n">status</span><span class="o">=</span><span class="n">AlarmStatus</span><span class="o">.</span><span class="n">NO_ALARM</span><span class="p">,</span>
+                    <span class="n">severity</span><span class="o">=</span><span class="n">AlarmSeverity</span><span class="o">.</span><span class="n">NO_ALARM</span><span class="p">,</span>
+                <span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">scanned_startup</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">use_scan_field</span> <span class="ow">and</span> <span class="n">period</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">prop</span><span class="o">.</span><span class="n">field_inst</span><span class="o">.</span><span class="n">scan_rate_sec</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># This is a hook to allow setting of the default scan rate</span>
+                <span class="c1"># through the &#39;period&#39; argument of the decorator.</span>
+                <span class="n">prop</span><span class="o">.</span><span class="n">field_inst</span><span class="o">.</span><span class="n">_scan_rate_sec</span> <span class="o">=</span> <span class="n">period</span>
+                <span class="c1"># TODO: update .SCAN to reflect this number</span>
+
+        <span class="n">sleep</span> <span class="o">=</span> <span class="n">async_lib</span><span class="o">.</span><span class="n">library</span><span class="o">.</span><span class="n">sleep</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">use_scan_field</span><span class="p">:</span>
+                <span class="n">iter_time</span> <span class="o">=</span> <span class="n">prop</span><span class="o">.</span><span class="n">field_inst</span><span class="o">.</span><span class="n">scan_rate_sec</span>
+                <span class="k">if</span> <span class="n">iter_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">iter_time</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">iter_time</span> <span class="o">=</span> <span class="n">period</span>
+
+            <span class="k">if</span> <span class="n">iter_time</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">await</span> <span class="n">call_scan_function</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">iter_time</span> <span class="o">=</span> <span class="mf">0.1</span>
+                <span class="c1"># TODO: could the scan rate - or values in general - have</span>
+                <span class="c1"># events tied with them so busy loops are unnecessary?</span>
+            <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span>
+            <span class="n">sleep_time</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">iter_time</span> <span class="o">-</span> <span class="n">elapsed</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">subtract_elapsed</span> <span class="k">else</span> <span class="n">iter_time</span>
+            <span class="p">)</span>
+            <span class="k">await</span> <span class="n">sleep</span><span class="p">(</span><span class="n">sleep_time</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">scanned_startup</span></div>
 
 
 <span class="k">class</span> <span class="nc">FieldProxy</span><span class="p">:</span>
@@ -690,6 +921,14 @@
 
     <span class="k">def</span> <span class="nf">startup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">startup</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">field_spec</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_name</span><span class="p">,</span> <span class="s1">&#39;startup&#39;</span><span class="p">,</span> <span class="n">startup</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_spec</span><span class="o">.</span><span class="n">prop</span>
+
+    <span class="k">def</span> <span class="nf">scan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_spec</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_name</span><span class="p">,</span> <span class="s1">&#39;scan&#39;</span><span class="p">,</span> <span class="n">scan</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_spec</span><span class="o">.</span><span class="n">prop</span>
+
+    <span class="k">def</span> <span class="nf">shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shutdown</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_spec</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_name</span><span class="p">,</span> <span class="s1">&#39;shutdown&#39;</span><span class="p">,</span> <span class="n">shutdown</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_spec</span><span class="o">.</span><span class="n">prop</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -746,7 +985,7 @@
                 <span class="sa">f</span><span class="s1">&#39;fields=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="si">}</span><span class="s1">&gt;&#39;</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">pvproperty</span><span class="p">:</span>
+<div class="viewcode-block" id="pvproperty"><a class="viewcode-back" href="../../../generated/caproto.server.pvproperty.html#caproto.server.pvproperty">[docs]</a><span class="k">class</span> <span class="nc">pvproperty</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A property-like descriptor for specifying a PV in a `PVGroup`.</span>
 
@@ -764,6 +1003,9 @@
 
 <span class="sd">    shutdown : async callable, optional</span>
 <span class="sd">        Called at shutdown of server; a hook for cleanup</span>
+
+<span class="sd">    scan : async callable, optional</span>
+<span class="sd">        Called periodically at a configured rate.</span>
 
 <span class="sd">    name : str, optional</span>
 <span class="sd">        The PV name (defaults to the attribute name of the pvproperty)</span>
@@ -807,43 +1049,68 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">get</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">put</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">startup</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shutdown</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
-                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">scan</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">alarm_group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">field_spec</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">cls_kwargs</span><span class="p">):</span>
+                 <span class="n">fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">record</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">cls_kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">attr_name</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># to be set later</span>
 
         <span class="k">if</span> <span class="n">doc</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">get</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">doc</span> <span class="o">=</span> <span class="n">get</span><span class="o">.</span><span class="vm">__doc__</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">record_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_record_type_from_kwargs</span><span class="p">(</span><span class="n">cls_kwargs</span><span class="p">)</span>
-
         <span class="k">if</span> <span class="n">field_spec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="s1">&#39;.&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot specify field_spec if &#39;</span>
-                                 <span class="sa">f</span><span class="s1">&#39;the PV name has a &quot;.&quot; in it: </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">record_type</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="k">if</span> <span class="n">record</span> <span class="ow">and</span> <span class="n">record</span> <span class="o">!=</span> <span class="n">field_spec</span><span class="o">.</span><span class="n">record_type</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">CaprotoValueError</span><span class="p">(</span>
                     <span class="s1">&#39;Cannot specify both field_spec and record; the record &#39;</span>
-                    <span class="s1">&#39;type from field_spec must be used&#39;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">record_type</span> <span class="o">=</span> <span class="n">field_spec</span><span class="o">.</span><span class="n">record_type</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">record_type</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="s1">&#39;.&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot specify a record if &#39;</span>
-                                 <span class="sa">f</span><span class="s1">&#39;the PV name has a &quot;.&quot; in it: </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="n">field_spec</span> <span class="o">=</span> <span class="n">FieldSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">record_type</span><span class="p">)</span>
+                    <span class="s1">&#39;type from field_spec must be used&#39;</span>
+                <span class="p">)</span>
+            <span class="n">record</span> <span class="o">=</span> <span class="n">field_spec</span><span class="o">.</span><span class="n">record_type</span>
+        <span class="k">elif</span> <span class="n">record</span><span class="p">:</span>
+            <span class="n">field_spec</span> <span class="o">=</span> <span class="n">FieldSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record_type</span><span class="o">=</span><span class="n">record</span><span class="p">)</span>
+
+        <span class="n">check_signature</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">get</span><span class="p">,</span> <span class="n">expect_method</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">check_signature</span><span class="p">(</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="n">put</span><span class="p">,</span> <span class="n">expect_method</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">check_signature</span><span class="p">(</span><span class="s1">&#39;startup&#39;</span><span class="p">,</span> <span class="n">startup</span><span class="p">,</span> <span class="n">expect_method</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">check_signature</span><span class="p">(</span><span class="s1">&#39;scan&#39;</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="n">expect_method</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">check_signature</span><span class="p">(</span><span class="s1">&#39;shutdown&#39;</span><span class="p">,</span> <span class="n">shutdown</span><span class="p">,</span> <span class="n">expect_method</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">field_spec</span> <span class="o">=</span> <span class="n">field_spec</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span> <span class="o">=</span> <span class="n">PVSpec</span><span class="p">(</span>
-            <span class="n">get</span><span class="o">=</span><span class="n">get</span><span class="p">,</span> <span class="n">put</span><span class="o">=</span><span class="n">put</span><span class="p">,</span> <span class="n">startup</span><span class="o">=</span><span class="n">startup</span><span class="p">,</span> <span class="n">shutdown</span><span class="o">=</span><span class="n">shutdown</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
-            <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="n">max_length</span><span class="p">,</span>
-            <span class="n">alarm_group</span><span class="o">=</span><span class="n">alarm_group</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="n">read_only</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">,</span>
+            <span class="n">get</span><span class="o">=</span><span class="n">get</span><span class="p">,</span>
+            <span class="n">put</span><span class="o">=</span><span class="n">put</span><span class="p">,</span>
+            <span class="n">startup</span><span class="o">=</span><span class="n">startup</span><span class="p">,</span>
+            <span class="n">shutdown</span><span class="o">=</span><span class="n">shutdown</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span>
+            <span class="n">max_length</span><span class="o">=</span><span class="n">max_length</span><span class="p">,</span>
+            <span class="n">alarm_group</span><span class="o">=</span><span class="n">alarm_group</span><span class="p">,</span>
+            <span class="n">read_only</span><span class="o">=</span><span class="n">read_only</span><span class="p">,</span>
+            <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">,</span>
             <span class="n">fields</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_spec</span><span class="p">,</span> <span class="s1">&#39;fields&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-            <span class="n">cls_kwargs</span><span class="o">=</span><span class="n">cls_kwargs</span><span class="p">)</span>
+            <span class="n">record</span><span class="o">=</span><span class="n">record</span><span class="p">,</span>
+            <span class="n">cls_kwargs</span><span class="o">=</span><span class="n">cls_kwargs</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">doc</span>
 
-    <span class="k">def</span> <span class="nf">_record_type_from_kwargs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cls_kwargs</span><span class="p">):</span>
-        <span class="s1">&#39;Get the record type from the given class kwargs&#39;</span>
-        <span class="k">return</span> <span class="n">cls_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;record&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">cls_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mock_record&#39;</span><span class="p">)</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">record_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The configured record type to report. [Backward-compatibility]&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span><span class="o">.</span><span class="n">record</span>
+
+    <span class="k">def</span> <span class="nf">__copy__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">field_spec</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_spec</span><span class="p">)</span>
+        <span class="n">copied</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="o">.</span><span class="n">from_pvspec</span><span class="p">(</span>
+            <span class="c1"># pvspec is immutable</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span><span class="p">,</span>
+            <span class="c1"># Allow subclasses to override field handlers without affecting</span>
+            <span class="c1"># the parent by performing a deep copy here:</span>
+            <span class="n">field_spec</span><span class="o">=</span><span class="n">field_spec</span><span class="p">,</span>
+            <span class="n">doc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">copied</span><span class="o">.</span><span class="n">field_spec</span><span class="p">:</span>
+            <span class="c1"># Update the reference to the parent property:</span>
+            <span class="n">copied</span><span class="o">.</span><span class="n">field_spec</span><span class="o">.</span><span class="n">prop</span> <span class="o">=</span> <span class="n">copied</span>
+        <span class="k">return</span> <span class="n">copied</span>
 
     <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Descriptor method: get the pvproperty instance from a group.&quot;&quot;&quot;</span>
@@ -875,6 +1142,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Usually used as a decorator, this sets the ``getter`` in the PVSpec.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_signature</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">get</span><span class="p">,</span> <span class="n">expect_method</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">get</span><span class="o">=</span><span class="n">get</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
@@ -882,6 +1150,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Usually used as a decorator, this sets the ``putter`` in the PVSpec.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_signature</span><span class="p">(</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="n">put</span><span class="p">,</span> <span class="n">expect_method</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">put</span><span class="o">=</span><span class="n">put</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
@@ -889,6 +1158,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Usually used as a decorator, this sets ``startup`` in the PVSpec.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_signature</span><span class="p">(</span><span class="s1">&#39;startup&#39;</span><span class="p">,</span> <span class="n">startup</span><span class="p">,</span> <span class="n">expect_method</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">startup</span><span class="o">=</span><span class="n">startup</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
@@ -896,6 +1166,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Usually used as a decorator, this sets ``shutdown`` in the PVSpec.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_signature</span><span class="p">(</span><span class="s1">&#39;shutdown&#39;</span><span class="p">,</span> <span class="n">shutdown</span><span class="p">,</span> <span class="n">expect_method</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">shutdown</span><span class="o">=</span><span class="n">shutdown</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
@@ -918,7 +1189,7 @@
 <span class="sd">            Fail (and stop scanning) when unhandled exceptions occur</span>
 <span class="sd">        use_scan_field : bool, optional</span>
 <span class="sd">            Use the .SCAN field if this pvproperty is a mocked record.  Raises</span>
-<span class="sd">            ValueError if mock_record is not used.</span>
+<span class="sd">            ValueError if ``record`` is not used.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -927,68 +1198,29 @@
 <span class="sd">            pvproperty startup function signature:</span>
 <span class="sd">                (group, instance, async_library)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO: maybe allow rate to be tied to a PV (e.g., a SCAN field?)</span>
-        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">scan_function</span><span class="p">):</span>
-            <span class="k">async</span> <span class="k">def</span> <span class="nf">call_scan_function</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="k">await</span> <span class="n">scan_function</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">)</span>
-                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-                    <span class="n">prop</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Scan exception&#39;</span><span class="p">)</span>
-                    <span class="k">await</span> <span class="n">prop</span><span class="o">.</span><span class="n">alarm</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">AlarmStatus</span><span class="o">.</span><span class="n">SCAN</span><span class="p">,</span>
-                                           <span class="n">severity</span><span class="o">=</span><span class="n">failure_severity</span><span class="p">,</span>
-                                           <span class="p">)</span>
-                    <span class="k">if</span> <span class="n">stop_on_error</span><span class="p">:</span>
-                        <span class="k">raise</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="p">((</span><span class="n">prop</span><span class="o">.</span><span class="n">alarm</span><span class="o">.</span><span class="n">severity</span><span class="p">,</span> <span class="n">prop</span><span class="o">.</span><span class="n">alarm</span><span class="o">.</span><span class="n">status</span><span class="p">)</span> <span class="o">==</span>
-                            <span class="p">(</span><span class="n">failure_severity</span><span class="p">,</span> <span class="n">AlarmStatus</span><span class="o">.</span><span class="n">SCAN</span><span class="p">)):</span>
-                        <span class="k">await</span> <span class="n">prop</span><span class="o">.</span><span class="n">alarm</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-                            <span class="n">status</span><span class="o">=</span><span class="n">AlarmStatus</span><span class="o">.</span><span class="n">NO_ALARM</span><span class="p">,</span>
-                            <span class="n">severity</span><span class="o">=</span><span class="n">AlarmSeverity</span><span class="o">.</span><span class="n">NO_ALARM</span><span class="p">,</span>
-                        <span class="p">)</span>
-
-            <span class="k">async</span> <span class="k">def</span> <span class="nf">scanned_startup</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">use_scan_field</span> <span class="ow">and</span> <span class="n">period</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">prop</span><span class="o">.</span><span class="n">field_inst</span><span class="o">.</span><span class="n">scan_rate_sec</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                        <span class="c1"># This is a hook to allow setting of the default scan</span>
-                        <span class="c1"># rate through the &#39;period&#39; argument of the decorator.</span>
-                        <span class="n">prop</span><span class="o">.</span><span class="n">field_inst</span><span class="o">.</span><span class="n">_scan_rate_sec</span> <span class="o">=</span> <span class="n">period</span>
-                        <span class="c1"># TODO: update .SCAN to reflect this number</span>
-
-                <span class="n">sleep</span> <span class="o">=</span> <span class="n">async_lib</span><span class="o">.</span><span class="n">library</span><span class="o">.</span><span class="n">sleep</span>
-                <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-                    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
-                    <span class="k">if</span> <span class="n">use_scan_field</span><span class="p">:</span>
-                        <span class="n">iter_time</span> <span class="o">=</span> <span class="n">prop</span><span class="o">.</span><span class="n">field_inst</span><span class="o">.</span><span class="n">scan_rate_sec</span>
-                        <span class="k">if</span> <span class="n">iter_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                            <span class="n">iter_time</span> <span class="o">=</span> <span class="mi">0</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">iter_time</span> <span class="o">=</span> <span class="n">period</span>
-
-                    <span class="k">if</span> <span class="n">iter_time</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                        <span class="k">await</span> <span class="n">call_scan_function</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">)</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">iter_time</span> <span class="o">=</span> <span class="mf">0.1</span>
-                        <span class="c1"># TODO: could the scan rate - or values in general -</span>
-                        <span class="c1"># have events tied with them so busy loops are</span>
-                        <span class="c1"># unnecessary?</span>
-                    <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span>
-                    <span class="n">sleep_time</span> <span class="o">=</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">iter_time</span> <span class="o">-</span> <span class="n">elapsed</span><span class="p">)</span>
-                                  <span class="k">if</span> <span class="n">subtract_elapsed</span>
-                                  <span class="k">else</span> <span class="n">iter_time</span><span class="p">)</span>
-                    <span class="k">await</span> <span class="n">sleep</span><span class="p">(</span><span class="n">sleep_time</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">startup</span><span class="p">(</span><span class="n">scanned_startup</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+            <span class="n">check_signature</span><span class="p">(</span><span class="s1">&#39;scan&#39;</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">expect_method</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">wrapped</span> <span class="o">=</span> <span class="n">scan_wrapper</span><span class="p">(</span>
+                <span class="n">func</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span>
+                <span class="n">subtract_elapsed</span><span class="o">=</span><span class="n">subtract_elapsed</span><span class="p">,</span>
+                <span class="n">stop_on_error</span><span class="o">=</span><span class="n">stop_on_error</span><span class="p">,</span>
+                <span class="n">failure_severity</span><span class="o">=</span><span class="n">failure_severity</span><span class="p">,</span>
+                <span class="n">use_scan_field</span><span class="o">=</span><span class="n">use_scan_field</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">scan</span><span class="o">=</span><span class="n">wrapped</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span>
 
         <span class="k">if</span> <span class="n">use_scan_field</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">record_type</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="n">CaprotoValueError</span><span class="p">(</span><span class="s1">&#39;Must use mock_record in conjunction with &#39;</span>
-                                        <span class="s1">&#39;use_scan_field&#39;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">CaprotoValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;`use_scan_field=True` requires `record=&quot;...&quot;` to be set&#39;</span>
+                <span class="p">)</span>
         <span class="k">elif</span> <span class="n">period</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">CaprotoValueError</span><span class="p">(</span><span class="s1">&#39;Scan period must be &gt; 0&#39;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">wrapper</span>
 
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">get</span><span class="p">,</span> <span class="n">put</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">startup</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shutdown</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">get</span><span class="p">,</span> <span class="n">put</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">startup</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shutdown</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scan</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># handles case where pvproperty(**spec_kw)(getter, putter, startup) is</span>
         <span class="c1"># used</span>
         <span class="n">pvspec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvspec</span>
@@ -997,7 +1229,9 @@
                        <span class="n">value</span><span class="o">=</span><span class="n">pvspec</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
                        <span class="n">alarm_group</span><span class="o">=</span><span class="n">pvspec</span><span class="o">.</span><span class="n">alarm_group</span><span class="p">,</span>
                        <span class="n">doc</span><span class="o">=</span><span class="n">pvspec</span><span class="o">.</span><span class="n">doc</span><span class="p">,</span>
-                       <span class="n">cls_kwargs</span><span class="o">=</span><span class="n">pvspec</span><span class="o">.</span><span class="n">cls_kwargs</span><span class="p">)</span>
+                       <span class="n">scan</span><span class="o">=</span><span class="n">scan</span><span class="p">,</span>
+                       <span class="n">cls_kwargs</span><span class="o">=</span><span class="n">pvspec</span><span class="o">.</span><span class="n">cls_kwargs</span><span class="p">,</span>
+                       <span class="p">)</span>
 
         <span class="k">if</span> <span class="n">get</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1009,8 +1243,19 @@
         <span class="k">return</span> <span class="bp">self</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">from_pvspec</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pvspec</span><span class="p">):</span>
-        <span class="n">prop</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">from_pvspec</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pvspec</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a pvproperty from a PVSpec instance.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pvspec : PVSpec</span>
+<span class="sd">            PVSpec instance for the new pvproperty.</span>
+
+<span class="sd">        **kwargs :</span>
+<span class="sd">            Keyword arguments are passed onto the pvproperty instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">prop</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">prop</span><span class="o">.</span><span class="n">pvspec</span> <span class="o">=</span> <span class="n">pvspec</span>
         <span class="k">return</span> <span class="n">prop</span>
 
@@ -1018,7 +1263,7 @@
     <span class="k">def</span> <span class="nf">fields</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_spec</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">CaprotoAttributeError</span><span class="p">(</span><span class="s1">&#39;No fields are allowed for this pvproperty&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_spec</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_spec</span></div>
 
 
 <span class="k">class</span> <span class="nc">NestedPvproperty</span><span class="p">(</span><span class="n">pvproperty</span><span class="p">):</span>
@@ -1048,6 +1293,10 @@
 
     <span class="k">def</span> <span class="nf">shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shutdown</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">shutdown</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span>
+
+    <span class="k">def</span> <span class="nf">scan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">scan</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span>
 
     <span class="nd">@classmethod</span>
@@ -1205,12 +1454,15 @@
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">get_pv_pair_wrapper</span><span class="p">(</span><span class="n">setpoint_suffix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">readback_suffix</span><span class="o">=</span><span class="s1">&#39;_RBV&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="get_pv_pair_wrapper"><a class="viewcode-back" href="../../../generated/caproto.server.get_pv_pair_wrapper.html#caproto.server.get_pv_pair_wrapper">[docs]</a><span class="k">def</span> <span class="nf">get_pv_pair_wrapper</span><span class="p">(</span><span class="n">setpoint_suffix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">readback_suffix</span><span class="o">=</span><span class="s1">&#39;_RBV&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generates a Subgroup class for a pair of PVs (setpoint and readback).</span>
 
 <span class="sd">    If no put method is defined for the setter, a default will be specified</span>
 <span class="sd">    which updates the readback value on write.</span>
+
+<span class="sd">    Startup, shutdown, and scan hooks will be configured on the readback</span>
+<span class="sd">    instance.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1230,16 +1482,17 @@
 
     <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">get</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">put</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">startup</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shutdown</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alarm_group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">setpoint_kw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">readback_kw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scan</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">setpoint_kw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">readback_kw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="o">**</span><span class="n">cls_kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">cls_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;read_only&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Read-only settings for a setpoint/readback &#39;</span>
                                <span class="s1">&#39;pair should not be specified&#39;</span><span class="p">)</span>
 
         <span class="n">pvspec_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-            <span class="n">startup</span><span class="o">=</span><span class="n">startup</span><span class="p">,</span> <span class="n">shutdown</span><span class="o">=</span><span class="n">shutdown</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span>
-            <span class="n">max_length</span><span class="o">=</span><span class="n">max_length</span><span class="p">,</span> <span class="n">alarm_group</span><span class="o">=</span><span class="n">alarm_group</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">,</span>
-            <span class="n">fields</span><span class="o">=</span><span class="n">fields</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="n">max_length</span><span class="p">,</span>
+            <span class="n">alarm_group</span><span class="o">=</span><span class="n">alarm_group</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span>
+            <span class="n">record</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="k">if</span> <span class="n">put</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1266,6 +1519,7 @@
         <span class="n">readback</span> <span class="o">=</span> <span class="n">get_kwargs</span><span class="p">(</span>
             <span class="n">readback_kw</span><span class="p">,</span>
             <span class="n">name</span><span class="o">=</span><span class="n">readback_suffix</span><span class="p">,</span> <span class="n">get</span><span class="o">=</span><span class="n">get</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">scan</span><span class="o">=</span><span class="n">scan</span><span class="p">,</span> <span class="n">startup</span><span class="o">=</span><span class="n">startup</span><span class="p">,</span> <span class="n">shutdown</span><span class="o">=</span><span class="n">shutdown</span><span class="p">,</span>
             <span class="n">cls_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cls_kwargs</span><span class="p">),</span>
             <span class="o">**</span><span class="n">pvspec_kwargs</span>
         <span class="p">)</span>
@@ -1275,7 +1529,7 @@
             <span class="n">attr_separator</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
         <span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">wrapped</span>
+    <span class="k">return</span> <span class="n">wrapped</span></div>
 
 
 <span class="k">class</span> <span class="nc">pvfunction</span><span class="p">(</span><span class="n">SubGroup</span><span class="p">):</span>
@@ -1495,33 +1749,32 @@
                 <span class="k">for</span> <span class="n">subattr</span><span class="p">,</span> <span class="n">subgroup</span> <span class="ow">in</span> <span class="n">subgroup_cls</span><span class="o">.</span><span class="n">_subgroups_</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                     <span class="n">subgroups</span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">attr</span><span class="p">,</span> <span class="n">subattr</span><span class="p">))]</span> <span class="o">=</span> <span class="n">subgroup</span>
 
-        <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">metacls</span><span class="o">.</span><span class="n">find_pvproperties</span><span class="p">(</span><span class="n">dct</span><span class="p">):</span>
-            <span class="n">pvspec</span> <span class="o">=</span> <span class="n">prop</span><span class="o">.</span><span class="n">pvspec</span>
-            <span class="n">module_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;class </span><span class="si">%s</span><span class="s1"> pvproperty attr </span><span class="si">%s</span><span class="s1">: </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span>
-                                <span class="n">pvspec</span><span class="p">)</span>
-            <span class="n">pvs</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span> <span class="o">=</span> <span class="n">prop</span>
-
-            <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">cls_kwargs</span><span class="p">:</span>
-                <span class="c1"># Ensure all passed class kwargs are valid for the specific</span>
-                <span class="c1"># class, so it doesn&#39;t bite us on instantiation</span>
-
-                <span class="n">prop_cls</span> <span class="o">=</span> <span class="n">data_class_from_pvspec</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pvspec</span><span class="o">=</span><span class="n">pvspec</span><span class="p">)</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">prop_cls</span><span class="p">,</span> <span class="s1">&#39;_valid_init_kw&#39;</span><span class="p">):</span>
-                    <span class="c1"># TODO this should be generated elsewhere</span>
-                    <span class="n">prop_cls</span><span class="o">.</span><span class="n">_valid_init_kw</span> <span class="o">=</span> <span class="p">{</span>
-                        <span class="n">key</span>
-                        <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmro</span><span class="p">(</span><span class="n">prop_cls</span><span class="p">)</span>
-                        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-                    <span class="p">}</span>
-
-                <span class="n">bad_kw</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">pvspec</span><span class="o">.</span><span class="n">cls_kwargs</span><span class="p">)</span> <span class="o">-</span> <span class="n">prop_cls</span><span class="o">.</span><span class="n">_valid_init_kw</span>
-                <span class="k">if</span> <span class="n">bad_kw</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="n">CaprotoValueError</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s1">: Bad kw for class </span><span class="si">{</span><span class="n">prop_cls</span><span class="si">}</span><span class="s1">: &#39;</span>
-                        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">bad_kw</span><span class="si">}</span><span class="s1">&#39;</span>
-                    <span class="p">)</span>
-
+        <span class="n">pvs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">metacls</span><span class="o">.</span><span class="n">find_pvproperties</span><span class="p">(</span><span class="n">dct</span><span class="p">))</span>
         <span class="k">return</span> <span class="bp">cls</span>
+
+
+<span class="n">pvspec_type_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nb">str</span><span class="p">:</span> <span class="n">PvpropertyChar</span><span class="p">,</span>
+    <span class="nb">bytes</span><span class="p">:</span> <span class="n">PvpropertyByte</span><span class="p">,</span>
+    <span class="nb">int</span><span class="p">:</span> <span class="n">PvpropertyInteger</span><span class="p">,</span>
+    <span class="nb">float</span><span class="p">:</span> <span class="n">PvpropertyDouble</span><span class="p">,</span>
+    <span class="nb">bool</span><span class="p">:</span> <span class="n">PvpropertyBoolEnum</span><span class="p">,</span>
+    <span class="n">enum</span><span class="o">.</span><span class="n">IntEnum</span><span class="p">:</span> <span class="n">PvpropertyEnum</span><span class="p">,</span>
+
+    <span class="n">ChannelType</span><span class="o">.</span><span class="n">STRING</span><span class="p">:</span> <span class="n">PvpropertyString</span><span class="p">,</span>
+    <span class="n">ChannelType</span><span class="o">.</span><span class="n">INT</span><span class="p">:</span> <span class="n">PvpropertyShort</span><span class="p">,</span>
+    <span class="n">ChannelType</span><span class="o">.</span><span class="n">LONG</span><span class="p">:</span> <span class="n">PvpropertyInteger</span><span class="p">,</span>
+    <span class="n">ChannelType</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">:</span> <span class="n">PvpropertyDouble</span><span class="p">,</span>
+    <span class="n">ChannelType</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">:</span> <span class="n">PvpropertyFloat</span><span class="p">,</span>
+    <span class="n">ChannelType</span><span class="o">.</span><span class="n">ENUM</span><span class="p">:</span> <span class="n">PvpropertyEnum</span><span class="p">,</span>
+    <span class="n">ChannelType</span><span class="o">.</span><span class="n">CHAR</span><span class="p">:</span> <span class="n">PvpropertyChar</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Auto-generate the read-only class specification:</span>
+<span class="n">pvspec_type_map_read_only</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">dtype</span><span class="p">:</span> <span class="nb">globals</span><span class="p">()[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">RO&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">dtype</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">pvspec_type_map</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">}</span>
 
 
 <span class="k">def</span> <span class="nf">data_class_from_pvspec</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">pvspec</span><span class="p">):</span>
@@ -1540,24 +1793,12 @@
 
 <span class="k">def</span> <span class="nf">channeldata_from_pvspec</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">pvspec</span><span class="p">):</span>
     <span class="s1">&#39;Create a ChannelData instance based on a PVSpec&#39;</span>
-    <span class="n">full_pvname</span> <span class="o">=</span> <span class="n">expand_macros</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">group</span><span class="o">.</span><span class="n">macros</span><span class="p">)</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">pvspec</span><span class="o">.</span><span class="n">value</span>
-             <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-             <span class="k">else</span> <span class="n">group</span><span class="o">.</span><span class="n">default_values</span><span class="p">[</span><span class="n">pvspec</span><span class="o">.</span><span class="n">dtype</span><span class="p">]</span>
-             <span class="p">)</span>
-
-    <span class="bp">cls</span> <span class="o">=</span> <span class="n">data_class_from_pvspec</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">pvspec</span><span class="p">)</span>
-    <span class="n">kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">pvspec</span><span class="o">.</span><span class="n">cls_kwargs</span><span class="p">)</span> <span class="k">if</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">cls_kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}</span>
-
-    <span class="n">inst</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">pvspec</span><span class="o">=</span><span class="n">pvspec</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span>
-               <span class="n">max_length</span><span class="o">=</span><span class="n">pvspec</span><span class="o">.</span><span class="n">max_length</span><span class="p">,</span>
-               <span class="n">alarm</span><span class="o">=</span><span class="n">group</span><span class="o">.</span><span class="n">alarms</span><span class="p">[</span><span class="n">pvspec</span><span class="o">.</span><span class="n">alarm_group</span><span class="p">],</span> <span class="n">pvname</span><span class="o">=</span><span class="n">full_pvname</span><span class="p">,</span>
-               <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
-    <span class="n">inst</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">doc</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">full_pvname</span><span class="p">,</span> <span class="n">inst</span><span class="p">)</span>
+    <span class="c1"># Back-compat for now</span>
+    <span class="n">instance</span> <span class="o">=</span> <span class="n">pvspec</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="o">.</span><span class="n">pvname</span><span class="p">,</span> <span class="n">instance</span>
 
 
-<span class="k">class</span> <span class="nc">PVGroup</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">PVGroupMeta</span><span class="p">):</span>
+<div class="viewcode-block" id="PVGroup"><a class="viewcode-back" href="../../../generated/caproto.server.PVGroup.html#caproto.server.PVGroup">[docs]</a><span class="k">class</span> <span class="nc">PVGroup</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">PVGroupMeta</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class which groups a set of PVs for a high-level caproto server</span>
 
@@ -1576,28 +1817,8 @@
 <span class="sd">        https://epics.anl.gov/base/R3-15/5-docs/filters.html</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">type_map</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nb">str</span><span class="p">:</span> <span class="n">PvpropertyChar</span><span class="p">,</span>
-        <span class="nb">bytes</span><span class="p">:</span> <span class="n">PvpropertyByte</span><span class="p">,</span>
-        <span class="nb">int</span><span class="p">:</span> <span class="n">PvpropertyInteger</span><span class="p">,</span>
-        <span class="nb">float</span><span class="p">:</span> <span class="n">PvpropertyDouble</span><span class="p">,</span>
-        <span class="nb">bool</span><span class="p">:</span> <span class="n">PvpropertyBoolEnum</span><span class="p">,</span>
-        <span class="n">enum</span><span class="o">.</span><span class="n">IntEnum</span><span class="p">:</span> <span class="n">PvpropertyEnum</span><span class="p">,</span>
-
-        <span class="n">ChannelType</span><span class="o">.</span><span class="n">STRING</span><span class="p">:</span> <span class="n">PvpropertyString</span><span class="p">,</span>
-        <span class="n">ChannelType</span><span class="o">.</span><span class="n">INT</span><span class="p">:</span> <span class="n">PvpropertyShort</span><span class="p">,</span>
-        <span class="n">ChannelType</span><span class="o">.</span><span class="n">LONG</span><span class="p">:</span> <span class="n">PvpropertyInteger</span><span class="p">,</span>
-        <span class="n">ChannelType</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">:</span> <span class="n">PvpropertyDouble</span><span class="p">,</span>
-        <span class="n">ChannelType</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">:</span> <span class="n">PvpropertyFloat</span><span class="p">,</span>
-        <span class="n">ChannelType</span><span class="o">.</span><span class="n">ENUM</span><span class="p">:</span> <span class="n">PvpropertyEnum</span><span class="p">,</span>
-        <span class="n">ChannelType</span><span class="o">.</span><span class="n">CHAR</span><span class="p">:</span> <span class="n">PvpropertyChar</span><span class="p">,</span>
-    <span class="p">}</span>
-
-    <span class="c1"># Auto-generate the read-only class specification:</span>
-    <span class="n">type_map_read_only</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="n">dtype</span><span class="p">:</span> <span class="nb">globals</span><span class="p">()[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">RO&#39;</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">dtype</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">type_map</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-    <span class="p">}</span>
+    <span class="n">type_map</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">pvspec_type_map</span><span class="p">)</span>
+    <span class="n">type_map_read_only</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">pvspec_type_map_read_only</span><span class="p">)</span>
 
     <span class="n">default_values</span> <span class="o">=</span> <span class="p">{</span>
         <span class="nb">str</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
@@ -1707,9 +1928,8 @@
                 <span class="n">channeldata</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">attr_pvdb</span><span class="p">[</span><span class="n">sub_attr</span><span class="p">]</span>
                 <span class="n">pvname</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">attr_to_pvname</span><span class="p">[</span><span class="n">sub_attr</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span>
-                <span class="n">pvname</span><span class="p">,</span> <span class="n">channeldata</span> <span class="o">=</span> <span class="n">channeldata_from_pvspec</span><span class="p">(</span><span class="n">group</span><span class="p">,</span>
-                                                              <span class="n">pvprop</span><span class="o">.</span><span class="n">pvspec</span><span class="p">)</span>
+                <span class="n">channeldata</span> <span class="o">=</span> <span class="n">pvprop</span><span class="o">.</span><span class="n">pvspec</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="n">pvname</span> <span class="o">=</span> <span class="n">channeldata</span><span class="o">.</span><span class="n">pvname</span>
 
             <span class="k">if</span> <span class="n">pvname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvdb</span><span class="p">:</span>
                 <span class="n">first_seen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvdb</span><span class="p">[</span><span class="n">pvname</span><span class="p">]</span>
@@ -1734,7 +1954,7 @@
     <span class="k">async</span> <span class="k">def</span> <span class="nf">group_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="s1">&#39;Generic write called for channels without `put` defined&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;group_write: </span><span class="si">%s</span><span class="s1"> = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">pvspec</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="n">value</span></div>
 
 
 <span class="k">def</span> <span class="nf">template_arg_parser</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">desc</span><span class="p">,</span> <span class="n">default_prefix</span><span class="p">,</span> <span class="n">argv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -1803,8 +2023,10 @@
             <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                 <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Macro substitution required by this IOC&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">default_value</span><span class="p">,</span>
-                                <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Macro substitution, optional&quot;</span><span class="p">)</span>
+            <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;--</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">default_value</span><span class="p">,</span>
+                <span class="n">help</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Optional macro substitution, default: </span><span class="si">{</span><span class="n">default_value</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">split_args</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1872,34 +2094,64 @@
                                              <span class="n">argv</span><span class="o">=</span><span class="n">argv</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="n">macros</span><span class="p">,</span>
                                              <span class="n">supported_async_libs</span><span class="o">=</span><span class="n">supported_async_libs</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">split_args</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">pvdb</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+        <span class="n">module_name</span><span class="o">=</span><span class="s2">&quot;caproto.asyncio.server&quot;</span><span class="p">,</span>
+        <span class="n">interfaces</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">log_pv_names</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">startup_hook</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Run an IOC, given its PV database dictionary and async-library module name.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pvdb : dict</span>
+<span class="sd">        The PV database dictionary.</span>
+
+<span class="sd">    module_name : str, optional</span>
+<span class="sd">        The async library module name.  Defaults to using asyncio.</span>
+
+<span class="sd">    interfaces : list, optional</span>
+<span class="sd">        List of interfaces to listen on.</span>
+
+<span class="sd">    log_pv_names : bool, optional</span>
+<span class="sd">        Log PV names at startup.</span>
+
+<span class="sd">    startup_hook : coroutine, optional</span>
+<span class="sd">        Hook to call at startup with the ``async_lib`` shim.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">import_module</span>  <span class="c1"># to avoid leaking into module ns</span>
+    <span class="n">module</span> <span class="o">=</span> <span class="n">import_module</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+    <span class="n">run</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">run</span>
+    <span class="k">return</span> <span class="n">run</span><span class="p">(</span>
+        <span class="n">pvdb</span><span class="p">,</span> <span class="n">interfaces</span><span class="o">=</span><span class="n">interfaces</span><span class="p">,</span> <span class="n">log_pv_names</span><span class="o">=</span><span class="n">log_pv_names</span><span class="p">,</span>
+        <span class="n">startup_hook</span><span class="o">=</span><span class="n">startup_hook</span><span class="p">)</span>
 </pre></div>
 
            </div>
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

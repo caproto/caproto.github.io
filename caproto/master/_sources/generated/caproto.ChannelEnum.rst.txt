@@ -1,0 +1,68 @@
+﻿caproto.ChannelEnum
+===================
+
+
+.. currentmodule:: caproto
+
+.. autoclass:: ChannelEnum
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~ChannelEnum.auth_read
+       ~ChannelEnum.auth_write
+       ~ChannelEnum.calculate_length
+       ~ChannelEnum.check_access
+       ~ChannelEnum.get_raw_value
+       ~ChannelEnum.is_compatible_array
+       ~ChannelEnum.post_state_change
+       ~ChannelEnum.pre_state_change
+       ~ChannelEnum.preprocess_value
+       ~ChannelEnum.publish
+       ~ChannelEnum.read
+       ~ChannelEnum.subscribe
+       ~ChannelEnum.unsubscribe
+       ~ChannelEnum.update_fields
+       ~ChannelEnum.verify_value
+       ~ChannelEnum.write
+       ~ChannelEnum.write_from_dbr
+       ~ChannelEnum.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~ChannelEnum.alarm
+       ~ChannelEnum.data_type
+       ~ChannelEnum.enum_strings
+       ~ChannelEnum.epics_timestamp
+       ~ChannelEnum.length
+       ~ChannelEnum.max_length
+       ~ChannelEnum.raw_value
+       ~ChannelEnum.severity
+       ~ChannelEnum.status
+       ~ChannelEnum.timestamp
+       ~ChannelEnum.value
+    
+
+    

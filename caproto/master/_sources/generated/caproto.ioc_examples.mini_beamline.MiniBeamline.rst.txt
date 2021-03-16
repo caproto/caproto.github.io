@@ -31,7 +31,6 @@
            - float 
            - 
                  **Read-only**
-                 **Startup**
            - 
     
     
@@ -95,26 +94,3 @@
 
     
     .. rubric:: pvproperty methods
-    .. method:: current.startup(self, instance, async_lib)
-        
-
-    
-    .. raw:: html
-
-        <details>
-        <summary>Source code: current.startup</summary>
-
-    
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/server.py
-        :language: python
-        :linenos:
-        :dedent: 0
-        :lineno-start: 766
-        :lines: 766-795
-
-    .. raw:: html
-
-        </details>
-        <br/>
-
-    

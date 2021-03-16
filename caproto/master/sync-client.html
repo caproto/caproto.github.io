@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Synchronous Client &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>Synchronous Client &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script src="_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -53,7 +54,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="index.html" class="icon icon-home"> caproto
           
 
           
@@ -63,7 +64,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -116,8 +117,9 @@
 <li class="toctree-l1"><a class="reference internal" href="servers.html">Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -177,6 +179,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -190,7 +194,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/sync-client.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -248,13 +252,13 @@ raw bytes of that response are:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">richer_res</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;random_walk:dt&#39;</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
 
 <span class="gp">In [8]: </span><span class="n">richer_res</span><span class="o">.</span><span class="n">metadata</span>
-<span class="gh">Out[8]: </span><span class="go">DBR_TIME_DOUBLE(status=&lt;AlarmStatus.NO_ALARM: 0&gt;, severity=&lt;AlarmSeverity.NO_ALARM: 0&gt;, timestamp=1607452770.674262)</span>
+<span class="gh">Out[8]: </span><span class="go">DBR_TIME_DOUBLE(status=&lt;AlarmStatus.NO_ALARM: 0&gt;, severity=&lt;AlarmSeverity.NO_ALARM: 0&gt;, timestamp=1615855652.519008)</span>
 
 <span class="gp">In [9]: </span><span class="n">richer_res</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">timestamp</span>
-<span class="gh">Out[9]: </span><span class="go">1607452770.674262</span>
+<span class="gh">Out[9]: </span><span class="go">1615855652.519008</span>
 
 <span class="gp">In [10]: </span><span class="n">richer_res</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">stamp</span><span class="o">.</span><span class="n">as_datetime</span><span class="p">()</span>  <span class="c1"># a convenience method</span>
-<span class="gh">Out[10]: </span><span class="go">datetime.datetime(2020, 12, 8, 18, 39, 30, 674262)</span>
+<span class="gh">Out[10]: </span><span class="go">datetime.datetime(2021, 3, 16, 0, 47, 32, 519008)</span>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#caproto.sync.client.read" title="caproto.sync.client.read"><code class="xref py py-func docutils literal notranslate"><span class="pre">read()</span></code></a> for more information on the values accepted by the
@@ -268,7 +272,7 @@ data structures.</p>
 <span class="gh">Out[11]: </span><span class="go">MessageHeader(command=15, payload_size=8, data_type=6, data_count=1, parameter1=1, parameter2=0)</span>
 
 <span class="gp">In [12]: </span><span class="n">res</span><span class="o">.</span><span class="n">buffers</span>  <span class="c1"># a collection of one or more buffers</span>
-<span class="gh">Out[12]: </span><span class="go">(b&#39;&#39;, &lt;memory at 0x7fd65c4092c0&gt;)</span>
+<span class="gh">Out[12]: </span><span class="go">(b&#39;&#39;, &lt;memory at 0x7fd4b405bf40&gt;)</span>
 </pre></div>
 </div>
 <p>They were received directly from the socket into these structure with no
@@ -431,7 +435,7 @@ one of the other clients.</p>
 <h2>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="caproto.sync.client.read">
-<code class="sig-prename descclassname">caproto.sync.client.</code><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pv_name</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">data_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data_count</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">timeout</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">priority</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">notify</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">force_int_enums</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">repeater</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.sync.client.read" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">caproto.sync.client.</span></code><code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pv_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_int_enums</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.sync.client.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read a Channel.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -522,7 +526,7 @@ type</p>
 
 <dl class="py function">
 <dt id="caproto.sync.client.write">
-<code class="sig-prename descclassname">caproto.sync.client.</code><code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pv_name</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">notify</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">data_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">metadata</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">timeout</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">priority</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">repeater</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.sync.client.write" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">caproto.sync.client.</span></code><code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pv_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.sync.client.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write to a Channel.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -573,7 +577,7 @@ ioid=0)</p>
 
 <dl class="py function">
 <dt id="caproto.sync.client.subscribe">
-<code class="sig-prename descclassname">caproto.sync.client.</code><code class="sig-name descname">subscribe</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pv_name</span></em>, <em class="sig-param"><span class="n">priority</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">data_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data_count</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">low</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">high</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">mask</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#subscribe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.sync.client.subscribe" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">caproto.sync.client.</span></code><code class="sig-name descname"><span class="pre">subscribe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pv_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.sync.client.subscribe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define a subscription.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -628,7 +632,7 @@ the method.</p>
 
 <dl class="py function">
 <dt id="caproto.sync.client.block">
-<code class="sig-prename descclassname">caproto.sync.client.</code><code class="sig-name descname">block</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">subscriptions</span></em>, <em class="sig-param"><span class="n">duration</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">timeout</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">force_int_enums</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">repeater</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#block"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.sync.client.block" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">caproto.sync.client.</span></code><code class="sig-name descname"><span class="pre">block</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">subscriptions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_int_enums</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#block"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.sync.client.block" title="Permalink to this definition">¶</a></dt>
 <dd><p>Activate one or more subscriptions and process incoming responses.</p>
 <p>Use Ctrl+C (SIGINT) to escape, or from another thread, call
 <a class="reference internal" href="#caproto.sync.client.interrupt" title="caproto.sync.client.interrupt"><code class="xref py py-func docutils literal notranslate"><span class="pre">interrupt()</span></code></a>.</p>
@@ -662,7 +666,7 @@ clients should do this.</p>
 
 <dl class="py function">
 <dt id="caproto.sync.client.interrupt">
-<code class="sig-prename descclassname">caproto.sync.client.</code><code class="sig-name descname">interrupt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#interrupt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.sync.client.interrupt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">caproto.sync.client.</span></code><code class="sig-name descname"><span class="pre">interrupt</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#interrupt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.sync.client.interrupt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Signal to <a class="reference internal" href="#caproto.sync.client.block" title="caproto.sync.client.block"><code class="xref py py-func docutils literal notranslate"><span class="pre">block()</span></code></a> to stop blocking. Idempotent.</p>
 <p>This obviously cannot be called interactively while blocked;
 it is intended to be called from another thread.</p>
@@ -670,7 +674,7 @@ it is intended to be called from another thread.</p>
 
 <dl class="py function">
 <dt id="caproto.sync.client.read_write_read">
-<code class="sig-prename descclassname">caproto.sync.client.</code><code class="sig-name descname">read_write_read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pv_name</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">notify</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">read_data_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">write_data_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">metadata</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">timeout</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">priority</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">force_int_enums</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">repeater</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#read_write_read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.sync.client.read_write_read" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">caproto.sync.client.</span></code><code class="sig-name descname"><span class="pre">read_write_read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pv_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_int_enums</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#read_write_read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.sync.client.read_write_read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write to a Channel, but sandwich the write between to reads.</p>
 <p>This is what the command-line utilities <code class="docutils literal notranslate"><span class="pre">caproto-put</span></code> and <code class="docutils literal notranslate"><span class="pre">caput</span></code> do.
 Notice that if you want the second reading to reflect the written value,
@@ -728,12 +732,12 @@ clients should do this.</p>
 
 <dl class="py class">
 <dt id="caproto.sync.client.Subscription">
-<em class="property">class </em><code class="sig-prename descclassname">caproto.sync.client.</code><code class="sig-name descname">Subscription</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pv_name</span></em>, <em class="sig-param"><span class="n">priority</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">data_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data_count</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">low</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">high</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">mask</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#Subscription"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.sync.client.Subscription" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.sync.client.</span></code><code class="sig-name descname"><span class="pre">Subscription</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pv_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#Subscription"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.sync.client.Subscription" title="Permalink to this definition">¶</a></dt>
 <dd><p>This object encapsulates state related to a Subscription.</p>
 <p>See the <a class="reference internal" href="#caproto.sync.client.subscribe" title="caproto.sync.client.subscribe"><code class="xref py py-func docutils literal notranslate"><span class="pre">subscribe()</span></code></a> function.</p>
 <dl class="py method">
 <dt id="caproto.sync.client.Subscription.block">
-<code class="sig-name descname">block</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">duration</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">timeout</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">force_int_enums</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">repeater</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#Subscription.block"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.sync.client.Subscription.block" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">block</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_int_enums</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#Subscription.block"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.sync.client.Subscription.block" title="Permalink to this definition">¶</a></dt>
 <dd><p>Activate one or more subscriptions and process incoming responses.</p>
 <p>Use Ctrl+C (SIGINT) to escape, or from another thread, call
 <a class="reference internal" href="#caproto.sync.client.interrupt" title="caproto.sync.client.interrupt"><code class="xref py py-meth docutils literal notranslate"><span class="pre">interrupt()</span></code></a>.</p>
@@ -760,7 +764,7 @@ well-behaved clients should do this.</p>
 
 <dl class="py method">
 <dt id="caproto.sync.client.Subscription.interrupt">
-<code class="sig-name descname">interrupt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#Subscription.interrupt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.sync.client.Subscription.interrupt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">interrupt</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#Subscription.interrupt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.sync.client.Subscription.interrupt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Signal to block() to stop blocking. Idempotent.</p>
 <p>This obviously cannot be called interactively while blocked;
 it is intended to be called from another thread.
@@ -770,7 +774,7 @@ This method is a convenience alias for the top-level function
 
 <dl class="py method">
 <dt id="caproto.sync.client.Subscription.add_callback">
-<code class="sig-name descname">add_callback</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#Subscription.add_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.sync.client.Subscription.add_callback" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_callback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#Subscription.add_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.sync.client.Subscription.add_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a callback to receive responses.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -797,13 +801,13 @@ to <code class="docutils literal notranslate"><span class="pre">func(sub,</span>
 
 <dl class="py method">
 <dt id="caproto.sync.client.Subscription.remove_callback">
-<code class="sig-name descname">remove_callback</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cb_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#Subscription.remove_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.sync.client.Subscription.remove_callback" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">remove_callback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cb_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#Subscription.remove_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.sync.client.Subscription.remove_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove callback using token that was returned by <a class="reference internal" href="#caproto.sync.client.Subscription.add_callback" title="caproto.sync.client.Subscription.add_callback"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_callback()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="caproto.sync.client.Subscription.process">
-<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">response</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#Subscription.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.sync.client.Subscription.process" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#Subscription.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.sync.client.Subscription.process" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run the callbacks on a response.</p>
 <p>This is used internally by <a class="reference internal" href="#caproto.sync.client.block" title="caproto.sync.client.block"><code class="xref py py-func docutils literal notranslate"><span class="pre">block()</span></code></a>, generally not called by the
 user.</p>
@@ -811,7 +815,7 @@ user.</p>
 
 <dl class="py method">
 <dt id="caproto.sync.client.Subscription.clear">
-<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#Subscription.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.sync.client.Subscription.clear" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/sync/client.html#Subscription.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.sync.client.Subscription.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove all callbacks. If currently blocking, interrupt.</p>
 </dd></dl>
 
@@ -825,37 +829,29 @@ user.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="threading-client.html" class="btn btn-neutral float-right" title="Threading Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="command-line-client.html" class="btn btn-neutral float-left" title="Command-Line Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="threading-client.html" class="btn btn-neutral float-right" title="Threading Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="command-line-client.html" class="btn btn-neutral float-left" title="Command-Line Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

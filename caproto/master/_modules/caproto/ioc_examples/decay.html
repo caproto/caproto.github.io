@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.ioc_examples.decay &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>caproto.ioc_examples.decay &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
         <script src="../../../_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="../../../index.html" class="icon icon-home"> caproto
           
 
           
@@ -61,7 +62,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -97,8 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../servers.html">Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -158,6 +160,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -183,10 +187,29 @@
             
   <h1>Source code for caproto.ioc_examples.decay</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python3</span>
-<span class="kn">from</span> <span class="nn">caproto.server</span> <span class="kn">import</span> <span class="n">pvproperty</span><span class="p">,</span> <span class="n">PVGroup</span><span class="p">,</span> <span class="n">ioc_arg_parser</span><span class="p">,</span> <span class="n">run</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">dedent</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">caproto.server</span> <span class="kn">import</span> <span class="n">PVGroup</span><span class="p">,</span> <span class="n">ioc_arg_parser</span><span class="p">,</span> <span class="n">pvproperty</span><span class="p">,</span> <span class="n">run</span>
+
+
+<span class="k">def</span> <span class="nf">calculate_decay</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span> <span class="n">setpoint</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">t_var</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate decay according to:</span>
+
+<span class="sd">    :math:`T_{output} = T_{var} exp^{-(t - t_0)/K} + T_{setpoint}`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">t_var</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">/</span> <span class="n">k</span><span class="p">))</span> <span class="o">+</span> <span class="n">setpoint</span>
+
+
+<span class="k">def</span> <span class="nf">compute_done</span><span class="p">(</span><span class="n">readback</span><span class="p">,</span> <span class="n">setpoint</span><span class="p">,</span> <span class="n">t_var</span><span class="p">,</span> <span class="n">threshold_norm</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute the done status.&quot;&quot;&quot;</span>
+    <span class="n">gap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">readback</span> <span class="o">-</span> <span class="n">setpoint</span><span class="p">)</span>
+    <span class="n">gap_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">setpoint</span> <span class="o">-</span> <span class="n">t_var</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">gap</span> <span class="o">/</span> <span class="n">gap_i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">threshold_norm</span>
 
 
 <div class="viewcode-block" id="Decay"><a class="viewcode-back" href="../../../generated/caproto.ioc_examples.decay.Decay.html#caproto.ioc_examples.decay.Decay">[docs]</a><span class="k">class</span> <span class="nc">Decay</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
@@ -197,8 +220,8 @@
 
 <span class="sd">    The default prefix is `decay:`</span>
 
-<span class="sd">    Readonly PVs</span>
-<span class="sd">    ------------</span>
+<span class="sd">    Read-only PVs</span>
+<span class="sd">    -------------</span>
 
 <span class="sd">    I -&gt; the current value</span>
 <span class="sd">    done -&gt; if the current value is &#39;close&#39; to the setpoint</span>
@@ -210,55 +233,66 @@
 <span class="sd">    K -&gt; the decay constant</span>
 <span class="sd">    Tvar -&gt; the scale of the initial excursion</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">_compute_done</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">gap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">readback</span><span class="o">.</span><span class="n">value</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">setpoint</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-        <span class="n">gap_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">setpoint</span><span class="o">.</span><span class="n">value</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">Tvar</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-        <span class="c1"># get with in 5%</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">gap</span> <span class="o">/</span> <span class="n">gap_i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="o">.</span><span class="mi">05</span>
+
+    <span class="n">readback</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;I&quot;</span><span class="p">,</span>
+        <span class="n">record</span><span class="o">=</span><span class="s2">&quot;ai&quot;</span><span class="p">,</span>
+        <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;The current readback value.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">done</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">record</span><span class="o">=</span><span class="s2">&quot;bi&quot;</span><span class="p">,</span>
+        <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Whether the current value is &#39;close&#39; to the setpoint or not.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">setpoint</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;SP&quot;</span><span class="p">,</span>
+        <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Where to go - the setpoint.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;The decay constant.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">Tvar</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;The scale of the initial excursion.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_t0</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">reset_t0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_T0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
 
-    <span class="n">readback</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                          <span class="n">name</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span>
-                          <span class="n">mock_record</span><span class="o">=</span><span class="s1">&#39;ai&#39;</span><span class="p">)</span>
-
-    <span class="n">done</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                      <span class="n">mock_record</span><span class="o">=</span><span class="s1">&#39;ai&#39;</span><span class="p">)</span>
-
-    <span class="n">setpoint</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;SP&#39;</span><span class="p">)</span>
-    <span class="n">K</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-    <span class="n">Tvar</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-
-    <span class="nd">@readback</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">period</span><span class="o">=.</span><span class="mi">1</span><span class="p">,</span> <span class="n">use_scan_field</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nd">@readback</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">use_scan_field</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">async</span> <span class="k">def</span> <span class="nf">readback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-
-        <span class="k">def</span> <span class="nf">t_rbv</span><span class="p">(</span><span class="n">T0</span><span class="p">,</span> <span class="n">setpoint</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">Tvar</span><span class="p">,):</span>
-            <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
-            <span class="k">return</span> <span class="p">((</span><span class="n">Tvar</span> <span class="o">*</span>
-                     <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_T0</span><span class="p">)</span> <span class="o">/</span> <span class="n">K</span><span class="p">))</span> <span class="o">+</span>
-                    <span class="n">setpoint</span><span class="p">)</span>
-
-        <span class="n">T</span> <span class="o">=</span> <span class="n">t_rbv</span><span class="p">(</span><span class="n">T0</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_T0</span><span class="p">,</span>
-                  <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
-                     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;setpoint&#39;</span><span class="p">,</span> <span class="s1">&#39;K&#39;</span><span class="p">,</span> <span class="s1">&#39;Tvar&#39;</span><span class="p">]})</span>
-
-        <span class="k">await</span> <span class="n">instance</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
-        <span class="n">done</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_done</span><span class="p">()</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">readback</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">calculate_decay</span><span class="p">(</span>
+            <span class="n">t0</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_T0</span><span class="p">,</span>
+            <span class="n">setpoint</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">setpoint</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="n">k</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">K</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="n">t_var</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Tvar</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+        <span class="p">))</span>
+        <span class="n">done</span> <span class="o">=</span> <span class="n">compute_done</span><span class="p">(</span>
+            <span class="n">readback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">readback</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="n">setpoint</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">setpoint</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="n">t_var</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Tvar</span><span class="o">.</span><span class="n">value</span>
+        <span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">done</span><span class="o">.</span><span class="n">value</span> <span class="o">!=</span> <span class="n">done</span><span class="p">:</span>
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">done</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">done</span><span class="p">)</span>
 
     <span class="nd">@setpoint</span><span class="o">.</span><span class="n">putter</span>
     <span class="k">async</span> <span class="k">def</span> <span class="nf">setpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_T0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">value</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_t0</span><span class="p">()</span></div>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">ioc_options</span><span class="p">,</span> <span class="n">run_options</span> <span class="o">=</span> <span class="n">ioc_arg_parser</span><span class="p">(</span>
-        <span class="n">default_prefix</span><span class="o">=</span><span class="s1">&#39;decay:&#39;</span><span class="p">,</span>
-        <span class="n">desc</span><span class="o">=</span><span class="n">dedent</span><span class="p">(</span><span class="n">Decay</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">))</span>
+        <span class="n">default_prefix</span><span class="o">=</span><span class="s2">&quot;decay:&quot;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">dedent</span><span class="p">(</span><span class="n">Decay</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+    <span class="p">)</span>
     <span class="n">ioc</span> <span class="o">=</span> <span class="n">Decay</span><span class="p">(</span><span class="o">**</span><span class="n">ioc_options</span><span class="p">)</span>
     <span class="n">run</span><span class="p">(</span><span class="n">ioc</span><span class="o">.</span><span class="n">pvdb</span><span class="p">,</span> <span class="o">**</span><span class="n">run_options</span><span class="p">)</span>
 </pre></div>
@@ -267,28 +301,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

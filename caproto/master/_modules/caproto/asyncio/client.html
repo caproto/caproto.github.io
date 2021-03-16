@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.asyncio.client &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>caproto.asyncio.client &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
         <script src="../../../_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="../../../index.html" class="icon icon-home"> caproto
           
 
           
@@ -61,7 +62,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -97,8 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../servers.html">Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -143,6 +145,8 @@
         <div class="rst-content">
         
           
+
+
 
 
 
@@ -212,7 +216,7 @@
 <span class="kn">from</span> <span class="nn">..client.search_results</span> <span class="kn">import</span> <span class="p">(</span><span class="n">DuplicateSearchResponse</span><span class="p">,</span> <span class="n">SearchResults</span><span class="p">,</span>
                                      <span class="n">UnknownSearchResponse</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="p">(</span><span class="n">AsyncioQueue</span><span class="p">,</span> <span class="n">_CallbackExecutor</span><span class="p">,</span> <span class="n">_DatagramProtocol</span><span class="p">,</span>
-                    <span class="n">_StreamProtocol</span><span class="p">,</span> <span class="n">_TaskHandler</span><span class="p">,</span> <span class="n">_TransportWrapper</span><span class="p">,</span>
+                    <span class="n">_TaskHandler</span><span class="p">,</span> <span class="n">_TransportWrapper</span><span class="p">,</span> <span class="n">_UdpTransportWrapper</span><span class="p">,</span>
                     <span class="n">get_running_loop</span><span class="p">)</span>
 
 <span class="n">ch_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;caproto.ch&#39;</span><span class="p">)</span>
@@ -239,7 +243,6 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">Broadcaster</span><span class="p">(</span><span class="n">our_role</span><span class="o">=</span><span class="n">ca</span><span class="o">.</span><span class="n">CLIENT</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">log</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wrapped_transport</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">command_queue</span> <span class="o">=</span> <span class="n">AsyncioQueue</span><span class="p">()</span>
@@ -319,6 +322,12 @@
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tasks</span><span class="o">.</span><span class="n">cancel_all</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Broadcaster: Closing the UDP socket&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">udp_sock</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">transport</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Broadcaster transport close error&#39;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Broadcaster disconnect complete&#39;</span><span class="p">)</span></div>
 
@@ -341,18 +350,20 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">udp_sock</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">bcast_socket</span><span class="p">(</span><span class="n">socket_module</span><span class="o">=</span><span class="n">socket</span><span class="p">)</span>
 
         <span class="n">loop</span> <span class="o">=</span> <span class="n">get_running_loop</span><span class="p">()</span>
+        <span class="c1"># Must bind or getsocketname() will raise on Windows.</span>
+        <span class="c1"># See https://github.com/caproto/caproto/issues/514.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">udp_sock</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
         <span class="n">transport</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="o">=</span> <span class="k">await</span> <span class="n">loop</span><span class="o">.</span><span class="n">create_datagram_endpoint</span><span class="p">(</span>
             <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">_DatagramProtocol</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-                              <span class="n">recv_func</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">receive_queue</span><span class="o">.</span><span class="n">put</span><span class="p">),</span>
+                              <span class="n">identifier</span><span class="o">=</span><span class="s1">&#39;client-search&#39;</span><span class="p">,</span>
+                              <span class="n">queue</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">receive_queue</span><span class="p">),</span>
             <span class="n">sock</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">udp_sock</span><span class="p">)</span>
 
         <span class="c1"># TODO: wrapped transport is a server concept for unifying</span>
         <span class="c1"># trio/asyncio/curio</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">wrapped_transport</span> <span class="o">=</span> <span class="n">_TransportWrapper</span><span class="p">(</span><span class="n">transport</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wrapped_transport</span> <span class="o">=</span> <span class="n">_UdpTransportWrapper</span><span class="p">(</span><span class="n">transport</span><span class="p">)</span>
 
-        <span class="c1"># Must bind or getsocketname() will raise on Windows.</span>
-        <span class="c1"># See https://github.com/caproto/caproto/issues/514.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">udp_sock</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">client_address</span> <span class="o">=</span> <span class="n">safe_getsockname</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">udp_sock</span><span class="p">)</span>
 
 <div class="viewcode-block" id="SharedBroadcaster.register"><a class="viewcode-back" href="../../../async-clients.html#caproto.asyncio.client.SharedBroadcaster.register">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -391,7 +402,12 @@
         <span class="s1">&#39;Loop which consumes receive_queue datagrams from _DatagramProtocol.&#39;</span>
         <span class="n">queues</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">bytes_received</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive_queue</span><span class="o">.</span><span class="n">async_get</span><span class="p">()</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">bytes_received</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive_queue</span><span class="o">.</span><span class="n">async_get</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bytes_received</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Broadcaster receive exception&#39;</span><span class="p">,</span>
+                                   <span class="n">exc_info</span><span class="o">=</span><span class="n">bytes_received</span><span class="p">)</span>
+                <span class="k">continue</span>
+
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">commands</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">bytes_received</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
             <span class="k">except</span> <span class="n">ca</span><span class="o">.</span><span class="n">RemoteProtocolError</span><span class="p">:</span>
@@ -418,7 +434,6 @@
                     <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="n">address</span><span class="p">,</span> <span class="n">names</span><span class="p">))</span>
             <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Broadcaster receive loop evaluation&#39;</span><span class="p">)</span>
-                <span class="k">continue</span>
 
     <span class="k">def</span> <span class="nf">_process_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">queues</span><span class="p">):</span>
         <span class="c1"># if isinstance(command, ca.RepeaterConfirmResponse):</span>
@@ -776,7 +791,7 @@
                 <span class="k">if</span> <span class="n">circuit</span><span class="o">.</span><span class="n">connected</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Disconnecting circuit </span><span class="si">%d</span><span class="s1">/</span><span class="si">%d</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
                                    <span class="n">idx</span><span class="p">,</span> <span class="n">total_circuits</span><span class="p">,</span> <span class="n">circuit</span><span class="p">)</span>
-                    <span class="k">await</span> <span class="n">circuit</span><span class="o">.</span><span class="n">_disconnected</span><span class="p">(</span><span class="n">reconnect</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                    <span class="k">await</span> <span class="n">circuit</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
                     <span class="n">disconnected</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="k">if</span> <span class="n">disconnected</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;All circuits disconnected&#39;</span><span class="p">)</span>
@@ -1042,7 +1057,65 @@
                         <span class="k">continue</span>
                     <span class="k">raise</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Context search-results processing thread has exited.&#39;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Context search-results processing thread has exited.&#39;</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">monitor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">pv_names</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Monitor pv_names asynchronously, yielding events as they happen.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        *pv_names : str</span>
+<span class="sd">            PV names to monitor.</span>
+
+<span class="sd">        data_type : {&#39;time&#39;, &#39;control&#39;, &#39;native&#39;}</span>
+<span class="sd">            The subscription type.</span>
+
+<span class="sd">        Yields</span>
+<span class="sd">        -------</span>
+<span class="sd">        event : {&#39;subscription&#39;, &#39;connection&#39;}</span>
+<span class="sd">            The event type.</span>
+
+<span class="sd">        context : str or Subscription</span>
+<span class="sd">            For a &#39;connection&#39; event, this is the PV name.  For a &#39;subscription&#39;</span>
+<span class="sd">            event, this is the `Subscription` instance.</span>
+
+<span class="sd">        data : str or EventAddResponse</span>
+<span class="sd">            For a &#39;subscription&#39; event, the `EventAddResponse` holds the data and</span>
+<span class="sd">            timestamp.  For a &#39;connection&#39; event, this is one of ``{&#39;connected&#39;,</span>
+<span class="sd">            &#39;disconnected&#39;}``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">queue</span> <span class="o">=</span> <span class="n">AsyncioQueue</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">value_update</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="n">event_add_response</span><span class="p">):</span>
+            <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="s1">&#39;subscription&#39;</span><span class="p">,</span> <span class="n">sub</span><span class="p">,</span> <span class="n">event_add_response</span><span class="p">))</span>
+
+        <span class="k">def</span> <span class="nf">connection_state_callback</span><span class="p">(</span><span class="n">pv</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+            <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="n">pv</span><span class="p">,</span> <span class="n">state</span><span class="p">))</span>
+
+        <span class="n">channels</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_pvs</span><span class="p">(</span>
+            <span class="o">*</span><span class="n">pv_names</span><span class="p">,</span> <span class="n">connection_state_callback</span><span class="o">=</span><span class="n">connection_state_callback</span>
+        <span class="p">)</span>
+        <span class="n">subscriptions</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">channels</span><span class="p">:</span>
+            <span class="n">sub</span> <span class="o">=</span> <span class="n">channel</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="n">data_type</span><span class="p">)</span>
+            <span class="n">token</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="n">value_update</span><span class="p">)</span>
+            <span class="n">subscriptions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="nb">dict</span><span class="p">(</span>
+                    <span class="n">channel</span><span class="o">=</span><span class="n">channel</span><span class="p">,</span>
+                    <span class="n">sub</span><span class="o">=</span><span class="n">sub</span><span class="p">,</span>
+                    <span class="n">token</span><span class="o">=</span><span class="n">token</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">async_get</span><span class="p">()</span>
+                <span class="k">yield</span> <span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">data</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">subscriptions</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="k">await</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;sub&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">remove_callback</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;token&#39;</span><span class="p">])</span></div>
 
 
 <div class="viewcode-block" id="VirtualCircuitManager"><a class="viewcode-back" href="../../../async-clients.html#caproto.asyncio.client.VirtualCircuitManager">[docs]</a><span class="k">class</span> <span class="nc">VirtualCircuitManager</span><span class="p">:</span>
@@ -1054,7 +1127,8 @@
 <span class="sd">    # this is rarely necessary.</span>
 <span class="sd">    # &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">circuit</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">TIMEOUT</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">circuit</span><span class="p">,</span>
+                 <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">GLOBAL_DEFAULT_TIMEOUT</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">context</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span> <span class="o">=</span> <span class="n">circuit</span>  <span class="c1"># a caproto.VirtualCircuit</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">log</span>
@@ -1062,8 +1136,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">pvs</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># map cid to PV</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ioids</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># map ioid to Channel and info dict</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># map subscriptionid to Subscription</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_connection_made</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transport</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_ioid_counter</span> <span class="o">=</span> <span class="n">ThreadsafeCounter</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_raw_lock</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_ready</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
@@ -1089,36 +1162,44 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_tasks</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_connection_ready_hook</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_tasks</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_connect</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">))</span>
 
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_transport_receive_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transport</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">bytes_received</span> <span class="o">=</span> <span class="k">await</span> <span class="n">transport</span><span class="o">.</span><span class="n">recv</span><span class="p">()</span>
+            <span class="k">except</span> <span class="n">ca</span><span class="o">.</span><span class="n">CaprotoNetworkError</span><span class="p">:</span>
+                <span class="n">bytes_received</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_tcp_receipt</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+            <span class="n">commands</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">bytes_received</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">commands</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">command_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">bytes_received</span><span class="p">:</span>
+                <span class="k">break</span>
+
     <span class="k">async</span> <span class="k">def</span> <span class="nf">_connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Start the connection and spawn tasks.&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="o">=</span> <span class="k">await</span> <span class="n">get_running_loop</span><span class="p">()</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span>
-            <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">_StreamProtocol</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-                              <span class="n">connection_callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_circuit_connection_change</span><span class="p">,</span>
-                              <span class="n">recv_func</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_circuit_bytes_received</span><span class="p">),</span>
-            <span class="n">host</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">address</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-            <span class="n">port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">address</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-        <span class="p">)</span>
-
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait_for</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_connection_made</span><span class="o">.</span><span class="n">wait</span><span class="p">(),</span>
-                                   <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+            <span class="n">reader</span><span class="p">,</span> <span class="n">writer</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait_for</span><span class="p">(</span>
+                <span class="n">asyncio</span><span class="o">.</span><span class="n">open_connection</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">address</span><span class="p">),</span>
+                <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
+            <span class="p">)</span>
         <span class="k">except</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TimeoutError</span><span class="p">:</span>
             <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">address</span>
             <span class="k">raise</span> <span class="n">ca</span><span class="o">.</span><span class="n">CaprotoTimeoutError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Circuit with server at </span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2"> &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;did not connect within &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span><span class="si">:</span><span class="s2">.3</span><span class="si">}</span><span class="s2">-second timeout.&quot;</span><span class="p">)</span>
+                <span class="sa">f</span><span class="s2">&quot;Circuit with server at </span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2"> did not connect within &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span><span class="si">:</span><span class="s2">.3</span><span class="si">}</span><span class="s2">-second timeout.&quot;</span>
+            <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">get_extra_info</span><span class="p">(</span><span class="s1">&#39;socket&#39;</span><span class="p">)</span>
-        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transport</span> <span class="o">=</span> <span class="n">_TransportWrapper</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tasks</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_transport_receive_loop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="p">))</span>
 
         <span class="c1"># this is done by default from 3.6+</span>
-        <span class="c1"># sock.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SOL_SOCKET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SO_KEEPALIVE</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SOL_SOCKET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SO_KEEPALIVE</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="c1"># This is required because of `sock_sendall`</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">our_address</span> <span class="o">=</span> <span class="n">safe_getsockname</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">our_address</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()</span>
 
         <span class="c1"># This dict is passed to the loggers.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_tags</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;their_address&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
@@ -1155,22 +1236,6 @@
                 <span class="sa">f</span><span class="s2">&quot;Circuit with server at </span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2"> did not connect within &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span><span class="si">:</span><span class="s2">.3</span><span class="si">}</span><span class="s2">-second timeout.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="bp">None</span>
 
-    <span class="k">def</span> <span class="nf">_circuit_bytes_received</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bytes_received</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">last_tcp_receipt</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
-
-        <span class="n">commands</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">bytes_received</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">commands</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">command_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">_circuit_connection_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connected</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Circuit connection status change: </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
-                       <span class="p">(</span><span class="n">connected</span> <span class="ow">and</span> <span class="s1">&#39;connected&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;disconnected&#39;</span><span class="p">,</span>
-                       <span class="n">info</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">connected</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_connection_made</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">command_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">DISCONNECTED</span><span class="p">)</span>
-
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">server_protocol_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">server_protocol_versions</span><span class="p">[</span>
@@ -1199,7 +1264,7 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dead</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
             <span class="k">raise</span> <span class="n">common</span><span class="o">.</span><span class="n">DeadCircuitError</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_send_on_connection</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">commands</span><span class="p">,</span> <span class="n">extra</span><span class="p">))</span>
             <span class="k">return</span>
 
@@ -1212,14 +1277,12 @@
         <span class="k">async</span> <span class="k">def</span> <span class="nf">_socket_send</span><span class="p">(</span><span class="n">buffers_to_send</span><span class="p">):</span>
             <span class="s1">&#39;Send a list of buffers over the socket&#39;</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">sendmsg</span><span class="p">(</span><span class="n">buffers_to_send</span><span class="p">)</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">sendmsg</span><span class="p">(</span><span class="n">buffers_to_send</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">BlockingIOError</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="n">ca</span><span class="o">.</span><span class="n">SendAllRetry</span><span class="p">()</span>
 
         <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_raw_lock</span><span class="p">:</span>
             <span class="k">await</span> <span class="n">ca</span><span class="o">.</span><span class="n">async_send_all</span><span class="p">(</span><span class="n">buffers_to_send</span><span class="p">,</span> <span class="n">_socket_send</span><span class="p">)</span></div>
-        <span class="c1"># await get_running_loop().sock_sendall(</span>
-        <span class="c1">#     self.socket, b&#39;&#39;.join(buffers_to_send))</span>
 
 <div class="viewcode-block" id="VirtualCircuitManager.events_off"><a class="viewcode-back" href="../../../async-clients.html#caproto.asyncio.client.VirtualCircuitManager.events_off">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">events_off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1400,19 +1463,15 @@
         <span class="c1"># to create a fresh VirtualCiruit and VirtualCircuitManager.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">circuit_managers</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
-        <span class="c1"># Clean up the socket if it has not yet been cleared:</span>
-        <span class="k">async</span> <span class="k">def</span> <span class="nf">shutdown_old_socket</span><span class="p">(</span><span class="n">sock</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">sock</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SHUT_WR</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
             <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
-                <span class="k">pass</span>
-
-            <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-        <span class="n">sock</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="p">,</span> <span class="kc">None</span>
-
-        <span class="k">if</span> <span class="n">sock</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_tasks</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">shutdown_old_socket</span><span class="p">(</span><span class="n">sock</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span>
+                    <span class="s1">&#39;VirtualCircuitManager transport close error&#39;</span>
+                <span class="p">)</span>
+            <span class="k">finally</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">transport</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="n">tags</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;their_address&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">address</span><span class="p">}</span>
         <span class="k">if</span> <span class="n">reconnect</span><span class="p">:</span>
@@ -1428,13 +1487,14 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Not attempting reconnection&#39;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">tags</span><span class="p">)</span>
 
+<div class="viewcode-block" id="VirtualCircuitManager.disconnect"><a class="viewcode-back" href="../../../async-clients.html#caproto.asyncio.client.VirtualCircuitManager.disconnect">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disconnected</span><span class="p">(</span><span class="n">reconnect</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Shutting down ThreadPoolExecutor for user callbacks&quot;</span><span class="p">,</span>
-                       <span class="n">extra</span><span class="o">=</span><span class="n">tags</span><span class="p">)</span>
+                       <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;their_address&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">address</span><span class="p">})</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_callback_executor</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
 
-<div class="viewcode-block" id="VirtualCircuitManager.disconnect"><a class="viewcode-back" href="../../../async-clients.html#caproto.asyncio.client.VirtualCircuitManager.disconnect">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disconnected</span><span class="p">()</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Circuit manager disconnected by user&#39;</span><span class="p">)</span></div></div>
@@ -2270,28 +2330,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

@@ -37,7 +37,7 @@
            - CHAR 
            - 
                  Length(29)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_acknowledge_severity
@@ -46,7 +46,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_acknowledge_transient
@@ -55,7 +55,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_status
@@ -64,7 +64,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - bit_0
@@ -72,6 +72,7 @@
            - Bit 0
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_1
@@ -79,6 +80,7 @@
            - Bit 1
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_10
@@ -86,6 +88,7 @@
            - Bit 10
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_11
@@ -93,6 +96,7 @@
            - Bit 11
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_12
@@ -100,6 +104,7 @@
            - Bit 12
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_13
@@ -107,6 +112,7 @@
            - Bit 13
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_14
@@ -114,6 +120,7 @@
            - Bit 14
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_15
@@ -121,6 +128,7 @@
            - Bit 15
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_16
@@ -128,6 +136,7 @@
            - Bit 16
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_17
@@ -135,6 +144,7 @@
            - Bit 17
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_18
@@ -142,6 +152,7 @@
            - Bit 18
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_19
@@ -149,6 +160,7 @@
            - Bit 19
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_2
@@ -156,6 +168,7 @@
            - Bit 2
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_20
@@ -163,6 +176,7 @@
            - Bit 20
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_21
@@ -170,6 +184,7 @@
            - Bit 21
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_22
@@ -177,6 +192,7 @@
            - Bit 22
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_23
@@ -184,6 +200,7 @@
            - Bit 23
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_24
@@ -191,6 +208,7 @@
            - Bit 24
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_25
@@ -198,6 +216,7 @@
            - Bit 25
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_26
@@ -205,6 +224,7 @@
            - Bit 26
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_27
@@ -212,6 +232,7 @@
            - Bit 27
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_28
@@ -219,6 +240,7 @@
            - Bit 28
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_29
@@ -226,6 +248,7 @@
            - Bit 29
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_3
@@ -233,6 +256,7 @@
            - Bit 3
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_30
@@ -240,6 +264,7 @@
            - Bit 30
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_31
@@ -247,6 +272,7 @@
            - Bit 31
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_4
@@ -254,6 +280,7 @@
            - Bit 4
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_5
@@ -261,6 +288,7 @@
            - Bit 5
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_6
@@ -268,6 +296,7 @@
            - Bit 6
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_7
@@ -275,6 +304,7 @@
            - Bit 7
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_8
@@ -282,6 +312,7 @@
            - Bit 8
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - bit_9
@@ -289,6 +320,7 @@
            - Bit 9
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - current_alarm_severity
@@ -297,7 +329,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - dbputfield_process
@@ -306,7 +338,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - description
@@ -315,9 +347,7 @@
            - CHAR 
            - 
                  Length(41)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Get**
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - desired_output_loc
@@ -325,6 +355,7 @@
            - Desired Output Loc
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - device_type
@@ -332,7 +363,7 @@
            - Device Type
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable
@@ -340,7 +371,7 @@
            - Disable
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_alarm_severity
@@ -348,7 +379,7 @@
            - Disable Alarm Sevrty
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_putfield
@@ -356,7 +387,7 @@
            - Disable putField
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_value
@@ -364,7 +395,7 @@
            - Disable Value
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - event_name
@@ -373,7 +404,7 @@
            - CHAR 
            - 
                  Length(40)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - forward_link
@@ -381,7 +412,7 @@
            - Forward Process Link
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - hardware_mask
@@ -390,6 +421,7 @@
            - LONG 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - invalid_outpt_action
@@ -397,6 +429,7 @@
            - INVALID outpt action
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - invalid_output_value
@@ -404,6 +437,7 @@
            - INVALID output value
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - last_value_monitored
@@ -412,6 +446,7 @@
            - LONG 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - lock_count
@@ -420,7 +455,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - new_alarm_severity
@@ -429,7 +464,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - new_alarm_status
@@ -438,7 +473,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - number_of_bits
@@ -447,6 +482,7 @@
            - INT 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - output_mode_select
@@ -454,6 +490,7 @@
            - Output Mode Select
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - output_specification
@@ -461,6 +498,7 @@
            - Output Specification
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - prev_raw_value
@@ -469,6 +507,7 @@
            - LONG 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - prev_readback_value
@@ -477,6 +516,7 @@
            - LONG 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - prev_simulation_mode
@@ -485,6 +525,7 @@
            - ENUM 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - process_at_iocinit
@@ -492,7 +533,7 @@
            - Process at iocInit
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - process_record
@@ -500,8 +541,7 @@
            - Force Processing
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - raw_value
@@ -510,6 +550,7 @@
            - LONG 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - readback_value
@@ -518,6 +559,7 @@
            - LONG 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - record_active
@@ -526,7 +568,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_name
@@ -536,7 +578,7 @@
            - 
                  **Read-only**
                  Length(61)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_type
@@ -545,7 +587,7 @@
            - STRING 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
            - 
     
         *  - reprocess
@@ -554,7 +596,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scan_phase
@@ -562,7 +604,7 @@
            - Scan Phase
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scan_rate
@@ -570,8 +612,7 @@
            - Scan Mechanism
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scanning_disable
@@ -579,7 +620,7 @@
            - Scanning Disable
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scheduling_priority
@@ -587,7 +628,7 @@
            - Scheduling Priority
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - shift
@@ -595,6 +636,7 @@
            - Shift
            - INT 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - sim_mode_async_delay
@@ -602,6 +644,7 @@
            - Sim. Mode Async Delay
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - sim_mode_scan
@@ -609,6 +652,7 @@
            - Sim. Mode Scan
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - simulation_mode
@@ -616,6 +660,7 @@
            - Simulation Mode
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - simulation_mode_link
@@ -623,6 +668,7 @@
            - Simulation Mode Link
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - simulation_mode_severity
@@ -630,6 +676,7 @@
            - Simulation Mode Severity
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - simulation_output_link
@@ -637,6 +684,7 @@
            - Simulation Output Link
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
            - 
     
         *  - time_stamp_event
@@ -644,7 +692,7 @@
            - Time Stamp Event
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - time_stamp_link
@@ -652,7 +700,7 @@
            - Time Stamp Link
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - trace_processing
@@ -660,7 +708,7 @@
            - Trace Processing
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - undefined
@@ -668,7 +716,7 @@
            - Undefined
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - undefined_alarm_severity
@@ -676,7 +724,7 @@
            - Undefined Alarm Sevrty
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
     
@@ -693,6 +741,7 @@
        ~MbbodirectFields.group_read
        ~MbbodirectFields.group_write
        ~MbbodirectFields.publish
+       ~MbbodirectFields.value_write_hook
     
     
 
@@ -712,13 +761,3 @@
 
     
     .. rubric:: pvproperty methods
-    .. method:: description.getter(self, instance)
-        
-
-    
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
-        :language: python
-        :linenos:
-        :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31

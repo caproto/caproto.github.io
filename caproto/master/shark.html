@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Shark (pcap/tcpdump parsing) &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>Shark (pcap/tcpdump parsing) &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script src="_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -53,7 +54,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="index.html" class="icon icon-home"> caproto
           
 
           
@@ -63,7 +64,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -104,8 +105,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -165,6 +167,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -176,7 +180,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/shark.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -215,6 +219,12 @@ pip install caproto<span class="o">[</span>complete<span class="o">]</span>  <sp
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo tcpdump -w some_network_traffic.pcap
 </pre></div>
 </div>
+<p>You may need to specify a particular network interface. For example, if the
+IOCs of interest are on the local machine, use <code class="docutils literal notranslate"><span class="pre">lo</span></code> for local loopback.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo tcpdump -i lo -w some_network_traffic.pcap
+</pre></div>
+</div>
+<p>On Linux and Mac, use <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> to list the available interfaces.</p>
 <p>Extract the information in Python using caproto:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">caproto.sync.shark</span> <span class="kn">import</span> <span class="n">shark</span>
 
@@ -243,6 +253,90 @@ numbers-and-dots form</p></li>
     <span class="n">transport</span><span class="o">=</span><span class="n">UDP</span><span class="p">(</span><span class="n">sport</span><span class="o">=</span><span class="mi">41600</span><span class="p">,</span> <span class="n">dport</span><span class="o">=</span><span class="mi">5064</span><span class="p">,</span> <span class="n">ulen</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="mi">21249</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00\x00\x00\x00\x00\x00\x00\r\x00\x00\x00\x00\x00\x00\x00\x00\x00\x06\x00\x10\x00\x05\x00\r\x00\x00\xe0\xdb\x00\x00\xe0\xdb</span><span class="s1">rpi:color</span><span class="se">\x00\x00\x00\x00\x00\x00\x00</span><span class="s1">&#39;</span><span class="p">),</span>
     <span class="n">ethernet</span><span class="o">=</span><span class="n">Ethernet</span><span class="p">(</span><span class="n">dst</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xff\xff\xff\xff\xff\xff</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;tp</span><span class="se">\xfd\xf2</span><span class="s1">K?&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">IP</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">76</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="mi">10227</span><span class="p">,</span> <span class="n">off</span><span class="o">=</span><span class="mi">16384</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="mi">64496</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xc0\xa8</span><span class="s1">V</span><span class="se">\x15</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xff\xff\xff\xff</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">opts</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">UDP</span><span class="p">(</span><span class="n">sport</span><span class="o">=</span><span class="mi">41600</span><span class="p">,</span> <span class="n">dport</span><span class="o">=</span><span class="mi">5064</span><span class="p">,</span> <span class="n">ulen</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="mi">21249</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00\x00\x00\x00\x00\x00\x00\r\x00\x00\x00\x00\x00\x00\x00\x00\x00\x06\x00\x10\x00\x05\x00\r\x00\x00\xe0\xdb\x00\x00\xe0\xdb</span><span class="s1">rpi:color</span><span class="se">\x00\x00\x00\x00\x00\x00\x00</span><span class="s1">&#39;</span><span class="p">))),</span>
     <span class="n">ip</span><span class="o">=</span><span class="n">IP</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">76</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="mi">10227</span><span class="p">,</span> <span class="n">off</span><span class="o">=</span><span class="mi">16384</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="mi">64496</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xc0\xa8</span><span class="s1">V</span><span class="se">\x15</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xff\xff\xff\xff</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">opts</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">UDP</span><span class="p">(</span><span class="n">sport</span><span class="o">=</span><span class="mi">41600</span><span class="p">,</span> <span class="n">dport</span><span class="o">=</span><span class="mi">5064</span><span class="p">,</span> <span class="n">ulen</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="mi">21249</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00\x00\x00\x00\x00\x00\x00\r\x00\x00\x00\x00\x00\x00\x00\x00\x00\x06\x00\x10\x00\x05\x00\r\x00\x00\xe0\xdb\x00\x00\xe0\xdb</span><span class="s1">rpi:color</span><span class="se">\x00\x00\x00\x00\x00\x00\x00</span><span class="s1">&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>This data can be used, for example, to perform statistical analysis of IOC
+connection performance.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Analyze IOCs response times for channel creation (connection).</span>
+
+<span class="sd">Example:</span>
+
+<span class="sd">$ python benchmark.py some_network_traffic.pcap</span>
+<span class="sd">0 channel creation requests were unanswered during this capture.</span>
+
+
+<span class="sd">Raw data:</span>
+<span class="sd">          PV  server_address             t        dt</span>
+<span class="sd">0   simple:A   192.168.86.22  1.614185e+09  0.014851</span>
+<span class="sd">1   simple:B   192.168.86.22  1.614185e+09  0.014851</span>
+<span class="sd">2   simple:C   192.168.86.22  1.614185e+09  0.014851</span>
+<span class="sd">3  rpi:color  192.168.86.245  1.614185e+09  0.150308</span>
+
+
+<span class="sd">Aggregated stats by server address:</span>
+<span class="sd">                count      mean  std       min       25%       50%       75%       max</span>
+<span class="sd">server_address</span>
+<span class="sd">192.168.86.22     3.0  0.014851  0.0  0.014851  0.014851  0.014851  0.014851  0.014851</span>
+<span class="sd">192.168.86.245    1.0  0.150308  NaN  0.150308  0.150308  0.150308  0.150308  0.150308</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">from</span> <span class="nn">caproto</span> <span class="kn">import</span> <span class="n">CreateChanRequest</span><span class="p">,</span> <span class="n">CreateChanResponse</span>
+<span class="kn">from</span> <span class="nn">caproto.sync.shark</span> <span class="kn">import</span> <span class="n">shark</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="n">Pair</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Pair&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;request&quot;</span><span class="p">,</span> <span class="s2">&quot;response&quot;</span><span class="p">])</span>
+<span class="n">Record</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Record&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;PV&quot;</span><span class="p">,</span> <span class="s2">&quot;server_address&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;dt&quot;</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">match_request_and_response</span><span class="p">(</span><span class="n">parsed</span><span class="p">):</span>
+    <span class="s2">&quot;From a stream of parsed CA traffic, extract channel creation request/response pairs.&quot;</span>
+    <span class="n">unanswered_requests</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">pairs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">parsed</span><span class="p">:</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">command</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">CreateChanRequest</span><span class="p">):</span>
+            <span class="n">unanswered_requests</span><span class="p">[</span><span class="n">command</span><span class="o">.</span><span class="n">cid</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">CreateChanResponse</span><span class="p">):</span>
+            <span class="n">request_item</span> <span class="o">=</span> <span class="n">unanswered_requests</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">command</span><span class="o">.</span><span class="n">cid</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">pairs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="n">request_item</span><span class="p">,</span> <span class="n">item</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">pairs</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">unanswered_requests</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">build_record_from_request_and_response_pair</span><span class="p">(</span><span class="n">pair</span><span class="p">):</span>
+    <span class="s2">&quot;Extract PV name, server address, absolute time t, and request/response dt.&quot;</span>
+    <span class="n">request</span><span class="p">,</span> <span class="n">response</span> <span class="o">=</span> <span class="n">pair</span>
+    <span class="n">record</span> <span class="o">=</span> <span class="n">Record</span><span class="p">(</span>
+        <span class="n">PV</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+        <span class="n">server_address</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">dst</span><span class="p">,</span>
+        <span class="n">t</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
+        <span class="n">dt</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">-</span> <span class="n">request</span><span class="o">.</span><span class="n">timestamp</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">record</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">parsed</span> <span class="o">=</span> <span class="n">shark</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="n">pairs</span><span class="p">,</span> <span class="n">unanswered</span> <span class="o">=</span> <span class="n">match_request_and_response</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">unanswered</span><span class="p">)</span><span class="si">}</span><span class="s2"> channel creation requests were unanswered during this capture.&quot;</span><span class="p">)</span>
+    <span class="n">records</span> <span class="o">=</span> <span class="p">[</span><span class="n">build_record_from_request_and_response_pair</span><span class="p">(</span><span class="n">pair</span><span class="p">)</span> <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">records</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nothing to analyze.&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">Record</span><span class="o">.</span><span class="n">_fields</span><span class="p">)</span>
+    <span class="n">server_stats</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;server_address&quot;</span><span class="p">)[</span><span class="s2">&quot;dt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Raw data:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Aggregated stats by server address:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">server_stats</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>This feature is also accessible through a CLI:</p>
@@ -326,37 +420,29 @@ else to install.</p></li>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="loggers.html" class="btn btn-neutral float-right" title="Logging" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="servers.html" class="btn btn-neutral float-left" title="Servers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="loggers.html" class="btn btn-neutral float-right" title="Logging" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="servers.html" class="btn btn-neutral float-left" title="Servers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

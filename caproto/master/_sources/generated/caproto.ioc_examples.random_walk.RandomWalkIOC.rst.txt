@@ -27,14 +27,14 @@
     
         *  - dt
            - ``dt``
-           - 
+           - Delta time [sec]
            - float 
            - 
            - 
     
         *  - x
            - ``x``
-           - 
+           - The random float value
            - float 
            - 
                  **Startup**
@@ -72,7 +72,7 @@
     .. rubric:: pvproperty methods
     .. method:: x.startup(self, instance, async_lib)
         
-    Periodically update the value
+    This is a startup hook which periodically updates the value.
     
 
     
@@ -82,12 +82,12 @@
         <summary>Source code: x.startup</summary>
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/ioc_examples/random_walk.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/ioc_examples/random_walk.py
         :language: python
         :linenos:
         :dedent: 0
-        :lineno-start: 10
-        :lines: 10-21
+        :lineno-start: 16
+        :lines: 16-27
 
     .. raw:: html
 

@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.server.stats.BasicStatusHelper &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>caproto.server.stats.BasicStatusHelper &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script src="../_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -53,7 +54,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="../index.html" class="icon icon-home"> caproto
           
 
           
@@ -63,7 +64,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -97,21 +98,18 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../iocs.html">Input-Output Controllers (IOCs)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../iocs.html#why-write-an-ioc-using-caproto">Why Write an IOC Using Caproto?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../iocs.html#using-the-ioc-examples">Using the IOC Examples</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../iocs.html#examples">Examples</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#simple-ioc">Simple IOC</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#write-to-a-file-when-a-pv-is-written-to">Write to a File When a PV is Written To</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#random-walk">Random Walk</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#i-o-interrupt">I/O Interrupt</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#macros-for-pv-names">Macros for PV names</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#subgroups">Subgroups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#records">Records</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#rpc-server-from-python-function">RPC Server from Python Function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#inline-style-read-and-write-customization">“Inline” Style Read and Write Customization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#mini-beamline">Mini-Beamline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#more">More…</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../iocs.html#helpers">Helpers</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../iocs.html#autosave">Autosave</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../iocs.html#status-statistics">Status / Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#pvgroup">PVGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#pvproperty">pvproperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#general-tips">General Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#how-do-i">How do I…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#examples">Examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../iocs.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../iocs.html#autosave">Autosave</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../iocs.html#status-statistics">Status / Statistics</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="caproto.server.stats.StatusHelper.html">caproto.server.stats.StatusHelper</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">caproto.server.stats.BasicStatusHelper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.server.stats.PeriodicStatusHelper.html">caproto.server.stats.PeriodicStatusHelper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.server.stats.MemoryTracingHelper.html">caproto.server.stats.MemoryTracingHelper</a></li>
 </ul>
 </li>
 </ul>
@@ -122,8 +120,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../servers.html">Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -183,6 +182,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -196,7 +197,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/generated/caproto.server.stats.BasicStatusHelper.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -214,7 +215,7 @@
 <h1>caproto.server.stats.BasicStatusHelper<a class="headerlink" href="#caproto-server-stats-basicstatushelper" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="caproto.server.stats.BasicStatusHelper">
-<em class="property">class </em><code class="sig-prename descclassname">caproto.server.stats.</code><code class="sig-name descname">BasicStatusHelper</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/server/stats.html#BasicStatusHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.server.stats.BasicStatusHelper" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.server.stats.</span></code><code class="sig-name descname"><span class="pre">BasicStatusHelper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/server/stats.html#BasicStatusHelper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.server.stats.BasicStatusHelper" title="Permalink to this definition">¶</a></dt>
 <dd><table class="colwidths-auto docutils align-default" id="id1">
 <caption><span class="caption-text">BasicStatusHelper pvproperties</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <thead>
@@ -230,7 +231,7 @@
 <tr class="row-even"><td><p>application_directory</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">APP_DIR</span></code></p></td>
 <td><p>Startup directory (__main__)</p></td>
-<td><p>str (<a class="reference internal" href="caproto.server.records.WaveformFields.html#caproto.server.records.WaveformFields" title="caproto.server.records.WaveformFields"><code class="xref py py-class docutils literal notranslate"><span class="pre">waveform</span></code></a>)</p></td>
+<td><p>str (<code class="xref py py-class docutils literal notranslate"><span class="pre">waveform</span></code>)</p></td>
 <td><p><strong>Read-only</strong>
 Length(255)</p></td>
 <td></td>
@@ -238,14 +239,14 @@ Length(255)</p></td>
 <tr class="row-odd"><td><p>cpu_count</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">CPU_CNT</span></code></p></td>
 <td><p>Number of CPUs</p></td>
-<td><p>int (<a class="reference internal" href="caproto.server.records.LonginFields.html#caproto.server.records.LonginFields" title="caproto.server.records.LonginFields"><code class="xref py py-class docutils literal notranslate"><span class="pre">longin</span></code></a>)</p></td>
+<td><p>int (<code class="xref py py-class docutils literal notranslate"><span class="pre">longin</span></code>)</p></td>
 <td><p><strong>Read-only</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>engineer</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">ENGINEER</span></code></p></td>
 <td><p>Who is responsible for this abomination</p></td>
-<td><p>str (<a class="reference internal" href="caproto.server.records.StringinFields.html#caproto.server.records.StringinFields" title="caproto.server.records.StringinFields"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringin</span></code></a>)</p></td>
+<td><p>str (<code class="xref py py-class docutils literal notranslate"><span class="pre">stringin</span></code>)</p></td>
 <td><p><strong>Read-only</strong>
 Length(40)</p></td>
 <td></td>
@@ -253,7 +254,7 @@ Length(40)</p></td>
 <tr class="row-odd"><td><p>hostname</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">HOSTNAME</span></code></p></td>
 <td></td>
-<td><p>str (<a class="reference internal" href="caproto.server.records.StringinFields.html#caproto.server.records.StringinFields" title="caproto.server.records.StringinFields"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringin</span></code></a>)</p></td>
+<td><p>str (<code class="xref py py-class docutils literal notranslate"><span class="pre">stringin</span></code>)</p></td>
 <td><p><strong>Read-only</strong>
 Length(255)</p></td>
 <td></td>
@@ -261,14 +262,14 @@ Length(255)</p></td>
 <tr class="row-even"><td><p>kernel_version</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">KERNEL_VERS</span></code></p></td>
 <td><p>OS/Kernel Version</p></td>
-<td><p>str (<a class="reference internal" href="caproto.server.records.StringinFields.html#caproto.server.records.StringinFields" title="caproto.server.records.StringinFields"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringin</span></code></a>)</p></td>
+<td><p>str (<code class="xref py py-class docutils literal notranslate"><span class="pre">stringin</span></code>)</p></td>
 <td><p><strong>Read-only</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>location</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">LOCATION</span></code></p></td>
 <td></td>
-<td><p>str (<a class="reference internal" href="caproto.server.records.StringinFields.html#caproto.server.records.StringinFields" title="caproto.server.records.StringinFields"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringin</span></code></a>)</p></td>
+<td><p>str (<code class="xref py py-class docutils literal notranslate"><span class="pre">stringin</span></code>)</p></td>
 <td><p><strong>Read-only</strong>
 Length(40)</p></td>
 <td></td>
@@ -276,14 +277,14 @@ Length(40)</p></td>
 <tr class="row-even"><td><p>parent_pid</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">PARENT_ID</span></code></p></td>
 <td><p>Parent Process ID</p></td>
-<td><p>int (<a class="reference internal" href="caproto.server.records.AiFields.html#caproto.server.records.AiFields" title="caproto.server.records.AiFields"><code class="xref py py-class docutils literal notranslate"><span class="pre">ai</span></code></a>)</p></td>
+<td><p>int (<code class="xref py py-class docutils literal notranslate"><span class="pre">ai</span></code>)</p></td>
 <td><p><strong>Read-only</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>process_id</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">PROCESS_ID</span></code></p></td>
 <td></td>
-<td><p>int (<a class="reference internal" href="caproto.server.records.AiFields.html#caproto.server.records.AiFields" title="caproto.server.records.AiFields"><code class="xref py py-class docutils literal notranslate"><span class="pre">ai</span></code></a>)</p></td>
+<td><p>int (<code class="xref py py-class docutils literal notranslate"><span class="pre">ai</span></code>)</p></td>
 <td><p><strong>Read-only</strong>
 <strong>Startup</strong></p></td>
 <td></td>
@@ -291,7 +292,7 @@ Length(40)</p></td>
 <tr class="row-even"><td><p>source_filename</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">SOURCE_FILE</span></code></p></td>
 <td><p>Top-level PVGroup source filename</p></td>
-<td><p>str (<a class="reference internal" href="caproto.server.records.WaveformFields.html#caproto.server.records.WaveformFields" title="caproto.server.records.WaveformFields"><code class="xref py py-class docutils literal notranslate"><span class="pre">waveform</span></code></a>)</p></td>
+<td><p>str (<code class="xref py py-class docutils literal notranslate"><span class="pre">waveform</span></code>)</p></td>
 <td><p><strong>Read-only</strong>
 Length(255)</p></td>
 <td></td>
@@ -299,14 +300,14 @@ Length(255)</p></td>
 <tr class="row-odd"><td><p>sysreset</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">SYSRESET</span></code></p></td>
 <td><p>IOC exit / restart (if using procServ)</p></td>
-<td><p>int (<a class="reference internal" href="caproto.server.records.SubFields.html#caproto.server.records.SubFields" title="caproto.server.records.SubFields"><code class="xref py py-class docutils literal notranslate"><span class="pre">sub</span></code></a>)</p></td>
+<td><p>int (<code class="xref py py-class docutils literal notranslate"><span class="pre">sub</span></code>)</p></td>
 <td><p><strong>Put</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>version</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">EPICS_VERSION</span></code></p></td>
 <td><p>EPICS (caproto) version</p></td>
-<td><p>str (<a class="reference internal" href="caproto.server.records.StringinFields.html#caproto.server.records.StringinFields" title="caproto.server.records.StringinFields"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringin</span></code></a>)</p></td>
+<td><p>str (<code class="xref py py-class docutils literal notranslate"><span class="pre">stringin</span></code>)</p></td>
 <td><p><strong>Read-only</strong></p></td>
 <td></td>
 </tr>
@@ -348,57 +349,57 @@ Length(255)</p></td>
 <p class="rubric">pvproperty methods</p>
 <dl class="py method">
 <dt id="caproto.server.stats.BasicStatusHelper.process_id.startup">
-<code class="sig-prename descclassname">process_id.</code><code class="sig-name descname">startup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">instance</span></em>, <em class="sig-param"><span class="n">async_lib</span></em><span class="sig-paren">)</span><a class="headerlink" href="#caproto.server.stats.BasicStatusHelper.process_id.startup" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">process_id.</span></code><code class="sig-name descname"><span class="pre">startup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">async_lib</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#caproto.server.stats.BasicStatusHelper.process_id.startup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <details>
-<summary>Source code: process_id.startup</summary><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@process_id</span><span class="o">.</span><span class="n">startup</span>
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">process_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_id</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent_pid</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">())</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LOCATION&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">engineer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ENGINEER&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+<summary>Source code: process_id.startup</summary><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@process_id</span><span class="o">.</span><span class="n">startup</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">process_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_id</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent_pid</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">())</span>
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LOCATION&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">engineer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ENGINEER&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
 
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">root_source</span> <span class="o">=</span> <span class="n">get_source_file</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root_pvgroup</span><span class="p">))</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_filename</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">root_source</span><span class="p">))</span>
-        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Unable to determine source path&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">root_source</span> <span class="o">=</span> <span class="n">get_source_file</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root_pvgroup</span><span class="p">))</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_filename</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">root_source</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Unable to determine source path&#39;</span><span class="p">)</span>
 
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">main_path</span> <span class="o">=</span> <span class="n">get_source_file</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s1">&#39;__main__&#39;</span><span class="p">])</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">application_directory</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">main_path</span><span class="o">.</span><span class="n">parent</span><span class="p">))</span>
-        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-            <span class="c1"># Built-in is OK</span>
-            <span class="o">...</span>
-        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Unable to determine startup directory&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">main_path</span> <span class="o">=</span> <span class="n">get_source_file</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s1">&#39;__main__&#39;</span><span class="p">])</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">application_directory</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">main_path</span><span class="o">.</span><span class="n">parent</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="c1"># Built-in is OK</span>
+        <span class="o">...</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Unable to determine startup directory&#39;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">psutil</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_count</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">psutil</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">psutil</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_count</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">psutil</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())</span>
 </pre></div>
 </td></tr></table></div>
 </details>
@@ -411,37 +412,29 @@ Length(255)</p></td>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="caproto.server.stats.PeriodicStatusHelper.html" class="btn btn-neutral float-right" title="caproto.server.stats.PeriodicStatusHelper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="caproto.server.stats.StatusHelper.html" class="btn btn-neutral float-left" title="caproto.server.stats.StatusHelper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="caproto.server.stats.PeriodicStatusHelper.html" class="btn btn-neutral float-right" title="caproto.server.stats.PeriodicStatusHelper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="caproto.server.stats.StatusHelper.html" class="btn btn-neutral float-left" title="caproto.server.stats.StatusHelper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>caproto.server.PvpropertyInteger &mdash; caproto 0+untagged.1.g8344678 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/doctr-versions-menu.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="caproto.server.PvpropertyShort" href="caproto.server.PvpropertyShort.html" />
+    <link rel="prev" title="caproto.server.PvpropertyFloat" href="caproto.server.PvpropertyFloat.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> caproto
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0+untagged.1.g8344678
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install Caproto</a></li>
+</ul>
+<p class="caption"><span class="caption-text">EPICS Clients and Servers</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../clients.html">Clients</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../iocs.html">Input-Output Controllers (IOCs)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#why-write-an-ioc-using-caproto">Why Write an IOC Using Caproto?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#using-the-ioc-examples">Using the IOC Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#pvgroup">PVGroup</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../iocs.html#pvproperty">pvproperty</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../iocs.html#supported-data-types">Supported data types</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="caproto.server.PvpropertyBoolEnum.html">caproto.server.PvpropertyBoolEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.server.PvpropertyByte.html">caproto.server.PvpropertyByte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.server.PvpropertyChar.html">caproto.server.PvpropertyChar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.server.PvpropertyDouble.html">caproto.server.PvpropertyDouble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.server.PvpropertyEnum.html">caproto.server.PvpropertyEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.server.PvpropertyFloat.html">caproto.server.PvpropertyFloat</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">caproto.server.PvpropertyInteger</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.server.PvpropertyShort.html">caproto.server.PvpropertyShort</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.server.PvpropertyString.html">caproto.server.PvpropertyString</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelByte.html">caproto.ChannelByte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelChar.html">caproto.ChannelChar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelDouble.html">caproto.ChannelDouble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelEnum.html">caproto.ChannelEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelFloat.html">caproto.ChannelFloat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelInteger.html">caproto.ChannelInteger</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelShort.html">caproto.ChannelShort</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelString.html">caproto.ChannelString</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../iocs.html#integers-and-floats">Integers and floats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../iocs.html#strings">Strings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../iocs.html#enums">Enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../iocs.html#booleans">Booleans</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../iocs.html#hooks">Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../iocs.html#records">Records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../iocs.html#id1">API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#general-tips">General Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#how-do-i">How do I…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#helpers">Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../records.html">Records</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shark.html">Shark (pcap/tcpdump parsing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loggers.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookiecutter.html">IOC Template Cookiecutters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environment_variables.html">Environment Variables</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">Writing Your Own Channel Access Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Core API Documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">pvAccess</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pva/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pva/clients.html">Synchronous Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pva/iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pva/api.html">PVAccess API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../protocol-compliance.html">Details of our Protocol Compliance for CA Nerds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers.html">Caproto-in-a-box</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">caproto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../iocs.html">Input-Output Controllers (IOCs)</a> &raquo;</li>
+        
+      <li>caproto.server.PvpropertyInteger</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/generated/caproto.server.PvpropertyInteger.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="caproto-server-pvpropertyinteger">
+<h1>caproto.server.PvpropertyInteger<a class="headerlink" href="#caproto-server-pvpropertyinteger" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="caproto.server.PvpropertyInteger">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.server.</span></code><code class="sig-name descname"><span class="pre">PvpropertyInteger</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pvname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pvspec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/server/server.html#PvpropertyInteger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.server.PvpropertyInteger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read-write LONG data for pvproperty (32 bits).</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">auth_read</span></code>(hostname, username, data_type, *)</p></td>
+<td><p>Get DBR data and native data, converted to a specific type</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">auth_write</span></code>(hostname, username, data, …[, …])</p></td>
+<td><p>Data write hook for clients.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_length</span></code>(value)</p></td>
+<td><p>Calculate the number of elements given a value</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_access</span></code>(hostname, username)</p></td>
+<td><p>This always returns <code class="docutils literal notranslate"><span class="pre">AccessRights.READ|AccessRights.WRITE</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_field</span></code>(field)</p></td>
+<td><p>Get a field by name.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_compatible_array</span></code>(value)</p></td>
+<td><p>Check if the provided value is a compatible array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">post_state_change</span></code>(state, new_value)</p></td>
+<td><p>This is called by the server when it exits its StateUpdateContext.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pre_state_change</span></code>(state, new_value)</p></td>
+<td><p>This is called by the server when it enters its StateUpdateContext.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess_value</span></code>(value)</p></td>
+<td><p>Pre-process values destined for verify_value and write</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">publish</span></code>(flags)</p></td>
+<td><p>Publish data to appropriate queues matching the SubscriptionSpec.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code>(data_type)</p></td>
+<td><p>The top-level read method, with a specific requested data type.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subscribe</span></code>(queue, sub_spec, sub)</p></td>
+<td><p>Subscribe a queue for the given subscription specification.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unsubscribe</span></code>(queue, sub_spec)</p></td>
+<td><p>Unsubscribe a queue for the given subscription specification.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_fields</span></code>(value)</p></td>
+<td><p>This is a hook to update field instance data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">verify_value</span></code>(value)</p></td>
+<td><p>The top-level dbr-facing “write” method.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code>(value, *[, flags, verify_value, …])</p></td>
+<td><p>Write data from native Python types.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_from_dbr</span></code>(data, data_type, metadata, *)</p></td>
+<td><p>Write data from a provided DBR data type.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_metadata</span></code>([publish, units, precision, …])</p></td>
+<td><p>Write metadata, optionally publishing information to clients.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">alarm</span></code></p></td>
+<td><p>The ChannelAlarm associated with this data</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_type</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">epics_timestamp</span></code></p></td>
+<td><p>EPICS timestamp as (seconds, nanoseconds) since EPICS epoch</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">length</span></code></p></td>
+<td><p>The number of elements (length) of the current value</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">lower_alarm_limit</span></code></p></td>
+<td><p>Read-only access to lower_alarm_limit data</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">lower_ctrl_limit</span></code></p></td>
+<td><p>Read-only access to lower_ctrl_limit data</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">lower_disp_limit</span></code></p></td>
+<td><p>Read-only access to lower_disp_limit data</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">lower_warning_limit</span></code></p></td>
+<td><p>Read-only access to lower_warning_limit data</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_length</span></code></p></td>
+<td><p>The maximum number of elements (length) this channel can hold</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">severity</span></code></p></td>
+<td><p>Alarm severity</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">status</span></code></p></td>
+<td><p>Alarm status</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">timestamp</span></code></p></td>
+<td><p>Read-only access to timestamp data</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">units</span></code></p></td>
+<td><p>Read-only access to units data</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">upper_alarm_limit</span></code></p></td>
+<td><p>Read-only access to upper_alarm_limit data</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">upper_ctrl_limit</span></code></p></td>
+<td><p>Read-only access to upper_ctrl_limit data</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">upper_disp_limit</span></code></p></td>
+<td><p>Read-only access to upper_disp_limit data</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">upper_warning_limit</span></code></p></td>
+<td><p>Read-only access to upper_warning_limit data</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code></p></td>
+<td><p>Read-only access to value data</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="caproto.server.PvpropertyShort.html" class="btn btn-neutral float-right" title="caproto.server.PvpropertyShort" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="caproto.server.PvpropertyFloat.html" class="btn btn-neutral float-left" title="caproto.server.PvpropertyFloat" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Daniel Allan.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

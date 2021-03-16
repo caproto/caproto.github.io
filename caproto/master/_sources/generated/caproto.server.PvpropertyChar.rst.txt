@@ -1,0 +1,67 @@
+﻿caproto.server.PvpropertyChar
+=============================
+
+
+.. currentmodule:: caproto.server
+
+.. autoclass:: PvpropertyChar
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PvpropertyChar.auth_read
+       ~PvpropertyChar.auth_write
+       ~PvpropertyChar.calculate_length
+       ~PvpropertyChar.check_access
+       ~PvpropertyChar.get_field
+       ~PvpropertyChar.is_compatible_array
+       ~PvpropertyChar.post_state_change
+       ~PvpropertyChar.pre_state_change
+       ~PvpropertyChar.preprocess_value
+       ~PvpropertyChar.publish
+       ~PvpropertyChar.read
+       ~PvpropertyChar.subscribe
+       ~PvpropertyChar.unsubscribe
+       ~PvpropertyChar.update_fields
+       ~PvpropertyChar.verify_value
+       ~PvpropertyChar.write
+       ~PvpropertyChar.write_from_dbr
+       ~PvpropertyChar.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PvpropertyChar.alarm
+       ~PvpropertyChar.data_type
+       ~PvpropertyChar.epics_timestamp
+       ~PvpropertyChar.length
+       ~PvpropertyChar.long_string_max_length
+       ~PvpropertyChar.max_length
+       ~PvpropertyChar.severity
+       ~PvpropertyChar.status
+       ~PvpropertyChar.timestamp
+       ~PvpropertyChar.value
+    
+
+    

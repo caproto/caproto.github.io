@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.server.autosave.AutosaveHelper &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>caproto.server.autosave.AutosaveHelper &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script src="../_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -53,7 +54,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="../index.html" class="icon icon-home"> caproto
           
 
           
@@ -63,7 +64,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -97,23 +98,18 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../iocs.html">Input-Output Controllers (IOCs)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../iocs.html#why-write-an-ioc-using-caproto">Why Write an IOC Using Caproto?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../iocs.html#using-the-ioc-examples">Using the IOC Examples</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../iocs.html#examples">Examples</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#simple-ioc">Simple IOC</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#write-to-a-file-when-a-pv-is-written-to">Write to a File When a PV is Written To</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#random-walk">Random Walk</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#i-o-interrupt">I/O Interrupt</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#macros-for-pv-names">Macros for PV names</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#subgroups">Subgroups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#records">Records</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#rpc-server-from-python-function">RPC Server from Python Function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#inline-style-read-and-write-customization">“Inline” Style Read and Write Customization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#mini-beamline">Mini-Beamline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#more">More…</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../iocs.html#helpers">Helpers</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../iocs.html#autosave">Autosave</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../iocs.html#status-statistics">Status / Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#pvgroup">PVGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#pvproperty">pvproperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#general-tips">General Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#how-do-i">How do I…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#examples">Examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../iocs.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../iocs.html#autosave">Autosave</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">caproto.server.autosave.AutosaveHelper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.server.autosave.RotatingFileManager.html">caproto.server.autosave.RotatingFileManager</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../iocs.html#status-statistics">Status / Statistics</a></li>
 </ul>
 </li>
 </ul>
@@ -122,8 +118,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../servers.html">Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -183,6 +180,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -196,7 +195,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/generated/caproto.server.autosave.AutosaveHelper.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -214,7 +213,7 @@
 <h1>caproto.server.autosave.AutosaveHelper<a class="headerlink" href="#caproto-server-autosave-autosavehelper" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="caproto.server.autosave.AutosaveHelper">
-<em class="property">class </em><code class="sig-prename descclassname">caproto.server.autosave.</code><code class="sig-name descname">AutosaveHelper</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">file_manager</span><span class="p">:</span> <span class="n"><a class="reference internal" href="caproto.server.autosave.RotatingFileManager.html#caproto.server.autosave.RotatingFileManager" title="caproto.server.autosave.RotatingFileManager">caproto.server.autosave.RotatingFileManager</a></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/server/autosave.html#AutosaveHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.server.autosave.AutosaveHelper" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.server.autosave.</span></code><code class="sig-name descname"><span class="pre">AutosaveHelper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_manager</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="caproto.server.autosave.RotatingFileManager.html#caproto.server.autosave.RotatingFileManager" title="caproto.server.autosave.RotatingFileManager"><span class="pre">caproto.server.autosave.RotatingFileManager</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/server/autosave.html#AutosaveHelper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.server.autosave.AutosaveHelper" title="Permalink to this definition">¶</a></dt>
 <dd><table class="colwidths-auto docutils align-default" id="id1">
 <caption><span class="caption-text">AutosaveHelper pvproperties</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <thead>
@@ -294,7 +293,7 @@
 <p class="rubric">pvproperty methods</p>
 <dl class="py method">
 <dt id="caproto.server.autosave.AutosaveHelper.autosave_hook.startup">
-<code class="sig-prename descclassname">autosave_hook.</code><code class="sig-name descname">startup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">instance</span></em>, <em class="sig-param"><span class="n">async_lib</span></em><span class="sig-paren">)</span><a class="headerlink" href="#caproto.server.autosave.AutosaveHelper.autosave_hook.startup" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">autosave_hook.</span></code><code class="sig-name descname"><span class="pre">startup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">async_lib</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#caproto.server.autosave.AutosaveHelper.autosave_hook.startup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A startup hook which lives until the IOC exits.</p>
@@ -304,31 +303,31 @@ periodically - at <cite>self.period</cite> seconds - saves autosave data to
 <cite>self.filename</cite>.</p>
 </div></blockquote>
 <details>
-<summary>Source code: autosave_hook.startup</summary><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@autosave_hook</span><span class="o">.</span><span class="n">startup</span>
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">autosave_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        A startup hook which lives until the IOC exits.</span>
+<summary>Source code: autosave_hook.startup</summary><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@autosave_hook</span><span class="o">.</span><span class="n">startup</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">autosave_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A startup hook which lives until the IOC exits.</span>
 
-<span class="sd">        Initially restores values from the autosave file `self.filename`, then</span>
-<span class="sd">        periodically - at `self.period` seconds - saves autosave data to</span>
-<span class="sd">        `self.filename`.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">restore_from_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="k">await</span> <span class="n">async_lib</span><span class="o">.</span><span class="n">library</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">period</span><span class="p">)</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="sd">    Initially restores values from the autosave file `self.filename`, then</span>
+<span class="sd">    periodically - at `self.period` seconds - saves autosave data to</span>
+<span class="sd">    `self.filename`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">restore_from_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">await</span> <span class="n">async_lib</span><span class="o">.</span><span class="n">library</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">period</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
 </details>
@@ -341,37 +340,29 @@ periodically - at <cite>self.period</cite> seconds - saves autosave data to
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="caproto.server.autosave.RotatingFileManager.html" class="btn btn-neutral float-right" title="caproto.server.autosave.RotatingFileManager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="caproto.ioc_examples.scan_rate.ScanRateIOC.html" class="btn btn-neutral float-left" title="caproto.ioc_examples.scan_rate.ScanRateIOC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="caproto.server.autosave.RotatingFileManager.html" class="btn btn-neutral float-right" title="caproto.server.autosave.RotatingFileManager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="caproto.ioc_examples.scan_rate.ScanRateIOC.html" class="btn btn-neutral float-left" title="caproto.ioc_examples.scan_rate.ScanRateIOC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

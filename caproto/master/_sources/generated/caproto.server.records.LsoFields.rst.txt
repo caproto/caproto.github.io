@@ -37,7 +37,7 @@
            - CHAR 
            - 
                  Length(29)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_acknowledge_severity
@@ -46,7 +46,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_acknowledge_transient
@@ -55,7 +55,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_status
@@ -64,7 +64,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - current_alarm_severity
@@ -73,7 +73,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - dbputfield_process
@@ -82,7 +82,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - description
@@ -91,9 +91,7 @@
            - CHAR 
            - 
                  Length(41)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Get**
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - desired_output_link
@@ -101,6 +99,7 @@
            - Desired Output Link
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - device_type
@@ -108,7 +107,7 @@
            - Device Type
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable
@@ -116,7 +115,7 @@
            - Disable
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_alarm_severity
@@ -124,7 +123,7 @@
            - Disable Alarm Sevrty
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_putfield
@@ -132,7 +131,7 @@
            - Disable putField
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_value
@@ -140,7 +139,7 @@
            - Disable Value
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - event_name
@@ -149,7 +148,7 @@
            - CHAR 
            - 
                  Length(40)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - forward_link
@@ -157,7 +156,7 @@
            - Forward Process Link
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - invalid_output_action
@@ -165,6 +164,7 @@
            - INVALID Output Action
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - invalid_output_value
@@ -173,6 +173,7 @@
            - CHAR 
            - 
                  Length(40)
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - length_of_oval
@@ -181,6 +182,7 @@
            - LONG 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - length_of_val
@@ -189,6 +191,7 @@
            - LONG 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - lock_count
@@ -197,7 +200,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - new_alarm_severity
@@ -206,7 +209,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - new_alarm_status
@@ -215,7 +218,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - output_mode_select
@@ -223,6 +226,7 @@
            - Output Mode Select
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - output_specification
@@ -230,6 +234,7 @@
            - Output Specification
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - post_archive_monitors
@@ -237,6 +242,7 @@
            - Post Archive Monitors
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - post_value_monitors
@@ -244,6 +250,7 @@
            - Post Value Monitors
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - prev_simulation_mode
@@ -252,6 +259,7 @@
            - ENUM 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - process_at_iocinit
@@ -259,7 +267,7 @@
            - Process at iocInit
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - process_record
@@ -267,8 +275,7 @@
            - Force Processing
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_active
@@ -277,7 +284,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_name
@@ -287,7 +294,7 @@
            - 
                  **Read-only**
                  Length(61)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_type
@@ -296,7 +303,7 @@
            - STRING 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
            - 
     
         *  - reprocess
@@ -305,7 +312,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scan_phase
@@ -313,7 +320,7 @@
            - Scan Phase
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scan_rate
@@ -321,8 +328,7 @@
            - Scan Mechanism
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scanning_disable
@@ -330,7 +336,7 @@
            - Scanning Disable
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scheduling_priority
@@ -338,7 +344,7 @@
            - Scheduling Priority
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - sim_mode_async_delay
@@ -346,6 +352,7 @@
            - Sim. Mode Async Delay
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - sim_mode_scan
@@ -353,6 +360,7 @@
            - Sim. Mode Scan
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - simulation_mode
@@ -360,6 +368,7 @@
            - Simulation Mode
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - simulation_mode_link
@@ -367,6 +376,7 @@
            - Simulation Mode link
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - simulation_mode_severity
@@ -374,6 +384,7 @@
            - Simulation Mode Severity
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - simulation_output_link
@@ -381,6 +392,7 @@
            - Simulation Output Link
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - size_of_buffers
@@ -389,6 +401,7 @@
            - INT 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.LsoFields`
            - 
     
         *  - time_stamp_event
@@ -396,7 +409,7 @@
            - Time Stamp Event
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - time_stamp_link
@@ -404,7 +417,7 @@
            - Time Stamp Link
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - trace_processing
@@ -412,7 +425,7 @@
            - Trace Processing
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - undefined
@@ -420,7 +433,7 @@
            - Undefined
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - undefined_alarm_severity
@@ -428,7 +441,7 @@
            - Undefined Alarm Sevrty
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
     
@@ -445,6 +458,7 @@
        ~LsoFields.group_read
        ~LsoFields.group_write
        ~LsoFields.publish
+       ~LsoFields.value_write_hook
     
     
 
@@ -464,13 +478,3 @@
 
     
     .. rubric:: pvproperty methods
-    .. method:: description.getter(self, instance)
-        
-
-    
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
-        :language: python
-        :linenos:
-        :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31

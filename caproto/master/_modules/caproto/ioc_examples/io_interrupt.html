@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.ioc_examples.io_interrupt &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>caproto.ioc_examples.io_interrupt &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
         <script src="../../../_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="../../../index.html" class="icon icon-home"> caproto
           
 
           
@@ -61,7 +62,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -97,8 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../servers.html">Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -158,6 +160,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -183,14 +187,15 @@
             
   <h1>Source code for caproto.ioc_examples.io_interrupt</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python3</span>
-<span class="kn">import</span> <span class="nn">termios</span>
-<span class="kn">import</span> <span class="nn">fcntl</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">import</span> <span class="nn">atexit</span>
+<span class="kn">import</span> <span class="nn">fcntl</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">termios</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
+<span class="kn">import</span> <span class="nn">threading</span>
 
-<span class="kn">from</span> <span class="nn">caproto.server</span> <span class="kn">import</span> <span class="n">pvproperty</span><span class="p">,</span> <span class="n">PVGroup</span><span class="p">,</span> <span class="n">ioc_arg_parser</span><span class="p">,</span> <span class="n">run</span>
+<span class="kn">from</span> <span class="nn">caproto.server</span> <span class="kn">import</span> <span class="n">PVGroup</span><span class="p">,</span> <span class="n">ioc_arg_parser</span><span class="p">,</span> <span class="n">pvproperty</span><span class="p">,</span> <span class="n">run</span>
 
 
 <div class="viewcode-block" id="start_io_interrupt_monitor"><a class="viewcode-back" href="../../../generated/caproto.ioc_examples.io_interrupt.start_io_interrupt_monitor.html#caproto.ioc_examples.io_interrupt.start_io_interrupt_monitor">[docs]</a><span class="k">def</span> <span class="nf">start_io_interrupt_monitor</span><span class="p">(</span><span class="n">new_value_callback</span><span class="p">):</span>
@@ -242,7 +247,20 @@
 
 
 <div class="viewcode-block" id="IOInterruptIOC"><a class="viewcode-back" href="../../../generated/caproto.ioc_examples.io_interrupt.IOInterruptIOC.html#caproto.ioc_examples.io_interrupt.IOInterruptIOC">[docs]</a><span class="k">class</span> <span class="nc">IOInterruptIOC</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
-    <span class="n">keypress</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An IOC that updates on keypress events.</span>
+
+<span class="sd">    PVs</span>
+<span class="sd">    ---</span>
+<span class="sd">    keypress (str)</span>
+<span class="sd">        The latest key pressed in the IOC terminal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">keypress</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Latest keypress&quot;</span><span class="p">,</span>
+        <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="c1"># NOTE the decorator used here:</span>
     <span class="nd">@keypress</span><span class="o">.</span><span class="n">startup</span>
@@ -253,9 +271,11 @@
 
         <span class="c1"># Start a separate thread that monitors keyboard input, telling it to</span>
         <span class="c1"># put new values into our async-friendly queue</span>
-        <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">start_io_interrupt_monitor</span><span class="p">,</span>
-                                  <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                  <span class="n">kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">new_value_callback</span><span class="o">=</span><span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">))</span>
+        <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span>
+            <span class="n">target</span><span class="o">=</span><span class="n">start_io_interrupt_monitor</span><span class="p">,</span>
+            <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">new_value_callback</span><span class="o">=</span><span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">)</span>
+        <span class="p">)</span>
         <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
         <span class="c1"># Loop and grab items from the queue one at a time</span>
@@ -271,7 +291,8 @@
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">ioc_options</span><span class="p">,</span> <span class="n">run_options</span> <span class="o">=</span> <span class="n">ioc_arg_parser</span><span class="p">(</span>
         <span class="n">default_prefix</span><span class="o">=</span><span class="s1">&#39;io:&#39;</span><span class="p">,</span>
-        <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Run an IOC that updates via I/O interrupt on key-press events.&#39;</span><span class="p">)</span>
+        <span class="n">desc</span><span class="o">=</span><span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">IOInterruptIOC</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">),</span>
+    <span class="p">)</span>
 
     <span class="n">ioc</span> <span class="o">=</span> <span class="n">IOInterruptIOC</span><span class="p">(</span><span class="o">**</span><span class="n">ioc_options</span><span class="p">)</span>
     <span class="n">run</span><span class="p">(</span><span class="n">ioc</span><span class="o">.</span><span class="n">pvdb</span><span class="p">,</span> <span class="o">**</span><span class="n">run_options</span><span class="p">)</span>
@@ -281,28 +302,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

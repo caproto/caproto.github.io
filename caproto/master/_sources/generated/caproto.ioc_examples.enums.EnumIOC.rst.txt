@@ -28,28 +28,28 @@
         *  - bi
            - ``bi``
            - 
-           - ENUM (:class:`bi <caproto.server.records.BiFields>`)
+           - ENUM (:class:`bi <caproto.server.records.records.BiFields>`)
            - 
            - 
     
         *  - bo
            - ``bo``
            - 
-           - ENUM (:class:`bo <caproto.server.records.BoFields>`)
+           - ENUM (:class:`bo <caproto.server.records.records.BoFields>`)
            - 
            - 
     
         *  - enum_class
            - ``enum_class``
            - 
-           - MyEnum (:class:`mbbi <caproto.server.records.MbbiFields>`)
+           - MyEnum (:class:`mbbi <caproto.server.records.records.MbbiFields>`)
            - 
            - 
     
         *  - mbbi
            - ``mbbi``
            - 
-           - ENUM (:class:`mbbi <caproto.server.records.MbbiFields>`)
+           - ENUM (:class:`mbbi <caproto.server.records.records.MbbiFields>`)
            - 
            - 
     

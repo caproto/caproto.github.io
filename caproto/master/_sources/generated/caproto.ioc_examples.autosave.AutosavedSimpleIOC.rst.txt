@@ -28,7 +28,7 @@
         *  - A
            - ``A``
            - 
-           - int (:class:`ao <caproto.server.records.AoFields>`)
+           - int (:class:`ao <caproto.server.records.records.AoFields>`)
            - 
            - 
     

@@ -28,14 +28,14 @@
         *  - A
            - ``A``
            - 
-           - float (:class:`ai <caproto.server.records.AiFields>`)
+           - float (:class:`ai <caproto.server.records.records.AiFields>`)
            - 
            - 
     
         *  - B
            - ``B``
            - 
-           - float (:class:`ao <caproto.server.records.AoFields>`)
+           - float (:class:`ao <caproto.server.records.records.AoFields>`)
            - 
                  **Put**
            - 
@@ -43,21 +43,21 @@
         *  - C
            - ``C``
            - The C pvproperty
-           - float (:class:`ai <caproto.server.records.AiFields>`)
+           - float (:class:`ai <caproto.server.records.records.AiFields>`)
            - 
            - 
     
         *  - D
            - ``D``
            - 
-           - float (:class:`ao <caproto.server.records.AoFields>`)
+           - float (:class:`ao <caproto.server.records.records.AoFields>`)
            - 
            - 
     
         *  - E
            - ``E``
            - 
-           - STRING (:class:`stringin <caproto.server.records.StringinFields>`)
+           - STRING (:class:`stringin <caproto.server.records.records.StringinFields>`)
            - 
            - 
     

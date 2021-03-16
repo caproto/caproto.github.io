@@ -28,14 +28,14 @@
         *  - access
            - ``ACCESS``
            - CA Security access level to this IOC
-           - ENUM (:class:`mbbo <caproto.server.records.MbboFields>`)
+           - ENUM (:class:`mbbo <caproto.server.records.records.MbboFields>`)
            - 
            - 
     
         *  - ca_client_count
            - ``CA_CLNT_CNT``
            - Number of CA clients [not implemented]
-           - int (:class:`longin <caproto.server.records.LonginFields>`)
+           - int (:class:`longin <caproto.server.records.records.LonginFields>`)
            - 
                  **Read-only**
            - 
@@ -43,7 +43,7 @@
         *  - ca_connection_count
            - ``CA_CONN_CNT``
            - Number of CA Connections [not implemented]
-           - int (:class:`longin <caproto.server.records.LonginFields>`)
+           - int (:class:`longin <caproto.server.records.records.LonginFields>`)
            - 
                  **Read-only**
            - 
@@ -51,7 +51,7 @@
         *  - fd_count
            - ``FD_CNT``
            - Allocated File Descriptors
-           - int (:class:`ai <caproto.server.records.AiFields>`)
+           - int (:class:`ai <caproto.server.records.records.AiFields>`)
            - 
                  **Read-only**
            - 
@@ -59,7 +59,7 @@
         *  - fd_free
            - ``FD_FREE``
            - Available FDs
-           - int (:class:`calc <caproto.server.records.CalcFields>`)
+           - int (:class:`calc <caproto.server.records.records.CalcFields>`)
            - 
                  **Read-only**
            - 
@@ -67,7 +67,7 @@
         *  - fd_max
            - ``FD_MAX``
            - Max File Descriptors
-           - int (:class:`ai <caproto.server.records.AiFields>`)
+           - int (:class:`ai <caproto.server.records.records.AiFields>`)
            - 
                  **Read-only**
            - 
@@ -75,16 +75,15 @@
         *  - heartbeat
            - ``HEARTBEAT``
            - 1 Hz counter since startup
-           - int (:class:`calcout <caproto.server.records.CalcoutFields>`)
+           - int (:class:`calcout <caproto.server.records.records.CalcoutFields>`)
            - 
                  **Read-only**
-                 **Startup**
            - 
     
         *  - ioc_cpu_load
            - ``IOC_CPU_LOAD``
            - 
-           - float (:class:`ai <caproto.server.records.AiFields>`)
+           - float (:class:`ai <caproto.server.records.records.AiFields>`)
            - 
                  **Read-only**
            - 
@@ -92,7 +91,7 @@
         *  - mem_free
            - ``MEM_FREE``
            - Memory free (including swap).
-           - int (:class:`ai <caproto.server.records.AiFields>`)
+           - int (:class:`ai <caproto.server.records.records.AiFields>`)
            - 
                  **Read-only**
            - 
@@ -100,7 +99,7 @@
         *  - mem_max
            - ``MEM_MAX``
            - 
-           - int (:class:`ai <caproto.server.records.AiFields>`)
+           - int (:class:`ai <caproto.server.records.records.AiFields>`)
            - 
                  **Read-only**
            - 
@@ -108,7 +107,7 @@
         *  - mem_used
            - ``MEM_USED``
            - Memory used.
-           - int (:class:`ai <caproto.server.records.AiFields>`)
+           - int (:class:`ai <caproto.server.records.records.AiFields>`)
            - 
                  **Read-only**
            - 
@@ -116,7 +115,7 @@
         *  - num_threads
            - ``NumThreads``
            - Number of threads in use
-           - int (:class:`longin <caproto.server.records.LonginFields>`)
+           - int (:class:`longin <caproto.server.records.records.LonginFields>`)
            - 
                  **Read-only**
            - 
@@ -124,7 +123,7 @@
         *  - record_count
            - ``RECORD_CNT``
            - Number of records
-           - int (:class:`ai <caproto.server.records.AiFields>`)
+           - int (:class:`ai <caproto.server.records.records.AiFields>`)
            - 
                  **Read-only**
            - 
@@ -132,7 +131,7 @@
         *  - start_count
            - ``START_CNT``
            - Startup count, if autosave is working
-           - int (:class:`calcout <caproto.server.records.CalcoutFields>`)
+           - int (:class:`calcout <caproto.server.records.records.CalcoutFields>`)
            - 
                  **Read-only**
                  **Startup**
@@ -141,7 +140,7 @@
         *  - start_tod
            - ``STARTTOD``
            - Time and date of startup
-           - str (:class:`stringin <caproto.server.records.StringinFields>`)
+           - str (:class:`stringin <caproto.server.records.records.StringinFields>`)
            - 
                  **Read-only**
                  Length(100)
@@ -151,7 +150,7 @@
         *  - susp_task_count
            - ``SUSP_TASK_CNT``
            - Number of Suspended Tasks [not implemented]
-           - int (:class:`longin <caproto.server.records.LonginFields>`)
+           - int (:class:`longin <caproto.server.records.records.LonginFields>`)
            - 
                  **Read-only**
            - 
@@ -159,7 +158,7 @@
         *  - sys_cpu_load
            - ``SYS_CPU_LOAD``
            - CPU load
-           - float (:class:`ai <caproto.server.records.AiFields>`)
+           - float (:class:`ai <caproto.server.records.records.AiFields>`)
            - 
                  **Read-only**
            - 
@@ -167,17 +166,16 @@
         *  - time_of_day
            - ``TOD``
            - Current time and date
-           - str (:class:`stringin <caproto.server.records.StringinFields>`)
+           - str (:class:`stringin <caproto.server.records.records.StringinFields>`)
            - 
                  **Read-only**
                  Length(100)
-                 **Startup**
            - 
     
         *  - update_period
            - ``UPD_TIME``
            - Basic stats update rate
-           - float (:class:`ao <caproto.server.records.AoFields>`)
+           - float (:class:`ao <caproto.server.records.records.AoFields>`)
            - 
                  **Startup**
            - 
@@ -185,7 +183,7 @@
         *  - uptime
            - ``UPTIME``
            - Elapsed time since start
-           - int (:class:`longin <caproto.server.records.LonginFields>`)
+           - int (:class:`longin <caproto.server.records.records.LonginFields>`)
            - 
                  **Read-only**
            - 
@@ -220,34 +218,11 @@
 
     
     .. rubric:: pvproperty methods
-    .. method:: heartbeat.startup(self, instance, async_lib)
-        
-
-    
-    .. raw:: html
-
-        <details>
-        <summary>Source code: heartbeat.startup</summary>
-
-    
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/server.py
-        :language: python
-        :linenos:
-        :dedent: 0
-        :lineno-start: 766
-        :lines: 766-795
-
-    .. raw:: html
-
-        </details>
-        <br/>
-
-    
     .. method:: start_count.startup(self, instance, async_lib)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/stats.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/stats.py
         :language: python
         :linenos:
         :dedent: 4
@@ -257,35 +232,12 @@
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/stats.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/stats.py
         :language: python
         :linenos:
         :dedent: 4
         :lineno-start: 213
         :lines: 213-215
-    .. method:: time_of_day.startup(self, instance, async_lib)
-        
-
-    
-    .. raw:: html
-
-        <details>
-        <summary>Source code: time_of_day.startup</summary>
-
-    
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/server.py
-        :language: python
-        :linenos:
-        :dedent: 0
-        :lineno-start: 766
-        :lines: 766-795
-
-    .. raw:: html
-
-        </details>
-        <br/>
-
-    
     .. method:: update_period.startup(self, instance, async_lib)
         
 
@@ -296,7 +248,7 @@
         <summary>Source code: update_period.startup</summary>
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/stats.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/stats.py
         :language: python
         :linenos:
         :dedent: 0

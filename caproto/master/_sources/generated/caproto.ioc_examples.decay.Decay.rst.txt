@@ -27,38 +27,37 @@
     
         *  - K
            - ``K``
-           - 
+           - The decay constant.
            - float 
            - 
            - 
     
         *  - Tvar
            - ``Tvar``
-           - 
+           - The scale of the initial excursion.
            - float 
            - 
            - 
     
         *  - done
            - ``done``
-           - 
-           - float (:class:`ai <caproto.server.records.AiFields>`)
+           - Whether the current value is 'close' to the setpoint or not.
+           - bool (:class:`bi <caproto.server.records.records.BiFields>`)
            - 
                  **Read-only**
            - 
     
         *  - readback
            - ``I``
-           - 
-           - float (:class:`ai <caproto.server.records.AiFields>`)
+           - The current readback value.
+           - float (:class:`ai <caproto.server.records.records.AiFields>`)
            - 
                  **Read-only**
-                 **Startup**
            - 
     
         *  - setpoint
            - ``SP``
-           - 
+           - Where to go - the setpoint.
            - float 
            - 
                  **Put**
@@ -77,6 +76,7 @@
     
        ~Decay.group_read
        ~Decay.group_write
+       ~Decay.reset_t0
     
     
 
@@ -94,26 +94,3 @@
 
     
     .. rubric:: pvproperty methods
-    .. method:: readback.startup(self, instance, async_lib)
-        
-
-    
-    .. raw:: html
-
-        <details>
-        <summary>Source code: readback.startup</summary>
-
-    
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/server.py
-        :language: python
-        :linenos:
-        :dedent: 0
-        :lineno-start: 766
-        :lines: 766-795
-
-    .. raw:: html
-
-        </details>
-        <br/>
-
-    

@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto._circuit &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>caproto._circuit &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="../../index.html" class="icon icon-home"> caproto
           
 
           
@@ -61,7 +62,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -97,8 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../servers.html">Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -158,6 +160,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -182,41 +186,41 @@
            <div itemprop="articleBody">
             
   <h1>Source code for caproto._circuit</h1><div class="highlight"><pre>
-<span></span><span class="c1"># This module defines classes that encapsulate key abstractions in</span>
-<span class="c1"># Channel Access: Channels and VirtualCircuits. Each VirtualCircuit is a</span>
-<span class="c1"># companion to a TCP socket managed by a higher-level client or server</span>
-<span class="c1"># implementation, updating its state in response to incoming and outgoing TCP</span>
-<span class="c1"># bytestreams. Each Channel belongs to a circuit, and tracks state particular</span>
-<span class="c1"># to that Channel. A ClientChannel provides convenience methods for composing</span>
-<span class="c1"># Requests; a ServerChannel provides convenience methods for composing</span>
-<span class="c1"># Responses.</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module defines classes that encapsulate key abstractions in</span>
+<span class="sd">Channel Access: Channels and VirtualCircuits. Each VirtualCircuit is a</span>
+<span class="sd">companion to a TCP socket managed by a higher-level client or server</span>
+<span class="sd">implementation, updating its state in response to incoming and outgoing TCP</span>
+<span class="sd">bytestreams. Each Channel belongs to a circuit, and tracks state particular</span>
+<span class="sd">to that Channel. A ClientChannel provides convenience methods for composing</span>
+<span class="sd">Requests; a ServerChannel provides convenience methods for composing</span>
+<span class="sd">Responses.</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
 <span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span>
-<span class="kn">import</span> <span class="nn">os</span>
 
-<span class="kn">from</span> <span class="nn">._commands</span> <span class="kn">import</span> <span class="p">(</span><span class="n">AccessRightsResponse</span><span class="p">,</span> <span class="n">CreateChFailResponse</span><span class="p">,</span>
-                        <span class="n">ClearChannelRequest</span><span class="p">,</span> <span class="n">ClearChannelResponse</span><span class="p">,</span>
-                        <span class="n">ClientNameRequest</span><span class="p">,</span> <span class="n">CreateChanRequest</span><span class="p">,</span>
-                        <span class="n">CreateChanResponse</span><span class="p">,</span> <span class="n">EventAddRequest</span><span class="p">,</span> <span class="n">EventAddResponse</span><span class="p">,</span>
-                        <span class="n">EventCancelRequest</span><span class="p">,</span> <span class="n">EventCancelResponse</span><span class="p">,</span>
-                        <span class="n">HostNameRequest</span><span class="p">,</span> <span class="n">ReadNotifyRequest</span><span class="p">,</span>
-                        <span class="n">ReadRequest</span><span class="p">,</span> <span class="n">ReadNotifyResponse</span><span class="p">,</span> <span class="n">ReadResponse</span><span class="p">,</span>
-                        <span class="n">SearchResponse</span><span class="p">,</span> <span class="n">ServerDisconnResponse</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">._commands</span> <span class="kn">import</span> <span class="p">(</span><span class="n">AccessRightsResponse</span><span class="p">,</span> <span class="n">ClearChannelRequest</span><span class="p">,</span>
+                        <span class="n">ClearChannelResponse</span><span class="p">,</span> <span class="n">ClientNameRequest</span><span class="p">,</span>
+                        <span class="n">CreateChanRequest</span><span class="p">,</span> <span class="n">CreateChanResponse</span><span class="p">,</span>
+                        <span class="n">CreateChFailResponse</span><span class="p">,</span> <span class="n">EventAddRequest</span><span class="p">,</span>
+                        <span class="n">EventAddResponse</span><span class="p">,</span> <span class="n">EventCancelRequest</span><span class="p">,</span>
+                        <span class="n">EventCancelResponse</span><span class="p">,</span> <span class="n">HostNameRequest</span><span class="p">,</span>
+                        <span class="n">ReadNotifyRequest</span><span class="p">,</span> <span class="n">ReadNotifyResponse</span><span class="p">,</span> <span class="n">ReadRequest</span><span class="p">,</span>
+                        <span class="n">ReadResponse</span><span class="p">,</span> <span class="n">SearchResponse</span><span class="p">,</span> <span class="n">ServerDisconnResponse</span><span class="p">,</span>
                         <span class="n">VersionRequest</span><span class="p">,</span> <span class="n">VersionResponse</span><span class="p">,</span> <span class="n">WriteNotifyRequest</span><span class="p">,</span>
                         <span class="n">WriteNotifyResponse</span><span class="p">,</span> <span class="n">WriteRequest</span><span class="p">,</span>
-                        <span class="n">read_from_bytestream</span><span class="p">,)</span>
-<span class="kn">from</span> <span class="nn">._state</span> <span class="kn">import</span> <span class="p">(</span><span class="n">ChannelState</span><span class="p">,</span> <span class="n">CircuitState</span><span class="p">,</span> <span class="n">get_exception</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="p">(</span><span class="n">CLIENT</span><span class="p">,</span> <span class="n">SERVER</span><span class="p">,</span> <span class="n">NEED_DATA</span><span class="p">,</span> <span class="n">DISCONNECTED</span><span class="p">,</span> <span class="n">CaprotoKeyError</span><span class="p">,</span>
-                     <span class="n">CaprotoValueError</span><span class="p">,</span> <span class="n">CaprotoRuntimeError</span><span class="p">,</span> <span class="n">CaprotoError</span><span class="p">,</span>
-                     <span class="n">CaprotoTypeError</span><span class="p">,</span>
-                     <span class="n">parse_channel_filter</span><span class="p">,</span> <span class="n">parse_record_field</span><span class="p">,</span>
-                     <span class="n">ChannelFilter</span><span class="p">,</span> <span class="n">ThreadsafeCounter</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">._dbr</span> <span class="kn">import</span> <span class="p">(</span><span class="n">ChannelType</span><span class="p">,</span> <span class="n">SubscriptionType</span><span class="p">,</span> <span class="n">field_types</span><span class="p">,</span> <span class="n">native_type</span><span class="p">)</span>
+                        <span class="n">read_from_bytestream</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">._constants</span> <span class="kn">import</span> <span class="n">DEFAULT_PROTOCOL_VERSION</span>
+<span class="kn">from</span> <span class="nn">._dbr</span> <span class="kn">import</span> <span class="n">ChannelType</span><span class="p">,</span> <span class="n">SubscriptionType</span><span class="p">,</span> <span class="n">field_types</span><span class="p">,</span> <span class="n">native_type</span>
 <span class="kn">from</span> <span class="nn">._log</span> <span class="kn">import</span> <span class="n">ComposableLogAdapter</span>
+<span class="kn">from</span> <span class="nn">._state</span> <span class="kn">import</span> <span class="n">ChannelState</span><span class="p">,</span> <span class="n">CircuitState</span><span class="p">,</span> <span class="n">get_exception</span>
 <span class="kn">from</span> <span class="nn">._status</span> <span class="kn">import</span> <span class="n">CAStatus</span>
-
+<span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="p">(</span><span class="n">CLIENT</span><span class="p">,</span> <span class="n">DISCONNECTED</span><span class="p">,</span> <span class="n">NEED_DATA</span><span class="p">,</span> <span class="n">SERVER</span><span class="p">,</span> <span class="n">CaprotoError</span><span class="p">,</span>
+                     <span class="n">CaprotoKeyError</span><span class="p">,</span> <span class="n">CaprotoRuntimeError</span><span class="p">,</span> <span class="n">CaprotoTypeError</span><span class="p">,</span>
+                     <span class="n">CaprotoValueError</span><span class="p">,</span> <span class="n">ChannelFilter</span><span class="p">,</span> <span class="n">ThreadsafeCounter</span><span class="p">,</span>
+                     <span class="n">parse_channel_filter</span><span class="p">,</span> <span class="n">parse_record_field</span><span class="p">)</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;VirtualCircuit&#39;</span><span class="p">,</span> <span class="s1">&#39;ClientChannel&#39;</span><span class="p">,</span> <span class="s1">&#39;ServerChannel&#39;</span><span class="p">,</span>
            <span class="s1">&#39;extract_address&#39;</span><span class="p">)</span>
@@ -372,7 +376,7 @@
         <span class="n">total_received</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">byteslike</span><span class="p">)</span> <span class="k">for</span> <span class="n">byteslike</span> <span class="ow">in</span> <span class="n">buffers</span><span class="p">)</span>
         <span class="n">commands</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">total_received</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Zero-length recv; sending disconnect notification&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Circuit disconnected&#39;</span><span class="p">)</span>
             <span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">DISCONNECTED</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">commands</span><span class="p">,</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">+=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">buffers</span><span class="p">)</span>
@@ -1206,28 +1210,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

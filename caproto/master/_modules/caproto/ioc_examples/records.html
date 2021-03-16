@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.ioc_examples.records &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>caproto.ioc_examples.records &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
         <script src="../../../_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="../../../index.html" class="icon icon-home"> caproto
           
 
           
@@ -61,7 +62,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -97,8 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../servers.html">Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -158,6 +160,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -184,7 +188,7 @@
   <h1>Source code for caproto.ioc_examples.records</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="kn">import</span> <span class="nn">caproto</span>
-<span class="kn">from</span> <span class="nn">caproto.server</span> <span class="kn">import</span> <span class="n">pvproperty</span><span class="p">,</span> <span class="n">PVGroup</span><span class="p">,</span> <span class="n">ioc_arg_parser</span><span class="p">,</span> <span class="n">run</span>
+<span class="kn">from</span> <span class="nn">caproto.server</span> <span class="kn">import</span> <span class="n">PVGroup</span><span class="p">,</span> <span class="n">ioc_arg_parser</span><span class="p">,</span> <span class="n">pvproperty</span><span class="p">,</span> <span class="n">run</span>
 
 
 <div class="viewcode-block" id="RecordMockingIOC"><a class="viewcode-back" href="../../../generated/caproto.ioc_examples.records.RecordMockingIOC.html#caproto.ioc_examples.records.RecordMockingIOC">[docs]</a><span class="k">class</span> <span class="nc">RecordMockingIOC</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
@@ -260,6 +264,9 @@
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Custom field specifications of A:&#39;</span><span class="p">,</span> <span class="n">RecordMockingIOC</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">fields</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Custom field specifications of B:&#39;</span><span class="p">,</span> <span class="n">RecordMockingIOC</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">fields</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Custom field specifications of C:&#39;</span><span class="p">,</span> <span class="n">RecordMockingIOC</span><span class="o">.</span><span class="n">C</span><span class="o">.</span><span class="n">fields</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Custom field specifications of D:&#39;</span><span class="p">,</span> <span class="n">RecordMockingIOC</span><span class="o">.</span><span class="n">D</span><span class="o">.</span><span class="n">fields</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Custom field specifications of E:&#39;</span><span class="p">,</span> <span class="n">RecordMockingIOC</span><span class="o">.</span><span class="n">E</span><span class="o">.</span><span class="n">fields</span><span class="p">)</span>
 
     <span class="c1"># Run IOC.</span>
     <span class="n">run</span><span class="p">(</span><span class="n">ioc</span><span class="o">.</span><span class="n">pvdb</span><span class="p">,</span> <span class="o">**</span><span class="n">run_options</span><span class="p">)</span>
@@ -269,28 +276,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

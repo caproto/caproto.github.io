@@ -37,7 +37,7 @@
            - CHAR 
            - 
                  Length(29)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - adjustment_offset
@@ -45,6 +45,7 @@
            - Adjustment Offset
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - adjustment_slope
@@ -52,6 +53,7 @@
            - Adjustment Slope
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - alarm_acknowledge_severity
@@ -60,7 +62,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_acknowledge_transient
@@ -69,7 +71,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_deadband
@@ -77,6 +79,7 @@
            - Alarm Deadband
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - alarm_filter_time_constant
@@ -84,6 +87,7 @@
            - Alarm Filter Time Constant
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - alarm_filter_value
@@ -92,6 +96,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - alarm_status
@@ -100,7 +105,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - archive_deadband
@@ -108,6 +113,7 @@
            - Archive Deadband
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
                  **Get**
                  **Put**
            - 
@@ -118,7 +124,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - current_raw_value
@@ -126,6 +132,7 @@
            - Current Raw Value
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - dbputfield_process
@@ -134,7 +141,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - description
@@ -143,9 +150,7 @@
            - CHAR 
            - 
                  Length(41)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Get**
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - device_type
@@ -153,7 +158,7 @@
            - Device Type
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable
@@ -161,7 +166,7 @@
            - Disable
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_alarm_severity
@@ -169,7 +174,7 @@
            - Disable Alarm Sevrty
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_putfield
@@ -177,7 +182,7 @@
            - Disable putField
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_value
@@ -185,7 +190,7 @@
            - Disable Value
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - display_precision
@@ -193,6 +198,7 @@
            - Display Precision
            - INT 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
                  **Get**
                  **Put**
            - 
@@ -202,6 +208,7 @@
            - Engineer Units Full
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - engineer_units_low
@@ -209,6 +216,7 @@
            - Engineer Units Low
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - engineering_units
@@ -217,6 +225,7 @@
            - CHAR 
            - 
                  Length(16)
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - event_name
@@ -225,7 +234,7 @@
            - CHAR 
            - 
                  Length(40)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - forward_link
@@ -233,7 +242,7 @@
            - Forward Process Link
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - high_alarm_limit
@@ -241,7 +250,7 @@
            - High Alarm Limit
            - DOUBLE 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
                  **Get**
                  **Put**
            - 
@@ -251,7 +260,7 @@
            - High Operating Range
            - DOUBLE 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
                  **Get**
                  **Put**
            - 
@@ -261,7 +270,7 @@
            - High Severity
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
            - 
     
         *  - hihi_alarm_limit
@@ -269,7 +278,7 @@
            - Hihi Alarm Limit
            - DOUBLE 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
                  **Get**
                  **Put**
            - 
@@ -279,7 +288,7 @@
            - Hihi Severity
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
            - 
     
         *  - initialized
@@ -288,6 +297,7 @@
            - INT 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - input_specification
@@ -295,6 +305,7 @@
            - Input Specification
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - last_val_monitored
@@ -303,6 +314,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - last_value_alarmed
@@ -311,6 +323,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - last_value_archived
@@ -319,6 +332,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - lastbreak_point
@@ -327,6 +341,7 @@
            - INT 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - linearization
@@ -334,6 +349,7 @@
            - Linearization
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - lock_count
@@ -342,7 +358,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - lolo_alarm_limit
@@ -350,7 +366,7 @@
            - Lolo Alarm Limit
            - DOUBLE 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
                  **Get**
                  **Put**
            - 
@@ -360,7 +376,7 @@
            - Lolo Severity
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
            - 
     
         *  - low_alarm_limit
@@ -368,7 +384,7 @@
            - Low Alarm Limit
            - DOUBLE 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
                  **Get**
                  **Put**
            - 
@@ -378,7 +394,7 @@
            - Low Operating Range
            - DOUBLE 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
                  **Get**
                  **Put**
            - 
@@ -388,7 +404,7 @@
            - Low Severity
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records._Limits`
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
            - 
     
         *  - monitor_deadband
@@ -396,6 +412,7 @@
            - Monitor Deadband
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
                  **Get**
                  **Put**
            - 
@@ -406,7 +423,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - new_alarm_status
@@ -415,7 +432,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - prev_simulation_mode
@@ -424,6 +441,7 @@
            - ENUM 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - previous_raw_value
@@ -432,6 +450,7 @@
            - LONG 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - process_at_iocinit
@@ -439,7 +458,7 @@
            - Process at iocInit
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - process_record
@@ -447,8 +466,7 @@
            - Force Processing
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - raw_offset
@@ -456,6 +474,7 @@
            - Raw Offset
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - raw_to_egu_offset
@@ -463,6 +482,7 @@
            - Raw to EGU Offset
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - raw_to_egu_slope
@@ -470,6 +490,7 @@
            - Raw to EGU Slope
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - record_active
@@ -478,7 +499,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_name
@@ -488,7 +509,7 @@
            - 
                  **Read-only**
                  Length(61)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_type
@@ -497,7 +518,7 @@
            - STRING 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
            - 
     
         *  - reprocess
@@ -506,7 +527,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scan_phase
@@ -514,7 +535,7 @@
            - Scan Phase
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scan_rate
@@ -522,8 +543,7 @@
            - Scan Mechanism
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scanning_disable
@@ -531,7 +551,7 @@
            - Scanning Disable
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scheduling_priority
@@ -539,7 +559,7 @@
            - Scheduling Priority
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - sim_mode_async_delay
@@ -547,6 +567,7 @@
            - Sim. Mode Async Delay
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - sim_mode_scan
@@ -554,6 +575,7 @@
            - Sim. Mode Scan
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - simulation_input_link
@@ -561,6 +583,7 @@
            - Simulation Input Link
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - simulation_mode
@@ -568,6 +591,7 @@
            - Simulation Mode
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - simulation_mode_link
@@ -575,6 +599,7 @@
            - Simulation Mode Link
            - STRING 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - simulation_mode_severity
@@ -582,6 +607,7 @@
            - Simulation Mode Severity
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - simulation_value
@@ -589,6 +615,7 @@
            - Simulation Value
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - smoothing
@@ -596,6 +623,7 @@
            - Smoothing
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AiFields`
            - 
     
         *  - time_stamp_event
@@ -603,7 +631,7 @@
            - Time Stamp Event
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - time_stamp_link
@@ -611,7 +639,7 @@
            - Time Stamp Link
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - trace_processing
@@ -619,7 +647,7 @@
            - Trace Processing
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - undefined
@@ -627,7 +655,7 @@
            - Undefined
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - undefined_alarm_severity
@@ -635,7 +663,7 @@
            - Undefined Alarm Sevrty
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
     
@@ -652,6 +680,7 @@
        ~AiFields.group_read
        ~AiFields.group_write
        ~AiFields.publish
+       ~AiFields.value_write_hook
     
     
 
@@ -675,99 +704,89 @@
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
-    .. method:: description.getter(self, instance)
-        
-
-    
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
-        :language: python
-        :linenos:
-        :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: display_precision.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: high_alarm_limit.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: high_operating_range.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: hihi_alarm_limit.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: lolo_alarm_limit.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: low_alarm_limit.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: low_operating_range.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40
     .. method:: monitor_deadband.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31
+        :lineno-start: 38
+        :lines: 38-40

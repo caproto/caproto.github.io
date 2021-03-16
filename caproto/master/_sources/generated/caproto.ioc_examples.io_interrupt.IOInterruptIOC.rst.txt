@@ -27,9 +27,10 @@
     
         *  - keypress
            - ``keypress``
-           - 
+           - Latest keypress
            - str 
            - 
+                 **Read-only**
                  Length(10)
                  **Startup**
            - 
@@ -74,12 +75,12 @@
         <summary>Source code: keypress.startup</summary>
 
     
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/ioc_examples/io_interrupt.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/ioc_examples/io_interrupt.py
         :language: python
         :linenos:
         :dedent: 0
-        :lineno-start: 64
-        :lines: 64-84
+        :lineno-start: 78
+        :lines: 78-100
 
     .. raw:: html
 

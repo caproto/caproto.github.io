@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto._dbr &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>caproto._dbr &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="../../index.html" class="icon icon-home"> caproto
           
 
           
@@ -61,7 +62,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -97,8 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../servers.html">Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -143,6 +145,8 @@
         <div class="rst-content">
         
           
+
+
 
 
 
@@ -864,19 +868,6 @@
         <span class="p">(</span><span class="s1">&#39;strs&#39;</span><span class="p">,</span> <span class="n">MAX_ENUM_STATES</span> <span class="o">*</span> <span class="p">(</span><span class="n">MAX_ENUM_STRING_SIZE</span> <span class="o">*</span> <span class="n">char_t</span><span class="p">)),</span>
     <span class="p">]</span>
 
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">enum_strings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;Enum byte strings as a tuple&#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">strs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
-                     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_str</span><span class="p">))</span>
-
-    <span class="nd">@enum_strings</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">enum_strings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enum_strings</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">bytes_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">enum_strings</span><span class="p">):</span>
-            <span class="n">bytes_</span> <span class="o">=</span> <span class="n">bytes_</span><span class="p">[:</span><span class="n">MAX_ENUM_STRING_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">strs</span><span class="p">[</span><span class="n">i</span><span class="p">][:]</span> <span class="o">=</span> <span class="n">bytes_</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">MAX_ENUM_STRING_SIZE</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">no_str</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">enum_strings</span><span class="p">)</span>
-
 
 <span class="k">class</span> <span class="nc">DBR_CTRL_CHAR</span><span class="p">(</span><span class="n">ControlTypeUnits</span><span class="p">):</span>
     <span class="n">DBR_ID</span> <span class="o">=</span> <span class="n">ChannelType</span><span class="o">.</span><span class="n">CTRL_CHAR</span>
@@ -1322,28 +1313,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

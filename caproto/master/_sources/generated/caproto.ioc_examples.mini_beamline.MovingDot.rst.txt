@@ -55,7 +55,6 @@
            - float 
            - 
                  **Read-only**
-                 **Get**
            - 
     
         *  - exp
@@ -68,7 +67,7 @@
     
         *  - img_sum
            - ``img_sum``
-           - 
+           - Image sum
            - float 
            - 
                  **Read-only**
@@ -76,14 +75,14 @@
     
         *  - mtrx
            - ``mtrx``
-           - 
+           - Motor X
            - float 
            - 
            - 
     
         *  - mtry
            - ``mtry``
-           - 
+           - Motor Y
            - float 
            - 
            - 
@@ -132,26 +131,3 @@
 
     
     .. rubric:: pvproperty methods
-    .. method:: det.getter(self, instance)
-        
-
-    
-    .. raw:: html
-
-        <details>
-        <summary>Source code: det.getter</summary>
-
-    
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/ioc_examples/mini_beamline.py
-        :language: python
-        :linenos:
-        :dedent: 0
-        :lineno-start: 163
-        :lines: 163-189
-
-    .. raw:: html
-
-        </details>
-        <br/>
-
-    

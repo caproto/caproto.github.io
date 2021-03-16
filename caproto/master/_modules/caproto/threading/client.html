@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.threading.client &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>caproto.threading.client &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
         <script src="../../../_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="../../../index.html" class="icon icon-home"> caproto
           
 
           
@@ -61,7 +62,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -97,8 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../servers.html">Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -158,6 +160,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -200,7 +204,6 @@
 <span class="kn">import</span> <span class="nn">getpass</span>
 <span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">selectors</span>
 <span class="kn">import</span> <span class="nn">socket</span>
@@ -220,17 +223,10 @@
                       <span class="n">CaprotoTypeError</span><span class="p">,</span> <span class="n">CaprotoValueError</span><span class="p">,</span> <span class="n">ThreadsafeCounter</span><span class="p">,</span>
                       <span class="n">adapt_old_callback_signature</span><span class="p">,</span> <span class="n">batch_requests</span><span class="p">,</span>
                       <span class="n">safe_getsockname</span><span class="p">,</span> <span class="n">socket_bytes_available</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">..client</span> <span class="kn">import</span> <span class="n">common</span>
 
 <span class="n">ch_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;caproto.ch&#39;</span><span class="p">)</span>
 <span class="n">search_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;caproto.bcast.search&#39;</span><span class="p">)</span>
-
-
-<span class="n">CIRCUIT_DEATH_ATTEMPTS</span> <span class="o">=</span> <span class="mi">3</span>
-
-<span class="c1"># sentinels used as default values for arguments</span>
-<span class="n">CONTEXT_DEFAULT_TIMEOUT</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
-<span class="n">PV_DEFAULT_TIMEOUT</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
-<span class="n">GLOBAL_DEFAULT_TIMEOUT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;CAPROTO_DEFAULT_TIMEOUT&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">DeadCircuitError</span><span class="p">(</span><span class="n">CaprotoError</span><span class="p">):</span>
@@ -278,7 +274,7 @@
             <span class="n">pv</span><span class="o">.</span><span class="n">_usages</span> <span class="o">+=</span> <span class="mi">1</span>
 
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">CIRCUIT_DEATH_ATTEMPTS</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">common</span><span class="o">.</span><span class="n">CIRCUIT_DEATH_ATTEMPTS</span><span class="p">):</span>
                 <span class="c1"># On each iteration, subtract the time we already spent on any</span>
                 <span class="c1"># previous attempts.</span>
                 <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -332,17 +328,6 @@
 
 <span class="k">class</span> <span class="nc">ContextDisconnectedError</span><span class="p">(</span><span class="n">ThreadingClientException</span><span class="p">):</span>
     <span class="o">...</span>
-
-
-<span class="n">AUTOMONITOR_MAXLENGTH</span> <span class="o">=</span> <span class="mi">65536</span>
-<span class="n">TIMEOUT</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">EVENT_ADD_BATCH_MAX_BYTES</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">16</span>
-<span class="n">MIN_RETRY_SEARCHES_INTERVAL</span> <span class="o">=</span> <span class="mf">0.03</span>
-<span class="n">MAX_RETRY_SEARCHES_INTERVAL</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">SEARCH_RETIREMENT_AGE</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">*</span> <span class="mi">60</span>
-<span class="n">RETRY_RETIRED_SEARCHES_INTERVAL</span> <span class="o">=</span> <span class="mi">60</span>
-<span class="n">RESTART_SUBS_PERIOD</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">STR_ENC</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CAPROTO_STRING_ENCODING&#39;</span><span class="p">,</span> <span class="s1">&#39;latin-1&#39;</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">SelectorThread</span><span class="p">:</span>
@@ -566,7 +551,10 @@
     <span class="k">def</span> <span class="nf">_should_attempt_registration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="s1">&#39;Whether or not a registration attempt should be tried&#39;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">udp_sock</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">True</span>
+            <span class="c1"># This broadcaster does not currently support being revived from</span>
+            <span class="c1"># a disconnected state.  Do not attempt registration if the</span>
+            <span class="c1"># __init__-defined socket has been removed.</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">registered</span> <span class="ow">or</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_registration_retry_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
@@ -731,7 +719,7 @@
             <span class="n">search_ids</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="c1"># Search requests that are past their retirement deadline with no</span>
             <span class="c1"># results will be searched for less frequently.</span>
-            <span class="n">retirement_deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">+</span> <span class="n">SEARCH_RETIREMENT_AGE</span>
+            <span class="n">retirement_deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">+</span> <span class="n">common</span><span class="o">.</span><span class="n">SEARCH_RETIREMENT_AGE</span>
             <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">needs_search</span><span class="p">:</span>
                 <span class="n">search_id</span> <span class="o">=</span> <span class="n">new_id</span><span class="p">()</span>
                 <span class="n">search_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">search_id</span><span class="p">)</span>
@@ -892,7 +880,7 @@
     <span class="k">def</span> <span class="nf">_new_server_found</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Bring all the unanswered seraches out of retirement</span>
         <span class="c1"># to see if we have a new match.</span>
-        <span class="n">retirement_deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">+</span> <span class="n">SEARCH_RETIREMENT_AGE</span>
+        <span class="n">retirement_deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">+</span> <span class="n">common</span><span class="o">.</span><span class="n">SEARCH_RETIREMENT_AGE</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_search_lock</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">unanswered_searches</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
                 <span class="c1"># give new age-out deadline</span>
@@ -1033,8 +1021,8 @@
         <span class="c1"># RETRY_RETIRED_SEARCHES_INTERVAL or, again, whenever new searches</span>
         <span class="c1"># are added.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Broadcaster search-retry thread has started.&#39;</span><span class="p">)</span>
-        <span class="n">time_to_check_on_retirees</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">+</span> <span class="n">RETRY_RETIRED_SEARCHES_INTERVAL</span>
-        <span class="n">interval</span> <span class="o">=</span> <span class="n">MIN_RETRY_SEARCHES_INTERVAL</span>
+        <span class="n">time_to_check_on_retirees</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">+</span> <span class="n">common</span><span class="o">.</span><span class="n">RETRY_RETIRED_SEARCHES_INTERVAL</span>
+        <span class="n">interval</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">MIN_RETRY_SEARCHES_INTERVAL</span>
         <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_close_event</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_searching_enabled</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1055,7 +1043,7 @@
             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_search_lock</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="n">time_to_check_on_retirees</span><span class="p">:</span>
                     <span class="n">items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unanswered_searches</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-                    <span class="n">time_to_check_on_retirees</span> <span class="o">+=</span> <span class="n">RETRY_RETIRED_SEARCHES_INTERVAL</span>
+                    <span class="n">time_to_check_on_retirees</span> <span class="o">+=</span> <span class="n">common</span><span class="o">.</span><span class="n">RETRY_RETIRED_SEARCHES_INTERVAL</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="c1"># Skip over searches that haven&#39;t gotten any results in</span>
                     <span class="c1"># SEARCH_RETIREMENT_AGE.</span>
@@ -1081,12 +1069,12 @@
 
             <span class="n">wait_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">interval</span> <span class="o">-</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">))</span>
             <span class="c1"># Double the interval for the next loop.</span>
-            <span class="n">interval</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">interval</span><span class="p">,</span> <span class="n">MAX_RETRY_SEARCHES_INTERVAL</span><span class="p">)</span>
+            <span class="n">interval</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">interval</span><span class="p">,</span> <span class="n">common</span><span class="o">.</span><span class="n">MAX_RETRY_SEARCHES_INTERVAL</span><span class="p">)</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_search_now</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">wait_time</span><span class="p">):</span>
                 <span class="c1"># New searches have been requested. Reset the interval between</span>
                 <span class="c1"># subseqent searches and force a check on the &quot;retirees&quot;.</span>
                 <span class="n">time_to_check_on_retirees</span> <span class="o">=</span> <span class="n">t</span>
-                <span class="n">interval</span> <span class="o">=</span> <span class="n">MIN_RETRY_SEARCHES_INTERVAL</span>
+                <span class="n">interval</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">MIN_RETRY_SEARCHES_INTERVAL</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_search_now</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Broadcaster search-retry thread has exited.&#39;</span><span class="p">)</span>
@@ -1130,7 +1118,7 @@
 <span class="sd">        value from 1.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">broadcaster</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
-                 <span class="n">timeout</span><span class="o">=</span><span class="n">GLOBAL_DEFAULT_TIMEOUT</span><span class="p">,</span>
+                 <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">GLOBAL_DEFAULT_TIMEOUT</span><span class="p">,</span>
                  <span class="n">host_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">client_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">broadcaster</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">broadcaster</span> <span class="o">=</span> <span class="n">SharedBroadcaster</span><span class="p">()</span>
@@ -1188,7 +1176,7 @@
 
 <div class="viewcode-block" id="Context.get_pvs"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.Context.get_pvs">[docs]</a>    <span class="k">def</span> <span class="nf">get_pvs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">connection_state_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">access_rights_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                <span class="n">timeout</span><span class="o">=</span><span class="n">CONTEXT_DEFAULT_TIMEOUT</span><span class="p">):</span>
+                <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">CONTEXT_DEFAULT_TIMEOUT</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return a list of PV objects.</span>
 
@@ -1229,7 +1217,7 @@
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">pv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvs</span><span class="p">[(</span><span class="n">name</span><span class="p">,</span> <span class="n">priority</span><span class="p">)]</span>
                 <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-                    <span class="n">pv</span> <span class="o">=</span> <span class="n">PV</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">priority</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+                    <span class="n">pv</span> <span class="o">=</span> <span class="n">PV</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">priority</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
                     <span class="n">names_to_search</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">pvs</span><span class="p">[(</span><span class="n">name</span><span class="p">,</span> <span class="n">priority</span><span class="p">)]</span> <span class="o">=</span> <span class="n">pv</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">pvs_needing_circuits</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">pv</span><span class="p">)</span>
@@ -1381,7 +1369,7 @@
                             <span class="k">yield</span> <span class="n">command</span>
 
                 <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">batch_requests</span><span class="p">(</span><span class="n">requests</span><span class="p">(),</span>
-                                            <span class="n">EVENT_ADD_BATCH_MAX_BYTES</span><span class="p">):</span>
+                                            <span class="n">common</span><span class="o">.</span><span class="n">EVENT_ADD_BATCH_MAX_BYTES</span><span class="p">):</span>
                     <span class="k">try</span><span class="p">:</span>
                         <span class="n">cm</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="o">*</span><span class="n">batch</span><span class="p">)</span>
                     <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
@@ -1395,7 +1383,7 @@
                         <span class="c1"># end up here again. No big deal.</span>
                         <span class="k">break</span>
 
-            <span class="n">wait_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">RESTART_SUBS_PERIOD</span> <span class="o">-</span>
+            <span class="n">wait_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">common</span><span class="o">.</span><span class="n">RESTART_SUBS_PERIOD</span> <span class="o">-</span>
                                 <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">)))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">activate_subscriptions_now</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">wait_time</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">activate_subscriptions_now</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -1414,7 +1402,7 @@
                 <span class="k">if</span> <span class="n">circuit</span><span class="o">.</span><span class="n">connected</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Disconnecting circuit </span><span class="si">%d</span><span class="s1">/</span><span class="si">%d</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
                                    <span class="n">idx</span><span class="p">,</span> <span class="n">total_circuits</span><span class="p">,</span> <span class="n">circuit</span><span class="p">)</span>
-                    <span class="n">circuit</span><span class="o">.</span><span class="n">_disconnected</span><span class="p">(</span><span class="n">reconnect</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                    <span class="n">circuit</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
                     <span class="n">disconnected</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="k">if</span> <span class="n">disconnected</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;All circuits disconnected&#39;</span><span class="p">)</span>
@@ -1425,10 +1413,6 @@
             <span class="c1"># clear any state about circuits and search results</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Clearing circuit managers&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">circuit_managers</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-
-            <span class="c1"># disconnect the underlying state machine</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">remove_listener</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-            <span class="c1"># (TODO) double remove0</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Stopping SelectorThread of the context&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">selector</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
@@ -1466,7 +1450,8 @@
                  <span class="s1">&#39;_subscriptionid_counter&#39;</span><span class="p">,</span> <span class="s1">&#39;user_callback_executor&#39;</span><span class="p">,</span>
                  <span class="s1">&#39;last_tcp_receipt&#39;</span><span class="p">,</span> <span class="s1">&#39;__weakref__&#39;</span><span class="p">,</span> <span class="s1">&#39;_tags&#39;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">circuit</span><span class="p">,</span> <span class="n">selector</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">TIMEOUT</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">circuit</span><span class="p">,</span> <span class="n">selector</span><span class="p">,</span>
+                 <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">GLOBAL_DEFAULT_TIMEOUT</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">context</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span> <span class="o">=</span> <span class="n">circuit</span>  <span class="c1"># a caproto.VirtualCircuit</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">log</span>
@@ -1741,11 +1726,13 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Not attempting reconnection&#39;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">tags</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Shutting down ThreadPoolExecutor for user callbacks&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">tags</span><span class="p">)</span>
+<div class="viewcode-block" id="VirtualCircuitManager.disconnect"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.VirtualCircuitManager.disconnect">[docs]</a>    <span class="k">def</span> <span class="nf">disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_disconnected</span><span class="p">(</span><span class="n">reconnect</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Shutting down ThreadPoolExecutor for user callbacks&quot;</span><span class="p">,</span>
+                       <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;their_address&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">address</span><span class="p">})</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">user_callback_executor</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
 
-<div class="viewcode-block" id="VirtualCircuitManager.disconnect"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.VirtualCircuitManager.disconnect">[docs]</a>    <span class="k">def</span> <span class="nf">disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_disconnected</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span>
 
@@ -1777,8 +1764,7 @@
                  <span class="s1">&#39;_timeout&#39;</span><span class="p">,</span>
                  <span class="s1">&#39;__weakref__&#39;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">priority</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">connection_state_callback</span><span class="p">,</span>
-                 <span class="n">access_rights_callback</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">priority</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        These must be instantiated by a Context, never directly.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1794,15 +1780,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">connection_state_callback</span> <span class="o">=</span> <span class="n">CallbackHandler</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">access_rights_callback</span> <span class="o">=</span> <span class="n">CallbackHandler</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_timeout</span> <span class="o">=</span> <span class="n">timeout</span>
-
-        <span class="k">if</span> <span class="n">connection_state_callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">connection_state_callback</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span>
-                <span class="n">connection_state_callback</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">access_rights_callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">access_rights_callback</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span>
-                <span class="n">access_rights_callback</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">_circuit_manager</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_channel</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1820,7 +1797,7 @@
 <span class="sd">        * a floating-point number</span>
 <span class="sd">        * None (never timeout)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timeout</span> <span class="ow">is</span> <span class="n">CONTEXT_DEFAULT_TIMEOUT</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timeout</span> <span class="ow">is</span> <span class="n">common</span><span class="o">.</span><span class="n">CONTEXT_DEFAULT_TIMEOUT</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">timeout</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timeout</span>
@@ -1891,7 +1868,7 @@
             <span class="k">return</span> <span class="kc">False</span>
         <span class="k">return</span> <span class="n">channel</span><span class="o">.</span><span class="n">states</span><span class="p">[</span><span class="n">ca</span><span class="o">.</span><span class="n">CLIENT</span><span class="p">]</span> <span class="ow">is</span> <span class="n">ca</span><span class="o">.</span><span class="n">CONNECTED</span>
 
-<div class="viewcode-block" id="PV.wait_for_search"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.PV.wait_for_search">[docs]</a>    <span class="k">def</span> <span class="nf">wait_for_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
+<div class="viewcode-block" id="PV.wait_for_search"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.PV.wait_for_search">[docs]</a>    <span class="k">def</span> <span class="nf">wait_for_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Wait for this PV to be found.</span>
 
@@ -1905,7 +1882,7 @@
 <span class="sd">            ``PV.timeout``, which falls back to Context.timeout if not set. If</span>
 <span class="sd">            None, never timeout.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">:</span>
             <span class="n">timeout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit_ready</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">):</span>
             <span class="k">raise</span> <span class="n">CaprotoTimeoutError</span><span class="p">(</span><span class="s2">&quot;No servers responded to a search for a &quot;</span>
@@ -1914,7 +1891,7 @@
                                       <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">timeout</span><span class="p">)))</span></div>
 
 <div class="viewcode-block" id="PV.wait_for_connection"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.PV.wait_for_connection">[docs]</a>    <span class="nd">@ensure_connected</span>
-    <span class="k">def</span> <span class="nf">wait_for_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wait_for_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Wait for this PV to be connected.</span>
 
@@ -1964,7 +1941,7 @@
 
 <div class="viewcode-block" id="PV.read"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.PV.read">[docs]</a>    <span class="nd">@ensure_connected</span>
     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-             <span class="n">timeout</span><span class="o">=</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">,</span>
+             <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">,</span>
              <span class="n">data_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">notify</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Request a fresh reading.</span>
 
@@ -1995,7 +1972,7 @@
 <span class="sd">            Send a ``ReadNotifyRequest`` instead of a ``ReadRequest``. True by</span>
 <span class="sd">            default.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">:</span>
             <span class="n">timeout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span>
         <span class="n">cm</span><span class="p">,</span> <span class="n">chan</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_circuit_manager</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_channel</span>
         <span class="n">ioid</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">_ioid_counter</span><span class="p">()</span>
@@ -2037,7 +2014,7 @@
 
 <div class="viewcode-block" id="PV.write"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.PV.write">[docs]</a>    <span class="nd">@ensure_connected</span>
     <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-              <span class="n">timeout</span><span class="o">=</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">,</span>
+              <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">,</span>
               <span class="n">notify</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_count</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Write a new value. Optionally, request confirmation from the server.</span>
@@ -2072,7 +2049,7 @@
 <span class="sd">            Requested number of values. Default is the channel&#39;s native data</span>
 <span class="sd">            count.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">:</span>
             <span class="n">timeout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span>
         <span class="n">cm</span><span class="p">,</span> <span class="n">chan</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_circuit_manager</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_channel</span>
         <span class="k">if</span> <span class="n">notify</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -2184,7 +2161,7 @@
             <span class="n">sub</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="PV.time_since_last_heard"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.PV.time_since_last_heard">[docs]</a>    <span class="nd">@ensure_connected</span>
-    <span class="k">def</span> <span class="nf">time_since_last_heard</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">time_since_last_heard</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Seconds since last message from the server that provides this channel.</span>
 
@@ -2316,7 +2293,7 @@
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;Subscription to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pv</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2">, id=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">subscriptionid</span><span class="si">}</span><span class="s2">&gt;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">_subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;This is called automatically after the first callback is added.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pv</span><span class="o">.</span><span class="n">circuit_manager</span>
@@ -2335,7 +2312,7 @@
             <span class="n">ctx</span><span class="o">.</span><span class="n">activate_subscriptions_now</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 
     <span class="nd">@ensure_connected</span>
-    <span class="k">def</span> <span class="nf">compose_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">compose_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
         <span class="s2">&quot;This is used by the Context to re-subscribe in bulk after dropping.&quot;</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">callback_lock</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">:</span>
@@ -2364,7 +2341,7 @@
         <span class="c1"># Once self.callbacks is empty, self.remove_callback calls</span>
         <span class="c1"># self._unsubscribe for us.</span>
 
-    <span class="k">def</span> <span class="nf">_unsubscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_unsubscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This is automatically called if the number of callbacks goes to 0.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -2593,28 +2570,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

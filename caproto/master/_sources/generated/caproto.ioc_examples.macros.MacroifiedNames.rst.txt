@@ -26,14 +26,14 @@
            - Alarm Group
     
         *  - placeholder1
-           - ``{beamline}:{thing}.VAL``
+           - ``{beamline}:{suffix}.VAL``
            - 
            - int 
            - 
            - 
     
         *  - placeholder2
-           - ``{beamline}:{thing}.RBV``
+           - ``{beamline}:{suffix}.RBV``
            - 
            - int 
            - 

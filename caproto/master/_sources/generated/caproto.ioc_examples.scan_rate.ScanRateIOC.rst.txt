@@ -27,8 +27,8 @@
     
         *  - scanned
            - ``scanned``
-           - 
-           - float (:class:`ai <caproto.server.records.AiFields>`)
+           - An analog input with customizable scan rate.
+           - float (:class:`ai <caproto.server.records.records.AiFields>`)
            - 
                  **Startup**
            - 
@@ -67,22 +67,9 @@
         
 
     
-    .. raw:: html
-
-        <details>
-        <summary>Source code: scanned.startup</summary>
-
-    
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/server.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/ioc_examples/scan_rate.py
         :language: python
         :linenos:
-        :dedent: 0
-        :lineno-start: 766
-        :lines: 766-795
-
-    .. raw:: html
-
-        </details>
-        <br/>
-
-    
+        :dedent: 4
+        :lineno-start: 39
+        :lines: 39-41

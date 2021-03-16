@@ -41,7 +41,7 @@
     
         *  - C
            - ``C``
-           - An array of integers
+           - An array of integers (max length 3)
            - int 
            - 
            - 

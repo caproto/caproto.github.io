@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto: a pure-Python Channel Access protocol library &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>caproto: a pure-Python Channel Access protocol library &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script src="_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -52,7 +53,7 @@
           
 
           
-            <a href="#" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="#" class="icon icon-home"> caproto
           
 
           
@@ -62,7 +63,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -98,8 +99,9 @@
 <li class="toctree-l1"><a class="reference internal" href="servers.html">Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -159,6 +161,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -170,7 +174,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -281,6 +285,18 @@ CA protocol documentation.</p></li>
 We would advise those kinds of users to steer well clear of caproto. It is best
 suited to applications that reward convenience, fast iteration, and
 accessibility.</p>
+<p>Some facilities do use caproto “in production” for these kinds of applications,
+and we are pleased to hear that it works well. Keep in mind that caproto is
+maintained primarily by two people as a hybrid work/hobby project, mostly on
+evenings and weekends. At present, no facilities or funding sources have
+formally committed resources to its continued support. If a facility makes a
+“bet” on caproto:</p>
+<ol class="arabic simple">
+<li><p>Depending on the size of the bet and the scale of support it may require,
+the facility should commit someone to becoming a caproto core developer.</p></li>
+<li><p>The facility should also maintain general EPICS (base) expertise, so that
+they have a reasonable path to back out of caproto if they need to.</p></li>
+</ol>
 </div>
 <div class="section" id="what-about-pvaccess">
 <h2>What about pvAccess?<a class="headerlink" href="#what-about-pvaccess" title="Permalink to this headline">¶</a></h2>
@@ -335,7 +351,12 @@ learning exercises.</p>
 <li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="iocs.html#why-write-an-ioc-using-caproto">Why Write an IOC Using Caproto?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iocs.html#using-the-ioc-examples">Using the IOC Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iocs.html#pvgroup">PVGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iocs.html#pvproperty">pvproperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iocs.html#general-tips">General Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iocs.html#how-do-i">How do I…</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iocs.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iocs.html#helpers">Helpers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="records.html">Records</a><ul>
@@ -397,9 +418,9 @@ learning exercises.</p>
 <li class="toctree-l2"><a class="reference internal" href="loggers.html#advanced-example">Advanced Example</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutter</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cookiecutter.html#the-cookiecutter">The Cookiecutter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cookiecutter.html#example">Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cookiecutter.html#ioc-cookiecutter">IOC Cookiecutter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookiecutter.html#startup-script-cookiecutter">Startup Script Cookiecutter</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a><ul>
@@ -408,6 +429,7 @@ learning exercises.</p>
 <li class="toctree-l2"><a class="reference internal" href="own_docs.html#using-autosummary">Using autosummary</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -511,6 +533,8 @@ learning exercises.</p>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#v0-8-0-2021-03">v0.8.0 (2021-03-??)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#v0-7-1-2020-01-13">v0.7.1 (2020-01-13)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#v0-7-0-2020-12-08">v0.7.0 (2020-12-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#v0-6-0-2020-07-31">v0.6.0 (2020-07-31)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#v0-5-2-2020-06-18">v0.5.2 (2020-06-18)</a></li>
@@ -551,35 +575,28 @@ learning exercises.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="install.html" class="btn btn-neutral float-right" title="Install Caproto" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
+        <a href="install.html" class="btn btn-neutral float-right" title="Install Caproto" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

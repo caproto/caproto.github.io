@@ -36,6 +36,7 @@
            - Abort queueRequest
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - access_security_group
@@ -44,7 +45,7 @@
            - CHAR 
            - 
                  Length(29)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - addressed_command
@@ -52,6 +53,7 @@
            - Addressed command
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - alarm_acknowledge_severity
@@ -60,7 +62,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_acknowledge_transient
@@ -69,7 +71,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - alarm_status
@@ -78,7 +80,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - asyn_address
@@ -86,6 +88,7 @@
            - asyn address
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asyn_port
@@ -94,6 +97,7 @@
            - CHAR 
            - 
                  Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asynfloat64_input
@@ -102,6 +106,7 @@
            - DOUBLE 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asynfloat64_is_valid
@@ -109,6 +114,7 @@
            - asynFloat64 is valid
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asynfloat64_output
@@ -116,6 +122,7 @@
            - asynFloat64 output
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asyngpib_is_valid
@@ -123,6 +130,7 @@
            - asynGPIB is valid
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asynint32_input
@@ -131,6 +139,7 @@
            - LONG 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asynint32_is_valid
@@ -138,6 +147,7 @@
            - asynInt32 is valid
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asynint32_output
@@ -145,6 +155,7 @@
            - asynInt32 output
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asynoctet_is_valid
@@ -152,6 +163,7 @@
            - asynOctet is valid
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asynoption_is_valid
@@ -159,6 +171,7 @@
            - asynOption is valid
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asynuint32digital_input
@@ -167,6 +180,7 @@
            - LONG 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asynuint32digital_is_valid
@@ -174,6 +188,7 @@
            - asynUInt32Digital is valid
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asynuint32digital_mask
@@ -181,6 +196,7 @@
            - asynUInt32Digital mask
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asynuint32digital_output
@@ -188,6 +204,7 @@
            - asynUInt32Digital output
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - asynuser_reason
@@ -195,6 +212,7 @@
            - asynUser->reason
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - autoconnect
@@ -202,6 +220,7 @@
            - Autoconnect
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - baud_rate
@@ -209,6 +228,7 @@
            - Baud rate
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - connect_disconnect
@@ -216,6 +236,7 @@
            - Connect/Disconnect
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - current_alarm_severity
@@ -224,7 +245,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - data_bits
@@ -232,6 +253,7 @@
            - Data bits
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - dbputfield_process
@@ -240,7 +262,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - description
@@ -249,9 +271,7 @@
            - CHAR 
            - 
                  Length(41)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Get**
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - device_type
@@ -259,7 +279,7 @@
            - Device Type
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable
@@ -267,7 +287,7 @@
            - Disable
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_alarm_severity
@@ -275,7 +295,7 @@
            - Disable Alarm Sevrty
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_putfield
@@ -283,7 +303,7 @@
            - Disable putField
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disable_value
@@ -291,7 +311,7 @@
            - Disable Value
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - disconnect_on_timeout
@@ -299,6 +319,7 @@
            - Disconnect on timeout
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - driver_info_string
@@ -307,6 +328,7 @@
            - CHAR 
            - 
                  Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - enable_disable
@@ -314,6 +336,7 @@
            - Enable/Disable
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - eom_reason
@@ -322,6 +345,7 @@
            - ENUM 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - event_name
@@ -330,7 +354,7 @@
            - CHAR 
            - 
                  Length(40)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - flow_control
@@ -338,6 +362,7 @@
            - Flow control
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - forward_link
@@ -345,7 +370,7 @@
            - Forward Process Link
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - host_info
@@ -354,6 +379,7 @@
            - CHAR 
            - 
                  Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - input
@@ -363,6 +389,7 @@
            - 
                  **Read-only**
                  Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - input_binary_data
@@ -370,6 +397,7 @@
            - Input binary data
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - input_delimiter
@@ -378,6 +406,7 @@
            - CHAR 
            - 
                  Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - input_format
@@ -385,6 +414,7 @@
            - Input format
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - input_xon_xoff
@@ -392,6 +422,7 @@
            - Input XON/XOFF
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - interface
@@ -399,6 +430,7 @@
            - Interface
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - lock_count
@@ -407,7 +439,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - long_baud_rate
@@ -415,6 +447,7 @@
            - Baud rate
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - max_size_of_input_array
@@ -423,6 +456,7 @@
            - LONG 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - max_size_of_output_array
@@ -431,6 +465,7 @@
            - LONG 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - modem_control
@@ -438,6 +473,7 @@
            - Modem control
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - new_alarm_severity
@@ -446,7 +482,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - new_alarm_status
@@ -455,7 +491,7 @@
            - ENUM 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - number_of_bytes_actually_written
@@ -463,6 +499,7 @@
            - Number of bytes actually written
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - number_of_bytes_read
@@ -471,6 +508,7 @@
            - LONG 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - number_of_bytes_to_read
@@ -478,6 +516,7 @@
            - Number of bytes to read
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - number_of_bytes_to_write
@@ -485,6 +524,7 @@
            - Number of bytes to write
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - output
@@ -493,6 +533,7 @@
            - CHAR 
            - 
                  Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - output_binary_data
@@ -500,6 +541,7 @@
            - Output binary data
            - CHAR 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - output_delimiter
@@ -508,6 +550,7 @@
            - CHAR 
            - 
                  Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - output_format
@@ -515,6 +558,7 @@
            - Output format
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - output_xon_xoff
@@ -522,6 +566,7 @@
            - Output XON/XOFF
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - parity
@@ -529,6 +574,7 @@
            - Parity
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - port_connect_disconnect
@@ -536,6 +582,7 @@
            - Port Connect/Disconnect
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - process_at_iocinit
@@ -543,7 +590,7 @@
            - Process at iocInit
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - process_record
@@ -551,8 +598,7 @@
            - Force Processing
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_active
@@ -561,7 +607,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_name
@@ -571,7 +617,7 @@
            - 
                  **Read-only**
                  Length(61)
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - record_type
@@ -580,7 +626,7 @@
            - STRING 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
            - 
     
         *  - reprocess
@@ -589,7 +635,7 @@
            - CHAR 
            - 
                  **Read-only**
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scan_phase
@@ -597,7 +643,7 @@
            - Scan Phase
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scan_rate
@@ -605,8 +651,7 @@
            - Scan Mechanism
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
-                 **Put**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scanning_disable
@@ -614,7 +659,7 @@
            - Scanning Disable
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - scheduling_priority
@@ -622,7 +667,7 @@
            - Scheduling Priority
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - serial_poll_response
@@ -631,6 +676,7 @@
            - CHAR 
            - 
                  **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - stop_bits
@@ -638,6 +684,7 @@
            - Stop bits
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - time_stamp_event
@@ -645,7 +692,7 @@
            - Time Stamp Event
            - INT 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - time_stamp_link
@@ -653,7 +700,7 @@
            - Time Stamp Link
            - STRING 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - timeout
@@ -661,6 +708,7 @@
            - Timeout (sec)
            - DOUBLE 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_error
@@ -668,6 +716,7 @@
            - Trace error
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_flow
@@ -675,6 +724,7 @@
            - Trace flow
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_i_o_mask
@@ -682,6 +732,7 @@
            - Trace I/O mask
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_info_mask
@@ -689,6 +740,7 @@
            - Trace Info mask
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_info_port
@@ -696,6 +748,7 @@
            - Trace Info Port
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_info_source
@@ -703,6 +756,7 @@
            - Trace Info Source
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_info_thread
@@ -710,6 +764,7 @@
            - Trace Info Thread
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_info_time
@@ -717,6 +772,7 @@
            - Trace Info Time
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_io_ascii
@@ -724,6 +780,7 @@
            - Trace IO ASCII
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_io_device
@@ -731,6 +788,7 @@
            - Trace IO device
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_io_driver
@@ -738,6 +796,7 @@
            - Trace IO driver
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_io_escape
@@ -745,6 +804,7 @@
            - Trace IO escape
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_io_file
@@ -753,6 +813,7 @@
            - CHAR 
            - 
                  Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_io_filter
@@ -760,6 +821,7 @@
            - Trace IO filter
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_io_hex
@@ -767,6 +829,7 @@
            - Trace IO hex
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_io_truncate_size
@@ -774,6 +837,7 @@
            - Trace IO truncate size
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_mask
@@ -781,6 +845,7 @@
            - Trace mask
            - LONG 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - trace_processing
@@ -788,7 +853,7 @@
            - Trace Processing
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - trace_warning
@@ -796,6 +861,7 @@
            - Trace warning
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - transaction_mode
@@ -803,6 +869,7 @@
            - Transaction mode
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - translated_input_string
@@ -812,6 +879,7 @@
            - 
                  **Read-only**
                  Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - undefined
@@ -819,7 +887,7 @@
            - Undefined
            - CHAR 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - undefined_alarm_severity
@@ -827,7 +895,7 @@
            - Undefined Alarm Sevrty
            - ENUM 
            - 
-                 Inherited from :class:`~caproto.server.records.RecordFieldGroup`
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
     
         *  - universal_command
@@ -835,6 +903,7 @@
            - Universal command
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
         *  - xon_any_character
@@ -842,6 +911,7 @@
            - XON=any character
            - ENUM 
            - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
            - 
     
     
@@ -858,6 +928,7 @@
        ~AsynFields.group_read
        ~AsynFields.group_write
        ~AsynFields.publish
+       ~AsynFields.value_write_hook
     
     
 
@@ -877,13 +948,3 @@
 
     
     .. rubric:: pvproperty methods
-    .. method:: description.getter(self, instance)
-        
-
-    
-    .. literalinclude:: /../../../../../miniconda/envs/test_env/lib/python3.7/site-packages/caproto/server/records.py
-        :language: python
-        :linenos:
-        :dedent: 4
-        :lineno-start: 29
-        :lines: 29-31

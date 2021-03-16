@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Index &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>Index &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script src="_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -51,7 +52,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="index.html" class="icon icon-home"> caproto
           
 
           
@@ -61,7 +62,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -97,8 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="servers.html">Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -158,6 +160,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -169,7 +173,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
         
       </li>
     
@@ -329,6 +333,8 @@
 </li>
       <li><a href="pva/api.html#caproto.pva.server.common.Context.broadcaster_queue_loop">broadcaster_queue_loop() (caproto.pva.server.common.Context method)</a>
 </li>
+      <li><a href="pva/api.html#caproto.pva.asyncio.server.Context.broadcaster_receive_loop">broadcaster_receive_loop() (caproto.pva.asyncio.server.Context method)</a>
+</li>
       <li><a href="pva/api.html#caproto.pva._messages.MessageHeader.byte_order">byte_order() (caproto.pva._messages.MessageHeader property)</a>
 </li>
       <li><a href="pva/api.html#caproto.pva._messages.SetByteOrder.byte_order_setting">byte_order_setting() (caproto.pva._messages.SetByteOrder property)</a>
@@ -394,17 +400,29 @@
 </li>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelArrayResponse">ChannelArrayResponse (class in caproto.pva._messages)</a>
 </li>
+      <li><a href="generated/caproto.ChannelByte.html#caproto.ChannelByte">ChannelByte (class in caproto)</a>
+</li>
+      <li><a href="generated/caproto.ChannelChar.html#caproto.ChannelChar">ChannelChar (class in caproto)</a>
+</li>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelDestroyRequest">ChannelDestroyRequest (class in caproto.pva._messages)</a>
 </li>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelDestroyResponse">ChannelDestroyResponse (class in caproto.pva._messages)</a>
+</li>
+      <li><a href="generated/caproto.ChannelDouble.html#caproto.ChannelDouble">ChannelDouble (class in caproto)</a>
+</li>
+      <li><a href="generated/caproto.ChannelEnum.html#caproto.ChannelEnum">ChannelEnum (class in caproto)</a>
 </li>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelFieldInfoRequest">ChannelFieldInfoRequest (class in caproto.pva._messages)</a>
 </li>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelFieldInfoResponse">ChannelFieldInfoResponse (class in caproto.pva._messages)</a>
 </li>
+      <li><a href="generated/caproto.ChannelFloat.html#caproto.ChannelFloat">ChannelFloat (class in caproto)</a>
+</li>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelGetRequest">ChannelGetRequest (class in caproto.pva._messages)</a>
 </li>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelGetResponse">ChannelGetResponse (class in caproto.pva._messages)</a>
+</li>
+      <li><a href="generated/caproto.ChannelInteger.html#caproto.ChannelInteger">ChannelInteger (class in caproto)</a>
 </li>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelMonitorRequest">ChannelMonitorRequest (class in caproto.pva._messages)</a>
 </li>
@@ -436,6 +454,10 @@
         <li><a href="threading-client.html#caproto.threading.client.VirtualCircuitManager.channels">(caproto.threading.client.VirtualCircuitManager attribute)</a>
 </li>
       </ul></li>
+      <li><a href="generated/caproto.ChannelShort.html#caproto.ChannelShort">ChannelShort (class in caproto)</a>
+</li>
+      <li><a href="generated/caproto.ChannelString.html#caproto.ChannelString">ChannelString (class in caproto)</a>
+</li>
       <li><a href="api.html#caproto.ChannelType">ChannelType (class in caproto)</a>
 </li>
       <li><a href="api.html#caproto.AccessRightsResponse.cid">cid (caproto.AccessRightsResponse attribute)</a>
@@ -468,6 +490,8 @@
       </ul></li>
       <li><a href="pva/api.html#caproto.pva.server.common.Context.circuit_disconnected">circuit_disconnected() (caproto.pva.server.common.Context method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="async-clients.html#caproto.asyncio.client.PV.circuit_manager">circuit_manager() (caproto.asyncio.client.PV property)</a>
 
       <ul>
@@ -478,8 +502,6 @@
 </li>
       <li><a href="pva/api.html#caproto.pva.asyncio.server.Context.CircuitClass">CircuitClass (caproto.pva.asyncio.server.Context attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="async-clients.html#caproto.asyncio.client.Subscription.clear">clear() (caproto.asyncio.client.Subscription method)</a>
 
       <ul>
@@ -788,6 +810,8 @@
 </li>
       <li><a href="pva/api.html#caproto.pva._messages.MessageHeader.get_message">get_message() (caproto.pva._messages.MessageHeader method)</a>
 </li>
+      <li><a href="generated/caproto.server.get_pv_pair_wrapper.html#caproto.server.get_pv_pair_wrapper">get_pv_pair_wrapper() (in module caproto.server)</a>
+</li>
       <li><a href="async-clients.html#caproto.asyncio.client.Context.get_pvs">get_pvs() (caproto.asyncio.client.Context method)</a>
 
       <ul>
@@ -796,19 +820,9 @@
       </ul></li>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelPutGetResponse.get_structure_if">get_structure_if (caproto.pva._messages.ChannelPutGetResponse attribute)</a>
 </li>
-      <li><a href="generated/caproto.ioc_examples.mini_beamline.Edge.html#caproto.ioc_examples.mini_beamline.Edge.det.getter">getter() (caproto.ioc_examples.mini_beamline.Edge.det method)</a>
+      <li><a href="pva/api.html#caproto.pva.server.magic.pvaproperty.getter">getter() (caproto.pva.server.magic.pvaproperty method)</a>
 
       <ul>
-        <li><a href="generated/caproto.ioc_examples.mini_beamline.MovingDot.html#caproto.ioc_examples.mini_beamline.MovingDot.det.getter">(caproto.ioc_examples.mini_beamline.MovingDot.det method)</a>
-</li>
-        <li><a href="generated/caproto.ioc_examples.mini_beamline.PinHole.html#caproto.ioc_examples.mini_beamline.PinHole.det.getter">(caproto.ioc_examples.mini_beamline.PinHole.det method)</a>
-</li>
-        <li><a href="generated/caproto.ioc_examples.mini_beamline.Slit.html#caproto.ioc_examples.mini_beamline.Slit.det.getter">(caproto.ioc_examples.mini_beamline.Slit.det method)</a>
-</li>
-        <li><a href="pva/api.html#caproto.pva.server.magic.pvaproperty.getter">(caproto.pva.server.magic.pvaproperty method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.AaiFields.html#caproto.server.records.AaiFields.description.getter">(caproto.server.records.AaiFields.description method)</a>
-</li>
         <li><a href="generated/caproto.server.records.AaiFields.html#caproto.server.records.AaiFields.display_precision.getter">(caproto.server.records.AaiFields.display_precision method)</a>
 </li>
         <li><a href="generated/caproto.server.records.AaiFields.html#caproto.server.records.AaiFields.high_operating_range.getter">(caproto.server.records.AaiFields.high_operating_range method)</a>
@@ -816,8 +830,6 @@
         <li><a href="generated/caproto.server.records.AaiFields.html#caproto.server.records.AaiFields.low_operating_range.getter">(caproto.server.records.AaiFields.low_operating_range method)</a>
 </li>
         <li><a href="generated/caproto.server.records.AaiFields.html#caproto.server.records.AaiFields.number_of_elements.getter">(caproto.server.records.AaiFields.number_of_elements method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.AaoFields.html#caproto.server.records.AaoFields.description.getter">(caproto.server.records.AaoFields.description method)</a>
 </li>
         <li><a href="generated/caproto.server.records.AaoFields.html#caproto.server.records.AaoFields.display_precision.getter">(caproto.server.records.AaoFields.display_precision method)</a>
 </li>
@@ -828,8 +840,6 @@
         <li><a href="generated/caproto.server.records.AaoFields.html#caproto.server.records.AaoFields.number_of_elements.getter">(caproto.server.records.AaoFields.number_of_elements method)</a>
 </li>
         <li><a href="generated/caproto.server.records.AiFields.html#caproto.server.records.AiFields.archive_deadband.getter">(caproto.server.records.AiFields.archive_deadband method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.AiFields.html#caproto.server.records.AiFields.description.getter">(caproto.server.records.AiFields.description method)</a>
 </li>
         <li><a href="generated/caproto.server.records.AiFields.html#caproto.server.records.AiFields.display_precision.getter">(caproto.server.records.AiFields.display_precision method)</a>
 </li>
@@ -849,8 +859,6 @@
 </li>
         <li><a href="generated/caproto.server.records.AoFields.html#caproto.server.records.AoFields.archive_deadband.getter">(caproto.server.records.AoFields.archive_deadband method)</a>
 </li>
-        <li><a href="generated/caproto.server.records.AoFields.html#caproto.server.records.AoFields.description.getter">(caproto.server.records.AoFields.description method)</a>
-</li>
         <li><a href="generated/caproto.server.records.AoFields.html#caproto.server.records.AoFields.display_precision.getter">(caproto.server.records.AoFields.display_precision method)</a>
 </li>
         <li><a href="generated/caproto.server.records.AoFields.html#caproto.server.records.AoFields.high_alarm_limit.getter">(caproto.server.records.AoFields.high_alarm_limit method)</a>
@@ -867,27 +875,17 @@
 </li>
         <li><a href="generated/caproto.server.records.AoFields.html#caproto.server.records.AoFields.monitor_deadband.getter">(caproto.server.records.AoFields.monitor_deadband method)</a>
 </li>
-        <li><a href="generated/caproto.server.records.AsubFields.html#caproto.server.records.AsubFields.description.getter">(caproto.server.records.AsubFields.description method)</a>
-</li>
         <li><a href="generated/caproto.server.records.AsubFields.html#caproto.server.records.AsubFields.display_precision.getter">(caproto.server.records.AsubFields.display_precision method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.AsynFields.html#caproto.server.records.AsynFields.description.getter">(caproto.server.records.AsynFields.description method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.BiFields.html#caproto.server.records.BiFields.description.getter">(caproto.server.records.BiFields.description method)</a>
 </li>
         <li><a href="generated/caproto.server.records.BiFields.html#caproto.server.records.BiFields.one_name.getter">(caproto.server.records.BiFields.one_name method)</a>
 </li>
         <li><a href="generated/caproto.server.records.BiFields.html#caproto.server.records.BiFields.zero_name.getter">(caproto.server.records.BiFields.zero_name method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.BoFields.html#caproto.server.records.BoFields.description.getter">(caproto.server.records.BoFields.description method)</a>
 </li>
         <li><a href="generated/caproto.server.records.BoFields.html#caproto.server.records.BoFields.one_name.getter">(caproto.server.records.BoFields.one_name method)</a>
 </li>
         <li><a href="generated/caproto.server.records.BoFields.html#caproto.server.records.BoFields.zero_name.getter">(caproto.server.records.BoFields.zero_name method)</a>
 </li>
         <li><a href="generated/caproto.server.records.CalcFields.html#caproto.server.records.CalcFields.archive_deadband.getter">(caproto.server.records.CalcFields.archive_deadband method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.CalcFields.html#caproto.server.records.CalcFields.description.getter">(caproto.server.records.CalcFields.description method)</a>
 </li>
         <li><a href="generated/caproto.server.records.CalcFields.html#caproto.server.records.CalcFields.display_precision.getter">(caproto.server.records.CalcFields.display_precision method)</a>
 </li>
@@ -907,8 +905,6 @@
 </li>
         <li><a href="generated/caproto.server.records.CalcoutFields.html#caproto.server.records.CalcoutFields.archive_deadband.getter">(caproto.server.records.CalcoutFields.archive_deadband method)</a>
 </li>
-        <li><a href="generated/caproto.server.records.CalcoutFields.html#caproto.server.records.CalcoutFields.description.getter">(caproto.server.records.CalcoutFields.description method)</a>
-</li>
         <li><a href="generated/caproto.server.records.CalcoutFields.html#caproto.server.records.CalcoutFields.display_precision.getter">(caproto.server.records.CalcoutFields.display_precision method)</a>
 </li>
         <li><a href="generated/caproto.server.records.CalcoutFields.html#caproto.server.records.CalcoutFields.high_alarm_limit.getter">(caproto.server.records.CalcoutFields.high_alarm_limit method)</a>
@@ -925,8 +921,6 @@
 </li>
         <li><a href="generated/caproto.server.records.CalcoutFields.html#caproto.server.records.CalcoutFields.monitor_deadband.getter">(caproto.server.records.CalcoutFields.monitor_deadband method)</a>
 </li>
-        <li><a href="generated/caproto.server.records.CompressFields.html#caproto.server.records.CompressFields.description.getter">(caproto.server.records.CompressFields.description method)</a>
-</li>
         <li><a href="generated/caproto.server.records.CompressFields.html#caproto.server.records.CompressFields.display_precision.getter">(caproto.server.records.CompressFields.display_precision method)</a>
 </li>
         <li><a href="generated/caproto.server.records.CompressFields.html#caproto.server.records.CompressFields.high_operating_range.getter">(caproto.server.records.CompressFields.high_operating_range method)</a>
@@ -934,8 +928,6 @@
         <li><a href="generated/caproto.server.records.CompressFields.html#caproto.server.records.CompressFields.low_operating_range.getter">(caproto.server.records.CompressFields.low_operating_range method)</a>
 </li>
         <li><a href="generated/caproto.server.records.DfanoutFields.html#caproto.server.records.DfanoutFields.archive_deadband.getter">(caproto.server.records.DfanoutFields.archive_deadband method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.DfanoutFields.html#caproto.server.records.DfanoutFields.description.getter">(caproto.server.records.DfanoutFields.description method)</a>
 </li>
         <li><a href="generated/caproto.server.records.DfanoutFields.html#caproto.server.records.DfanoutFields.display_precision.getter">(caproto.server.records.DfanoutFields.display_precision method)</a>
 </li>
@@ -953,12 +945,6 @@
 </li>
         <li><a href="generated/caproto.server.records.DfanoutFields.html#caproto.server.records.DfanoutFields.monitor_deadband.getter">(caproto.server.records.DfanoutFields.monitor_deadband method)</a>
 </li>
-        <li><a href="generated/caproto.server.records.EventFields.html#caproto.server.records.EventFields.description.getter">(caproto.server.records.EventFields.description method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.FanoutFields.html#caproto.server.records.FanoutFields.description.getter">(caproto.server.records.FanoutFields.description method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.HistogramFields.html#caproto.server.records.HistogramFields.description.getter">(caproto.server.records.HistogramFields.description method)</a>
-</li>
         <li><a href="generated/caproto.server.records.HistogramFields.html#caproto.server.records.HistogramFields.display_precision.getter">(caproto.server.records.HistogramFields.display_precision method)</a>
 </li>
         <li><a href="generated/caproto.server.records.HistogramFields.html#caproto.server.records.HistogramFields.high_operating_range.getter">(caproto.server.records.HistogramFields.high_operating_range method)</a>
@@ -966,8 +952,6 @@
         <li><a href="generated/caproto.server.records.HistogramFields.html#caproto.server.records.HistogramFields.low_operating_range.getter">(caproto.server.records.HistogramFields.low_operating_range method)</a>
 </li>
         <li><a href="generated/caproto.server.records.Int64inFields.html#caproto.server.records.Int64inFields.archive_deadband.getter">(caproto.server.records.Int64inFields.archive_deadband method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.Int64inFields.html#caproto.server.records.Int64inFields.description.getter">(caproto.server.records.Int64inFields.description method)</a>
 </li>
         <li><a href="generated/caproto.server.records.Int64inFields.html#caproto.server.records.Int64inFields.high_alarm_limit.getter">(caproto.server.records.Int64inFields.high_alarm_limit method)</a>
 </li>
@@ -985,8 +969,6 @@
 </li>
         <li><a href="generated/caproto.server.records.Int64outFields.html#caproto.server.records.Int64outFields.archive_deadband.getter">(caproto.server.records.Int64outFields.archive_deadband method)</a>
 </li>
-        <li><a href="generated/caproto.server.records.Int64outFields.html#caproto.server.records.Int64outFields.description.getter">(caproto.server.records.Int64outFields.description method)</a>
-</li>
         <li><a href="generated/caproto.server.records.Int64outFields.html#caproto.server.records.Int64outFields.high_alarm_limit.getter">(caproto.server.records.Int64outFields.high_alarm_limit method)</a>
 </li>
         <li><a href="generated/caproto.server.records.Int64outFields.html#caproto.server.records.Int64outFields.high_operating_range.getter">(caproto.server.records.Int64outFields.high_operating_range method)</a>
@@ -1002,8 +984,6 @@
         <li><a href="generated/caproto.server.records.Int64outFields.html#caproto.server.records.Int64outFields.monitor_deadband.getter">(caproto.server.records.Int64outFields.monitor_deadband method)</a>
 </li>
         <li><a href="generated/caproto.server.records.LonginFields.html#caproto.server.records.LonginFields.archive_deadband.getter">(caproto.server.records.LonginFields.archive_deadband method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.LonginFields.html#caproto.server.records.LonginFields.description.getter">(caproto.server.records.LonginFields.description method)</a>
 </li>
         <li><a href="generated/caproto.server.records.LonginFields.html#caproto.server.records.LonginFields.high_alarm_limit.getter">(caproto.server.records.LonginFields.high_alarm_limit method)</a>
 </li>
@@ -1021,8 +1001,6 @@
 </li>
         <li><a href="generated/caproto.server.records.LongoutFields.html#caproto.server.records.LongoutFields.archive_deadband.getter">(caproto.server.records.LongoutFields.archive_deadband method)</a>
 </li>
-        <li><a href="generated/caproto.server.records.LongoutFields.html#caproto.server.records.LongoutFields.description.getter">(caproto.server.records.LongoutFields.description method)</a>
-</li>
         <li><a href="generated/caproto.server.records.LongoutFields.html#caproto.server.records.LongoutFields.high_alarm_limit.getter">(caproto.server.records.LongoutFields.high_alarm_limit method)</a>
 </li>
         <li><a href="generated/caproto.server.records.LongoutFields.html#caproto.server.records.LongoutFields.high_operating_range.getter">(caproto.server.records.LongoutFields.high_operating_range method)</a>
@@ -1036,14 +1014,6 @@
         <li><a href="generated/caproto.server.records.LongoutFields.html#caproto.server.records.LongoutFields.low_operating_range.getter">(caproto.server.records.LongoutFields.low_operating_range method)</a>
 </li>
         <li><a href="generated/caproto.server.records.LongoutFields.html#caproto.server.records.LongoutFields.monitor_deadband.getter">(caproto.server.records.LongoutFields.monitor_deadband method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.LsiFields.html#caproto.server.records.LsiFields.description.getter">(caproto.server.records.LsiFields.description method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.LsoFields.html#caproto.server.records.LsoFields.description.getter">(caproto.server.records.LsoFields.description method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.MbbidirectFields.html#caproto.server.records.MbbidirectFields.description.getter">(caproto.server.records.MbbidirectFields.description method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.MbbiFields.html#caproto.server.records.MbbiFields.description.getter">(caproto.server.records.MbbiFields.description method)</a>
 </li>
         <li><a href="generated/caproto.server.records.MbbiFields.html#caproto.server.records.MbbiFields.eight_string.getter">(caproto.server.records.MbbiFields.eight_string method)</a>
 </li>
@@ -1077,10 +1047,6 @@
 </li>
         <li><a href="generated/caproto.server.records.MbbiFields.html#caproto.server.records.MbbiFields.zero_string.getter">(caproto.server.records.MbbiFields.zero_string method)</a>
 </li>
-        <li><a href="generated/caproto.server.records.MbbodirectFields.html#caproto.server.records.MbbodirectFields.description.getter">(caproto.server.records.MbbodirectFields.description method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.MbboFields.html#caproto.server.records.MbboFields.description.getter">(caproto.server.records.MbboFields.description method)</a>
-</li>
         <li><a href="generated/caproto.server.records.MbboFields.html#caproto.server.records.MbboFields.eight_string.getter">(caproto.server.records.MbboFields.eight_string method)</a>
 </li>
         <li><a href="generated/caproto.server.records.MbboFields.html#caproto.server.records.MbboFields.eleven_string.getter">(caproto.server.records.MbboFields.eleven_string method)</a>
@@ -1113,8 +1079,6 @@
 </li>
         <li><a href="generated/caproto.server.records.MotorFields.html#caproto.server.records.MotorFields.archive_deadband.getter">(caproto.server.records.MotorFields.archive_deadband method)</a>
 </li>
-        <li><a href="generated/caproto.server.records.MotorFields.html#caproto.server.records.MotorFields.description.getter">(caproto.server.records.MotorFields.description method)</a>
-</li>
         <li><a href="generated/caproto.server.records.MotorFields.html#caproto.server.records.MotorFields.display_precision.getter">(caproto.server.records.MotorFields.display_precision method)</a>
 </li>
         <li><a href="generated/caproto.server.records.MotorFields.html#caproto.server.records.MotorFields.high_alarm_limit.getter">(caproto.server.records.MotorFields.high_alarm_limit method)</a>
@@ -1131,15 +1095,9 @@
 </li>
         <li><a href="generated/caproto.server.records.MotorFields.html#caproto.server.records.MotorFields.monitor_deadband.getter">(caproto.server.records.MotorFields.monitor_deadband method)</a>
 </li>
-        <li><a href="generated/caproto.server.records.PermissiveFields.html#caproto.server.records.PermissiveFields.description.getter">(caproto.server.records.PermissiveFields.description method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.PrintfFields.html#caproto.server.records.PrintfFields.description.getter">(caproto.server.records.PrintfFields.description method)</a>
-</li>
         <li><a href="generated/caproto.server.records.RecordFieldGroup.html#caproto.server.records.RecordFieldGroup.description.getter">(caproto.server.records.RecordFieldGroup.description method)</a>
 </li>
         <li><a href="generated/caproto.server.records.SelFields.html#caproto.server.records.SelFields.archive_deadband.getter">(caproto.server.records.SelFields.archive_deadband method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.SelFields.html#caproto.server.records.SelFields.description.getter">(caproto.server.records.SelFields.description method)</a>
 </li>
         <li><a href="generated/caproto.server.records.SelFields.html#caproto.server.records.SelFields.display_precision.getter">(caproto.server.records.SelFields.display_precision method)</a>
 </li>
@@ -1157,17 +1115,7 @@
 </li>
         <li><a href="generated/caproto.server.records.SelFields.html#caproto.server.records.SelFields.monitor_deadband.getter">(caproto.server.records.SelFields.monitor_deadband method)</a>
 </li>
-        <li><a href="generated/caproto.server.records.SeqFields.html#caproto.server.records.SeqFields.description.getter">(caproto.server.records.SeqFields.description method)</a>
-</li>
         <li><a href="generated/caproto.server.records.SeqFields.html#caproto.server.records.SeqFields.display_precision.getter">(caproto.server.records.SeqFields.display_precision method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.StateFields.html#caproto.server.records.StateFields.description.getter">(caproto.server.records.StateFields.description method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.StringinFields.html#caproto.server.records.StringinFields.description.getter">(caproto.server.records.StringinFields.description method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.StringoutFields.html#caproto.server.records.StringoutFields.description.getter">(caproto.server.records.StringoutFields.description method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.SubarrayFields.html#caproto.server.records.SubarrayFields.description.getter">(caproto.server.records.SubarrayFields.description method)</a>
 </li>
         <li><a href="generated/caproto.server.records.SubarrayFields.html#caproto.server.records.SubarrayFields.display_precision.getter">(caproto.server.records.SubarrayFields.display_precision method)</a>
 </li>
@@ -1180,8 +1128,6 @@
         <li><a href="generated/caproto.server.records.SubarrayFields.html#caproto.server.records.SubarrayFields.number_of_elements.getter">(caproto.server.records.SubarrayFields.number_of_elements method)</a>
 </li>
         <li><a href="generated/caproto.server.records.SubFields.html#caproto.server.records.SubFields.archive_deadband.getter">(caproto.server.records.SubFields.archive_deadband method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.SubFields.html#caproto.server.records.SubFields.description.getter">(caproto.server.records.SubFields.description method)</a>
 </li>
         <li><a href="generated/caproto.server.records.SubFields.html#caproto.server.records.SubFields.display_precision.getter">(caproto.server.records.SubFields.display_precision method)</a>
 </li>
@@ -1198,8 +1144,6 @@
         <li><a href="generated/caproto.server.records.SubFields.html#caproto.server.records.SubFields.low_operating_range.getter">(caproto.server.records.SubFields.low_operating_range method)</a>
 </li>
         <li><a href="generated/caproto.server.records.SubFields.html#caproto.server.records.SubFields.monitor_deadband.getter">(caproto.server.records.SubFields.monitor_deadband method)</a>
-</li>
-        <li><a href="generated/caproto.server.records.WaveformFields.html#caproto.server.records.WaveformFields.description.getter">(caproto.server.records.WaveformFields.description method)</a>
 </li>
         <li><a href="generated/caproto.server.records.WaveformFields.html#caproto.server.records.WaveformFields.display_precision.getter">(caproto.server.records.WaveformFields.display_precision method)</a>
 </li>
@@ -1486,10 +1430,10 @@
 </li>
       <li><a href="pva/api.html#caproto.pva._messages.MessageHeader">MessageHeader (class in caproto.pva._messages)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pva/api.html#caproto.pva._messages.MessageHeaderBE">MessageHeaderBE (class in caproto.pva._messages)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pva/api.html#caproto.pva._messages.MessageHeaderLE">MessageHeaderLE (class in caproto.pva._messages)</a>
 </li>
       <li><a href="api.html#caproto.ReadNotifyResponse.metadata">metadata (caproto.ReadNotifyResponse attribute)</a>
@@ -1499,6 +1443,10 @@
 </li>
       </ul></li>
       <li><a href="generated/caproto.ioc_examples.mini_beamline.MiniBeamline.html#caproto.ioc_examples.mini_beamline.MiniBeamline">MiniBeamline (class in caproto.ioc_examples.mini_beamline)</a>
+</li>
+      <li><a href="generated/caproto.ioc_examples.mirror.Mirror.html#caproto.ioc_examples.mirror.Mirror">Mirror (class in caproto.ioc_examples.mirror)</a>
+</li>
+      <li><a href="generated/caproto.ioc_examples.client_monitor_async.MirrorClientIOC.html#caproto.ioc_examples.client_monitor_async.MirrorClientIOC">MirrorClientIOC (class in caproto.ioc_examples.client_monitor_async)</a>
 </li>
       <li>
     module
@@ -1643,8 +1591,6 @@
         <li><a href="api.html#caproto.VirtualCircuit.process_command">(caproto.VirtualCircuit method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#caproto.Broadcaster.process_commands">process_commands() (caproto.Broadcaster method)</a>
 </li>
       <li><a href="threading-client.html#caproto.threading.client.VirtualCircuitManager.process_queue">process_queue (caproto.threading.client.VirtualCircuitManager attribute)</a>
@@ -1659,6 +1605,8 @@
         <li><a href="pva/api.html#caproto.pva._messages.ChannelPutResponse.put_structure_if">(caproto.pva._messages.ChannelPutResponse attribute)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pva/api.html#caproto.pva.server.magic.pvaproperty.putter">putter() (caproto.pva.server.magic.pvaproperty method)</a>
 </li>
       <li><a href="async-clients.html#caproto.asyncio.client.PV">PV (class in caproto.asyncio.client)</a>
@@ -1690,6 +1638,28 @@
       <li><a href="pva/api.html#caproto.pva.server.magic.pvaproperty">pvaproperty (class in caproto.pva.server.magic)</a>
 </li>
       <li><a href="loggers.html#caproto.PVFilter">PVFilter (class in caproto)</a>
+</li>
+      <li><a href="generated/caproto.server.PVGroup.html#caproto.server.PVGroup">PVGroup (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.pvproperty.html#caproto.server.pvproperty">pvproperty (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyBoolEnum.html#caproto.server.PvpropertyBoolEnum">PvpropertyBoolEnum (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyByte.html#caproto.server.PvpropertyByte">PvpropertyByte (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyChar.html#caproto.server.PvpropertyChar">PvpropertyChar (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyDouble.html#caproto.server.PvpropertyDouble">PvpropertyDouble (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyEnum.html#caproto.server.PvpropertyEnum">PvpropertyEnum (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyFloat.html#caproto.server.PvpropertyFloat">PvpropertyFloat (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyInteger.html#caproto.server.PvpropertyInteger">PvpropertyInteger (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyShort.html#caproto.server.PvpropertyShort">PvpropertyShort (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyString.html#caproto.server.PvpropertyString">PvpropertyString (class in caproto.server)</a>
 </li>
       <li><a href="threading-client.html#caproto.threading.client.VirtualCircuitManager.pvs">pvs (caproto.threading.client.VirtualCircuitManager attribute)</a>
 </li>
@@ -1829,6 +1799,8 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/caproto.server.scan_wrapper.html#caproto.server.scan_wrapper">scan_wrapper() (in module caproto.server)</a>
+</li>
       <li><a href="generated/caproto.ioc_examples.scan_rate.ScanRateIOC.html#caproto.ioc_examples.scan_rate.ScanRateIOC">ScanRateIOC (class in caproto.ioc_examples.scan_rate)</a>
 </li>
       <li><a href="async-clients.html#caproto.asyncio.client.SharedBroadcaster.search">search() (caproto.asyncio.client.SharedBroadcaster method)</a>
@@ -1981,6 +1953,8 @@
         <li><a href="pva/api.html#caproto.pva.server.magic.pvaproperty.shutdown">(caproto.pva.server.magic.pvaproperty method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pva/api.html#caproto.pva.server.common.Context.shutdown_methods">shutdown_methods() (caproto.pva.server.common.Context property)</a>
 </li>
       <li><a href="api.html#caproto.ClearChannelRequest.sid">sid (caproto.ClearChannelRequest attribute)</a>
@@ -2003,8 +1977,6 @@
         <li><a href="api.html#caproto.WriteNotifyResponse.sid">(caproto.WriteNotifyResponse attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/caproto.ioc_examples.simple.SimpleIOC.html#caproto.ioc_examples.simple.SimpleIOC">SimpleIOC (class in caproto.ioc_examples.simple)</a>
 </li>
       <li><a href="generated/caproto.ioc_examples.mini_beamline.Slit.html#caproto.ioc_examples.mini_beamline.Slit">Slit (class in caproto.ioc_examples.mini_beamline)</a>
@@ -2017,18 +1989,16 @@
 </li>
       <li><a href="pva/api.html#caproto.pva.server.magic.ServerRPC.ServerInfo.startTime">startTime (caproto.pva.server.magic.ServerRPC.ServerInfo attribute)</a>
 </li>
-      <li><a href="generated/caproto.ioc_examples.decay.Decay.html#caproto.ioc_examples.decay.Decay.readback.startup">startup() (caproto.ioc_examples.decay.Decay.readback method)</a>
+      <li><a href="generated/caproto.ioc_examples.io_interrupt.IOInterruptIOC.html#caproto.ioc_examples.io_interrupt.IOInterruptIOC.keypress.startup">startup() (caproto.ioc_examples.io_interrupt.IOInterruptIOC.keypress method)</a>
 
       <ul>
-        <li><a href="generated/caproto.ioc_examples.io_interrupt.IOInterruptIOC.html#caproto.ioc_examples.io_interrupt.IOInterruptIOC.keypress.startup">(caproto.ioc_examples.io_interrupt.IOInterruptIOC.keypress method)</a>
-</li>
         <li><a href="generated/caproto.ioc_examples.mini_beamline.Edge.html#caproto.ioc_examples.mini_beamline.Edge.mtr.startup">(caproto.ioc_examples.mini_beamline.Edge.mtr method)</a>
-</li>
-        <li><a href="generated/caproto.ioc_examples.mini_beamline.MiniBeamline.html#caproto.ioc_examples.mini_beamline.MiniBeamline.current.startup">(caproto.ioc_examples.mini_beamline.MiniBeamline.current method)</a>
 </li>
         <li><a href="generated/caproto.ioc_examples.mini_beamline.PinHole.html#caproto.ioc_examples.mini_beamline.PinHole.mtr.startup">(caproto.ioc_examples.mini_beamline.PinHole.mtr method)</a>
 </li>
         <li><a href="generated/caproto.ioc_examples.mini_beamline.Slit.html#caproto.ioc_examples.mini_beamline.Slit.mtr.startup">(caproto.ioc_examples.mini_beamline.Slit.mtr method)</a>
+</li>
+        <li><a href="generated/caproto.ioc_examples.mirror.Mirror.html#caproto.ioc_examples.mirror.Mirror.value.startup">(caproto.ioc_examples.mirror.Mirror.value method)</a>
 </li>
         <li><a href="generated/caproto.ioc_examples.random_walk.RandomWalkIOC.html#caproto.ioc_examples.random_walk.RandomWalkIOC.x.startup">(caproto.ioc_examples.random_walk.RandomWalkIOC.x method)</a>
 </li>
@@ -2044,15 +2014,9 @@
 </li>
         <li><a href="generated/caproto.server.stats.BasicStatusHelper.html#caproto.server.stats.BasicStatusHelper.process_id.startup">(caproto.server.stats.BasicStatusHelper.process_id method)</a>
 </li>
-        <li><a href="generated/caproto.server.stats.MemoryTracingHelper.html#caproto.server.stats.MemoryTracingHelper.enable_tracing.startup">(caproto.server.stats.MemoryTracingHelper.enable_tracing method)</a>
-</li>
-        <li><a href="generated/caproto.server.stats.PeriodicStatusHelper.html#caproto.server.stats.PeriodicStatusHelper.heartbeat.startup">(caproto.server.stats.PeriodicStatusHelper.heartbeat method)</a>
-</li>
         <li><a href="generated/caproto.server.stats.PeriodicStatusHelper.html#caproto.server.stats.PeriodicStatusHelper.start_count.startup">(caproto.server.stats.PeriodicStatusHelper.start_count method)</a>
 </li>
         <li><a href="generated/caproto.server.stats.PeriodicStatusHelper.html#caproto.server.stats.PeriodicStatusHelper.start_tod.startup">(caproto.server.stats.PeriodicStatusHelper.start_tod method)</a>
-</li>
-        <li><a href="generated/caproto.server.stats.PeriodicStatusHelper.html#caproto.server.stats.PeriodicStatusHelper.time_of_day.startup">(caproto.server.stats.PeriodicStatusHelper.time_of_day method)</a>
 </li>
         <li><a href="generated/caproto.server.stats.PeriodicStatusHelper.html#caproto.server.stats.PeriodicStatusHelper.update_period.startup">(caproto.server.stats.PeriodicStatusHelper.update_period method)</a>
 </li>
@@ -2398,28 +2362,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

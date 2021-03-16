@@ -1,0 +1,47 @@
+﻿caproto.server.pvproperty
+=========================
+
+
+.. currentmodule:: caproto.server
+
+.. autoclass:: pvproperty
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~pvproperty.from_pvspec
+       ~pvproperty.getter
+       ~pvproperty.putter
+       ~pvproperty.scan
+       ~pvproperty.shutdown
+       ~pvproperty.startup
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~pvproperty.fields
+       ~pvproperty.record_type
+    
+
+    

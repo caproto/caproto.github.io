@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.pva.sync.client &mdash; caproto 0.6.0+136.g2cf72f2b documentation</title>
+  <title>caproto.pva.sync.client &mdash; caproto 0+untagged.1.g8344678 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,9 +32,7 @@
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/language_data.js"></script>
         <script src="../../../../_static/doctr-versions-menu.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../../../../index.html" class="icon icon-home" alt="Documentation Home"> caproto
+            <a href="../../../../index.html" class="icon icon-home"> caproto
           
 
           
@@ -61,7 +62,7 @@
             
             
               <div class="version">
-                0.6.0+136.g2cf72f2b
+                0+untagged.1.g8344678
               </div>
             
           
@@ -97,8 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../servers.html">Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../loggers.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../cookiecutter.html">IOC Template Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../environment_variables.html">Environment Variables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -143,6 +145,8 @@
         <div class="rst-content">
         
           
+
+
 
 
 
@@ -307,6 +311,19 @@
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">bytes_received</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="n">udp_sock</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="n">MAX_UDP_RECV</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ConnectionResetError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+                <span class="c1"># Win32: &quot;On a UDP-datagram socket this error indicates a</span>
+                <span class="c1"># previous send operation resulted in an ICMP Port Unreachable</span>
+                <span class="c1"># message.&quot;</span>
+                <span class="c1">#</span>
+                <span class="c1"># https://docs.microsoft.com/en-us/windows/win32/api/winsock/nf-winsock-recvfrom</span>
+                <span class="c1">#</span>
+                <span class="c1"># Despite the above, this does not *appear* to be fatal;</span>
+                <span class="c1"># sometimes the second try will work.</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Connection reset, retrying: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ex</span><span class="p">)</span>
+                <span class="n">check_timeout</span><span class="p">()</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+                <span class="k">continue</span>
             <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">timeout</span><span class="p">:</span>
                 <span class="n">check_timeout</span><span class="p">()</span>
                 <span class="k">continue</span>
@@ -324,8 +341,12 @@
                     <span class="k">continue</span>
 
                 <span class="k">if</span> <span class="n">command</span><span class="o">.</span><span class="n">found</span><span class="p">:</span>
-                    <span class="n">host_port</span> <span class="o">=</span> <span class="p">(</span><span class="n">command</span><span class="o">.</span><span class="n">server_address</span><span class="p">,</span>
-                                 <span class="n">command</span><span class="o">.</span><span class="n">server_port</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">command</span><span class="o">.</span><span class="n">server_address</span> <span class="o">==</span> <span class="s1">&#39;0.0.0.0&#39;</span><span class="p">:</span>
+                        <span class="n">host_port</span> <span class="o">=</span> <span class="p">(</span><span class="n">address</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                     <span class="n">command</span><span class="o">.</span><span class="n">server_port</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">host_port</span> <span class="o">=</span> <span class="p">(</span><span class="n">command</span><span class="o">.</span><span class="n">server_address</span><span class="p">,</span>
+                                     <span class="n">command</span><span class="o">.</span><span class="n">server_port</span><span class="p">)</span>
                     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Found </span><span class="si">%r</span><span class="s1"> at </span><span class="si">%r</span><span class="s1">.&#39;</span><span class="p">,</span> <span class="n">response_pvs</span><span class="p">,</span>
                                  <span class="n">host_port</span><span class="p">)</span>
                     <span class="k">return</span> <span class="n">host_port</span>
@@ -689,28 +710,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Daniel Allan
+        &#169; Copyright 2021, Daniel Allan.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
