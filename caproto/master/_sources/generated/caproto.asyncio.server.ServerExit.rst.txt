@@ -1,0 +1,6 @@
+﻿caproto.asyncio.server.ServerExit
+=================================
+
+.. currentmodule:: caproto.asyncio.server
+
+.. autoexception:: ServerExit

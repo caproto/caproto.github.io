@@ -1,0 +1,41 @@
+﻿caproto.curio.server.QueueWithFullError
+=======================================
+
+
+.. currentmodule:: caproto.curio.server
+
+.. autoclass:: QueueWithFullError
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~QueueWithFullError.empty
+       ~QueueWithFullError.full
+       ~QueueWithFullError.get
+       ~QueueWithFullError.join
+       ~QueueWithFullError.put
+       ~QueueWithFullError.qsize
+       ~QueueWithFullError.task_done
+    
+    
+
+    
+    
+    
+
+    

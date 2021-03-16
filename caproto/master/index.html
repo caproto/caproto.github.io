@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto: a pure-Python Channel Access protocol library &mdash; caproto 0+untagged.1.g57e0c56 documentation</title>
+  <title>caproto: a pure-Python Channel Access protocol library &mdash; caproto 0+untagged.1.ge2eb174 documentation</title>
   
 
   
@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                0+untagged.1.g57e0c56
+                0+untagged.1.ge2eb174
               </div>
             
           
@@ -90,18 +90,19 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install Caproto</a></li>
-</ul>
-<p class="caption"><span class="caption-text">EPICS Clients and Servers</span></p>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="clients.html">Clients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="records.html">Records</a></li>
 <li class="toctree-l1"><a class="reference internal" href="servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IOCs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="records.html">Records</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server_api.html">Server API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -240,7 +241,7 @@ server.</p>
 <h2>10 Reasons To Use Caproto and 1 Big Reason Not To<a class="headerlink" href="#reasons-to-use-caproto-and-1-big-reason-not-to" title="Permalink to this headline">¶</a></h2>
 <p>Most existing EPICS tools are built on well-established C and C++ libraries.
 Why write something from scratch in Python instead of just wrapping those?</p>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p><strong>Effortlessly Portable</strong>: No required dependencies — even numpy is
 optional. Caproto just needs Python itself. We use it on Linux, OSX,
 Windows, and RaspberryPi.</p></li>
@@ -255,8 +256,6 @@ ctypes structures.</p>
 <li><p>Only pay a performance cost of human-friendly introspection if and when
 you use it.</p></li>
 </ul>
-<p>For the numbers, see caproto’s
-<a class="reference external" href="https://nsls-ii.github.io/caproto/bench/#/">benchmarks</a>.</p>
 </li>
 <li><p><strong>Batteries Included</strong>: Includes multiple server and client implementations
 with different concurrency strategies.</p>
@@ -335,11 +334,6 @@ learning exercises.</p>
 <li class="toctree-l2"><a class="reference internal" href="install.html#installation-on-ios">Installation on iOS</a></li>
 </ul>
 </li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">EPICS Clients and Servers</span></p>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="clients.html">Clients</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="command-line-client.html">Command-Line Client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync-client.html">Synchronous Client</a></li>
@@ -348,6 +342,31 @@ learning exercises.</p>
 <li class="toctree-l2"><a class="reference internal" href="async-clients.html">Asynchronous Clients</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="servers.html">Servers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#core-api">Core API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#writing-your-own-iocs">Writing your own IOCs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#running-multiple-servers-on-one-host">Running multiple servers on one host</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shark.html#caproto-and-tcpdump">Caproto and tcpdump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shark.html#windows">Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shark.html#why-not-just-use-wireshark">Why not just use wireshark?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="loggers.html#command-line-tools">Command-line tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loggers.html#basic-examples">Basic Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loggers.html#caproto-s-logging-related-api">Caproto’s Logging-Related API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loggers.html#advanced-example">Advanced Example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">IOCs</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="iocs.html#why-write-an-ioc-using-caproto">Why Write an IOC Using Caproto?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iocs.html#using-the-ioc-examples">Using the IOC Examples</a></li>
@@ -401,23 +420,6 @@ learning exercises.</p>
 <li class="toctree-l2"><a class="reference internal" href="generated/caproto.server.records.summarize.html">caproto.server.records.summarize</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="servers.html">Servers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="servers.html#running-multiple-servers-on-one-host">Running multiple servers on one host</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="shark.html#caproto-and-tcpdump">Caproto and tcpdump</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shark.html#windows">Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shark.html#why-not-just-use-wireshark">Why not just use wireshark?</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="loggers.html#command-line-tools">Command-line tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loggers.html#basic-examples">Basic Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loggers.html#caproto-s-logging-related-api">Caproto’s Logging-Related API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loggers.html#advanced-example">Advanced Example</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutters</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cookiecutter.html#ioc-cookiecutter">IOC Cookiecutter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cookiecutter.html#startup-script-cookiecutter">Startup Script Cookiecutter</a></li>
@@ -429,7 +431,15 @@ learning exercises.</p>
 <li class="toctree-l2"><a class="reference internal" href="own_docs.html#using-autosummary">Using autosummary</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server_api.html">Server API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="server_api.html#data-containers">Data Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server_api.html#high-level-api-pvproperty-magic">High-level API / pvproperty magic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server_api.html#library-agnostic-server-core">Library-agnostic server core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server_api.html#asyncio-server">asyncio server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server_api.html#curio-server">Curio server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server_api.html#trio-server">Trio server</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">

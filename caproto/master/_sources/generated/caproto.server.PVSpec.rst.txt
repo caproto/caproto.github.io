@@ -1,0 +1,61 @@
+﻿caproto.server.PVSpec
+=====================
+
+
+.. currentmodule:: caproto.server
+
+.. autoclass:: PVSpec
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PVSpec.count
+       ~PVSpec.create
+       ~PVSpec.get_data_class
+       ~PVSpec.get_instantiation_info
+       ~PVSpec.index
+       ~PVSpec.new_names
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PVSpec.alarm_group
+       ~PVSpec.attr
+       ~PVSpec.cls_kwargs
+       ~PVSpec.doc
+       ~PVSpec.dtype
+       ~PVSpec.fields
+       ~PVSpec.get
+       ~PVSpec.max_length
+       ~PVSpec.name
+       ~PVSpec.put
+       ~PVSpec.read_only
+       ~PVSpec.record
+       ~PVSpec.scan
+       ~PVSpec.shutdown
+       ~PVSpec.startup
+       ~PVSpec.value
+    
+
+    

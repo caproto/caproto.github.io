@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.server.server &mdash; caproto 0+untagged.1.g57e0c56 documentation</title>
+  <title>caproto.server.server &mdash; caproto 0+untagged.1.ge2eb174 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0+untagged.1.g57e0c56
+                0+untagged.1.ge2eb174
               </div>
             
           
@@ -89,18 +89,19 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install Caproto</a></li>
-</ul>
-<p class="caption"><span class="caption-text">EPICS Clients and Servers</span></p>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../clients.html">Clients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../iocs.html">Input-Output Controllers (IOCs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../records.html">Records</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../environment_variables.html">Environment Variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../loggers.html">Logging</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IOCs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../records.html">Records</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../own_docs.html">Writing Your Own Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../server_api.html">Server API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -260,7 +261,7 @@
     <span class="p">]</span>
 
 
-<span class="k">class</span> <span class="nc">AsyncLibraryLayer</span><span class="p">:</span>
+<div class="viewcode-block" id="AsyncLibraryLayer"><a class="viewcode-back" href="../../../generated/caproto.server.AsyncLibraryLayer.html#caproto.server.AsyncLibraryLayer">[docs]</a><span class="k">class</span> <span class="nc">AsyncLibraryLayer</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Library compatibility layer</span>
 
@@ -270,10 +271,10 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">ThreadsafeQueue</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">library</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">library</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyData</span><span class="p">:</span>
+<div class="viewcode-block" id="PvpropertyData"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyData.html#caproto.server.PvpropertyData">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyData</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A top-level class for mixing in with `ChannelData` subclasses.</span>
 
@@ -468,7 +469,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">field</span> <span class="ow">or</span> <span class="n">field</span> <span class="o">==</span> <span class="s1">&#39;VAL&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="PvpropertyChar"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyChar.html#caproto.server.PvpropertyChar">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyChar</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">,</span> <span class="n">ChannelChar</span><span class="p">):</span>
@@ -524,42 +525,42 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">enum_strings</span><span class="o">=</span><span class="n">enum_strings</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyReadOnlyData</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">):</span>
+<div class="viewcode-block" id="PvpropertyReadOnlyData"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyReadOnlyData.html#caproto.server.PvpropertyReadOnlyData">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyReadOnlyData</span><span class="p">(</span><span class="n">PvpropertyData</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A mixin class which marks this data as read-only from channel access.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">check_access</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">AccessRights</span><span class="o">.</span><span class="n">READ</span>
+        <span class="k">return</span> <span class="n">AccessRights</span><span class="o">.</span><span class="n">READ</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyCharRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelChar</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Read-only 8-bit CHAR data for pvproperty with string encoding.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="PvpropertyCharRO"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyCharRO.html#caproto.server.PvpropertyCharRO">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyCharRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelChar</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-only 8-bit CHAR data for pvproperty with string encoding.&quot;&quot;&quot;</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyByteRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelByte</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Read-only 8-bit CHAR data for pvproperty for bytes.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="PvpropertyByteRO"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyByteRO.html#caproto.server.PvpropertyByteRO">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyByteRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelByte</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-only 8-bit CHAR data for pvproperty for bytes.&quot;&quot;&quot;</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyShortRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelShort</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Read-only SHORT/INT data for pvproperty (16 bits).&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="PvpropertyShortRO"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyShortRO.html#caproto.server.PvpropertyShortRO">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyShortRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelShort</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-only SHORT/INT data for pvproperty (16 bits).&quot;&quot;&quot;</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyIntegerRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelInteger</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Read-only LONG data for pvproperty (32 bits).&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="PvpropertyIntegerRO"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyIntegerRO.html#caproto.server.PvpropertyIntegerRO">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyIntegerRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelInteger</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-only LONG data for pvproperty (32 bits).&quot;&quot;&quot;</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyFloatRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelFloat</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Read-only FLOAT data for pvproperty (32 bits).&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="PvpropertyFloatRO"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyFloatRO.html#caproto.server.PvpropertyFloatRO">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyFloatRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelFloat</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-only FLOAT data for pvproperty (32 bits).&quot;&quot;&quot;</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyDoubleRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelDouble</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Read-only DOUBLE data for pvproperty (64 bits).&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="PvpropertyDoubleRO"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyDoubleRO.html#caproto.server.PvpropertyDoubleRO">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyDoubleRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelDouble</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-only DOUBLE data for pvproperty (64 bits).&quot;&quot;&quot;</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyStringRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelString</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Read-only STRING data for pvproperty (up to 40 chars).&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="PvpropertyStringRO"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyStringRO.html#caproto.server.PvpropertyStringRO">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyStringRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelString</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read-only STRING data for pvproperty (up to 40 chars).&quot;&quot;&quot;</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyEnumRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelEnum</span><span class="p">):</span>
+<div class="viewcode-block" id="PvpropertyEnumRO"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyEnumRO.html#caproto.server.PvpropertyEnumRO">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyEnumRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelEnum</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Read-only ENUM data for pvproperty.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">enum_strings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -572,16 +573,16 @@
             <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">name</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">enum_strings</span><span class="o">=</span><span class="n">enum_strings</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span>
-                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<span class="k">class</span> <span class="nc">PvpropertyBoolEnumRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelEnum</span><span class="p">):</span>
+<div class="viewcode-block" id="PvpropertyBoolEnumRO"><a class="viewcode-back" href="../../../generated/caproto.server.PvpropertyBoolEnumRO.html#caproto.server.PvpropertyBoolEnumRO">[docs]</a><span class="k">class</span> <span class="nc">PvpropertyBoolEnumRO</span><span class="p">(</span><span class="n">PvpropertyReadOnlyData</span><span class="p">,</span> <span class="n">ChannelEnum</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Read-only ENUM data for pvproperty, with Off/On as default strings.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">enum_strings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">enum_strings</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">enum_strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Off&#39;</span><span class="p">,</span> <span class="s1">&#39;On&#39;</span><span class="p">]</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">enum_strings</span><span class="o">=</span><span class="n">enum_strings</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">enum_strings</span><span class="o">=</span><span class="n">enum_strings</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <span class="n">_hook_signature_info</span> <span class="o">=</span> <span class="p">{</span>
@@ -626,7 +627,7 @@
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">PVSpec</span><span class="p">(</span><span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;PVSpec&#39;</span><span class="p">,</span>
+<div class="viewcode-block" id="PVSpec"><a class="viewcode-back" href="../../../generated/caproto.server.PVSpec.html#caproto.server.PVSpec">[docs]</a><span class="k">class</span> <span class="nc">PVSpec</span><span class="p">(</span><span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;PVSpec&#39;</span><span class="p">,</span>
                         <span class="s1">&#39;get put startup shutdown attr name dtype value &#39;</span>
                         <span class="s1">&#39;max_length alarm_group read_only doc fields scan &#39;</span>
                         <span class="s1">&#39;record &#39;</span>
@@ -809,7 +810,7 @@
                 <span class="sa">f</span><span class="s2">&quot;(kwargs=</span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">)&quot;</span>
             <span class="p">)</span> <span class="kn">from</span> <span class="nn">ex</span>
         <span class="n">inst</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">doc</span>
-        <span class="k">return</span> <span class="n">inst</span>
+        <span class="k">return</span> <span class="n">inst</span></div>
 
 
 <div class="viewcode-block" id="scan_wrapper"><a class="viewcode-back" href="../../../generated/caproto.server.scan_wrapper.html#caproto.server.scan_wrapper">[docs]</a><span class="k">def</span> <span class="nf">scan_wrapper</span><span class="p">(</span>
@@ -894,7 +895,7 @@
     <span class="k">return</span> <span class="n">scanned_startup</span></div>
 
 
-<span class="k">class</span> <span class="nc">FieldProxy</span><span class="p">:</span>
+<div class="viewcode-block" id="FieldProxy"><a class="viewcode-back" href="../../../generated/caproto.server.server.FieldProxy.html#caproto.server.FieldProxy">[docs]</a><span class="k">class</span> <span class="nc">FieldProxy</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A proxy class which allows access to ``pvproperty.fields.Field``.</span>
 
@@ -933,10 +934,10 @@
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&lt;FieldProxy record=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">record_class</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> &#39;</span>
-                <span class="sa">f</span><span class="s1">&#39;attr=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field_name</span><span class="si">}</span><span class="s1">&gt;&#39;</span><span class="p">)</span>
+                <span class="sa">f</span><span class="s1">&#39;attr=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field_name</span><span class="si">}</span><span class="s1">&gt;&#39;</span><span class="p">)</span></div>
 
 
-<span class="k">class</span> <span class="nc">FieldSpec</span><span class="p">:</span>
+<div class="viewcode-block" id="FieldSpec"><a class="viewcode-back" href="../../../generated/caproto.server.server.FieldSpec.html#caproto.server.FieldSpec">[docs]</a><span class="k">class</span> <span class="nc">FieldSpec</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A field specification for a pvproperty record.</span>
 
@@ -982,7 +983,7 @@
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&lt;FieldSpec record=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_record_type</span><span class="si">}</span><span class="s1"> &#39;</span>
-                <span class="sa">f</span><span class="s1">&#39;fields=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="si">}</span><span class="s1">&gt;&#39;</span><span class="p">)</span>
+                <span class="sa">f</span><span class="s1">&#39;fields=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="si">}</span><span class="s1">&gt;&#39;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="pvproperty"><a class="viewcode-back" href="../../../generated/caproto.server.pvproperty.html#caproto.server.pvproperty">[docs]</a><span class="k">class</span> <span class="nc">pvproperty</span><span class="p">:</span>
@@ -1266,7 +1267,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_spec</span></div>
 
 
-<span class="k">class</span> <span class="nc">NestedPvproperty</span><span class="p">(</span><span class="n">pvproperty</span><span class="p">):</span>
+<div class="viewcode-block" id="NestedPvproperty"><a class="viewcode-back" href="../../../generated/caproto.server.server.NestedPvproperty.html#caproto.server.NestedPvproperty">[docs]</a><span class="k">class</span> <span class="nc">NestedPvproperty</span><span class="p">(</span><span class="n">pvproperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Nested pvproperty which allows decorator usage in parent class</span>
 
@@ -1303,10 +1304,10 @@
     <span class="k">def</span> <span class="nf">from_pvspec</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pvspec</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
         <span class="n">prop</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">from_pvspec</span><span class="p">(</span><span class="n">pvspec</span><span class="p">)</span>
         <span class="n">prop</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
-        <span class="k">return</span> <span class="n">prop</span>
+        <span class="k">return</span> <span class="n">prop</span></div>
 
 
-<span class="k">class</span> <span class="nc">SubGroup</span><span class="p">:</span>
+<div class="viewcode-block" id="SubGroup"><a class="viewcode-back" href="../../../generated/caproto.server.SubGroup.html#caproto.server.SubGroup">[docs]</a><span class="k">class</span> <span class="nc">SubGroup</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A property-like descriptor for specifying a subgroup in a PVGroup.</span>
 
@@ -1451,7 +1452,7 @@
         <span class="s1">&#39;Allow access to class_dict getter/putter/startup through decorators&#39;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_class_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">attr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_class_dict</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_class_dict</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="get_pv_pair_wrapper"><a class="viewcode-back" href="../../../generated/caproto.server.get_pv_pair_wrapper.html#caproto.server.get_pv_pair_wrapper">[docs]</a><span class="k">def</span> <span class="nf">get_pv_pair_wrapper</span><span class="p">(</span><span class="n">setpoint_suffix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">readback_suffix</span><span class="o">=</span><span class="s1">&#39;_RBV&#39;</span><span class="p">):</span>
@@ -1532,7 +1533,7 @@
     <span class="k">return</span> <span class="n">wrapped</span></div>
 
 
-<span class="k">class</span> <span class="nc">pvfunction</span><span class="p">(</span><span class="n">SubGroup</span><span class="p">):</span>
+<div class="viewcode-block" id="pvfunction"><a class="viewcode-back" href="../../../generated/caproto.server.pvfunction.html#caproto.server.pvfunction">[docs]</a><span class="k">class</span> <span class="nc">pvfunction</span><span class="p">(</span><span class="n">SubGroup</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A descriptor for making an RPC-like function.</span>
 
@@ -1685,15 +1686,15 @@
 
     <span class="k">def</span> <span class="nf">__set_name__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">group_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_class_dict</span><span class="p">()</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__set_name__</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__set_name__</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
 
 
-<span class="k">def</span> <span class="nf">expand_macros</span><span class="p">(</span><span class="n">pv</span><span class="p">,</span> <span class="n">macros</span><span class="p">):</span>
+<div class="viewcode-block" id="expand_macros"><a class="viewcode-back" href="../../../generated/caproto.server.expand_macros.html#caproto.server.expand_macros">[docs]</a><span class="k">def</span> <span class="nf">expand_macros</span><span class="p">(</span><span class="n">pv</span><span class="p">,</span> <span class="n">macros</span><span class="p">):</span>
     <span class="s1">&#39;Expand a PV name with Python {format-style} macros&#39;</span>
-    <span class="k">return</span> <span class="n">pv</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">macros</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pv</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">macros</span><span class="p">)</span></div>
 
 
-<span class="k">class</span> <span class="nc">PVGroupMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
+<div class="viewcode-block" id="PVGroupMeta"><a class="viewcode-back" href="../../../generated/caproto.server.server.PVGroupMeta.html#caproto.server.PVGroupMeta">[docs]</a><span class="k">class</span> <span class="nc">PVGroupMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
     <span class="s1">&#39;Metaclass that finds all pvproperties&#39;</span>
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="fm">__prepare__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">):</span>
@@ -1750,7 +1751,7 @@
                     <span class="n">subgroups</span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">attr</span><span class="p">,</span> <span class="n">subattr</span><span class="p">))]</span> <span class="o">=</span> <span class="n">subgroup</span>
 
         <span class="n">pvs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">metacls</span><span class="o">.</span><span class="n">find_pvproperties</span><span class="p">(</span><span class="n">dct</span><span class="p">))</span>
-        <span class="k">return</span> <span class="bp">cls</span>
+        <span class="k">return</span> <span class="bp">cls</span></div>
 
 
 <span class="n">pvspec_type_map</span> <span class="o">=</span> <span class="p">{</span>
@@ -1957,7 +1958,7 @@
         <span class="k">return</span> <span class="n">value</span></div>
 
 
-<span class="k">def</span> <span class="nf">template_arg_parser</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">desc</span><span class="p">,</span> <span class="n">default_prefix</span><span class="p">,</span> <span class="n">argv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="template_arg_parser"><a class="viewcode-back" href="../../../generated/caproto.server.template_arg_parser.html#caproto.server.template_arg_parser">[docs]</a><span class="k">def</span> <span class="nf">template_arg_parser</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">desc</span><span class="p">,</span> <span class="n">default_prefix</span><span class="p">,</span> <span class="n">argv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="n">supported_async_libs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Construct a template arg parser for starting up an IOC</span>
@@ -2059,10 +2060,10 @@
                  <span class="s1">&#39;log_pv_names&#39;</span><span class="p">:</span> <span class="n">args</span><span class="o">.</span><span class="n">list_pvs</span><span class="p">,</span>
                  <span class="s1">&#39;interfaces&#39;</span><span class="p">:</span> <span class="n">args</span><span class="o">.</span><span class="n">interfaces</span><span class="p">})</span>
 
-    <span class="k">return</span> <span class="n">parser</span><span class="p">,</span> <span class="n">split_args</span>
+    <span class="k">return</span> <span class="n">parser</span><span class="p">,</span> <span class="n">split_args</span></div>
 
 
-<span class="k">def</span> <span class="nf">ioc_arg_parser</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">desc</span><span class="p">,</span> <span class="n">default_prefix</span><span class="p">,</span> <span class="n">argv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="ioc_arg_parser"><a class="viewcode-back" href="../../../generated/caproto.server.ioc_arg_parser.html#caproto.server.ioc_arg_parser">[docs]</a><span class="k">def</span> <span class="nf">ioc_arg_parser</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">desc</span><span class="p">,</span> <span class="n">default_prefix</span><span class="p">,</span> <span class="n">argv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                    <span class="n">supported_async_libs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A reusable ArgumentParser for basic example IOCs.</span>
@@ -2093,10 +2094,10 @@
     <span class="n">parser</span><span class="p">,</span> <span class="n">split_args</span> <span class="o">=</span> <span class="n">template_arg_parser</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="n">desc</span><span class="p">,</span> <span class="n">default_prefix</span><span class="o">=</span><span class="n">default_prefix</span><span class="p">,</span>
                                              <span class="n">argv</span><span class="o">=</span><span class="n">argv</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="n">macros</span><span class="p">,</span>
                                              <span class="n">supported_async_libs</span><span class="o">=</span><span class="n">supported_async_libs</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">split_args</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">split_args</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">())</span></div>
 
 
-<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">pvdb</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+<div class="viewcode-block" id="run"><a class="viewcode-back" href="../../../generated/caproto.server.run.html#caproto.server.run">[docs]</a><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">pvdb</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
         <span class="n">module_name</span><span class="o">=</span><span class="s2">&quot;caproto.asyncio.server&quot;</span><span class="p">,</span>
         <span class="n">interfaces</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">log_pv_names</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -2126,7 +2127,7 @@
     <span class="n">run</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">run</span>
     <span class="k">return</span> <span class="n">run</span><span class="p">(</span>
         <span class="n">pvdb</span><span class="p">,</span> <span class="n">interfaces</span><span class="o">=</span><span class="n">interfaces</span><span class="p">,</span> <span class="n">log_pv_names</span><span class="o">=</span><span class="n">log_pv_names</span><span class="p">,</span>
-        <span class="n">startup_hook</span><span class="o">=</span><span class="n">startup_hook</span><span class="p">)</span>
+        <span class="n">startup_hook</span><span class="o">=</span><span class="n">startup_hook</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Clients &mdash; caproto 0+untagged.1.g57e0c56 documentation</title>
+  <title>Clients &mdash; caproto 0+untagged.1.ge2eb174 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0+untagged.1.g57e0c56
+                0+untagged.1.ge2eb174
               </div>
             
           
@@ -89,11 +89,8 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install Caproto</a></li>
-</ul>
-<p class="caption"><span class="caption-text">EPICS Clients and Servers</span></p>
-<ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Clients</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="command-line-client.html">Command-Line Client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync-client.html">Synchronous Client</a></li>
@@ -102,14 +99,18 @@
 <li class="toctree-l2"><a class="reference internal" href="async-clients.html">Asynchronous Clients</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="records.html">Records</a></li>
 <li class="toctree-l1"><a class="reference internal" href="servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IOCs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="records.html">Records</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server_api.html">Server API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -208,8 +209,8 @@ opts for simplicity over performance.</p>
 most features and testing behind it. We generally recommend this one.</p>
 <p>The <a class="reference internal" href="pyepics-compat-client.html"><span class="doc">Pyepics-Compatible Client</span></a> should only be used if you want to have
 compatibility with some existing pyepics-based code.</p>
-<p>The <a class="reference internal" href="async-clients.html"><span class="doc">Asynchronous Clients</span></a> are experimental, not as robust or as feature-complete
-as the threading client. They may be reworked and built out in the future.</p>
+<p>Use the <a class="reference internal" href="async-clients.html"><span class="doc">Asynchronous Clients</span></a> if you wish to write client code that takes
+advantage of cooperative multitasking with asyncio.</p>
 <p>The <a class="reference internal" href="command-line-client.html"><span class="doc">Command-Line Client</span></a> provides commandline tools (<code class="docutils literal notranslate"><span class="pre">caproto-get</span></code>,
 <code class="docutils literal notranslate"><span class="pre">caproto-put</span></code>, …) that are drop-in replacements for their analogues in
 EPICS’ reference implementation (<code class="docutils literal notranslate"><span class="pre">caget</span></code>, <code class="docutils literal notranslate"><span class="pre">caput</span></code>, …). They are backed by

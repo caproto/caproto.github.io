@@ -1,0 +1,6 @@
+﻿caproto.server.ioc\_arg\_parser
+===============================
+
+.. currentmodule:: caproto.server
+
+.. autofunction:: ioc_arg_parser

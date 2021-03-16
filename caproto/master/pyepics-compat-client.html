@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Pyepics-Compatible Client &mdash; caproto 0+untagged.1.g57e0c56 documentation</title>
+  <title>Pyepics-Compatible Client &mdash; caproto 0+untagged.1.ge2eb174 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0+untagged.1.g57e0c56
+                0+untagged.1.ge2eb174
               </div>
             
           
@@ -89,11 +89,8 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install Caproto</a></li>
-</ul>
-<p class="caption"><span class="caption-text">EPICS Clients and Servers</span></p>
-<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="clients.html">Clients</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="command-line-client.html">Command-Line Client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync-client.html">Synchronous Client</a></li>
@@ -106,14 +103,18 @@
 <li class="toctree-l2"><a class="reference internal" href="async-clients.html">Asynchronous Clients</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="records.html">Records</a></li>
 <li class="toctree-l1"><a class="reference internal" href="servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IOCs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="records.html">Records</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server_api.html">Server API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -278,10 +279,10 @@ Get and put to <code class="docutils literal notranslate"><span class="pre">rand
 <span class="gh">Out[11]: </span><span class="go">0</span>
 
 <span class="gp">In [12]: </span><span class="kn">import</span> <span class="nn">time</span><span class="p">;</span> <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># give some time for responses to come in</span>
-<span class="go">received value 0.3081160429487919</span>
-<span class="go">received value 0.551001587594951</span>
-<span class="go">received value 1.5137208669437516</span>
-<span class="go">received value 0.5745623216791675</span>
+<span class="go">received value 0.2203964060650243</span>
+<span class="go">received value -0.6156550312688711</span>
+<span class="go">received value -1.234507560991206</span>
+<span class="go">received value -2.038834544840657</span>
 
 <span class="gp">In [13]: </span><span class="n">x_pv</span><span class="o">.</span><span class="n">clear_callbacks</span><span class="p">()</span>
 </pre></div>

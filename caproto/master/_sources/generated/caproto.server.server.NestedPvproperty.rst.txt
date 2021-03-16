@@ -1,0 +1,47 @@
+﻿caproto.server.server.NestedPvproperty
+======================================
+
+
+.. currentmodule:: caproto.server.server
+
+.. autoclass:: NestedPvproperty
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~NestedPvproperty.from_pvspec
+       ~NestedPvproperty.getter
+       ~NestedPvproperty.putter
+       ~NestedPvproperty.scan
+       ~NestedPvproperty.shutdown
+       ~NestedPvproperty.startup
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~NestedPvproperty.fields
+       ~NestedPvproperty.record_type
+    
+
+    

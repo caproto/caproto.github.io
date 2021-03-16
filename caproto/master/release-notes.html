@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Release History &mdash; caproto 0+untagged.1.g57e0c56 documentation</title>
+  <title>Release History &mdash; caproto 0+untagged.1.ge2eb174 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0+untagged.1.g57e0c56
+                0+untagged.1.ge2eb174
               </div>
             
           
@@ -91,18 +91,19 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install Caproto</a></li>
-</ul>
-<p class="caption"><span class="caption-text">EPICS Clients and Servers</span></p>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="clients.html">Clients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="records.html">Records</a></li>
 <li class="toctree-l1"><a class="reference internal" href="servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IOCs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="records.html">Records</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server_api.html">Server API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -472,7 +473,7 @@ data types found in epics-base.</p></li>
 <ul class="simple">
 <li><p>Added a new (experimental) asyncio client with features comparable to the
 threading client.</p></li>
-<li><p>Allow <code class="xref py py-class docutils literal notranslate"><span class="pre">caproto.server.SubGroup</span></code> instances to accept keyword arguments.</p></li>
+<li><p>Allow <a class="reference internal" href="generated/caproto.server.SubGroup.html#caproto.server.SubGroup" title="caproto.server.SubGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">caproto.server.SubGroup</span></code></a> instances to accept keyword arguments.</p></li>
 <li><p>Added autosave-like tools and an example.</p></li>
 <li><p>Now using <code class="docutils literal notranslate"><span class="pre">doctr-versions-menu</span></code> for documentation.</p></li>
 </ul>
@@ -486,7 +487,7 @@ the performance of write request handling and overall task cleanup.</p></li>
 client can both utilize them.</p></li>
 <li><p>Accessing a <a class="reference internal" href="generated/caproto.server.pvproperty.html#caproto.server.pvproperty" title="caproto.server.pvproperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">caproto.server.pvproperty</span></code></a> directly from the
 <a class="reference internal" href="generated/caproto.server.PVGroup.html#caproto.server.PVGroup" title="caproto.server.PVGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">caproto.server.PVGroup</span></code></a> class will no longer return a
-<code class="xref py py-class docutils literal notranslate"><span class="pre">caproto.server.PVSpec</span></code> instance, but the
+<a class="reference internal" href="generated/caproto.server.PVSpec.html#caproto.server.PVSpec" title="caproto.server.PVSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">caproto.server.PVSpec</span></code></a> instance, but the
 <a class="reference internal" href="generated/caproto.server.pvproperty.html#caproto.server.pvproperty" title="caproto.server.pvproperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">caproto.server.pvproperty</span></code></a> itself.</p></li>
 </ul>
 </div>

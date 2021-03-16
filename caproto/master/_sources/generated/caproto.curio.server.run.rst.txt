@@ -1,0 +1,6 @@
+﻿caproto.curio.server.run
+========================
+
+.. currentmodule:: caproto.curio.server
+
+.. autofunction:: run

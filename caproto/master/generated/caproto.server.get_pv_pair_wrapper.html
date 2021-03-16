@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.server.get_pv_pair_wrapper &mdash; caproto 0+untagged.1.g57e0c56 documentation</title>
+  <title>caproto.server.get_pv_pair_wrapper &mdash; caproto 0+untagged.1.ge2eb174 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0+untagged.1.g57e0c56
+                0+untagged.1.ge2eb174
               </div>
             
           
@@ -91,46 +91,41 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Install Caproto</a></li>
-</ul>
-<p class="caption"><span class="caption-text">EPICS Clients and Servers</span></p>
-<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../clients.html">Clients</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../iocs.html">Input-Output Controllers (IOCs)</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../iocs.html#why-write-an-ioc-using-caproto">Why Write an IOC Using Caproto?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../iocs.html#using-the-ioc-examples">Using the IOC Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../iocs.html#pvgroup">PVGroup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../iocs.html#pvproperty">pvproperty</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../iocs.html#general-tips">General Tips</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../iocs.html#how-do-i">How do I…</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#access-async-lib-directly-in-my-class">… access <code class="docutils literal notranslate"><span class="pre">async_lib</span></code> directly in my class?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#stop-every-pv-in-my-group-from-sharing-the-same-alarm">… stop every PV in my group from sharing the same alarm?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#make-a-string-pv-all-i-see-is-an-array-of-numbers">… make a string PV? All I see is an array of numbers!</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#structure-an-ioc-when-talking-to-a-real-piece-of-hardware">… structure an IOC when talking to a real piece of hardware?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#get-rid-of-pvgroup-and-pvproperty-i-hate-them">… get rid of PVGroup and pvproperty? I hate them!</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../iocs.html#represent-both-the-setpoint-and-readback-with-one-pvproperty">… represent both the setpoint and readback with one pvproperty?</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">caproto.server.get_pv_pair_wrapper</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#do-some-really-crazy-things-with-caproto">… do some really crazy things with caproto?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#handle-records-and-what-are-the-limitations-there">… handle records and what are the limitations there?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#add-a-client-to-monitor-other-pvs">… add a client to monitor other PVs?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#get-custom-arguments-into-my-ioc">… get custom arguments into my IOC?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#use-macros-and-what-are-macros">… use macros? And what are macros?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#make-a-bunch-of-caproto-iocs-without-all-the-boilerplate">… make a bunch of caproto IOCs without all the boilerplate?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../iocs.html#get-a-structured-view-of-my-pvgroup-on-the-client-side">… get a structured view of my PVGroup on the client side?</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../iocs.html#examples">Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../iocs.html#helpers">Helpers</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../records.html">Records</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environment_variables.html">Environment Variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loggers.html">Logging</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IOCs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../records.html">Records</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../own_docs.html">Writing Your Own Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../server_api.html">Server API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#data-containers">Data Containers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../server_api.html#high-level-api-pvproperty-magic">High-level API / pvproperty magic</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.PVSpec.html">caproto.server.PVSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.expand_macros.html">caproto.server.expand_macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.PVGroup.html">caproto.server.PVGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.pvproperty.html">caproto.server.pvproperty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.PvpropertyData.html">caproto.server.PvpropertyData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.SubGroup.html">caproto.server.SubGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.pvfunction.html">caproto.server.pvfunction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.expand_macros.html">caproto.server.expand_macros</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">caproto.server.get_pv_pair_wrapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.scan_wrapper.html">caproto.server.scan_wrapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../server_api.html#command-line-helpers">Command-line Helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../server_api.html#advanced-internal">Advanced / Internal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#library-agnostic-server-core">Library-agnostic server core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#asyncio-server">asyncio server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#curio-server">Curio server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#trio-server">Trio server</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>

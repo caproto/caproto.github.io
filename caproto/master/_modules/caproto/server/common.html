@@ -1,0 +1,1343 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>caproto.server.common &mdash; caproto 0+untagged.1.ge2eb174 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/doctr-versions-menu.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> caproto
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0+untagged.1.ge2eb174
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install Caproto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clients.html">Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../loggers.html">Logging</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IOCs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../records.html">Records</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../server_api.html">Server API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../basics.html">Writing Your Own Channel Access Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">Core API Documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">pvAccess</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../pva/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pva/clients.html">Synchronous Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pva/iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pva/api.html">PVAccess API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../protocol-compliance.html">Details of our Protocol Compliance for CA Nerds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release-notes.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../containers.html">Caproto-in-a-box</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">caproto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>caproto.server.common</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for caproto.server.common</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">weakref</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">ChainMap</span><span class="p">,</span> <span class="n">defaultdict</span><span class="p">,</span> <span class="n">deque</span><span class="p">,</span> <span class="n">namedtuple</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span>
+
+<span class="kn">import</span> <span class="nn">caproto</span> <span class="k">as</span> <span class="nn">ca</span>
+<span class="kn">from</span> <span class="nn">caproto</span> <span class="kn">import</span> <span class="p">(</span><span class="n">CaprotoKeyError</span><span class="p">,</span> <span class="n">CaprotoNetworkError</span><span class="p">,</span> <span class="n">CaprotoRuntimeError</span><span class="p">,</span>
+                     <span class="n">ChannelType</span><span class="p">,</span> <span class="n">RemoteProtocolError</span><span class="p">,</span> <span class="n">apply_arr_filter</span><span class="p">,</span>
+                     <span class="n">get_environment_variables</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">.._constants</span> <span class="kn">import</span> <span class="n">MAX_UDP_RECV</span>
+<span class="kn">from</span> <span class="nn">.._dbr</span> <span class="kn">import</span> <span class="n">SubscriptionType</span><span class="p">,</span> <span class="n">_LongStringChannelType</span>
+
+<span class="c1"># ** Tuning this parameters will affect the servers&#39; performance **</span>
+<span class="c1"># ** under high load. **</span>
+<span class="c1"># If the queue of subscriptions to has a new update ready within this timeout,</span>
+<span class="c1"># we consider ourselves under high load and trade accept some latency for some</span>
+<span class="c1"># efficiency.</span>
+<span class="n">HIGH_LOAD_TIMEOUT</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="c1"># When a batch of subscription updates has this many bytes or more, send it.</span>
+<span class="n">SUB_BATCH_THRESH</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">16</span>
+<span class="c1"># Tune this to change the max time between packets. If it&#39;s too high, the</span>
+<span class="c1"># client will experience long gaps when the server is under load. If it&#39;s too</span>
+<span class="c1"># low, the *overall* latency will be higher because the server will have to</span>
+<span class="c1"># waste time bundling many small packets.</span>
+<span class="n">MAX_LATENCY</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># If a Read[Notify]Request or EventAddRequest is received, wait for up to this</span>
+<span class="c1"># long for the currently-processing Write[Notify]Request to finish.</span>
+<span class="n">WRITE_LOCK_TIMEOUT</span> <span class="o">=</span> <span class="mf">0.001</span>
+
+
+<div class="viewcode-block" id="DisconnectedCircuit"><a class="viewcode-back" href="../../../generated/caproto.server.common.DisconnectedCircuit.html#caproto.server.common.DisconnectedCircuit">[docs]</a><span class="k">class</span> <span class="nc">DisconnectedCircuit</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="o">...</span></div>
+
+
+<div class="viewcode-block" id="LoopExit"><a class="viewcode-back" href="../../../generated/caproto.server.common.LoopExit.html#caproto.server.common.LoopExit">[docs]</a><span class="k">class</span> <span class="nc">LoopExit</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="o">...</span></div>
+
+
+<div class="viewcode-block" id="Subscription"><a class="viewcode-back" href="../../../generated/caproto.server.common.Subscription.html#caproto.server.common.Subscription">[docs]</a><span class="k">class</span> <span class="nc">Subscription</span><span class="p">(</span><span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Subscription&#39;</span><span class="p">,</span>
+                              <span class="p">(</span><span class="s1">&#39;mask&#39;</span><span class="p">,</span> <span class="s1">&#39;channel_filter&#39;</span><span class="p">,</span> <span class="s1">&#39;circuit&#39;</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;data_type&#39;</span><span class="p">,</span> <span class="s1">&#39;data_count&#39;</span><span class="p">,</span> <span class="s1">&#39;subscriptionid&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;db_entry&#39;</span><span class="p">))</span>
+                   <span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    An individual subscription from a client</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mask : SubscriptionType</span>
+<span class="sd">        The subscription mask indicating different properties</span>
+<span class="sd">    channel_filter : ChannelFilter</span>
+<span class="sd">        The channel filter specified, including timestamp, deadband,</span>
+<span class="sd">        array and sync options.</span>
+<span class="sd">    circuit : VirtualCircuit</span>
+<span class="sd">        The associated virtual circuit</span>
+<span class="sd">    channel : ServerChannel</span>
+<span class="sd">        The associated channel</span>
+<span class="sd">    data_type : ChannelType</span>
+<span class="sd">        The requested data type</span>
+<span class="sd">    data_count : int</span>
+<span class="sd">        The number of requested elements</span>
+<span class="sd">    subscriptionid : int</span>
+<span class="sd">        The ID of the subscription</span>
+<span class="sd">    db_entry : ChannelData</span>
+<span class="sd">        The database entry</span>
+<span class="sd">    &#39;&#39;&#39;</span></div>
+
+
+<div class="viewcode-block" id="SubscriptionSpec"><a class="viewcode-back" href="../../../generated/caproto.server.common.SubscriptionSpec.html#caproto.server.common.SubscriptionSpec">[docs]</a><span class="k">class</span> <span class="nc">SubscriptionSpec</span><span class="p">(</span><span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;SubscriptionSpec&#39;</span><span class="p">,</span>
+                                  <span class="p">(</span><span class="s1">&#39;db_entry&#39;</span><span class="p">,</span> <span class="s1">&#39;data_type_name&#39;</span><span class="p">,</span> <span class="s1">&#39;mask&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;channel_filter&#39;</span><span class="p">))</span>
+                       <span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Subscription specification used to key all subscription updates</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    db_entry : ChannelData</span>
+<span class="sd">        The database entry</span>
+<span class="sd">    data_type_name : str</span>
+<span class="sd">        The type name associated with the user&#39;s request. For example,</span>
+<span class="sd">        all of the following are valid: {&#39;STRING&#39;, &#39;INT&#39;, &#39;TIME_STRING&#39;,</span>
+<span class="sd">        &#39;TIME_INT&#39;, &#39;LONG_STRING&#39;} and so on.  See also :class:`ChannelType`</span>
+<span class="sd">        and :class:`_LongStringChannelType`.</span>
+<span class="sd">    mask : SubscriptionType</span>
+<span class="sd">        The subscription mask indicating different properties</span>
+<span class="sd">    channel_filter : ChannelFilter</span>
+<span class="sd">        The channel filter specified, including timestamp, deadband,</span>
+<span class="sd">        array and sync options.</span>
+<span class="sd">    &#39;&#39;&#39;</span></div>
+
+
+<span class="n">host_endian</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;&gt;&#39;</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">byteorder</span> <span class="o">==</span> <span class="s1">&#39;big&#39;</span> <span class="k">else</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="VirtualCircuit"><a class="viewcode-back" href="../../../generated/caproto.server.common.VirtualCircuit.html#caproto.server.common.VirtualCircuit">[docs]</a><span class="k">class</span> <span class="nc">VirtualCircuit</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">circuit</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connected</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span> <span class="o">=</span> <span class="n">circuit</span>  <span class="c1"># a caproto.VirtualCircuit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">our_address</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">log</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">client</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">context</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client_hostname</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client_username</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># The structure of self.subscriptions is:</span>
+        <span class="c1"># {SubscriptionSpec: deque([Subscription, Subscription, ...]), ...}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="n">deque</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unexpired_updates</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span>
+            <span class="k">lambda</span><span class="p">:</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">ca</span><span class="o">.</span><span class="n">MAX_SUBSCRIPTION_BACKLOG</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">most_recent_updates</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># This dict is passed to the loggers.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tags</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;their_address&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+                      <span class="s1">&#39;our_address&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">our_address</span><span class="p">,</span>
+                      <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;&lt;&lt;---&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;role&#39;</span><span class="p">:</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">our_role</span><span class="p">)}</span>
+        <span class="c1"># Subclasses are expected to define:</span>
+        <span class="c1"># self.QueueFull = ...</span>
+        <span class="c1"># self.command_queue = ...</span>
+        <span class="c1"># self.new_command_condition = ...</span>
+        <span class="c1"># self.subscription_queue = ...</span>
+        <span class="c1"># self.get_from_sub_queue = ...</span>
+        <span class="c1"># self.events_on = ...</span>
+        <span class="c1"># self.write_event = ...</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_on_disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Executed when disconnection detected&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">connected</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">connected</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">subscription_queue</span>
+        <span class="k">for</span> <span class="n">sub_spec</span><span class="p">,</span> <span class="n">subs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">subs</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">[</span><span class="n">sub_spec</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span>
+            <span class="c1"># Does anything else on the Context still care about this sub_spec?</span>
+            <span class="c1"># If not unsubscribe the Context&#39;s queue from the db_entry.</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">[</span><span class="n">sub_spec</span><span class="p">]:</span>
+                <span class="k">await</span> <span class="n">sub_spec</span><span class="o">.</span><span class="n">db_entry</span><span class="o">.</span><span class="n">unsubscribe</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">sub_spec</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">commands</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process a command and tranport it over the TCP socket for this circuit.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connected</span><span class="p">:</span>
+            <span class="n">buffers_to_send</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="o">*</span><span class="n">commands</span><span class="p">)</span>
+            <span class="c1"># send bytes over the wire using some caproto utilities</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_raw_lock</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="n">ca</span><span class="o">.</span><span class="n">async_send_all</span><span class="p">(</span><span class="n">buffers_to_send</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">sendmsg</span><span class="p">)</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="n">CaprotoNetworkError</span><span class="p">)</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">DisconnectedCircuit</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Circuit disconnected: </span><span class="si">{</span><span class="n">ex</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span> <span class="kn">from</span> <span class="nn">ex</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">recv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Receive bytes over TCP and cache them in this circuit&#39;s buffer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">bytes_received</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+            <span class="n">bytes_received</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">commands</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">bytes_received</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">commands</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="k">except</span> <span class="bp">self</span><span class="o">.</span><span class="n">QueueFull</span><span class="p">:</span>
+                <span class="c1"># This client is fast and we are not keeping up. Better to kill</span>
+                <span class="c1"># the circuit (and let the client try again) than to let the</span>
+                <span class="c1"># whole server be OOM-ed.</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Circuit </span><span class="si">{</span><span class="bp">self</span><span class="si">!r}</span><span class="s2"> has a large backlog of &quot;</span>
+                                 <span class="sa">f</span><span class="s2">&quot;received commands, evidently cannot keep &quot;</span>
+                                 <span class="sa">f</span><span class="s2">&quot;with a fast client. Disconnecting circuit &quot;</span>
+                                 <span class="sa">f</span><span class="s2">&quot;to avoid letting consume all available &quot;</span>
+                                 <span class="sa">f</span><span class="s2">&quot;memory.&quot;</span><span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_disconnect</span><span class="p">()</span>
+                <span class="k">raise</span> <span class="n">DisconnectedCircuit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">bytes_received</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_disconnect</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="n">DisconnectedCircuit</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_get_ids_from_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns (cid, sid) given a command&quot;&quot;&quot;</span>
+        <span class="n">cid</span><span class="p">,</span> <span class="n">sid</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="s1">&#39;sid&#39;</span><span class="p">):</span>
+            <span class="n">sid</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">sid</span>
+            <span class="n">cid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">channels_sid</span><span class="p">[</span><span class="n">sid</span><span class="p">]</span><span class="o">.</span><span class="n">cid</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="s1">&#39;cid&#39;</span><span class="p">):</span>
+            <span class="n">cid</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">cid</span>
+            <span class="n">sid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">cid</span><span class="p">]</span><span class="o">.</span><span class="n">sid</span>
+
+        <span class="k">return</span> <span class="n">cid</span><span class="p">,</span> <span class="n">sid</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_command_queue_iteration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Coroutine which evaluates one item from the circuit command queue.</span>
+
+<span class="sd">        1. Dispatch and validate through caproto.VirtualCircuit.process_command</span>
+<span class="sd">            - Upon server failure, respond to the client with</span>
+<span class="sd">              caproto.ErrorResponse</span>
+<span class="sd">        2. Update Channel state if applicable.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">process_command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">ca</span><span class="o">.</span><span class="n">RemoteProtocolError</span><span class="p">:</span>
+            <span class="n">cid</span><span class="p">,</span> <span class="n">sid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ids_from_command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">cid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">ServerDisconnResponse</span><span class="p">(</span><span class="n">cid</span><span class="o">=</span><span class="n">cid</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span>
+                        <span class="s2">&quot;Client broke the protocol in a recoverable way, but &quot;</span>
+                        <span class="s2">&quot;channel disconnection of cid=</span><span class="si">%d</span><span class="s2"> sid=</span><span class="si">%d</span><span class="s2"> failed.&quot;</span><span class="p">,</span> <span class="n">cid</span><span class="p">,</span>
+                        <span class="n">sid</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="n">LoopExit</span><span class="p">(</span><span class="s1">&#39;Recoverable protocol error failure&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span>
+                        <span class="s2">&quot;Client broke the protocol in a recoverable way. &quot;</span>
+                        <span class="s2">&quot;Disconnected channel cid=</span><span class="si">%d</span><span class="s2"> sid=</span><span class="si">%d</span><span class="s2"> but keeping the &quot;</span>
+                        <span class="s2">&quot;circuit alive.&quot;</span><span class="p">,</span> <span class="n">cid</span><span class="p">,</span> <span class="n">sid</span><span class="p">)</span>
+
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wake_new_command</span><span class="p">()</span>
+                <span class="k">return</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span>
+                    <span class="s2">&quot;Client broke the protocol in an unrecoverable way.&quot;</span><span class="p">)</span>
+                <span class="c1"># TODO: Kill the circuit.</span>
+                <span class="k">raise</span> <span class="n">LoopExit</span><span class="p">(</span><span class="s1">&#39;Unrecoverable protocol error&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Circuit command queue evaluation failed&#39;</span><span class="p">)</span>
+            <span class="c1"># Internal error - ignore for now</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="n">command</span> <span class="ow">is</span> <span class="n">ca</span><span class="o">.</span><span class="n">DISCONNECTED</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DisconnectedCircuit</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">connected</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">ClearChannelRequest</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Server error after client &#39;</span>
+                                   <span class="s1">&#39;disconnection: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">LoopExit</span><span class="p">(</span><span class="s1">&#39;Server error after client disconnection&#39;</span><span class="p">)</span>
+
+            <span class="n">cid</span><span class="p">,</span> <span class="n">sid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ids_from_command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+            <span class="n">chan</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_db_entry_from_command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span>
+                <span class="s1">&#39;Server failed to process command (</span><span class="si">%r</span><span class="s1">): </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="n">chan</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">cid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">error_message</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Python exception: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">ex</span><span class="si">}</span><span class="s1">&#39;</span>
+                <span class="k">return</span> <span class="p">[</span><span class="n">ca</span><span class="o">.</span><span class="n">ErrorResponse</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">cid</span><span class="p">,</span>
+                                         <span class="n">status</span><span class="o">=</span><span class="n">ca</span><span class="o">.</span><span class="n">CAStatus</span><span class="o">.</span><span class="n">ECA_INTERNAL</span><span class="p">,</span>
+                                         <span class="n">error_message</span><span class="o">=</span><span class="n">error_message</span><span class="p">)</span>
+                        <span class="p">]</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">command_queue_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reference implementation of the command queue loop</span>
+
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        Assumes self.command_bundle_queue functions as an async queue with</span>
+<span class="sd">        awaitable .get()</span>
+
+<span class="sd">        Async library implementations can (and should) reimplement this.</span>
+<span class="sd">        Coroutine which evaluates one item from the circuit command queue.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># The write_event will be cleared when a write is scheduled and set</span>
+        <span class="c1"># when one completes.</span>
+        <span class="n">maybe_awaitable</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+        <span class="c1"># The curio backend makes this an awaitable thing.</span>
+        <span class="k">if</span> <span class="n">maybe_awaitable</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">maybe_awaitable</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_command_queue_iteration</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="o">*</span><span class="n">response</span><span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wake_new_command</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">DisconnectedCircuit</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_disconnect</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">circuit_disconnected</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">except</span> <span class="bp">self</span><span class="o">.</span><span class="n">TaskCancelled</span><span class="p">:</span>
+            <span class="o">...</span>
+        <span class="k">except</span> <span class="n">LoopExit</span><span class="p">:</span>
+            <span class="o">...</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">subscription_queue_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">maybe_awaitable</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">events_on</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+        <span class="c1"># The curio backend makes this an awaitable thing.</span>
+        <span class="k">if</span> <span class="n">maybe_awaitable</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">maybe_awaitable</span>
+        <span class="n">commands</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+        <span class="n">latency_limit</span> <span class="o">=</span> <span class="n">HIGH_LOAD_TIMEOUT</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">send_now</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">commands</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="n">commands_bytes</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">num_expired</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># We are covering two regimes of operation here. In the &quot;slow</span>
+                <span class="c1"># producer&quot; regime, the server is only occasionally sending</span>
+                <span class="c1"># updates, and it should optimize for low latency. In the &quot;fast</span>
+                <span class="c1"># producer&quot; regime, the server is flooded with updates that it</span>
+                <span class="c1"># needs to get out onto the wire as efficiently as possible,</span>
+                <span class="c1"># and it should sacrifice some latency in order to batch</span>
+                <span class="c1"># requests efficiently.</span>
+                <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">ref</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_from_sub_queue</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">HIGH_LOAD_TIMEOUT</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">ref</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="c1"># We have caught up with the producer. Stop batching,</span>
+                        <span class="c1"># and optimize for low latency.</span>
+                        <span class="n">send_now</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="k">if</span> <span class="n">commands</span><span class="p">:</span>
+                            <span class="c1"># We have accumulated commands while previously in</span>
+                            <span class="c1"># the &quot;fast producer&quot; regime. Short-circuit and</span>
+                            <span class="c1"># send them.</span>
+                            <span class="k">break</span>
+
+                        <span class="c1"># Block here until we have something to send...</span>
+                        <span class="n">ref</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_from_sub_queue</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+                        <span class="c1"># And, since we are in &quot;slow producer&quot; mode, reset the</span>
+                        <span class="c1"># limit in preparation for the next time we enter &quot;fast</span>
+                        <span class="c1"># producer&quot; mode.</span>
+                        <span class="n">latency_limit</span> <span class="o">=</span> <span class="n">HIGH_LOAD_TIMEOUT</span>
+
+                    <span class="n">command</span> <span class="o">=</span> <span class="n">ref</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">command</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="c1"># Quota for this subscription has been exceeded.  This</span>
+                        <span class="c1"># client is a slow consumer. To avoid letting it get</span>
+                        <span class="c1"># behind, drop this message on the floor and move on.</span>
+                        <span class="c1"># We are dropping &quot;old news&quot; in favor of prioritizing</span>
+                        <span class="c1"># getting the &quot;latest news&quot; out. Note that the</span>
+                        <span class="c1"># reference implementation in epics-base, rsrv, does</span>
+                        <span class="c1"># the opposite: it drops the new news and sends the old</span>
+                        <span class="c1"># news. Jeff Hill has stated clearly that this should</span>
+                        <span class="c1"># be considered an implementation detail, not part of</span>
+                        <span class="c1"># the specification. The C++ implementation can save</span>
+                        <span class="c1"># some memory by discarding the latest updates, but it</span>
+                        <span class="c1"># is more useful to discard the oldest updates. Python</span>
+                        <span class="c1"># might as well do the more useful thing, given that</span>
+                        <span class="c1"># its baseline memory usage is high.</span>
+                        <span class="n">num_expired</span> <span class="o">+=</span> <span class="mi">1</span>
+                        <span class="k">continue</span>
+                    <span class="c1"># Accumulate commands into a batch.</span>
+                    <span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+                    <span class="n">commands_bytes</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+                    <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">commands</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="c1"># Set a dealine by which will must send this oldest</span>
+                        <span class="c1"># command in the batch, effecitvely a limit of latency.</span>
+                        <span class="n">deadline</span> <span class="o">=</span> <span class="n">now</span> <span class="o">+</span> <span class="n">latency_limit</span>
+                    <span class="k">elif</span> <span class="n">deadline</span> <span class="o">&lt;</span> <span class="n">now</span><span class="p">:</span>
+                        <span class="n">send_now</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="k">if</span> <span class="n">commands_bytes</span> <span class="o">&gt;</span> <span class="n">SUB_BATCH_THRESH</span><span class="p">:</span>
+                        <span class="n">send_now</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="c1"># Send the batch if we are in low-latency / slow producer</span>
+                    <span class="c1"># mode, or if the high-latency deadline has passed, or if</span>
+                    <span class="c1"># the batch has reached max size.  But be sure _not_ to</span>
+                    <span class="c1"># send it if it is empty (because all the would-be contents</span>
+                    <span class="c1"># were expired.)</span>
+                    <span class="k">if</span> <span class="n">commands</span> <span class="ow">and</span> <span class="n">send_now</span><span class="p">:</span>
+                        <span class="k">break</span>
+            <span class="k">except</span> <span class="bp">self</span><span class="o">.</span><span class="n">TaskCancelled</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">len_commands</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">commands</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">num_expired</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;High load. Dropped </span><span class="si">%d</span><span class="s2"> responses.&quot;</span><span class="p">,</span> <span class="n">num_expired</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">len_commands</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                        <span class="s2">&quot;High load. Batched </span><span class="si">%d</span><span class="s2"> commands (</span><span class="si">%d</span><span class="s2">B) with </span><span class="si">%.4f</span><span class="s2">s latency.&quot;</span><span class="p">,</span>
+                        <span class="n">len_commands</span><span class="p">,</span> <span class="n">commands_bytes</span><span class="p">,</span>
+                        <span class="n">now</span> <span class="o">-</span> <span class="n">deadline</span> <span class="o">+</span> <span class="n">latency_limit</span><span class="p">)</span>
+
+                <span class="c1"># Ensure at the last possible moment that we don&#39;t send</span>
+                <span class="c1"># responses for Subscriptions that have been canceled at some</span>
+                <span class="c1"># time after the response was queued. The important thing is</span>
+                <span class="c1"># that no EventAddResponse be sent after the corresponding</span>
+                <span class="c1"># EventCancelResponse.</span>
+                <span class="n">all_subscription_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">sub</span><span class="o">.</span><span class="n">subscriptionid</span>
+                                           <span class="k">for</span> <span class="n">subs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+                                           <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">subs</span><span class="p">)</span>
+                <span class="n">culled_commands</span> <span class="o">=</span> <span class="p">(</span><span class="n">command</span> <span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">commands</span>
+                                   <span class="k">if</span> <span class="n">command</span><span class="o">.</span><span class="n">subscriptionid</span> <span class="ow">in</span> <span class="n">all_subscription_ids</span><span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="o">*</span><span class="n">culled_commands</span><span class="p">)</span>
+
+                <span class="c1"># When we are stuck in the &quot;fast producer&quot; regime,</span>
+                <span class="c1"># stuggling to push updates out, send larger and larger</span>
+                <span class="c1"># pakcets by increasing the allowed latency between each</span>
+                <span class="c1"># send until we either catch up or reach MAX_LATENCY.</span>
+                <span class="n">latency_limit</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">MAX_LATENCY</span><span class="p">,</span> <span class="n">latency_limit</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">DisconnectedCircuit</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_disconnect</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">circuit_disconnected</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">break</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_cull_subscriptions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_entry</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="c1"># Iterate through each Subscription, passing each one to func(sub).</span>
+        <span class="c1"># Collect a list of (SubscriptionSpec, Subscription) for which</span>
+        <span class="c1"># func(sub) is True.</span>
+        <span class="c1">#</span>
+        <span class="c1"># Remove any matching Subscriptions, and then remove any empty</span>
+        <span class="c1"># SubsciprtionSpecs. Return the list of matching pairs.</span>
+        <span class="n">to_remove</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">sub_spec</span><span class="p">,</span> <span class="n">subs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">subs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">func</span><span class="p">(</span><span class="n">sub</span><span class="p">):</span>
+                    <span class="n">to_remove</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">sub_spec</span><span class="p">,</span> <span class="n">sub</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">sub_spec</span><span class="p">,</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">to_remove</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">[</span><span class="n">sub_spec</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">most_recent_updates</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">sub</span><span class="o">.</span><span class="n">subscriptionid</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">[</span><span class="n">sub_spec</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">last_dead_band</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">last_sync_edge_update</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="c1"># Does anything else on the Context still care about sub_spec?</span>
+            <span class="c1"># If not unsubscribe the Context&#39;s queue from the db_entry.</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">[</span><span class="n">sub_spec</span><span class="p">]:</span>
+                <span class="n">queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">subscription_queue</span>
+                <span class="k">await</span> <span class="n">sub_spec</span><span class="o">.</span><span class="n">db_entry</span><span class="o">.</span><span class="n">unsubscribe</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">sub_spec</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">to_remove</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_db_entry_from_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a database entry from command, determined by the server id&quot;&quot;&quot;</span>
+        <span class="n">cid</span><span class="p">,</span> <span class="n">sid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ids_from_command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="n">chan</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">channels_sid</span><span class="p">[</span><span class="n">sid</span><span class="p">]</span>
+        <span class="n">db_entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="n">chan</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">chan</span><span class="p">,</span> <span class="n">db_entry</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_process_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Process a command from a client, and return the server response&#39;&#39;&#39;</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tags</span>
+        <span class="k">if</span> <span class="n">command</span> <span class="ow">is</span> <span class="n">ca</span><span class="o">.</span><span class="n">DISCONNECTED</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DisconnectedCircuit</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">VersionRequest</span><span class="p">):</span>
+            <span class="n">to_send</span> <span class="o">=</span> <span class="p">[</span><span class="n">ca</span><span class="o">.</span><span class="n">VersionResponse</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">DEFAULT_PROTOCOL_VERSION</span><span class="p">)]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">SearchRequest</span><span class="p">):</span>
+            <span class="n">pv_name</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">name</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="n">pv_name</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">command</span><span class="o">.</span><span class="n">reply</span> <span class="o">==</span> <span class="n">ca</span><span class="o">.</span><span class="n">DO_REPLY</span><span class="p">:</span>
+                    <span class="n">to_send</span> <span class="o">=</span> <span class="p">[</span>
+                        <span class="n">ca</span><span class="o">.</span><span class="n">NotFoundResponse</span><span class="p">(</span>
+                            <span class="n">version</span><span class="o">=</span><span class="n">ca</span><span class="o">.</span><span class="n">DEFAULT_PROTOCOL_VERSION</span><span class="p">,</span>
+                            <span class="n">cid</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">cid</span><span class="p">)</span>
+                    <span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">to_send</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">to_send</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">ca</span><span class="o">.</span><span class="n">SearchResponse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">command</span><span class="o">.</span><span class="n">cid</span><span class="p">,</span>
+                                      <span class="n">ca</span><span class="o">.</span><span class="n">DEFAULT_PROTOCOL_VERSION</span><span class="p">)</span>
+                <span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">CreateChanRequest</span><span class="p">):</span>
+            <span class="n">pvname</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">name</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">db_entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="n">pvname</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Client requested invalid channel name: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                               <span class="n">pvname</span><span class="p">)</span>
+                <span class="n">to_send</span> <span class="o">=</span> <span class="p">[</span><span class="n">ca</span><span class="o">.</span><span class="n">CreateChFailResponse</span><span class="p">(</span><span class="n">cid</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">cid</span><span class="p">)]</span>
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="n">access</span> <span class="o">=</span> <span class="n">db_entry</span><span class="o">.</span><span class="n">check_access</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">client_hostname</span><span class="p">,</span>
+                                               <span class="bp">self</span><span class="o">.</span><span class="n">client_username</span><span class="p">)</span>
+
+                <span class="n">modifiers</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">parse_record_field</span><span class="p">(</span><span class="n">pvname</span><span class="p">)</span><span class="o">.</span><span class="n">modifiers</span>
+                <span class="n">data_type</span> <span class="o">=</span> <span class="n">db_entry</span><span class="o">.</span><span class="n">data_type</span>
+                <span class="n">data_count</span> <span class="o">=</span> <span class="n">db_entry</span><span class="o">.</span><span class="n">max_length</span>
+                <span class="k">if</span> <span class="n">ca</span><span class="o">.</span><span class="n">RecordModifiers</span><span class="o">.</span><span class="n">long_string</span> <span class="ow">in</span> <span class="p">(</span><span class="n">modifiers</span> <span class="ow">or</span> <span class="p">{}):</span>
+                    <span class="k">if</span> <span class="n">data_type</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ChannelType</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="p">):</span>
+                        <span class="n">data_type</span> <span class="o">=</span> <span class="n">ChannelType</span><span class="o">.</span><span class="n">CHAR</span>
+                        <span class="n">data_count</span> <span class="o">=</span> <span class="n">db_entry</span><span class="o">.</span><span class="n">long_string_max_length</span>
+
+                <span class="n">to_send</span> <span class="o">=</span> <span class="p">[</span><span class="n">ca</span><span class="o">.</span><span class="n">AccessRightsResponse</span><span class="p">(</span><span class="n">cid</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">cid</span><span class="p">,</span>
+                                                   <span class="n">access_rights</span><span class="o">=</span><span class="n">access</span><span class="p">),</span>
+                           <span class="n">ca</span><span class="o">.</span><span class="n">CreateChanResponse</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="n">data_type</span><span class="p">,</span>
+                                                 <span class="n">data_count</span><span class="o">=</span><span class="n">data_count</span><span class="p">,</span>
+                                                 <span class="n">cid</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">cid</span><span class="p">,</span>
+                                                 <span class="n">sid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">new_channel_id</span><span class="p">()),</span>
+                           <span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">HostNameRequest</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">client_hostname</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">to_send</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">ClientNameRequest</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">client_username</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">to_send</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">ReadNotifyRequest</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">ReadRequest</span><span class="p">)):</span>
+            <span class="n">chan</span><span class="p">,</span> <span class="n">db_entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_db_entry_from_command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">data_type</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">data_type</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ca</span><span class="o">.</span><span class="n">RemoteProtocolError</span><span class="p">(</span><span class="s1">&#39;Invalid data type&#39;</span><span class="p">)</span>
+
+            <span class="c1"># If we are in the middle of processing a Write[Notify]Request,</span>
+            <span class="c1"># allow a bit of time for that to (maybe) finish. Some requests</span>
+            <span class="c1"># may take a long time, so give up rather quickly to avoid</span>
+            <span class="c1"># introducing too much latency.</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_event</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">WRITE_LOCK_TIMEOUT</span><span class="p">)</span>
+
+            <span class="n">read_data_type</span> <span class="o">=</span> <span class="n">data_type</span>
+            <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">read_data_type</span> <span class="o">=</span> <span class="n">_LongStringChannelType</span><span class="p">(</span><span class="n">read_data_type</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="c1"># Not requesting a LONG_STRING type</span>
+                    <span class="o">...</span>
+
+            <span class="n">metadata</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">db_entry</span><span class="o">.</span><span class="n">auth_read</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">client_hostname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_username</span><span class="p">,</span>
+                <span class="n">read_data_type</span><span class="p">,</span> <span class="n">user_address</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="n">old_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">protocol_version</span> <span class="o">&lt;</span> <span class="mi">13</span>
+            <span class="k">if</span> <span class="n">command</span><span class="o">.</span><span class="n">data_count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">old_version</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="n">command</span><span class="o">.</span><span class="n">data_count</span><span class="p">]</span>
+
+            <span class="c1"># This is a pass-through if arr is None.</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">apply_arr_filter</span><span class="p">(</span><span class="n">chan</span><span class="o">.</span><span class="n">channel_filter</span><span class="o">.</span><span class="n">arr</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+            <span class="c1"># If the timestamp feature is active swap the timestamp.</span>
+            <span class="c1"># Information must copied because not all clients will have the</span>
+            <span class="c1"># timestamp filter</span>
+            <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">channel_filter</span><span class="o">.</span><span class="n">ts</span> <span class="ow">and</span> <span class="n">command</span><span class="o">.</span><span class="n">data_type</span> <span class="ow">in</span> <span class="n">ca</span><span class="o">.</span><span class="n">time_types</span><span class="p">:</span>
+                <span class="n">time_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+                <span class="n">now</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">TimeStamp</span><span class="o">.</span><span class="n">from_unix_timestamp</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+                <span class="n">metadata</span> <span class="o">=</span> <span class="n">time_type</span><span class="p">(</span><span class="o">**</span><span class="n">ChainMap</span><span class="p">({</span><span class="s1">&#39;stamp&#39;</span><span class="p">:</span> <span class="n">now</span><span class="p">},</span>
+                                                <span class="nb">dict</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">field</span><span class="p">))</span>
+                                                     <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">time_type</span><span class="o">.</span><span class="n">_fields_</span><span class="p">)))</span>
+            <span class="n">notify</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">ReadNotifyRequest</span><span class="p">)</span>
+            <span class="n">data_count</span> <span class="o">=</span> <span class="n">db_entry</span><span class="o">.</span><span class="n">calculate_length</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">to_send</span> <span class="o">=</span> <span class="p">[</span><span class="n">chan</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">data_type</span><span class="p">,</span>
+                                 <span class="n">data_count</span><span class="o">=</span><span class="n">data_count</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                 <span class="n">ioid</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">ioid</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+                                 <span class="n">notify</span><span class="o">=</span><span class="n">notify</span><span class="p">)</span>
+                       <span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">WriteRequest</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">WriteNotifyRequest</span><span class="p">)):</span>
+            <span class="n">chan</span><span class="p">,</span> <span class="n">db_entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_db_entry_from_command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+            <span class="n">client_waiting</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">WriteNotifyRequest</span><span class="p">)</span>
+
+            <span class="k">async</span> <span class="k">def</span> <span class="nf">handle_write</span><span class="p">():</span>
+                <span class="sd">&#39;&#39;&#39;Wait for an asynchronous caput to finish&#39;&#39;&#39;</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">write_status</span> <span class="o">=</span> <span class="k">await</span> <span class="n">db_entry</span><span class="o">.</span><span class="n">auth_write</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">client_hostname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_username</span><span class="p">,</span>
+                        <span class="n">command</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">command</span><span class="o">.</span><span class="n">data_type</span><span class="p">,</span> <span class="n">command</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span>
+                        <span class="n">user_address</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Invalid write request by </span><span class="si">%s</span><span class="s1"> (</span><span class="si">%s</span><span class="s1">): </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
+                                       <span class="bp">self</span><span class="o">.</span><span class="n">client_username</span><span class="p">,</span>
+                                       <span class="bp">self</span><span class="o">.</span><span class="n">client_hostname</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+                    <span class="n">cid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">channels_sid</span><span class="p">[</span><span class="n">command</span><span class="o">.</span><span class="n">sid</span><span class="p">]</span><span class="o">.</span><span class="n">cid</span>
+                    <span class="n">response_command</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">ErrorResponse</span><span class="p">(</span>
+                        <span class="n">command</span><span class="p">,</span> <span class="n">cid</span><span class="p">,</span>
+                        <span class="n">status</span><span class="o">=</span><span class="n">ca</span><span class="o">.</span><span class="n">CAStatus</span><span class="o">.</span><span class="n">ECA_PUTFAIL</span><span class="p">,</span>
+                        <span class="n">error_message</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Python exception: </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                       <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">ex</span><span class="p">))</span>
+                    <span class="p">)</span>
+                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">response_command</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">client_waiting</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">write_status</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="c1"># errors can be passed back by exceptions, and</span>
+                            <span class="c1"># returning none for write_status can just be</span>
+                            <span class="c1"># considered laziness</span>
+                            <span class="n">write_status</span> <span class="o">=</span> <span class="kc">True</span>
+
+                        <span class="n">response_command</span> <span class="o">=</span> <span class="n">chan</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                            <span class="n">ioid</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">ioid</span><span class="p">,</span>
+                            <span class="n">status</span><span class="o">=</span><span class="n">write_status</span><span class="p">,</span>
+                            <span class="n">data_count</span><span class="o">=</span><span class="n">db_entry</span><span class="o">.</span><span class="n">length</span>
+                        <span class="p">)</span>
+                        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">response_command</span><span class="p">)</span>
+                <span class="k">finally</span><span class="p">:</span>
+                    <span class="n">maybe_awaitable</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+                    <span class="c1"># The curio backend makes this an awaitable thing.</span>
+                    <span class="k">if</span> <span class="n">maybe_awaitable</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">await</span> <span class="n">maybe_awaitable</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_event</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_write_task</span><span class="p">(</span><span class="n">handle_write</span><span class="p">)</span>
+            <span class="n">to_send</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">EventAddRequest</span><span class="p">):</span>
+            <span class="n">chan</span><span class="p">,</span> <span class="n">db_entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_db_entry_from_command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+            <span class="c1"># TODO no support for deprecated low/high/to</span>
+
+            <span class="n">read_data_type</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">data_type</span>
+            <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">read_data_type</span> <span class="o">=</span> <span class="n">_LongStringChannelType</span><span class="p">(</span><span class="n">read_data_type</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="c1"># Not requesting a LONG_STRING type</span>
+                    <span class="o">...</span>
+
+            <span class="n">sub</span> <span class="o">=</span> <span class="n">Subscription</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">mask</span><span class="p">,</span>
+                               <span class="n">channel_filter</span><span class="o">=</span><span class="n">chan</span><span class="o">.</span><span class="n">channel_filter</span><span class="p">,</span>
+                               <span class="n">channel</span><span class="o">=</span><span class="n">chan</span><span class="p">,</span>
+                               <span class="n">circuit</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+                               <span class="n">data_type</span><span class="o">=</span><span class="n">read_data_type</span><span class="p">,</span>
+                               <span class="n">data_count</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">data_count</span><span class="p">,</span>
+                               <span class="n">subscriptionid</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">subscriptionid</span><span class="p">,</span>
+                               <span class="n">db_entry</span><span class="o">=</span><span class="n">db_entry</span><span class="p">)</span>
+            <span class="n">sub_spec</span> <span class="o">=</span> <span class="n">SubscriptionSpec</span><span class="p">(</span>
+                <span class="n">db_entry</span><span class="o">=</span><span class="n">db_entry</span><span class="p">,</span>
+                <span class="n">data_type_name</span><span class="o">=</span><span class="n">read_data_type</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">mask</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">mask</span><span class="p">,</span>
+                <span class="n">channel_filter</span><span class="o">=</span><span class="n">chan</span><span class="o">.</span><span class="n">channel_filter</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">[</span><span class="n">sub_spec</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">[</span><span class="n">sub_spec</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span>
+
+            <span class="c1"># If we are in the middle of processing a Write[Notify]Request,</span>
+            <span class="c1"># allow a bit of time for that to (maybe) finish. Some requests</span>
+            <span class="c1"># may take a long time, so give up rather quickly to avoid</span>
+            <span class="c1"># introducing too much latency.</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_event</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_event</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">WRITE_LOCK_TIMEOUT</span><span class="p">)</span>
+
+            <span class="k">await</span> <span class="n">db_entry</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">subscription_queue</span><span class="p">,</span> <span class="n">sub_spec</span><span class="p">,</span>
+                                     <span class="n">sub</span><span class="p">)</span>
+            <span class="n">to_send</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">EventCancelRequest</span><span class="p">):</span>
+            <span class="n">chan</span><span class="p">,</span> <span class="n">db_entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_db_entry_from_command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+            <span class="n">removed</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cull_subscriptions</span><span class="p">(</span>
+                <span class="n">db_entry</span><span class="p">,</span>
+                <span class="k">lambda</span> <span class="n">sub</span><span class="p">:</span> <span class="n">sub</span><span class="o">.</span><span class="n">subscriptionid</span> <span class="o">==</span> <span class="n">command</span><span class="o">.</span><span class="n">subscriptionid</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">removed</span><span class="p">:</span>
+                <span class="n">_</span><span class="p">,</span> <span class="n">removed_sub</span> <span class="o">=</span> <span class="n">removed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">data_count</span> <span class="o">=</span> <span class="n">removed_sub</span><span class="o">.</span><span class="n">data_count</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">data_count</span> <span class="o">=</span> <span class="n">db_entry</span><span class="o">.</span><span class="n">length</span>
+            <span class="n">to_send</span> <span class="o">=</span> <span class="p">[</span><span class="n">chan</span><span class="o">.</span><span class="n">unsubscribe</span><span class="p">(</span><span class="n">command</span><span class="o">.</span><span class="n">subscriptionid</span><span class="p">,</span>
+                                        <span class="n">data_type</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">data_type</span><span class="p">,</span>
+                                        <span class="n">data_count</span><span class="o">=</span><span class="n">data_count</span><span class="p">)]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">EventsOnRequest</span><span class="p">):</span>
+            <span class="c1"># Immediately send most recent updates for all subscriptions.</span>
+            <span class="n">most_recent_updates</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">most_recent_updates</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">most_recent_updates</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">most_recent_updates</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="o">*</span><span class="n">most_recent_updates</span><span class="p">)</span>
+            <span class="n">maybe_awaitable</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">events_on</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+            <span class="c1"># The curio backend makes this an awaitable thing.</span>
+            <span class="k">if</span> <span class="n">maybe_awaitable</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">await</span> <span class="n">maybe_awaitable</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Client at </span><span class="si">%s</span><span class="s2">:</span><span class="si">%d</span><span class="s2"> has turned events on.&quot;</span><span class="p">,</span>
+                                  <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+            <span class="n">to_send</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">EventsOffRequest</span><span class="p">):</span>
+            <span class="c1"># The client has signaled that it does not think it will be able to</span>
+            <span class="c1"># catch up to the backlog. Clear all updates queued to be sent...</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unexpired_updates</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="c1"># ...and tell the Context that any future updates from ChannelData</span>
+            <span class="c1"># should not be added to this circuit&#39;s queue until further notice.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">events_on</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Client at </span><span class="si">%s</span><span class="s2">:</span><span class="si">%d</span><span class="s2"> has turned events off.&quot;</span><span class="p">,</span>
+                                  <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+            <span class="n">to_send</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">ClearChannelRequest</span><span class="p">):</span>
+            <span class="n">chan</span><span class="p">,</span> <span class="n">db_entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_db_entry_from_command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cull_subscriptions</span><span class="p">(</span>
+                <span class="n">db_entry</span><span class="p">,</span>
+                <span class="k">lambda</span> <span class="n">sub</span><span class="p">:</span> <span class="n">sub</span><span class="o">.</span><span class="n">channel</span> <span class="o">==</span> <span class="n">command</span><span class="o">.</span><span class="n">sid</span><span class="p">)</span>
+            <span class="n">to_send</span> <span class="o">=</span> <span class="p">[</span><span class="n">chan</span><span class="o">.</span><span class="n">clear</span><span class="p">()]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">EchoRequest</span><span class="p">):</span>
+            <span class="n">to_send</span> <span class="o">=</span> <span class="p">[</span><span class="n">ca</span><span class="o">.</span><span class="n">EchoResponse</span><span class="p">()]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">Message</span><span class="p">):</span>
+            <span class="n">tags</span><span class="p">[</span><span class="s1">&#39;bytesize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">tags</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">to_send</span></div>
+
+
+<div class="viewcode-block" id="Context"><a class="viewcode-back" href="../../../generated/caproto.server.common.Context.html#caproto.server.common.Context">[docs]</a><span class="k">class</span> <span class="nc">Context</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pvdb</span><span class="p">,</span> <span class="n">interfaces</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">interfaces</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">interfaces</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">get_server_address_list</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span> <span class="o">=</span> <span class="n">interfaces</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">udp_socks</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># map each interface to a UDP socket for searches</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beacon_socks</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># map each interface to a UDP socket for beacons</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pvdb</span> <span class="o">=</span> <span class="n">pvdb</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;caproto.ctx&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">addresses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">circuits</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">Broadcaster</span><span class="p">(</span><span class="n">our_role</span><span class="o">=</span><span class="n">ca</span><span class="o">.</span><span class="n">SERVER</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="n">deque</span><span class="p">)</span>
+        <span class="c1"># Map Subscription to {&#39;before&#39;: last_update, &#39;after&#39;: last_update}</span>
+        <span class="c1"># to silence duplicates for Subscriptions that use edge-triggered sync</span>
+        <span class="c1"># Channel Filter.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_sync_edge_update</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_dead_band</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beacon_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">environ</span> <span class="o">=</span> <span class="n">get_environment_variables</span><span class="p">()</span>
+
+        <span class="c1"># ca_server_port: the default tcp/udp port from the environment</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ca_server_port</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;EPICS_CA_SERVER_PORT&#39;</span><span class="p">]</span>
+        <span class="c1"># the specific tcp port in use by this server</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;EPICS_CA_SERVER_PORT set to </span><span class="si">%d</span><span class="s1">. This is the UDP port &#39;</span>
+                       <span class="s1">&#39;to be used for searches, and the first TCP server port&#39;</span>
+                       <span class="s1">&#39; to be tried.&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ca_server_port</span><span class="p">)</span>
+
+        <span class="n">ignore_addresses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;EPICS_CAS_IGNORE_ADDR_LIST&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ignore_addresses</span> <span class="o">=</span> <span class="n">ignore_addresses</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">pvdb_with_fields</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s1">&#39;Dynamically generated each time - use sparingly&#39;</span>
+        <span class="c1"># TODO is static generation sufficient?</span>
+        <span class="n">pvdb</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">instance</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvdb</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">pvdb</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">instance</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s1">&#39;fields&#39;</span><span class="p">):</span>
+                <span class="c1"># Note that we support PvpropertyData along with ChannelData</span>
+                <span class="c1"># instances here (which may not have fields)</span>
+                <span class="k">for</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">pvdb</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span>
+        <span class="k">return</span> <span class="n">pvdb</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_core_broadcaster_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">udp_sock</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">bytes_received</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="k">await</span> <span class="n">udp_sock</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span>
+                    <span class="n">MAX_UDP_RECV</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;UDP server recvfrom error&#39;</span><span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">async_layer</span><span class="o">.</span><span class="n">library</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">bytes_received</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_broadcaster_recv_datagram</span><span class="p">(</span><span class="n">bytes_received</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_broadcaster_recv_datagram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bytes_received</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">commands</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">bytes_received</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">RemoteProtocolError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;_broadcaster_recv_datagram: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ex</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="n">ex</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_bundle_queue</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="n">address</span><span class="p">,</span> <span class="n">commands</span><span class="p">))</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">broadcaster_queue_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Reference broadcaster queue loop implementation</span>
+
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        Assumes self.command_bundle_queue functions as an async queue with</span>
+<span class="sd">        awaitable .get()</span>
+
+<span class="sd">        Async library implementations can (and should) reimplement this.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">addr</span><span class="p">,</span> <span class="n">commands</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_bundle_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_broadcaster_queue_iteration</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">commands</span><span class="p">)</span>
+            <span class="k">except</span> <span class="bp">self</span><span class="o">.</span><span class="n">TaskCancelled</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Broadcaster command queue evaluation failed&#39;</span><span class="p">,</span>
+                                   <span class="n">exc_info</span><span class="o">=</span><span class="n">ex</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Implemented to support __getitem__ below</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pvdb</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pvname</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvdb</span><span class="p">[</span><span class="n">pvname</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="p">(</span><span class="n">rec_field</span><span class="p">,</span> <span class="n">rec</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">mods</span><span class="p">)</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">parse_record_field</span><span class="p">(</span><span class="n">pvname</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ex</span> <span class="kn">from</span> <span class="bp">None</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">field</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">mods</span><span class="p">:</span>
+                <span class="c1"># No field or modifiers, but a trailing &#39;.&#39; is valid</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvdb</span><span class="p">[</span><span class="n">rec</span><span class="p">]</span>
+
+        <span class="c1"># Without the modifiers, try &#39;record[.field]&#39;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">inst</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvdb</span><span class="p">[</span><span class="n">rec_field</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="c1"># Finally, access &#39;record&#39;, see if it has &#39;field&#39;</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">inst</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvdb</span><span class="p">[</span><span class="n">rec</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">CaprotoKeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Neither record nor field exists: &#39;</span>
+                                      <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">rec_field</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">inst</span> <span class="o">=</span> <span class="n">inst</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">AttributeError</span><span class="p">,</span> <span class="ne">KeyError</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">CaprotoKeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Neither record nor field exists: &#39;</span>
+                                      <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">rec_field</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Verify the modifiers are usable BEFORE caching rec_field in the pvdb:</span>
+        <span class="k">if</span> <span class="n">ca</span><span class="o">.</span><span class="n">RecordModifiers</span><span class="o">.</span><span class="n">long_string</span> <span class="ow">in</span> <span class="p">(</span><span class="n">mods</span> <span class="ow">or</span> <span class="p">{}):</span>
+            <span class="k">if</span> <span class="n">inst</span><span class="o">.</span><span class="n">data_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ChannelType</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>
+                                      <span class="n">ChannelType</span><span class="o">.</span><span class="n">CHAR</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">CaprotoKeyError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s1">&#39;Long-string modifier not supported with types &#39;</span>
+                    <span class="sa">f</span><span class="s1">&#39;other than string or char (</span><span class="si">{</span><span class="n">inst</span><span class="o">.</span><span class="n">data_type</span><span class="si">}</span><span class="s1">)&#39;</span>
+                <span class="p">)</span>
+
+        <span class="c1"># Cache record.FIELD for later usage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pvdb</span><span class="p">[</span><span class="n">rec_field</span><span class="p">]</span> <span class="o">=</span> <span class="n">inst</span>
+        <span class="k">return</span> <span class="n">inst</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_broadcaster_queue_iteration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">commands</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">process_commands</span><span class="p">(</span><span class="n">commands</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">addr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ignore_addresses</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">search_replies</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">version_requested</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">commands</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">VersionRequest</span><span class="p">):</span>
+                <span class="n">version_requested</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">SearchRequest</span><span class="p">):</span>
+                <span class="n">pv_name</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">known_pv</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">pv_name</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="n">known_pv</span> <span class="o">=</span> <span class="kc">False</span>
+
+                <span class="k">if</span> <span class="n">known_pv</span><span class="p">:</span>
+                    <span class="c1"># responding with an IP of `None` tells client to get IP</span>
+                    <span class="c1"># address from the datagram.</span>
+                    <span class="n">search_replies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="n">ca</span><span class="o">.</span><span class="n">SearchResponse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">command</span><span class="o">.</span><span class="n">cid</span><span class="p">,</span>
+                                          <span class="n">ca</span><span class="o">.</span><span class="n">DEFAULT_PROTOCOL_VERSION</span><span class="p">)</span>
+                    <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">search_replies</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">version_requested</span><span class="p">:</span>
+                <span class="n">bytes_to_send</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">VersionResponse</span><span class="p">(</span><span class="mi">13</span><span class="p">),</span>
+                                                      <span class="o">*</span><span class="n">search_replies</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">bytes_to_send</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="o">*</span><span class="n">search_replies</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">udp_sock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">udp_socks</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="n">udp_sock</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">bytes_to_send</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                    <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">addr</span>
+                    <span class="k">raise</span> <span class="n">CaprotoNetworkError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to send to </span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">subscription_queue_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reference implementation of the subscription queue loop</span>
+
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        Assumes self.subscription-queue functions as an async queue with</span>
+<span class="sd">        awaitable .get()</span>
+
+<span class="sd">        Async library implementations can (and should) reimplement this.</span>
+<span class="sd">        Coroutine which evaluates one item from the circuit command queue.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># This queue receives updates that match the db_entry, data_type</span>
+            <span class="c1"># and mask (&quot;subscription spec&quot;) of one or more subscriptions.</span>
+            <span class="n">sub_specs</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">sub</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscription_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subscription_queue_iteration</span><span class="p">(</span><span class="n">sub_specs</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span>
+                                                     <span class="n">values</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">sub</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_subscription_queue_iteration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sub_specs</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span>
+                                            <span class="n">flags</span><span class="p">,</span> <span class="n">sub</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Called on every item from the Context subscription queue</span>
+
+<span class="sd">        This queue receives updates that match the db_entry, data_type and mask</span>
+<span class="sd">        (&quot;subscription spec&quot;) of one or more subscriptions.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">subs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">sub</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Broadcast to all Subscriptions for the relevant</span>
+            <span class="c1"># SubscriptionSpec(s).</span>
+            <span class="k">for</span> <span class="n">sub_spec</span> <span class="ow">in</span> <span class="n">sub_specs</span><span class="p">:</span>
+                <span class="n">subs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">[</span><span class="n">sub_spec</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># A specific Subscription has been specified, which means this</span>
+            <span class="c1"># specific update was prompted by Subscription being new, not</span>
+            <span class="c1"># prompted by a new value. The update should only be sent to that</span>
+            <span class="c1"># specific Subscription.</span>
+            <span class="n">subs</span> <span class="o">=</span> <span class="p">[</span><span class="n">sub</span><span class="p">]</span>
+            <span class="n">sub_spec</span><span class="p">,</span> <span class="o">=</span> <span class="n">sub_specs</span>
+        <span class="c1"># Pack the data and metadata into an EventAddResponse and send it.  We</span>
+        <span class="c1"># have to make a new response for each channel because each may have a</span>
+        <span class="c1"># different requested data_count.</span>
+        <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">subs</span><span class="p">:</span>
+            <span class="n">circuit</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">circuit</span>
+            <span class="n">s_flags</span> <span class="o">=</span> <span class="n">flags</span>
+            <span class="n">chan</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">channel</span>
+
+            <span class="c1"># This is a pass-through if arr is None.</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">apply_arr_filter</span><span class="p">(</span><span class="n">sub_spec</span><span class="o">.</span><span class="n">channel_filter</span><span class="o">.</span><span class="n">arr</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+
+            <span class="c1"># If the subscription has a non-zero value respect it, else default</span>
+            <span class="c1"># to the full length of the data.</span>
+            <span class="n">data_count</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">data_count</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">data_count</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+                <span class="n">values</span> <span class="o">=</span> <span class="n">values</span><span class="p">[:</span><span class="n">data_count</span><span class="p">]</span>
+
+            <span class="n">command</span> <span class="o">=</span> <span class="n">chan</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">values</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="n">sub</span><span class="o">.</span><span class="n">data_type</span><span class="p">,</span>
+                <span class="n">data_count</span><span class="o">=</span><span class="n">data_count</span><span class="p">,</span> <span class="n">subscriptionid</span><span class="o">=</span><span class="n">sub</span><span class="o">.</span><span class="n">subscriptionid</span><span class="p">,</span>
+                <span class="n">status</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="n">dbnd</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">channel_filter</span><span class="o">.</span><span class="n">dbnd</span>
+            <span class="k">if</span> <span class="n">dbnd</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">new</span> <span class="o">=</span> <span class="n">values</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">new</span><span class="p">,</span> <span class="s1">&#39;endian&#39;</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">new</span><span class="o">.</span><span class="n">endian</span> <span class="o">!=</span> <span class="n">host_endian</span><span class="p">:</span>
+                        <span class="n">new</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
+                        <span class="n">new</span><span class="o">.</span><span class="n">byteswap</span><span class="p">()</span>
+                <span class="n">old</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_dead_band</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">old</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">old_iterable</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span>
+                    <span class="n">new_iterable</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="p">((</span><span class="ow">not</span> <span class="n">old_iterable</span> <span class="ow">or</span> <span class="p">(</span><span class="n">old_iterable</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">old</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span> <span class="ow">and</span>
+                            <span class="p">(</span><span class="ow">not</span> <span class="n">new_iterable</span> <span class="ow">or</span> <span class="p">(</span><span class="n">new_iterable</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">new</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))):</span>
+                        <span class="k">if</span> <span class="n">old_iterable</span><span class="p">:</span>
+                            <span class="n">old</span><span class="p">,</span> <span class="o">=</span> <span class="n">old</span>
+                        <span class="k">if</span> <span class="n">new_iterable</span><span class="p">:</span>
+                            <span class="n">new</span><span class="p">,</span> <span class="o">=</span> <span class="n">new</span>
+                        <span class="c1"># Cool that was fun.</span>
+                        <span class="k">if</span> <span class="n">dbnd</span><span class="o">.</span><span class="n">m</span> <span class="o">==</span> <span class="s1">&#39;rel&#39;</span><span class="p">:</span>
+                            <span class="n">out_of_band</span> <span class="o">=</span> <span class="n">dbnd</span><span class="o">.</span><span class="n">d</span> <span class="o">&lt;</span> <span class="nb">abs</span><span class="p">((</span><span class="n">old</span> <span class="o">-</span> <span class="n">new</span><span class="p">)</span> <span class="o">/</span> <span class="n">old</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>  <span class="c1"># must be &#39;abs&#39; -- was already validated</span>
+                            <span class="n">out_of_band</span> <span class="o">=</span> <span class="n">dbnd</span><span class="o">.</span><span class="n">d</span> <span class="o">&lt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">old</span> <span class="o">-</span> <span class="n">new</span><span class="p">)</span>
+                        <span class="c1"># We have verified that that EPICS considers DBE_LOG</span>
+                        <span class="c1"># etc. to be an absolute (not relative) threshold.</span>
+                        <span class="n">abs_diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">old</span> <span class="o">-</span> <span class="n">new</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">abs_diff</span> <span class="o">&gt;</span> <span class="n">sub</span><span class="o">.</span><span class="n">db_entry</span><span class="o">.</span><span class="n">log_atol</span><span class="p">:</span>
+                            <span class="n">s_flags</span> <span class="o">|=</span> <span class="n">SubscriptionType</span><span class="o">.</span><span class="n">DBE_LOG</span>
+                            <span class="k">if</span> <span class="n">abs_diff</span> <span class="o">&gt;</span> <span class="n">sub</span><span class="o">.</span><span class="n">db_entry</span><span class="o">.</span><span class="n">value_atol</span><span class="p">:</span>
+                                <span class="n">s_flags</span> <span class="o">|=</span> <span class="n">SubscriptionType</span><span class="o">.</span><span class="n">DBE_VALUE</span>
+
+                        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">out_of_band</span> <span class="ow">and</span> <span class="p">(</span><span class="n">sub</span><span class="o">.</span><span class="n">mask</span> <span class="o">&amp;</span> <span class="n">s_flags</span><span class="p">)):</span>
+                            <span class="k">continue</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">last_dead_band</span><span class="p">[</span><span class="n">sub</span><span class="p">]</span> <span class="o">=</span> <span class="n">new</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">last_dead_band</span><span class="p">[</span><span class="n">sub</span><span class="p">]</span> <span class="o">=</span> <span class="n">new</span>
+
+            <span class="c1"># Special-case for edge-triggered modes of the sync Channel</span>
+            <span class="c1"># Filter (before, after, first, last). Only send the first</span>
+            <span class="c1"># update to each channel.</span>
+            <span class="n">sync</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">channel_filter</span><span class="o">.</span><span class="n">sync</span>
+            <span class="k">if</span> <span class="n">sync</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">last_update</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_sync_edge_update</span><span class="p">[</span><span class="n">sub</span><span class="p">][</span><span class="n">sync</span><span class="o">.</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sync</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">last_update</span> <span class="ow">and</span> <span class="n">last_update</span> <span class="o">==</span> <span class="n">command</span><span class="p">:</span>
+                    <span class="c1"># This is a redundant update. Do not send.</span>
+                    <span class="k">continue</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Stash this and then send it.</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">last_sync_edge_update</span><span class="p">[</span><span class="n">sub</span><span class="p">][</span><span class="n">sync</span><span class="o">.</span><span class="n">s</span><span class="p">][</span><span class="n">sync</span><span class="o">.</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">command</span>
+
+            <span class="c1"># This update will be put at the back of the line of updates to be</span>
+            <span class="c1"># sent.</span>
+            <span class="c1">#</span>
+            <span class="c1"># If len(unexpired_updates[id]) == SUBSCRIPTION_BACKLOG_QUOTA, then</span>
+            <span class="c1"># the command at the front of the line will be kicked out.  It is</span>
+            <span class="c1"># not literally removed from the queue but whenever it reaches the</span>
+            <span class="c1"># front of the line it will dropped on the floor instead of sent.</span>
+            <span class="c1"># This effectively prioritizes sending the client &quot;new news&quot;</span>
+            <span class="c1"># instead of &quot;old news&quot;.</span>
+
+            <span class="c1"># If this circuit has been sent EventsOff by the client, do not</span>
+            <span class="c1"># queue any updates until the client sends EventsOn to signal that</span>
+            <span class="c1"># it has caught up. But stash the most recent update for each</span>
+            <span class="c1"># subscription, which will immediately send when we turn events</span>
+            <span class="c1"># back on.</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">circuit</span><span class="o">.</span><span class="n">events_on</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
+                <span class="n">circuit</span><span class="o">.</span><span class="n">most_recent_updates</span><span class="p">[</span><span class="n">sub</span><span class="o">.</span><span class="n">subscriptionid</span><span class="p">]</span> <span class="o">=</span> <span class="n">command</span>
+                <span class="k">continue</span>
+
+            <span class="c1"># This is an OrderedBoundedSet, a set with a maxlen, containing</span>
+            <span class="c1"># only commands for this particular subscription.</span>
+            <span class="n">circuit</span><span class="o">.</span><span class="n">unexpired_updates</span><span class="p">[</span><span class="n">sub</span><span class="o">.</span><span class="n">subscriptionid</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+            <span class="c1"># This is a queue with the commands from _all_ subscriptions on</span>
+            <span class="c1"># this circuit.</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">await</span> <span class="n">circuit</span><span class="o">.</span><span class="n">subscription_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">command</span><span class="p">))</span>
+            <span class="k">except</span> <span class="n">circuit</span><span class="o">.</span><span class="n">QueueFull</span><span class="p">:</span>
+                <span class="c1"># We have hit the overall max for subscription backlog.</span>
+                <span class="n">circuit</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="s2">&quot;Critically high EventAddResponse load. Dropping all &quot;</span>
+                    <span class="s2">&quot;queued responses on this circuit.&quot;</span><span class="p">)</span>
+                <span class="n">circuit</span><span class="o">.</span><span class="n">subscription_queue</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+                <span class="n">circuit</span><span class="o">.</span><span class="n">unexpired_updates</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">broadcast_beacon_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Will send beacons to </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
+                       <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">h</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">beacon_socks</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+        <span class="n">MIN_BEACON_PERIOD</span> <span class="o">=</span> <span class="mf">0.02</span>  <span class="c1"># &quot;RECOMMENDED&quot; by the CA spec</span>
+        <span class="n">BEACON_BACKOFF</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># &quot;RECOMMENDED&quot; by the CA spec</span>
+        <span class="n">max_beacon_period</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;EPICS_CAS_BEACON_PERIOD&#39;</span><span class="p">]</span>
+        <span class="n">beacon_period</span> <span class="o">=</span> <span class="n">MIN_BEACON_PERIOD</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">address</span><span class="p">,</span> <span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">sock</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">beacon_socks</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">beacon</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">Beacon</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">,</span>
+                                       <span class="bp">self</span><span class="o">.</span><span class="n">beacon_count</span><span class="p">,</span>
+                                       <span class="n">interface</span><span class="p">)</span>
+                    <span class="n">bytes_to_send</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">beacon</span><span class="p">)</span>
+                    <span class="k">await</span> <span class="n">sock</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">bytes_to_send</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span>
+                        <span class="s2">&quot;Failed to send beacon to </span><span class="si">%r</span><span class="s2">. Try setting &quot;</span>
+                        <span class="s2">&quot;EPICS_CAS_AUTO_BEACON_ADDR_LIST=no and &quot;</span>
+                        <span class="s2">&quot;EPICS_CAS_BEACON_ADDR_LIST=&lt;addresses&gt;.&quot;</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">beacon_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">beacon_period</span> <span class="o">&lt;</span> <span class="n">max_beacon_period</span><span class="p">:</span>
+                <span class="n">beacon_period</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">max_beacon_period</span><span class="p">,</span>
+                                    <span class="n">beacon_period</span> <span class="o">*</span> <span class="n">BEACON_BACKOFF</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">async_layer</span><span class="o">.</span><span class="n">library</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">beacon_period</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">circuit_disconnected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">circuit</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Notification from circuit that its connection has closed&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">circuits</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_find_hook_methods</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a dictionary of (not-None) methods given attribute names.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">attrs</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">instance</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvdb_with_fields</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="p">}</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">startup_methods</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s1">&#39;Notify all ChannelData instances of the server startup&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_hook_methods</span><span class="p">(</span><span class="s2">&quot;server_startup&quot;</span><span class="p">,</span> <span class="s2">&quot;server_scan&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">shutdown_methods</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s1">&#39;Notify all ChannelData instances of the server shutdown&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_hook_methods</span><span class="p">(</span><span class="s2">&quot;server_shutdown&quot;</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_bind_tcp_sockets_with_consistent_port_number</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make_socket</span><span class="p">):</span>
+        <span class="c1"># Find a random port number that is free on all self.interfaces,</span>
+        <span class="c1"># and get a bound TCP socket with that port number on each</span>
+        <span class="c1"># interface. The argument `make_socket` is expected to be a coroutine</span>
+        <span class="c1"># with the signature `make_socket(interface, port)` that does whatever</span>
+        <span class="c1"># library-specific incantation is necessary to return a bound socket or</span>
+        <span class="c1"># raise an IOError.</span>
+        <span class="n">tcp_sockets</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># maps interface to bound socket</span>
+        <span class="n">stashed_ex</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">ca</span><span class="o">.</span><span class="n">random_ports</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">try_first</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ca_server_port</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">interface</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span><span class="p">:</span>
+                    <span class="n">s</span> <span class="o">=</span> <span class="k">await</span> <span class="n">make_socket</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+                    <span class="n">tcp_sockets</span><span class="p">[</span><span class="n">interface</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span>
+            <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+                <span class="n">stashed_ex</span> <span class="o">=</span> <span class="n">ex</span>
+                <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">tcp_sockets</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                    <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="n">tcp_sockets</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CaprotoRuntimeError</span><span class="p">(</span><span class="s1">&#39;No available ports and/or bind failed&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">stashed_ex</span>
+        <span class="k">return</span> <span class="n">port</span><span class="p">,</span> <span class="n">tcp_sockets</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">tcp_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">addr</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Handler for each new TCP client to the server&#39;&#39;&#39;</span>
+        <span class="n">cavc</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">VirtualCircuit</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">SERVER</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">circuit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CircuitClass</span><span class="p">(</span><span class="n">cavc</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">circuits</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Connected to new client at </span><span class="si">%s</span><span class="s1">:</span><span class="si">%d</span><span class="s1"> (total: </span><span class="si">%d</span><span class="s1">).&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span>
+                      <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circuits</span><span class="p">))</span>
+
+        <span class="k">await</span> <span class="n">circuit</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="n">circuit</span><span class="o">.</span><span class="n">recv</span><span class="p">()</span>
+                <span class="k">except</span> <span class="n">DisconnectedCircuit</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit_disconnected</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+                    <span class="k">break</span>
+        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;TCP handler received KeyboardInterrupt&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">ServerExit</span><span class="p">()</span> <span class="kn">from</span> <span class="nn">ex</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Disconnected from client at </span><span class="si">%s</span><span class="s1">:</span><span class="si">%d</span><span class="s1"> (total: </span><span class="si">%d</span><span class="s1">).&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span>
+                      <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circuits</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Daniel Allan.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

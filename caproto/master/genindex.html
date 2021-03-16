@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Index &mdash; caproto 0+untagged.1.g57e0c56 documentation</title>
+  <title>Index &mdash; caproto 0+untagged.1.ge2eb174 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0+untagged.1.g57e0c56
+                0+untagged.1.ge2eb174
               </div>
             
           
@@ -89,18 +89,19 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install Caproto</a></li>
-</ul>
-<p class="caption"><span class="caption-text">EPICS Clients and Servers</span></p>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="clients.html">Clients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="records.html">Records</a></li>
 <li class="toctree-l1"><a class="reference internal" href="servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IOCs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="records.html">Records</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server_api.html">Server API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -204,6 +205,7 @@
  | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
@@ -259,10 +261,10 @@
 </li>
       <li><a href="api.html#caproto.Beacon.address_string">address_string (caproto.Beacon attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="loggers.html#caproto.AddressFilter">AddressFilter (class in caproto)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/caproto.server.records.AiFields.html#caproto.server.records.AiFields">AiFields (class in caproto.server.records)</a>
 </li>
       <li><a href="threading-client.html#caproto.threading.client.VirtualCircuitManager.all_created_pvnames">all_created_pvnames (caproto.threading.client.VirtualCircuitManager attribute)</a>
@@ -274,6 +276,10 @@
       <li><a href="generated/caproto.server.records.AsubFields.html#caproto.server.records.AsubFields">AsubFields (class in caproto.server.records)</a>
 </li>
       <li><a href="pva/api.html#caproto.pva.asyncio.server.Context.async_layer">async_layer (caproto.pva.asyncio.server.Context attribute)</a>
+</li>
+      <li><a href="generated/caproto.asyncio.server.AsyncioAsyncLayer.html#caproto.asyncio.server.AsyncioAsyncLayer">AsyncioAsyncLayer (class in caproto.asyncio.server)</a>
+</li>
+      <li><a href="generated/caproto.server.AsyncLibraryLayer.html#caproto.server.AsyncLibraryLayer">AsyncLibraryLayer (class in caproto.server)</a>
 </li>
       <li><a href="generated/caproto.server.records.AsynFields.html#caproto.server.records.AsynFields">AsynFields (class in caproto.server.records)</a>
 </li>
@@ -404,6 +410,8 @@
 </li>
       <li><a href="generated/caproto.ChannelChar.html#caproto.ChannelChar">ChannelChar (class in caproto)</a>
 </li>
+      <li><a href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData">ChannelData (class in caproto._data)</a>
+</li>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelDestroyRequest">ChannelDestroyRequest (class in caproto.pva._messages)</a>
 </li>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelDestroyResponse">ChannelDestroyResponse (class in caproto.pva._messages)</a>
@@ -490,14 +498,14 @@
       </ul></li>
       <li><a href="pva/api.html#caproto.pva.server.common.Context.circuit_disconnected">circuit_disconnected() (caproto.pva.server.common.Context method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="async-clients.html#caproto.asyncio.client.PV.circuit_manager">circuit_manager() (caproto.asyncio.client.PV property)</a>
 
       <ul>
         <li><a href="threading-client.html#caproto.threading.client.PV.circuit_manager">(caproto.threading.client.PV property)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="threading-client.html#caproto.threading.client.PV.circuit_ready">circuit_ready (caproto.threading.client.PV attribute)</a>
 </li>
       <li><a href="pva/api.html#caproto.pva.asyncio.server.Context.CircuitClass">CircuitClass (caproto.pva.asyncio.server.Context attribute)</a>
@@ -611,11 +619,19 @@
       <li><a href="async-clients.html#caproto.asyncio.client.Context">Context (class in caproto.asyncio.client)</a>
 
       <ul>
+        <li><a href="generated/caproto.asyncio.server.Context.html#caproto.asyncio.server.Context">(class in caproto.asyncio.server)</a>
+</li>
+        <li><a href="generated/caproto.curio.server.Context.html#caproto.curio.server.Context">(class in caproto.curio.server)</a>
+</li>
         <li><a href="pva/api.html#caproto.pva.asyncio.server.Context">(class in caproto.pva.asyncio.server)</a>
 </li>
         <li><a href="pva/api.html#caproto.pva.server.common.Context">(class in caproto.pva.server.common)</a>
 </li>
+        <li><a href="generated/caproto.server.common.Context.html#caproto.server.common.Context">(class in caproto.server.common)</a>
+</li>
         <li><a href="threading-client.html#caproto.threading.client.Context">(class in caproto.threading.client)</a>
+</li>
+        <li><a href="generated/caproto.trio.server.Context.html#caproto.trio.server.Context">(class in caproto.trio.server)</a>
 </li>
       </ul></li>
       <li><a href="pva/api.html#caproto.pva.asyncio.server.Context.ServerExit">Context.ServerExit</a>
@@ -637,6 +653,8 @@
       <li><a href="pva/api.html#caproto.pva._messages.CreateChannelResponse">CreateChannelResponse (class in caproto.pva._messages)</a>
 </li>
       <li><a href="api.html#caproto.CreateChFailResponse">CreateChFailResponse (class in caproto)</a>
+</li>
+      <li><a href="generated/caproto.curio.server.CurioAsyncLayer.html#caproto.curio.server.CurioAsyncLayer">CurioAsyncLayer (class in caproto.curio.server)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -718,6 +736,8 @@
       </ul></li>
       <li><a href="api.html#caproto.DISCONNECTED">DISCONNECTED (in module caproto)</a>
 </li>
+      <li><a href="generated/caproto.server.common.DisconnectedCircuit.html#caproto.server.common.DisconnectedCircuit">DisconnectedCircuit</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -744,10 +764,18 @@
 </li>
       <li><a href="api.html#caproto.ErrorResponse">ErrorResponse (class in caproto)</a>
 </li>
-      <li><a href="api.html#caproto.EventAddRequest">EventAddRequest (class in caproto)</a>
+      <li><a href="generated/caproto.asyncio.server.Event.html#caproto.asyncio.server.Event">Event (class in caproto.asyncio.server)</a>
+
+      <ul>
+        <li><a href="generated/caproto.curio.server.Event.html#caproto.curio.server.Event">(class in caproto.curio.server)</a>
 </li>
+        <li><a href="generated/caproto.trio.server.Event.html#caproto.trio.server.Event">(class in caproto.trio.server)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#caproto.EventAddRequest">EventAddRequest (class in caproto)</a>
+</li>
       <li><a href="api.html#caproto.EventAddResponse">EventAddResponse (class in caproto)</a>
 </li>
       <li><a href="api.html#caproto.EventCancelRequest">EventCancelRequest (class in caproto)</a>
@@ -772,6 +800,8 @@
 </li>
       <li><a href="api.html#caproto.EventsOnRequest">EventsOnRequest (class in caproto)</a>
 </li>
+      <li><a href="generated/caproto.server.expand_macros.html#caproto.server.expand_macros">expand_macros() (in module caproto.server)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -782,10 +812,14 @@
 </li>
       <li><a href="generated/caproto.server.records.FanoutFields.html#caproto.server.records.FanoutFields">FanoutFields (class in caproto.server.records)</a>
 </li>
-      <li><a href="pva/api.html#caproto.pva.server.magic.PVAGroupMeta.find_pvaproperties">find_pvaproperties() (caproto.pva.server.magic.PVAGroupMeta static method)</a>
+      <li><a href="generated/caproto.server.server.FieldProxy.html#caproto.server.server.FieldProxy">FieldProxy (class in caproto.server.server)</a>
+</li>
+      <li><a href="generated/caproto.server.server.FieldSpec.html#caproto.server.server.FieldSpec">FieldSpec (class in caproto.server.server)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pva/api.html#caproto.pva.server.magic.PVAGroupMeta.find_pvaproperties">find_pvaproperties() (caproto.pva.server.magic.PVAGroupMeta static method)</a>
+</li>
       <li><a href="pva/api.html#caproto.pva._messages.BeaconMessage.flags">flags (caproto.pva._messages.BeaconMessage attribute)</a>
 
       <ul>
@@ -1297,7 +1331,11 @@
 </li>
       </ul></li>
       <li><a href="pva/api.html#caproto.pva.server.commandline.ioc_arg_parser">ioc_arg_parser() (in module caproto.pva.server.commandline)</a>
+
+      <ul>
+        <li><a href="generated/caproto.server.ioc_arg_parser.html#caproto.server.ioc_arg_parser">(in module caproto.server)</a>
 </li>
+      </ul></li>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelFieldInfoRequest.ioid">ioid (caproto.pva._messages.ChannelFieldInfoRequest attribute)</a>
 
       <ul>
@@ -1383,6 +1421,8 @@
       <li><a href="generated/caproto.server.records.LonginFields.html#caproto.server.records.LonginFields">LonginFields (class in caproto.server.records)</a>
 </li>
       <li><a href="generated/caproto.server.records.LongoutFields.html#caproto.server.records.LongoutFields">LongoutFields (class in caproto.server.records)</a>
+</li>
+      <li><a href="generated/caproto.server.common.LoopExit.html#caproto.server.common.LoopExit">LoopExit</a>
 </li>
       <li><a href="api.html#caproto.EventAddRequest.low">low (caproto.EventAddRequest attribute)</a>
 </li>
@@ -1495,6 +1535,8 @@
 </li>
       <li><a href="api.html#caproto.NEED_DATA">NEED_DATA (in module caproto)</a>
 </li>
+      <li><a href="generated/caproto.server.server.NestedPvproperty.html#caproto.server.server.NestedPvproperty">NestedPvproperty (class in caproto.server.server)</a>
+</li>
       <li><a href="pva/api.html#caproto.pva._circuit.VirtualCircuit.new_channel_id">new_channel_id() (caproto.pva._circuit.VirtualCircuit method)</a>
 
       <ul>
@@ -1605,8 +1647,6 @@
         <li><a href="pva/api.html#caproto.pva._messages.ChannelPutResponse.put_structure_if">(caproto.pva._messages.ChannelPutResponse attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pva/api.html#caproto.pva.server.magic.pvaproperty.putter">putter() (caproto.pva.server.magic.pvaproperty method)</a>
 </li>
       <li><a href="async-clients.html#caproto.asyncio.client.PV">PV (class in caproto.asyncio.client)</a>
@@ -1623,6 +1663,8 @@
         <li><a href="pva/api.html#caproto.pva._messages.ChannelPutGetResponse.pv_data">(caproto.pva._messages.ChannelPutGetResponse attribute)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelGetRequest.pv_request">pv_request (caproto.pva._messages.ChannelGetRequest attribute)</a>
 </li>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelGetResponse.pv_structure_if">pv_structure_if (caproto.pva._messages.ChannelGetResponse attribute)</a>
@@ -1639,29 +1681,69 @@
 </li>
       <li><a href="loggers.html#caproto.PVFilter">PVFilter (class in caproto)</a>
 </li>
+      <li><a href="generated/caproto.server.pvfunction.html#caproto.server.pvfunction">pvfunction (class in caproto.server)</a>
+</li>
       <li><a href="generated/caproto.server.PVGroup.html#caproto.server.PVGroup">PVGroup (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.server.PVGroupMeta.html#caproto.server.server.PVGroupMeta">PVGroupMeta (class in caproto.server.server)</a>
 </li>
       <li><a href="generated/caproto.server.pvproperty.html#caproto.server.pvproperty">pvproperty (class in caproto.server)</a>
 </li>
       <li><a href="generated/caproto.server.PvpropertyBoolEnum.html#caproto.server.PvpropertyBoolEnum">PvpropertyBoolEnum (class in caproto.server)</a>
 </li>
+      <li><a href="generated/caproto.server.PvpropertyBoolEnumRO.html#caproto.server.PvpropertyBoolEnumRO">PvpropertyBoolEnumRO (class in caproto.server)</a>
+</li>
       <li><a href="generated/caproto.server.PvpropertyByte.html#caproto.server.PvpropertyByte">PvpropertyByte (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyByteRO.html#caproto.server.PvpropertyByteRO">PvpropertyByteRO (class in caproto.server)</a>
 </li>
       <li><a href="generated/caproto.server.PvpropertyChar.html#caproto.server.PvpropertyChar">PvpropertyChar (class in caproto.server)</a>
 </li>
+      <li><a href="generated/caproto.server.PvpropertyCharRO.html#caproto.server.PvpropertyCharRO">PvpropertyCharRO (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyData.html#caproto.server.PvpropertyData">PvpropertyData (class in caproto.server)</a>
+</li>
       <li><a href="generated/caproto.server.PvpropertyDouble.html#caproto.server.PvpropertyDouble">PvpropertyDouble (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyDoubleRO.html#caproto.server.PvpropertyDoubleRO">PvpropertyDoubleRO (class in caproto.server)</a>
 </li>
       <li><a href="generated/caproto.server.PvpropertyEnum.html#caproto.server.PvpropertyEnum">PvpropertyEnum (class in caproto.server)</a>
 </li>
+      <li><a href="generated/caproto.server.PvpropertyEnumRO.html#caproto.server.PvpropertyEnumRO">PvpropertyEnumRO (class in caproto.server)</a>
+</li>
       <li><a href="generated/caproto.server.PvpropertyFloat.html#caproto.server.PvpropertyFloat">PvpropertyFloat (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyFloatRO.html#caproto.server.PvpropertyFloatRO">PvpropertyFloatRO (class in caproto.server)</a>
 </li>
       <li><a href="generated/caproto.server.PvpropertyInteger.html#caproto.server.PvpropertyInteger">PvpropertyInteger (class in caproto.server)</a>
 </li>
+      <li><a href="generated/caproto.server.PvpropertyIntegerRO.html#caproto.server.PvpropertyIntegerRO">PvpropertyIntegerRO (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyReadOnlyData.html#caproto.server.PvpropertyReadOnlyData">PvpropertyReadOnlyData (class in caproto.server)</a>
+</li>
       <li><a href="generated/caproto.server.PvpropertyShort.html#caproto.server.PvpropertyShort">PvpropertyShort (class in caproto.server)</a>
+</li>
+      <li><a href="generated/caproto.server.PvpropertyShortRO.html#caproto.server.PvpropertyShortRO">PvpropertyShortRO (class in caproto.server)</a>
 </li>
       <li><a href="generated/caproto.server.PvpropertyString.html#caproto.server.PvpropertyString">PvpropertyString (class in caproto.server)</a>
 </li>
+      <li><a href="generated/caproto.server.PvpropertyStringRO.html#caproto.server.PvpropertyStringRO">PvpropertyStringRO (class in caproto.server)</a>
+</li>
       <li><a href="threading-client.html#caproto.threading.client.VirtualCircuitManager.pvs">pvs (caproto.threading.client.VirtualCircuitManager attribute)</a>
+</li>
+      <li><a href="generated/caproto.server.PVSpec.html#caproto.server.PVSpec">PVSpec (class in caproto.server)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/caproto.curio.server.QueueFull.html#caproto.curio.server.QueueFull">QueueFull</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/caproto.curio.server.QueueWithFullError.html#caproto.curio.server.QueueWithFullError">QueueWithFullError (class in caproto.curio.server)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1788,9 +1870,17 @@
       <ul>
         <li><a href="pva/api.html#caproto.pva.asyncio.server.VirtualCircuit.run">(caproto.pva.asyncio.server.VirtualCircuit method)</a>
 </li>
+        <li><a href="generated/caproto.asyncio.server.run.html#caproto.asyncio.server.run">(in module caproto.asyncio.server)</a>
+</li>
+        <li><a href="generated/caproto.curio.server.run.html#caproto.curio.server.run">(in module caproto.curio.server)</a>
+</li>
         <li><a href="pva/api.html#caproto.pva.asyncio.server.run">(in module caproto.pva.asyncio.server)</a>
 </li>
         <li><a href="pva/api.html#caproto.pva.server.commandline.run">(in module caproto.pva.server.commandline)</a>
+</li>
+        <li><a href="generated/caproto.server.run.html#caproto.server.run">(in module caproto.server)</a>
+</li>
+        <li><a href="generated/caproto.trio.server.run.html#caproto.trio.server.run">(in module caproto.trio.server)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1923,6 +2013,8 @@
 </li>
       <li><a href="api.html#caproto.ServerDisconnResponse">ServerDisconnResponse (class in caproto)</a>
 </li>
+      <li><a href="generated/caproto.asyncio.server.ServerExit.html#caproto.asyncio.server.ServerExit">ServerExit</a>, <a href="generated/caproto.curio.server.ServerExit.html#caproto.curio.server.ServerExit">[1]</a>, <a href="generated/caproto.trio.server.ServerExit.html#caproto.trio.server.ServerExit">[2]</a>
+</li>
       <li><a href="pva/api.html#caproto.pva.server.magic.ServerRPC">ServerRPC (class in caproto.pva.server.magic)</a>
 </li>
       <li><a href="pva/api.html#caproto.pva.server.magic.ServerRPC.ChannelListing">ServerRPC.ChannelListing (class in caproto.pva.server.magic)</a>
@@ -1953,8 +2045,6 @@
         <li><a href="pva/api.html#caproto.pva.server.magic.pvaproperty.shutdown">(caproto.pva.server.magic.pvaproperty method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pva/api.html#caproto.pva.server.common.Context.shutdown_methods">shutdown_methods() (caproto.pva.server.common.Context property)</a>
 </li>
       <li><a href="api.html#caproto.ClearChannelRequest.sid">sid (caproto.ClearChannelRequest attribute)</a>
@@ -1977,6 +2067,8 @@
         <li><a href="api.html#caproto.WriteNotifyResponse.sid">(caproto.WriteNotifyResponse attribute)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/caproto.ioc_examples.simple.SimpleIOC.html#caproto.ioc_examples.simple.SimpleIOC">SimpleIOC (class in caproto.ioc_examples.simple)</a>
 </li>
       <li><a href="generated/caproto.ioc_examples.mini_beamline.Slit.html#caproto.ioc_examples.mini_beamline.Slit">Slit (class in caproto.ioc_examples.mini_beamline)</a>
@@ -1985,8 +2077,16 @@
 </li>
       <li><a href="generated/caproto.ioc_examples.io_interrupt.start_io_interrupt_monitor.html#caproto.ioc_examples.io_interrupt.start_io_interrupt_monitor">start_io_interrupt_monitor() (in module caproto.ioc_examples.io_interrupt)</a>
 </li>
-      <li><a href="pva/api.html#caproto.pva.asyncio.server.start_server">start_server() (in module caproto.pva.asyncio.server)</a>
+      <li><a href="generated/caproto.asyncio.server.start_server.html#caproto.asyncio.server.start_server">start_server() (in module caproto.asyncio.server)</a>
+
+      <ul>
+        <li><a href="generated/caproto.curio.server.start_server.html#caproto.curio.server.start_server">(in module caproto.curio.server)</a>
 </li>
+        <li><a href="pva/api.html#caproto.pva.asyncio.server.start_server">(in module caproto.pva.asyncio.server)</a>
+</li>
+        <li><a href="generated/caproto.trio.server.start_server.html#caproto.trio.server.start_server">(in module caproto.trio.server)</a>
+</li>
+      </ul></li>
       <li><a href="pva/api.html#caproto.pva.server.magic.ServerRPC.ServerInfo.startTime">startTime (caproto.pva.server.magic.ServerRPC.ServerInfo attribute)</a>
 </li>
       <li><a href="generated/caproto.ioc_examples.io_interrupt.IOInterruptIOC.html#caproto.ioc_examples.io_interrupt.IOInterruptIOC.keypress.startup">startup() (caproto.ioc_examples.io_interrupt.IOInterruptIOC.keypress method)</a>
@@ -2051,6 +2151,8 @@
 </li>
       <li><a href="generated/caproto.server.records.SubFields.html#caproto.server.records.SubFields">SubFields (class in caproto.server.records)</a>
 </li>
+      <li><a href="generated/caproto.server.SubGroup.html#caproto.server.SubGroup">SubGroup (class in caproto.server)</a>
+</li>
       <li><a href="async-clients.html#caproto.asyncio.client.PV.subscribe">subscribe() (caproto.asyncio.client.PV method)</a>
 
       <ul>
@@ -2069,6 +2171,8 @@
 
       <ul>
         <li><a href="pva/api.html#caproto.pva.server.common.Subscription">(class in caproto.pva.server.common)</a>
+</li>
+        <li><a href="generated/caproto.server.common.Subscription.html#caproto.server.common.Subscription">(class in caproto.server.common)</a>
 </li>
         <li><a href="sync-client.html#caproto.sync.client.Subscription">(class in caproto.sync.client)</a>
 </li>
@@ -2102,7 +2206,11 @@
 </li>
       </ul></li>
       <li><a href="pva/api.html#caproto.pva.server.common.SubscriptionSpec">SubscriptionSpec (class in caproto.pva.server.common)</a>
+
+      <ul>
+        <li><a href="generated/caproto.server.common.SubscriptionSpec.html#caproto.server.common.SubscriptionSpec">(class in caproto.server.common)</a>
 </li>
+      </ul></li>
       <li><a href="generated/caproto.server.records.summarize.html#caproto.server.records.summarize">summarize() (in module caproto.server.records)</a>
 </li>
   </ul></td>
@@ -2120,7 +2228,11 @@
       <li><a href="pva/api.html#caproto.pva.server.common.Context.tcp_handler">tcp_handler() (caproto.pva.server.common.Context method)</a>
 </li>
       <li><a href="pva/api.html#caproto.pva.server.commandline.template_arg_parser">template_arg_parser() (in module caproto.pva.server.commandline)</a>
+
+      <ul>
+        <li><a href="generated/caproto.server.template_arg_parser.html#caproto.server.template_arg_parser">(in module caproto.server)</a>
 </li>
+      </ul></li>
       <li><a href="async-clients.html#caproto.asyncio.client.PV.time_since_last_heard">time_since_last_heard() (caproto.asyncio.client.PV method)</a>
 
       <ul>
@@ -2193,6 +2305,8 @@
 </li>
       <li><a href="pva/api.html#caproto.pva._messages.ChannelMonitorRequest.to_stop">to_stop() (caproto.pva._messages.ChannelMonitorRequest method)</a>
 </li>
+      <li><a href="generated/caproto.trio.server.TrioAsyncLayer.html#caproto.trio.server.TrioAsyncLayer">TrioAsyncLayer (class in caproto.trio.server)</a>
+</li>
       <li><a href="pva/api.html#caproto.pva.server.magic.PVAGroup.type_map">type_map (caproto.pva.server.magic.PVAGroup attribute)</a>
 </li>
   </ul></td>
@@ -2201,6 +2315,8 @@
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/caproto.curio.server.UniversalQueue.html#caproto.curio.server.UniversalQueue">UniversalQueue (class in caproto.curio.server)</a>
+</li>
       <li><a href="api.html#caproto.ClientChannel.unsubscribe">unsubscribe() (caproto.ClientChannel method)</a>
 
       <ul>
@@ -2290,11 +2406,19 @@
       <li><a href="api.html#caproto.VirtualCircuit">VirtualCircuit (class in caproto)</a>
 
       <ul>
+        <li><a href="generated/caproto.asyncio.server.VirtualCircuit.html#caproto.asyncio.server.VirtualCircuit">(class in caproto.asyncio.server)</a>
+</li>
+        <li><a href="generated/caproto.curio.server.VirtualCircuit.html#caproto.curio.server.VirtualCircuit">(class in caproto.curio.server)</a>
+</li>
         <li><a href="pva/api.html#caproto.pva._circuit.VirtualCircuit">(class in caproto.pva._circuit)</a>
 </li>
         <li><a href="pva/api.html#caproto.pva.asyncio.server.VirtualCircuit">(class in caproto.pva.asyncio.server)</a>
 </li>
         <li><a href="pva/api.html#caproto.pva.server.common.VirtualCircuit">(class in caproto.pva.server.common)</a>
+</li>
+        <li><a href="generated/caproto.server.common.VirtualCircuit.html#caproto.server.common.VirtualCircuit">(class in caproto.server.common)</a>
+</li>
+        <li><a href="generated/caproto.trio.server.VirtualCircuit.html#caproto.trio.server.VirtualCircuit">(class in caproto.trio.server)</a>
 </li>
       </ul></li>
       <li><a href="async-clients.html#caproto.asyncio.client.VirtualCircuitManager">VirtualCircuitManager (class in caproto.asyncio.client)</a>

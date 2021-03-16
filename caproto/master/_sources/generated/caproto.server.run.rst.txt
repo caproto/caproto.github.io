@@ -1,0 +1,6 @@
+﻿caproto.server.run
+==================
+
+.. currentmodule:: caproto.server
+
+.. autofunction:: run

@@ -1,0 +1,65 @@
+﻿caproto.\_data.ChannelData
+==========================
+
+
+.. currentmodule:: caproto._data
+
+.. autoclass:: ChannelData
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~ChannelData.auth_read
+       ~ChannelData.auth_write
+       ~ChannelData.calculate_length
+       ~ChannelData.check_access
+       ~ChannelData.is_compatible_array
+       ~ChannelData.post_state_change
+       ~ChannelData.pre_state_change
+       ~ChannelData.preprocess_value
+       ~ChannelData.publish
+       ~ChannelData.read
+       ~ChannelData.subscribe
+       ~ChannelData.unsubscribe
+       ~ChannelData.update_fields
+       ~ChannelData.verify_value
+       ~ChannelData.write
+       ~ChannelData.write_from_dbr
+       ~ChannelData.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~ChannelData.alarm
+       ~ChannelData.data_type
+       ~ChannelData.epics_timestamp
+       ~ChannelData.length
+       ~ChannelData.max_length
+       ~ChannelData.severity
+       ~ChannelData.status
+       ~ChannelData.timestamp
+       ~ChannelData.value
+    
+
+    

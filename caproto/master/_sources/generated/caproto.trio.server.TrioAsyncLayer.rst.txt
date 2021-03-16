@@ -1,0 +1,42 @@
+﻿caproto.trio.server.TrioAsyncLayer
+==================================
+
+
+.. currentmodule:: caproto.trio.server
+
+.. autoclass:: TrioAsyncLayer
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~TrioAsyncLayer.sleep
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~TrioAsyncLayer.ThreadsafeQueue
+       ~TrioAsyncLayer.name
+    
+
+    

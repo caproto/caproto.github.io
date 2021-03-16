@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Input-Output Controllers (IOCs) &mdash; caproto 0+untagged.1.g57e0c56 documentation</title>
+  <title>Input-Output Controllers (IOCs) &mdash; caproto 0+untagged.1.ge2eb174 documentation</title>
   
 
   
@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="caproto.server.PVGroup" href="generated/caproto.server.PVGroup.html" />
-    <link rel="prev" title="Asynchronous Clients" href="async-clients.html" /> 
+    <link rel="prev" title="Logging" href="loggers.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0+untagged.1.g57e0c56
+                0+untagged.1.ge2eb174
               </div>
             
           
@@ -91,10 +91,14 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install Caproto</a></li>
-</ul>
-<p class="caption"><span class="caption-text">EPICS Clients and Servers</span></p>
-<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="clients.html">Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IOCs</span></p>
+<ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Input-Output Controllers (IOCs)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#why-write-an-ioc-using-caproto">Why Write an IOC Using Caproto?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-the-ioc-examples">Using the IOC Examples</a></li>
@@ -109,23 +113,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#pvproperty">pvproperty</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#supported-data-types">Supported data types</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.PvpropertyBoolEnum.html">caproto.server.PvpropertyBoolEnum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.PvpropertyByte.html">caproto.server.PvpropertyByte</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.PvpropertyChar.html">caproto.server.PvpropertyChar</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.PvpropertyDouble.html">caproto.server.PvpropertyDouble</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.PvpropertyEnum.html">caproto.server.PvpropertyEnum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.PvpropertyFloat.html">caproto.server.PvpropertyFloat</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.PvpropertyInteger.html">caproto.server.PvpropertyInteger</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.PvpropertyShort.html">caproto.server.PvpropertyShort</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.PvpropertyString.html">caproto.server.PvpropertyString</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelByte.html">caproto.ChannelByte</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelChar.html">caproto.ChannelChar</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelDouble.html">caproto.ChannelDouble</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelEnum.html">caproto.ChannelEnum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelFloat.html">caproto.ChannelFloat</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelInteger.html">caproto.ChannelInteger</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelShort.html">caproto.ChannelShort</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelString.html">caproto.ChannelString</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#integers-and-floats">Integers and floats</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#strings">Strings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#enums">Enums</a></li>
@@ -237,12 +224,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="records.html">Records</a></li>
-<li class="toctree-l1"><a class="reference internal" href="servers.html">Servers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server_api.html">Server API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
@@ -573,76 +557,6 @@ use the appropriate <cite>ChannelType</cite> directly:</p>
 <tr class="row-even"><td><p>ChannelType.CHAR</p></td>
 <td><p><a class="reference internal" href="generated/caproto.server.PvpropertyChar.html#caproto.server.PvpropertyChar" title="caproto.server.PvpropertyChar"><code class="xref py py-class docutils literal notranslate"><span class="pre">PvpropertyChar</span></code></a></p></td>
 <td><p><a class="reference internal" href="generated/caproto.ChannelChar.html#caproto.ChannelChar" title="caproto.ChannelChar"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChannelChar</span></code></a></p></td>
-</tr>
-</tbody>
-</table>
-<p>These are the special classes pvproperty uses:</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyBoolEnum.html#caproto.server.PvpropertyBoolEnum" title="caproto.server.PvpropertyBoolEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyBoolEnum</span></code></a>(*[, …])</p></td>
-<td><p>Read-write ENUM data for pvproperty, with Off/On as default strings.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyByte.html#caproto.server.PvpropertyByte" title="caproto.server.PvpropertyByte"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyByte</span></code></a>(*, pvname, …)</p></td>
-<td><p>Read-write 8-bit CHAR data for pvproperty for bytes.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyChar.html#caproto.server.PvpropertyChar" title="caproto.server.PvpropertyChar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyChar</span></code></a>(*, pvname, …)</p></td>
-<td><p>Read-write 8-bit CHAR data for pvproperty with string encoding.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyDouble.html#caproto.server.PvpropertyDouble" title="caproto.server.PvpropertyDouble"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyDouble</span></code></a>(*, pvname, …)</p></td>
-<td><p>Read-write DOUBLE data for pvproperty (64 bits).</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyEnum.html#caproto.server.PvpropertyEnum" title="caproto.server.PvpropertyEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyEnum</span></code></a>(*[, …])</p></td>
-<td><p>Read-write ENUM data for pvproperty.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyFloat.html#caproto.server.PvpropertyFloat" title="caproto.server.PvpropertyFloat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyFloat</span></code></a>(*, pvname, …)</p></td>
-<td><p>Read-write FLOAT data for pvproperty (32 bits).</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyInteger.html#caproto.server.PvpropertyInteger" title="caproto.server.PvpropertyInteger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyInteger</span></code></a>(*, pvname, …)</p></td>
-<td><p>Read-write LONG data for pvproperty (32 bits).</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyShort.html#caproto.server.PvpropertyShort" title="caproto.server.PvpropertyShort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyShort</span></code></a>(*, pvname, …)</p></td>
-<td><p>Read-write SHORT/INT data for pvproperty (16 bits).</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyString.html#caproto.server.PvpropertyString" title="caproto.server.PvpropertyString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyString</span></code></a>(*, pvname, …)</p></td>
-<td><p>Read-write STRING data for pvproperty (up to 40 chars).</p></td>
-</tr>
-</tbody>
-</table>
-<p>The following are the underlying, lowest-level classes for holding data which
-can be sent over an EPICS V3 channel in caproto:</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelByte.html#caproto.ChannelByte" title="caproto.ChannelByte"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelByte</span></code></a>(*[, string_encoding, …])</p></td>
-<td><p>8-bit unencoded CHAR data plus metadata which can be sent over a channel.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ChannelChar.html#caproto.ChannelChar" title="caproto.ChannelChar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelChar</span></code></a>(*[, alarm, value, …])</p></td>
-<td><p>8-bit encoded CHAR data plus metadata which can be sent over a channel.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelDouble.html#caproto.ChannelDouble" title="caproto.ChannelDouble"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelDouble</span></code></a>(*[, precision])</p></td>
-<td><p>64-bit floating point data and metadata which can be sent over a channel.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ChannelEnum.html#caproto.ChannelEnum" title="caproto.ChannelEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelEnum</span></code></a>(*[, enum_strings])</p></td>
-<td><p>ENUM data which can be sent over a channel.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelFloat.html#caproto.ChannelFloat" title="caproto.ChannelFloat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelFloat</span></code></a>(*[, precision])</p></td>
-<td><p>32-bit floating point data and metadata which can be sent over a channel.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ChannelInteger.html#caproto.ChannelInteger" title="caproto.ChannelInteger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelInteger</span></code></a>(*, value[, units, …])</p></td>
-<td><p>32-bit short integer data and metadata which can be sent over a channel.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelShort.html#caproto.ChannelShort" title="caproto.ChannelShort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelShort</span></code></a>(*, value[, units, …])</p></td>
-<td><p>16-bit short integer data and metadata which can be sent over a channel.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ChannelString.html#caproto.ChannelString" title="caproto.ChannelString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelString</span></code></a>(*[, alarm, value, …])</p></td>
-<td><p>8-bit encoded string data plus metadata which can be sent over a channel.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1395,7 +1309,7 @@ your IOC on the following example instead:</p>
 <h3>… get custom arguments into my IOC?<a class="headerlink" href="#get-custom-arguments-into-my-ioc" title="Permalink to this headline">¶</a></h3>
 <p>At the moment, the easiest way to get a custom argument into an IOC is by
 specifying a macro with a default value to
-<code class="xref py py-func docutils literal notranslate"><span class="pre">caproto.server.ioc_arg_parser()</span></code>.</p>
+<a class="reference internal" href="generated/caproto.server.ioc_arg_parser.html#caproto.server.ioc_arg_parser" title="caproto.server.ioc_arg_parser"><code class="xref py py-func docutils literal notranslate"><span class="pre">caproto.server.ioc_arg_parser()</span></code></a>.</p>
 <p>These macros would be accessible in your <code class="docutils literal notranslate"><span class="pre">PVGroup</span></code> <code class="docutils literal notranslate"><span class="pre">__init__</span></code> as the
 <code class="docutils literal notranslate"><span class="pre">macros</span></code> keyword argument.</p>
 <p>Alternatively, you can add arguments directly to the parser, as seen
@@ -2204,7 +2118,7 @@ Fields of B: <span class="o">[</span><span class="s1">&#39;ACKS&#39;</span>, <sp
 </div>
 <div class="section" id="helpers">
 <h2>Helpers<a class="headerlink" href="#helpers" title="Permalink to this headline">¶</a></h2>
-<p>caproto offers several “helper” subgroups (<code class="xref py py-class docutils literal notranslate"><span class="pre">SubGroup</span></code>)
+<p>caproto offers several “helper” subgroups (<a class="reference internal" href="generated/caproto.server.SubGroup.html#caproto.server.SubGroup" title="caproto.server.SubGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubGroup</span></code></a>)
 that are of general use, and could be considered part of the “caproto server
 standard library”, so to speak.</p>
 <div class="section" id="autosave">
@@ -2257,7 +2171,7 @@ standard library”, so to speak.</p>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="generated/caproto.server.PVGroup.html" class="btn btn-neutral float-right" title="caproto.server.PVGroup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="async-clients.html" class="btn btn-neutral float-left" title="Asynchronous Clients" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="loggers.html" class="btn btn-neutral float-left" title="Logging" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

@@ -1,0 +1,40 @@
+﻿caproto.asyncio.server.VirtualCircuit
+=====================================
+
+
+.. currentmodule:: caproto.asyncio.server
+
+.. autoclass:: VirtualCircuit
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~VirtualCircuit.command_queue_loop
+       ~VirtualCircuit.get_from_sub_queue
+       ~VirtualCircuit.recv
+       ~VirtualCircuit.run
+       ~VirtualCircuit.send
+       ~VirtualCircuit.subscription_queue_loop
+    
+    
+
+    
+    
+    
+
+    
