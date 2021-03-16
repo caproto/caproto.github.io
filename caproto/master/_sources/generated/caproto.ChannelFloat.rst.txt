@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto
 
+.. inheritance-diagram:: ChannelFloat
+
 .. autoclass:: ChannelFloat
 
     .. if not using autodoc, add this here: automethod:: __init__

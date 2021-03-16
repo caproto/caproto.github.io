@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.pva.ioc_examples.group
 
+.. inheritance-diagram:: MyIOC
+
 .. autoclass:: MyIOC
 
     .. if not using autodoc, add this here: automethod:: __init__

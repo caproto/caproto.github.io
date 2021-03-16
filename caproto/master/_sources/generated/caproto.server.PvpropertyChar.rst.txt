@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.server
 
+.. inheritance-diagram:: PvpropertyChar
+
 .. autoclass:: PvpropertyChar
 
     .. if not using autodoc, add this here: automethod:: __init__

@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.ioc_examples.client_monitor_async
 
+.. inheritance-diagram:: MirrorClientIOC
+
 .. autoclass:: MirrorClientIOC
 
     .. if not using autodoc, add this here: automethod:: __init__

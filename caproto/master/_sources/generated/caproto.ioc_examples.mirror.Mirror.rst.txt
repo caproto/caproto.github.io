@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.ioc_examples.mirror
 
+.. inheritance-diagram:: Mirror
+
 .. autoclass:: Mirror
 
     .. if not using autodoc, add this here: automethod:: __init__

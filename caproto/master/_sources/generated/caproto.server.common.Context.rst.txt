@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.server.common
 
+.. inheritance-diagram:: Context
+
 .. autoclass:: Context
 
     .. if not using autodoc, add this here: automethod:: __init__

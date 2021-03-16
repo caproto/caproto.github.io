@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.trio.server
 
+.. inheritance-diagram:: VirtualCircuit
+
 .. autoclass:: VirtualCircuit
 
     .. if not using autodoc, add this here: automethod:: __init__

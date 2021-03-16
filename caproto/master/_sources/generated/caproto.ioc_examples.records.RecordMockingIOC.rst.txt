@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.ioc_examples.records
 
+.. inheritance-diagram:: RecordMockingIOC
+
 .. autoclass:: RecordMockingIOC
 
     .. if not using autodoc, add this here: automethod:: __init__

@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto._data.ChannelData &mdash; caproto 0+untagged.1.ge2eb174 documentation</title>
+  <title>caproto._data.ChannelData &mdash; caproto 0+untagged.1.g244470a documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/inheritance.css" type="text/css" />
 
   
   
@@ -64,7 +66,7 @@
             
             
               <div class="version">
-                0+untagged.1.ge2eb174
+                0+untagged.1.g244470a
               </div>
             
           
@@ -106,15 +108,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../server_api.html">Server API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../server_api.html#data-containers">Data Containers</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../server_api.html#core">Core</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelByte.html">caproto.ChannelByte</a></li>
-<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelChar.html">caproto.ChannelChar</a></li>
-<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelDouble.html">caproto.ChannelDouble</a></li>
-<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelEnum.html">caproto.ChannelEnum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelFloat.html">caproto.ChannelFloat</a></li>
-<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelInteger.html">caproto.ChannelInteger</a></li>
-<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelShort.html">caproto.ChannelShort</a></li>
-<li class="toctree-l4"><a class="reference internal" href="caproto.ChannelString.html">caproto.ChannelString</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">caproto._data.ChannelData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../server_api.html#numeric-data">Numeric Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../server_api.html#string-or-byte-data">String or Byte Data</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../server_api.html#base-class">Base Class</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../server_api.html#pvpropertydata">PvpropertyData</a></li>
@@ -217,7 +213,10 @@
             
   <div class="section" id="caproto-data-channeldata">
 <h1>caproto._data.ChannelData<a class="headerlink" href="#caproto-data-channeldata" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
+<div class="graphviz"><img src="../_images/inheritance-54fdddb0d4ab06bf2f9ed067866974c2152c2491.png" alt="Inheritance diagram of ChannelData" usemap="#inheritance630b4a75c0" class="inheritance graphviz" /></div>
+<map id="inheritance630b4a75c0" name="inheritance630b4a75c0">
+<area shape="rect" id="node1" href="#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="5,5,204,31"/>
+</map><dl class="py class">
 <dt id="caproto._data.ChannelData">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto._data.</span></code><code class="sig-name descname"><span class="pre">ChannelData</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alarm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'latin-1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reported_record_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'caproto'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/_data.html#ChannelData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto._data.ChannelData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class holding data and metadata which can be sent across a Channel.</p>

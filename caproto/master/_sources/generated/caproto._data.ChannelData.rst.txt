@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto._data
 
+.. inheritance-diagram:: ChannelData
+
 .. autoclass:: ChannelData
 
     .. if not using autodoc, add this here: automethod:: __init__

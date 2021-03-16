@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.server.server
 
+.. inheritance-diagram:: FieldSpec
+
 .. autoclass:: FieldSpec
 
     .. if not using autodoc, add this here: automethod:: __init__

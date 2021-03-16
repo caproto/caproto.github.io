@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.server.autosave
 
+.. inheritance-diagram:: RotatingFileManager
+
 .. autoclass:: RotatingFileManager
 
     .. if not using autodoc, add this here: automethod:: __init__

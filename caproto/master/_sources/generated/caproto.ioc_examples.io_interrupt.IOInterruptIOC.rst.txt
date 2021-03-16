@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.ioc_examples.io_interrupt
 
+.. inheritance-diagram:: IOInterruptIOC
+
 .. autoclass:: IOInterruptIOC
 
     .. if not using autodoc, add this here: automethod:: __init__

@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.server.server
 
+.. inheritance-diagram:: FieldProxy
+
 .. autoclass:: FieldProxy
 
     .. if not using autodoc, add this here: automethod:: __init__

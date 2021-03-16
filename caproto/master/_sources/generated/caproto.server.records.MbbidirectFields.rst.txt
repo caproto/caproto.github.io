@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.server.records
 
+.. inheritance-diagram:: MbbidirectFields
+
 .. autoclass:: MbbidirectFields
 
     .. if not using autodoc, add this here: automethod:: __init__

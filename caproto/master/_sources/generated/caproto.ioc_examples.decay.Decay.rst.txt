@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.ioc_examples.decay
 
+.. inheritance-diagram:: Decay
+
 .. autoclass:: Decay
 
     .. if not using autodoc, add this here: automethod:: __init__

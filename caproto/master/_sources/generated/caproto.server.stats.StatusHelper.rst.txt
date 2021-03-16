@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.server.stats
 
+.. inheritance-diagram:: StatusHelper
+
 .. autoclass:: StatusHelper
 
     .. if not using autodoc, add this here: automethod:: __init__

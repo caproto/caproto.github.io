@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.server.records
 
+.. inheritance-diagram:: BoFields
+
 .. autoclass:: BoFields
 
     .. if not using autodoc, add this here: automethod:: __init__

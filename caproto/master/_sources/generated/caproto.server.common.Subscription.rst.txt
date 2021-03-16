@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.server.common
 
+.. inheritance-diagram:: Subscription
+
 .. autoclass:: Subscription
 
     .. if not using autodoc, add this here: automethod:: __init__

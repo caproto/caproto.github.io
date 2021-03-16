@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.pva.ioc_examples.normative
 
+.. inheritance-diagram:: NormativeIOC
+
 .. autoclass:: NormativeIOC
 
     .. if not using autodoc, add this here: automethod:: __init__

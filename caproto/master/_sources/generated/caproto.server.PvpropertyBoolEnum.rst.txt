@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.server
 
+.. inheritance-diagram:: PvpropertyBoolEnum
+
 .. autoclass:: PvpropertyBoolEnum
 
     .. if not using autodoc, add this here: automethod:: __init__

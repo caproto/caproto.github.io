@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.server
 
+.. inheritance-diagram:: PvpropertyReadOnlyData
+
 .. autoclass:: PvpropertyReadOnlyData
 
     .. if not using autodoc, add this here: automethod:: __init__

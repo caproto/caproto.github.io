@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.ioc_examples.scan_rate
 
+.. inheritance-diagram:: ScanRateIOC
+
 .. autoclass:: ScanRateIOC
 
     .. if not using autodoc, add this here: automethod:: __init__

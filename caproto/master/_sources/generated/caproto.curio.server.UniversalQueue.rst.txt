@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.curio.server
 
+.. inheritance-diagram:: UniversalQueue
+
 .. autoclass:: UniversalQueue
 
     .. if not using autodoc, add this here: automethod:: __init__

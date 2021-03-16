@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Server API &mdash; caproto 0+untagged.1.ge2eb174 documentation</title>
+  <title>Server API &mdash; caproto 0+untagged.1.g244470a documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/inheritance.css" type="text/css" />
 
   
   
@@ -39,7 +41,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="caproto.ChannelByte" href="generated/caproto.ChannelByte.html" />
+    <link rel="next" title="caproto.ChannelData" href="generated/caproto.ChannelData.html" />
     <link rel="prev" title="Writing Your Own Documentation" href="own_docs.html" /> 
 </head>
 
@@ -64,7 +66,7 @@
             
             
               <div class="version">
-                0+untagged.1.ge2eb174
+                0+untagged.1.g244470a
               </div>
             
           
@@ -106,15 +108,9 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Server API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#data-containers">Data Containers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#core">Core</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelByte.html">caproto.ChannelByte</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelChar.html">caproto.ChannelChar</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelDouble.html">caproto.ChannelDouble</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelEnum.html">caproto.ChannelEnum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelFloat.html">caproto.ChannelFloat</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelInteger.html">caproto.ChannelInteger</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelShort.html">caproto.ChannelShort</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto.ChannelString.html">caproto.ChannelString</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/caproto._data.ChannelData.html">caproto._data.ChannelData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numeric-data">Numeric Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#string-or-byte-data">String or Byte Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#base-class">Base Class</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#pvpropertydata">PvpropertyData</a><ul>
@@ -320,7 +316,41 @@
 <h3>Core<a class="headerlink" href="#core" title="Permalink to this headline">¶</a></h3>
 <p>The following are the underlying, lowest-level classes for holding data which
 can be sent over an EPICS V3 channel in caproto.</p>
-<table class="longtable docutils align-default">
+<div class="section" id="numeric-data">
+<h4>Numeric Data<a class="headerlink" href="#numeric-data" title="Permalink to this headline">¶</a></h4>
+<div class="graphviz"><img src="_images/inheritance-f80fd4231150d5309a84c6c7bc742c7a146cd183.png" alt="Inheritance diagram of caproto.ChannelData, caproto.ChannelDouble, caproto.ChannelFloat, caproto.ChannelInteger, caproto.ChannelShort" usemap="#inheritance0f1f8116e6" class="inheritance graphviz" /></div>
+<map id="inheritance0f1f8116e6" name="inheritance0f1f8116e6">
+<area shape="rect" id="node1" href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="221,5,327,31"/>
+</map><table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelData.html#caproto.ChannelData" title="caproto.ChannelData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelData</span></code></a>(*[, alarm, value, …])</p></td>
+<td><p>Base class holding data and metadata which can be sent across a Channel.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ChannelDouble.html#caproto.ChannelDouble" title="caproto.ChannelDouble"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelDouble</span></code></a>(*[, precision])</p></td>
+<td><p>64-bit floating point data and metadata which can be sent over a channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelFloat.html#caproto.ChannelFloat" title="caproto.ChannelFloat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelFloat</span></code></a>(*[, precision])</p></td>
+<td><p>32-bit floating point data and metadata which can be sent over a channel.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ChannelInteger.html#caproto.ChannelInteger" title="caproto.ChannelInteger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelInteger</span></code></a>(*, value[, units, …])</p></td>
+<td><p>32-bit LONG integer data and metadata which can be sent over a channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelShort.html#caproto.ChannelShort" title="caproto.ChannelShort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelShort</span></code></a>(*, value[, units, …])</p></td>
+<td><p>16-bit SHORT integer data and metadata which can be sent over a channel.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="string-or-byte-data">
+<h4>String or Byte Data<a class="headerlink" href="#string-or-byte-data" title="Permalink to this headline">¶</a></h4>
+<div class="graphviz"><img src="_images/inheritance-bbcf17263d2e072966ecea7271664e38f4ccbf5c.png" alt="Inheritance diagram of caproto.ChannelByte, caproto.ChannelChar, caproto.ChannelEnum, caproto.ChannelString" usemap="#inheritance95902393fd" class="inheritance graphviz" /></div>
+<map id="inheritance95902393fd" name="inheritance95902393fd">
+<area shape="rect" id="node4" href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="225,5,332,31"/>
+</map><table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -332,26 +362,17 @@ can be sent over an EPICS V3 channel in caproto.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ChannelChar.html#caproto.ChannelChar" title="caproto.ChannelChar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelChar</span></code></a>(*[, alarm, value, …])</p></td>
 <td><p>8-bit encoded CHAR data plus metadata which can be sent over a channel.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelDouble.html#caproto.ChannelDouble" title="caproto.ChannelDouble"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelDouble</span></code></a>(*[, precision])</p></td>
-<td><p>64-bit floating point data and metadata which can be sent over a channel.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ChannelEnum.html#caproto.ChannelEnum" title="caproto.ChannelEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelEnum</span></code></a>(*[, enum_strings])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelEnum.html#caproto.ChannelEnum" title="caproto.ChannelEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelEnum</span></code></a>(*[, enum_strings])</p></td>
 <td><p>ENUM data which can be sent over a channel.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelFloat.html#caproto.ChannelFloat" title="caproto.ChannelFloat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelFloat</span></code></a>(*[, precision])</p></td>
-<td><p>32-bit floating point data and metadata which can be sent over a channel.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ChannelInteger.html#caproto.ChannelInteger" title="caproto.ChannelInteger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelInteger</span></code></a>(*, value[, units, …])</p></td>
-<td><p>32-bit short integer data and metadata which can be sent over a channel.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelShort.html#caproto.ChannelShort" title="caproto.ChannelShort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelShort</span></code></a>(*, value[, units, …])</p></td>
-<td><p>16-bit short integer data and metadata which can be sent over a channel.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ChannelString.html#caproto.ChannelString" title="caproto.ChannelString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelString</span></code></a>(*[, alarm, value, …])</p></td>
 <td><p>8-bit encoded string data plus metadata which can be sent over a channel.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="base-class">
+<h4>Base Class<a class="headerlink" href="#base-class" title="Permalink to this headline">¶</a></h4>
 <p>The above share methods from their common (internal) base class
 <a class="reference internal" href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData" title="caproto._data.ChannelData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChannelData</span></code></a>.</p>
 <table class="longtable docutils align-default">
@@ -365,6 +386,7 @@ can be sent over an EPICS V3 channel in caproto.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 <div class="section" id="pvpropertydata">
 <h3>PvpropertyData<a class="headerlink" href="#pvpropertydata" title="Permalink to this headline">¶</a></h3>
@@ -383,6 +405,7 @@ by whether or not they are read-only.</p>
 </table>
 <div class="section" id="read-write">
 <h4>Read/write<a class="headerlink" href="#read-write" title="Permalink to this headline">¶</a></h4>
+<div class="graphviz"><img src="_images/inheritance-a1b69fba966f6a1ecd7a245123b3ad233de24214.png" alt="Inheritance diagram of caproto.server.PvpropertyBoolEnum, caproto.server.PvpropertyByte, caproto.server.PvpropertyChar, caproto.server.PvpropertyData, caproto.server.PvpropertyDouble, caproto.server.PvpropertyEnum, caproto.server.PvpropertyString" class="inheritance graphviz" /></div>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -398,28 +421,25 @@ by whether or not they are read-only.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyChar.html#caproto.server.PvpropertyChar" title="caproto.server.PvpropertyChar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyChar</span></code></a>(*, pvname, …)</p></td>
 <td><p>Read-write 8-bit CHAR data for pvproperty with string encoding.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" title="caproto.server.PvpropertyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyData</span></code></a>(*, pvname, …)</p></td>
-<td><p>A top-level class for mixing in with <cite>ChannelData</cite> subclasses.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyDouble.html#caproto.server.PvpropertyDouble" title="caproto.server.PvpropertyDouble"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyDouble</span></code></a>(*, pvname, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyDouble.html#caproto.server.PvpropertyDouble" title="caproto.server.PvpropertyDouble"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyDouble</span></code></a>(*, pvname, …)</p></td>
 <td><p>Read-write DOUBLE data for pvproperty (64 bits).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyEnum.html#caproto.server.PvpropertyEnum" title="caproto.server.PvpropertyEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyEnum</span></code></a>(*[, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyEnum.html#caproto.server.PvpropertyEnum" title="caproto.server.PvpropertyEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyEnum</span></code></a>(*[, …])</p></td>
 <td><p>Read-write ENUM data for pvproperty.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyFloat.html#caproto.server.PvpropertyFloat" title="caproto.server.PvpropertyFloat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyFloat</span></code></a>(*, pvname, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyFloat.html#caproto.server.PvpropertyFloat" title="caproto.server.PvpropertyFloat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyFloat</span></code></a>(*, pvname, …)</p></td>
 <td><p>Read-write FLOAT data for pvproperty (32 bits).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyInteger.html#caproto.server.PvpropertyInteger" title="caproto.server.PvpropertyInteger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyInteger</span></code></a>(*, pvname, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyInteger.html#caproto.server.PvpropertyInteger" title="caproto.server.PvpropertyInteger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyInteger</span></code></a>(*, pvname, …)</p></td>
 <td><p>Read-write LONG data for pvproperty (32 bits).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyReadOnlyData.html#caproto.server.PvpropertyReadOnlyData" title="caproto.server.PvpropertyReadOnlyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyReadOnlyData</span></code></a>(*, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyReadOnlyData.html#caproto.server.PvpropertyReadOnlyData" title="caproto.server.PvpropertyReadOnlyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyReadOnlyData</span></code></a>(*, …)</p></td>
 <td><p>A mixin class which marks this data as read-only from channel access.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyShort.html#caproto.server.PvpropertyShort" title="caproto.server.PvpropertyShort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyShort</span></code></a>(*, pvname, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyShort.html#caproto.server.PvpropertyShort" title="caproto.server.PvpropertyShort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyShort</span></code></a>(*, pvname, …)</p></td>
 <td><p>Read-write SHORT/INT data for pvproperty (16 bits).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyString.html#caproto.server.PvpropertyString" title="caproto.server.PvpropertyString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyString</span></code></a>(*, pvname, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyString.html#caproto.server.PvpropertyString" title="caproto.server.PvpropertyString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyString</span></code></a>(*, pvname, …)</p></td>
 <td><p>Read-write STRING data for pvproperty (up to 40 chars).</p></td>
 </tr>
 </tbody>
@@ -427,6 +447,9 @@ by whether or not they are read-only.</p>
 </div>
 <div class="section" id="read-only">
 <h4>Read-only<a class="headerlink" href="#read-only" title="Permalink to this headline">¶</a></h4>
+<p>Read-only data classes mix in with
+<a class="reference internal" href="generated/caproto.server.PvpropertyReadOnlyData.html#caproto.server.PvpropertyReadOnlyData" title="caproto.server.PvpropertyReadOnlyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PvpropertyReadOnlyData</span></code></a>.</p>
+<div class="graphviz"><img src="_images/inheritance-4deb65d80cdeb829e3f8a8e4f98cb989ed006fe1.png" alt="Inheritance diagram of caproto.server.PvpropertyBoolEnumRO, caproto.server.PvpropertyByteRO, caproto.server.PvpropertyCharRO, caproto.server.PvpropertyData, caproto.server.PvpropertyDoubleRO, caproto.server.PvpropertyEnumRO, caproto.server.PvpropertyStringRO" class="inheritance graphviz" /></div>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -675,7 +698,13 @@ functionality.</p>
 <h3>Implementation classes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Classes built on top of the library-agnostic core, used to implement asyncio
 functionality.</p>
-<table class="longtable docutils align-default">
+<div class="graphviz"><img src="_images/inheritance-4428a94f9e44f2c24795157b105aa6283a76388d.png" alt="Inheritance diagram of caproto.curio.server.Context, caproto.curio.server.VirtualCircuit" usemap="#inheritancefaeb25c514" class="inheritance graphviz" /></div>
+<map id="inheritancefaeb25c514" name="inheritancefaeb25c514">
+<area shape="rect" id="node1" href="generated/caproto.curio.server.Context.html#caproto.curio.server.Context" target="_top" title="caproto.curio.server.Context" alt="" coords="17,79,224,104"/>
+<area shape="rect" id="node2" href="generated/caproto.server.common.Context.html#caproto.server.common.Context" target="_top" title="caproto.server.common.Context" alt="" coords="5,5,236,31"/>
+<area shape="rect" id="node3" href="generated/caproto.curio.server.VirtualCircuit.html#caproto.curio.server.VirtualCircuit" target="_top" title="Wraps a caproto.VirtualCircuit with a curio client." alt="" coords="273,79,513,104"/>
+<area shape="rect" id="node4" href="generated/caproto.server.common.VirtualCircuit.html#caproto.server.common.VirtualCircuit" target="_top" title="caproto.server.common.VirtualCircuit" alt="" coords="260,5,525,31"/>
+</map><table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -743,7 +772,13 @@ functionality.</p>
 <h3>Implementation classes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Classes built on top of the library-agnostic core, used to implement asyncio
 functionality.</p>
-<table class="longtable docutils align-default">
+<div class="graphviz"><img src="_images/inheritance-c11ef925d35a108f88b912e0e7975b84b2058fc9.png" alt="Inheritance diagram of caproto.trio.server.Context, caproto.trio.server.VirtualCircuit" usemap="#inheritance9266b6718d" class="inheritance graphviz" /></div>
+<map id="inheritance9266b6718d" name="inheritance9266b6718d">
+<area shape="rect" id="node1" href="generated/caproto.server.common.Context.html#caproto.server.common.Context" target="_top" title="caproto.server.common.Context" alt="" coords="5,5,236,31"/>
+<area shape="rect" id="node3" href="generated/caproto.trio.server.Context.html#caproto.trio.server.Context" target="_top" title="caproto.trio.server.Context" alt="" coords="23,79,219,104"/>
+<area shape="rect" id="node2" href="generated/caproto.server.common.VirtualCircuit.html#caproto.server.common.VirtualCircuit" target="_top" title="caproto.server.common.VirtualCircuit" alt="" coords="260,5,525,31"/>
+<area shape="rect" id="node4" href="generated/caproto.trio.server.VirtualCircuit.html#caproto.trio.server.VirtualCircuit" target="_top" title="Wraps a caproto.VirtualCircuit with a trio client." alt="" coords="277,79,508,104"/>
+</map><table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -793,7 +828,7 @@ functionality.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="generated/caproto.ChannelByte.html" class="btn btn-neutral float-right" title="caproto.ChannelByte" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="generated/caproto.ChannelData.html" class="btn btn-neutral float-right" title="caproto.ChannelData" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="own_docs.html" class="btn btn-neutral float-left" title="Writing Your Own Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

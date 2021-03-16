@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.server
 
+.. inheritance-diagram:: PvpropertyEnumRO
+
 .. autoclass:: PvpropertyEnumRO
 
     .. if not using autodoc, add this here: automethod:: __init__

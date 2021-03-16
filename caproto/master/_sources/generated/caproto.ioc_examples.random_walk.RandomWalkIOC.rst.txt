@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.ioc_examples.random_walk
 
+.. inheritance-diagram:: RandomWalkIOC
+
 .. autoclass:: RandomWalkIOC
 
     .. if not using autodoc, add this here: automethod:: __init__

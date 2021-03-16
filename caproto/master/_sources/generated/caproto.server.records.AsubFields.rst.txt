@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.server.records
 
+.. inheritance-diagram:: AsubFields
+
 .. autoclass:: AsubFields
 
     .. if not using autodoc, add this here: automethod:: __init__

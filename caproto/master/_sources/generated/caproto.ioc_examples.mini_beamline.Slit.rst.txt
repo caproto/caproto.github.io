@@ -4,6 +4,8 @@
 
 .. currentmodule:: caproto.ioc_examples.mini_beamline
 
+.. inheritance-diagram:: Slit
+
 .. autoclass:: Slit
 
     .. if not using autodoc, add this here: automethod:: __init__
