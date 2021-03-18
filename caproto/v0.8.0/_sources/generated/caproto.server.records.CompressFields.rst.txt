@@ -1,0 +1,529 @@
+﻿caproto.server.records.CompressFields
+=====================================
+
+
+.. currentmodule:: caproto.server.records
+
+.. inheritance-diagram:: CompressFields
+
+.. autoclass:: CompressFields
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+    
+        .. note:: To use this, specify
+                  ``record="compress"`` in a
+                  :class:`pvproperty`.
+    
+    
+
+    
+    
+    .. list-table:: CompressFields pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - access_security_group
+           - ``ASG``
+           - Access Security Group
+           - CHAR 
+           - 
+                 Length(29)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_severity
+           - ``ACKS``
+           - Alarm Ack Severity
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_transient
+           - ``ACKT``
+           - Alarm Ack Transient
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_status
+           - ``STAT``
+           - Alarm Status
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - buffering_algorithm
+           - ``BALG``
+           - Buffering Algorithm
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - compress_value_buffer
+           - ``CVB``
+           - Compress Value Buffer
+           - DOUBLE 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - compressed_array_inx
+           - ``INX``
+           - Compressed Array Inx
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - compression_algorithm
+           - ``ALG``
+           - Compression Algorithm
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - current_alarm_severity
+           - ``SEVR``
+           - Alarm Severity
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - dbputfield_process
+           - ``PUTF``
+           - dbPutField process
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - description
+           - ``DESC``
+           - Descriptor
+           - CHAR 
+           - 
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - device_type
+           - ``DTYP``
+           - Device Type
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable
+           - ``DISA``
+           - Disable
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_alarm_severity
+           - ``DISS``
+           - Disable Alarm Sevrty
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_putfield
+           - ``DISP``
+           - Disable putField
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_value
+           - ``DISV``
+           - Disable Value
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - display_precision
+           - ``PREC``
+           - Display Precision
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - engineering_units
+           - ``EGU``
+           - Engineering Units
+           - CHAR 
+           - 
+                 Length(16)
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - event_name
+           - ``EVNT``
+           - Event Name
+           - CHAR 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - forward_link
+           - ``FLNK``
+           - Forward Process Link
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - high_operating_range
+           - ``HOPR``
+           - High Operating Range
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - init_high_interest_lim
+           - ``IHIL``
+           - Init High Interest Lim
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - init_low_interest_lim
+           - ``ILIL``
+           - Init Low Interest Lim
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - input_specification
+           - ``INP``
+           - Input Specification
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - lock_count
+           - ``LCNT``
+           - Lock Count
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - low_operating_range
+           - ``LOPR``
+           - Low Operating Range
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - n_to_1_compression
+           - ``N``
+           - N to 1 Compression
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - new_alarm_severity
+           - ``NSEV``
+           - New Alarm Severity
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_status
+           - ``NSTA``
+           - New Alarm Status
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - number_of_elements_in_working_buffer
+           - ``INPN``
+           - Number of elements in Working Buffer
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - number_of_values
+           - ``NSAM``
+           - Number of Values
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - number_used
+           - ``NUSE``
+           - Number Used
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - offset
+           - ``OFF``
+           - Offset
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - old_number_used
+           - ``OUSE``
+           - Old Number Used
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - process_at_iocinit
+           - ``PINI``
+           - Process at iocInit
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - process_record
+           - ``PROC``
+           - Force Processing
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_active
+           - ``PACT``
+           - Record active
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_name
+           - ``NAME``
+           - Record Name
+           - CHAR 
+           - 
+                 **Read-only**
+                 Length(61)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_type
+           - ``RTYP``
+           - Record type
+           - STRING 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
+           - 
+    
+        *  - reprocess
+           - ``RPRO``
+           - Reprocess 
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - reset
+           - ``RES``
+           - Reset
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CompressFields`
+           - 
+    
+        *  - scan_phase
+           - ``PHAS``
+           - Scan Phase
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_rate
+           - ``SCAN``
+           - Scan Mechanism
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scanning_disable
+           - ``SDIS``
+           - Scanning Disable
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scheduling_priority
+           - ``PRIO``
+           - Scheduling Priority
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_event
+           - ``TSE``
+           - Time Stamp Event
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_link
+           - ``TSEL``
+           - Time Stamp Link
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - trace_processing
+           - ``TPRO``
+           - Trace Processing
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined
+           - ``UDF``
+           - Undefined
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined_alarm_severity
+           - ``UDFS``
+           - Undefined Alarm Sevrty
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~CompressFields.group_read
+       ~CompressFields.group_write
+       ~CompressFields.publish
+       ~CompressFields.value_write_hook
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~CompressFields.default_values
+       ~CompressFields.has_val_field
+       ~CompressFields.scan_rate_sec
+       ~CompressFields.type_map
+       ~CompressFields.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods
+    .. method:: display_precision.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 38
+        :lines: 38-40
+    .. method:: high_operating_range.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 38
+        :lines: 38-40
+    .. method:: low_operating_range.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 38
+        :lines: 38-40

@@ -1,0 +1,54 @@
+﻿caproto.asyncio.server.Context
+==============================
+
+
+.. currentmodule:: caproto.asyncio.server
+
+.. inheritance-diagram:: Context
+
+.. autoclass:: Context
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~Context.broadcast_beacon_loop
+       ~Context.broadcaster_queue_loop
+       ~Context.broadcaster_receive_loop
+       ~Context.circuit_disconnected
+       ~Context.run
+       ~Context.server_accept_loop
+       ~Context.stop
+       ~Context.subscription_queue_loop
+       ~Context.tcp_handler
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~Context.async_layer
+       ~Context.pvdb_with_fields
+       ~Context.shutdown_methods
+       ~Context.startup_methods
+    
+
+    

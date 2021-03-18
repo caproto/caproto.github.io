@@ -1,0 +1,4 @@
+<map id="inheritance43f9506c84" name="inheritance43f9506c84">
+<area shape="rect" id="node1" href="#caproto.ioc_examples.decay.Decay" target="_top" title="Simulates an exponential decay to a set point." alt="" coords="5,79,256,104"/>
+<area shape="rect" id="node2" title="Class which groups a set of PVs for a high&#45;level caproto server" alt="" coords="21,5,240,31"/>
+</map>

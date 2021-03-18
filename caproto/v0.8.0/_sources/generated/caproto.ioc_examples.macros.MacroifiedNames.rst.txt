@@ -1,0 +1,73 @@
+﻿caproto.ioc\_examples.macros.MacroifiedNames
+============================================
+
+
+.. currentmodule:: caproto.ioc_examples.macros
+
+.. inheritance-diagram:: MacroifiedNames
+
+.. autoclass:: MacroifiedNames
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+    .. list-table:: MacroifiedNames pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - placeholder1
+           - ``{beamline}:{suffix}.VAL``
+           - 
+           - int 
+           - 
+           - 
+    
+        *  - placeholder2
+           - ``{beamline}:{suffix}.RBV``
+           - 
+           - int 
+           - 
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~MacroifiedNames.group_read
+       ~MacroifiedNames.group_write
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~MacroifiedNames.default_values
+       ~MacroifiedNames.type_map
+       ~MacroifiedNames.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods

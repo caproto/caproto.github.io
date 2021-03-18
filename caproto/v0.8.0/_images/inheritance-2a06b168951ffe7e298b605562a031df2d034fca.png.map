@@ -1,0 +1,6 @@
+<map id="inheritance64b10fe7ec" name="inheritance64b10fe7ec">
+<area shape="rect" id="node1" title="8&#45;bit encoded CHAR data plus metadata which can be sent over a channel." alt="" coords="295,79,493,104"/>
+<area shape="rect" id="node3" title="Read&#45;write 8&#45;bit CHAR data for pvproperty with string encoding." alt="" coords="134,152,398,177"/>
+<area shape="rect" id="node2" href="caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="295,5,493,31"/>
+<area shape="rect" id="node4" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="5,79,271,104"/>
+</map>

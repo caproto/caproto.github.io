@@ -1,0 +1,47 @@
+﻿caproto.server.common.SubscriptionSpec
+======================================
+
+
+.. currentmodule:: caproto.server.common
+
+.. inheritance-diagram:: SubscriptionSpec
+
+.. autoclass:: SubscriptionSpec
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~SubscriptionSpec.count
+       ~SubscriptionSpec.index
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~SubscriptionSpec.channel_filter
+       ~SubscriptionSpec.data_type_name
+       ~SubscriptionSpec.db_entry
+       ~SubscriptionSpec.mask
+    
+
+    

@@ -1,0 +1,77 @@
+﻿caproto.ioc\_examples.scan\_rate.ScanRateIOC
+============================================
+
+
+.. currentmodule:: caproto.ioc_examples.scan_rate
+
+.. inheritance-diagram:: ScanRateIOC
+
+.. autoclass:: ScanRateIOC
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+    .. list-table:: ScanRateIOC pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - scanned
+           - ``scanned``
+           - An analog input with customizable scan rate.
+           - float (:class:`ai <caproto.server.records.records.AiFields>`)
+           - 
+                 **Startup**
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~ScanRateIOC.group_read
+       ~ScanRateIOC.group_write
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~ScanRateIOC.default_values
+       ~ScanRateIOC.type_map
+       ~ScanRateIOC.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods
+    .. method:: scanned.startup(self, instance, async_lib)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/ioc_examples/scan_rate.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 39
+        :lines: 39-41

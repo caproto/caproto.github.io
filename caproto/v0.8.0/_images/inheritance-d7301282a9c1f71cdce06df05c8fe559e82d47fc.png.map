@@ -1,0 +1,4 @@
+<map id="inheritance5f20cda3d3" name="inheritance5f20cda3d3">
+<area shape="rect" id="node1" title="Class which groups a set of PVs for a high&#45;level caproto server" alt="" coords="41,5,260,31"/>
+<area shape="rect" id="node2" href="#caproto.server.stats.PeriodicStatusHelper" target="_top" title="An IocStats&#45;like tool for caproto IOCs. &#160;Includes values which update" alt="" coords="5,79,296,104"/>
+</map>

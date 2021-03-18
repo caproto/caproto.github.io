@@ -1,0 +1,77 @@
+﻿caproto.ChannelFloat
+====================
+
+
+.. currentmodule:: caproto
+
+.. inheritance-diagram:: ChannelFloat
+
+.. autoclass:: ChannelFloat
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~ChannelFloat.auth_read
+       ~ChannelFloat.auth_write
+       ~ChannelFloat.calculate_length
+       ~ChannelFloat.check_access
+       ~ChannelFloat.is_compatible_array
+       ~ChannelFloat.post_state_change
+       ~ChannelFloat.pre_state_change
+       ~ChannelFloat.preprocess_value
+       ~ChannelFloat.publish
+       ~ChannelFloat.read
+       ~ChannelFloat.subscribe
+       ~ChannelFloat.unsubscribe
+       ~ChannelFloat.update_fields
+       ~ChannelFloat.verify_value
+       ~ChannelFloat.write
+       ~ChannelFloat.write_from_dbr
+       ~ChannelFloat.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~ChannelFloat.alarm
+       ~ChannelFloat.data_type
+       ~ChannelFloat.epics_timestamp
+       ~ChannelFloat.length
+       ~ChannelFloat.lower_alarm_limit
+       ~ChannelFloat.lower_ctrl_limit
+       ~ChannelFloat.lower_disp_limit
+       ~ChannelFloat.lower_warning_limit
+       ~ChannelFloat.max_length
+       ~ChannelFloat.precision
+       ~ChannelFloat.severity
+       ~ChannelFloat.status
+       ~ChannelFloat.timestamp
+       ~ChannelFloat.units
+       ~ChannelFloat.upper_alarm_limit
+       ~ChannelFloat.upper_ctrl_limit
+       ~ChannelFloat.upper_disp_limit
+       ~ChannelFloat.upper_warning_limit
+       ~ChannelFloat.value
+    
+
+    

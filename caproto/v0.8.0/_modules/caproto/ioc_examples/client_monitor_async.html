@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>caproto.ioc_examples.client_monitor_async &mdash; caproto 0.8.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/inheritance.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/doctr-versions-menu.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> caproto
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install Caproto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clients.html">Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../loggers.html">Logging</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IOCs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../records.html">Records</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../server_api.html">Server API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../basics.html">Writing Your Own Channel Access Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">Core API Documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">pvAccess</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../pva/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pva/clients.html">Synchronous Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pva/iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pva/api.html">PVAccess API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../protocol-compliance.html">Details of our Protocol Compliance for CA Nerds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release-notes.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../containers.html">Caproto-in-a-box</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">caproto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>caproto.ioc_examples.client_monitor_async</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for caproto.ioc_examples.client_monitor_async</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">dedent</span>
+
+<span class="kn">import</span> <span class="nn">caproto</span> <span class="k">as</span> <span class="nn">ca</span>
+<span class="kn">from</span> <span class="nn">caproto.asyncio.client</span> <span class="kn">import</span> <span class="n">Context</span>
+<span class="kn">from</span> <span class="nn">caproto.server</span> <span class="kn">import</span> <span class="n">PVGroup</span><span class="p">,</span> <span class="n">ioc_arg_parser</span><span class="p">,</span> <span class="n">pvproperty</span><span class="p">,</span> <span class="n">run</span>
+
+
+<div class="viewcode-block" id="MirrorClientIOC"><a class="viewcode-back" href="../../../generated/caproto.ioc_examples.client_monitor_async.MirrorClientIOC.html#caproto.ioc_examples.client_monitor_async.MirrorClientIOC">[docs]</a><span class="k">class</span> <span class="nc">MirrorClientIOC</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An IOC which mirrors the value, timestamp, and alarm status of a given PV</span>
+<span class="sd">    into the `mirrored` pvproperty.</span>
+
+<span class="sd">    With the default configuration, this IOC assumes that the PV &quot;simple:A&quot;</span>
+<span class="sd">    exists on some external IOC.</span>
+
+<span class="sd">    The &quot;simple&quot; IOC may be started before or after this IOC.  If the server</span>
+<span class="sd">    goes down, the client will automatically reconnect when available.</span>
+
+<span class="sd">    Scalar PVs</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mirrored (float, analog input)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">mirrored</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">record</span><span class="o">=</span><span class="s1">&#39;ai&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pv_to_mirror</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pv_to_mirror</span> <span class="o">=</span> <span class="n">pv_to_mirror</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">__ainit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;* `__ainit__` startup hook called&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Create an asyncio client context:</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">Context</span><span class="p">()</span>
+
+        <span class="c1"># Loop and grab items from the queue one at a time</span>
+        <span class="k">async</span> <span class="k">for</span> <span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">monitor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pv_to_mirror</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;subscription&#39;</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;* Client pushed a new value in the queue&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Value=</span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">metadata</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+                <span class="c1"># Mirror the value, status, severity, and timestamp:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">mirrored</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                                          <span class="n">timestamp</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
+                                          <span class="n">status</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">status</span><span class="p">,</span>
+                                          <span class="n">severity</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">severity</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;connection&#39;</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;* Client connection state changed: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="s1">&#39;disconnected&#39;</span><span class="p">:</span>
+                    <span class="c1"># Raise an alarm - our client PV is disconnected.</span>
+                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">mirrored</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">mirrored</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                        <span class="n">status</span><span class="o">=</span><span class="n">ca</span><span class="o">.</span><span class="n">AlarmStatus</span><span class="o">.</span><span class="n">LINK</span><span class="p">,</span>
+                        <span class="n">severity</span><span class="o">=</span><span class="n">ca</span><span class="o">.</span><span class="n">AlarmSeverity</span><span class="o">.</span><span class="n">MAJOR_ALARM</span>
+                    <span class="p">)</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">ioc_options</span><span class="p">,</span> <span class="n">run_options</span> <span class="o">=</span> <span class="n">ioc_arg_parser</span><span class="p">(</span>
+        <span class="n">default_prefix</span><span class="o">=</span><span class="s1">&#39;mirror:&#39;</span><span class="p">,</span>
+        <span class="n">desc</span><span class="o">=</span><span class="n">dedent</span><span class="p">(</span><span class="n">MirrorClientIOC</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">),</span>
+        <span class="n">supported_async_libs</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;asyncio&#39;</span><span class="p">,</span> <span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">ioc</span> <span class="o">=</span> <span class="n">MirrorClientIOC</span><span class="p">(</span><span class="s1">&#39;simple:A&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">ioc_options</span><span class="p">)</span>
+    <span class="n">run</span><span class="p">(</span><span class="n">ioc</span><span class="o">.</span><span class="n">pvdb</span><span class="p">,</span> <span class="n">startup_hook</span><span class="o">=</span><span class="n">ioc</span><span class="o">.</span><span class="n">__ainit__</span><span class="p">,</span> <span class="o">**</span><span class="n">run_options</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Daniel Allan.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

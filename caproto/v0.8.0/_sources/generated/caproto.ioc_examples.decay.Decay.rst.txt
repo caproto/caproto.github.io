@@ -1,0 +1,98 @@
+﻿caproto.ioc\_examples.decay.Decay
+=================================
+
+
+.. currentmodule:: caproto.ioc_examples.decay
+
+.. inheritance-diagram:: Decay
+
+.. autoclass:: Decay
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+    .. list-table:: Decay pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - K
+           - ``K``
+           - The decay constant.
+           - float 
+           - 
+           - 
+    
+        *  - Tvar
+           - ``Tvar``
+           - The scale of the initial excursion.
+           - float 
+           - 
+           - 
+    
+        *  - done
+           - ``done``
+           - Whether the current value is 'close' to the setpoint or not.
+           - bool (:class:`bi <caproto.server.records.records.BiFields>`)
+           - 
+                 **Read-only**
+           - 
+    
+        *  - readback
+           - ``I``
+           - The current readback value.
+           - float (:class:`ai <caproto.server.records.records.AiFields>`)
+           - 
+                 **Read-only**
+           - 
+    
+        *  - setpoint
+           - ``SP``
+           - Where to go - the setpoint.
+           - float 
+           - 
+                 **Put**
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~Decay.group_read
+       ~Decay.group_write
+       ~Decay.reset_t0
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~Decay.default_values
+       ~Decay.type_map
+       ~Decay.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods
