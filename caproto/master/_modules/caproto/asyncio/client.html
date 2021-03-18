@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.asyncio.client &mdash; caproto 0+untagged.1.g5488773 documentation</title>
+  <title>caproto.asyncio.client &mdash; caproto 0+untagged.1.g04a5f9e documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0+untagged.1.g5488773
+                0+untagged.1.g04a5f9e
               </div>
             
           
@@ -444,18 +444,6 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">Beacon</span><span class="p">):</span>
             <span class="n">address</span> <span class="o">=</span> <span class="p">(</span><span class="n">command</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">command</span><span class="o">.</span><span class="n">server_port</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">mark_server_alive</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">command</span><span class="o">.</span><span class="n">beacon_id</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">VersionResponse</span><span class="p">):</span>
-            <span class="c1"># Per the specification, in CA &lt; 4.11, VersionResponse does</span>
-            <span class="c1"># not include minor version number (it is always 0) and is</span>
-            <span class="c1"># interpreted as an echo command that carries no data.</span>
-            <span class="c1"># Version exchange is performed immediately after channel</span>
-            <span class="c1"># creation.</span>
-            <span class="k">if</span> <span class="n">command</span><span class="o">.</span><span class="n">version</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-                    <span class="s2">&quot;Server is speaking some protocol version &quot;</span>
-                    <span class="s2">&quot;older than 4.11. It will not report a &quot;</span>
-                    <span class="s2">&quot;specific version until a channel is created. &quot;</span>
-                    <span class="s2">&quot;Quality of support is unknown.&quot;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">ca</span><span class="o">.</span><span class="n">SearchResponse</span><span class="p">):</span>
             <span class="n">address</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">extract_address</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">server_protocol_versions</span><span class="p">[</span><span class="n">address</span><span class="p">]</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">version</span>
