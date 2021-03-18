@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Release History &mdash; caproto 0+untagged.1.g04a5f9e documentation</title>
+  <title>Release History &mdash; caproto 0+untagged.1.g22bbccb documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0+untagged.1.g04a5f9e
+                0+untagged.1.g22bbccb
               </div>
             
           
@@ -325,6 +325,12 @@ To avoid an additional copy on immutable data, set <code class="docutils literal
 to <code class="docutils literal notranslate"><span class="pre">False</span></code> when using compatible numpy arrays.  (#731)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">safe_getsockname</span></code> was stashing references to sockets and not allowing
 them to be garbage collected. (#739)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_type</span></code> values are now validated against <code class="docutils literal notranslate"><span class="pre">ChannelType</span></code> when used in
+commands. (#742)</p></li>
+<li><p>Raise <code class="docutils literal notranslate"><span class="pre">RemoteProtocolError</span></code> with more user-friendly messages when invalid
+packets or those with invalid command IDs are received. (#743)</p></li>
+<li><p>Synchronous client search erroneously used the same search ID for multiple
+requests. (#754)</p></li>
 </ul>
 </div>
 <div class="section" id="added">
@@ -342,6 +348,9 @@ mbbi, and mbbo records.  (#734)</p></li>
 curio, trio).  By convention, consider using <code class="docutils literal notranslate"><span class="pre">__ainit__</span></code> for this hook.
 (#739)</p></li>
 <li><p>Added <code class="docutils literal notranslate"><span class="pre">monitor</span></code> helper to the asyncio client. (#739)</p></li>
+<li><p>Now using GitHub actions for automated testing on Windows and macOS,
+with fixed documentation building and releasing to PyPI.  This was defunct
+since Travis CI changed its payment model. (#749, #754)</p></li>
 </ul>
 </div>
 <div class="section" id="changed">
@@ -366,6 +375,13 @@ line number, and suggested signature.  (#736)</p></li>
 <li><p>Old and bad form example <code class="docutils literal notranslate"><span class="pre">all_in_one</span></code> moved to testing area.</p></li>
 <li><p>Old and bad form example <code class="docutils literal notranslate"><span class="pre">inline_style</span></code> moved to testing area.</p></li>
 <li><p>Example using ChannelData <code class="docutils literal notranslate"><span class="pre">type_varieties</span></code> moved to “advanced”</p></li>
+<li><p>On-class-definition validation of <code class="docutils literal notranslate"><span class="pre">PvpropertyData</span></code> keyword arguments was
+removed to reduce complexity.  <code class="docutils literal notranslate"><span class="pre">CaprotoRuntimeError</span></code> will be raised on
+instantiation for pvproperties with bad keyword arguments, indicating
+the cause and full <code class="docutils literal notranslate"><span class="pre">PVSpec</span></code> information. (#741)</p></li>
+<li><p>Warning messages when old CA clients are detected have been removed.  The
+reasoning behind the message was likely flawed and will require further
+investigation.  In the meantime, this will reduce log spam.  (#757, #761)</p></li>
 </ul>
 </div>
 </div>
