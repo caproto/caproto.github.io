@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Input-Output Controllers (IOCs) &mdash; caproto 0+untagged.1.g244470a documentation</title>
+  <title>Input-Output Controllers (IOCs) &mdash; caproto 0+untagged.1.g5488773 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0+untagged.1.g244470a
+                0+untagged.1.g5488773
               </div>
             
           
@@ -114,6 +114,17 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#pvproperty">pvproperty</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-configuration">Basic configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#value-or-dtype"><code class="docutils literal notranslate"><span class="pre">value</span></code> or <code class="docutils literal notranslate"><span class="pre">dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#name"><code class="docutils literal notranslate"><span class="pre">name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#doc"><code class="docutils literal notranslate"><span class="pre">doc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alarm-group"><code class="docutils literal notranslate"><span class="pre">alarm_group</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#max-length"><code class="docutils literal notranslate"><span class="pre">max_length</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#record"><code class="docutils literal notranslate"><span class="pre">record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hooks">Hooks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-arguments">Other arguments</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#supported-data-types">Supported data types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#integers-and-floats">Integers and floats</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#strings">Strings</a></li>
@@ -121,15 +132,14 @@
 <li class="toctree-l4"><a class="reference internal" href="#booleans">Booleans</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#hooks">Hooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Hooks</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#putter-hook">Putter Hook</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#startup-hook">Startup Hook</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#shutdown-hook">Shutdown Hook</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#scan-hook">Scan Hook</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#records">Records</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">API</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.pvproperty.html">caproto.server.pvproperty</a></li>
 </ul>
 </li>
@@ -186,7 +196,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#subgroups">Subgroups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#records-example">Records</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#records">Records</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/caproto.ioc_examples.records.RecordMockingIOC.html">caproto.ioc_examples.records.RecordMockingIOC</a></li>
 </ul>
 </li>
@@ -470,6 +480,116 @@ groups of PVs.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> combines information as to how to represent your information
 over EPICS Channel Access and provides easy-to-use hooks for reacting to
 certain events – by hooking user-provided Python methods.</p>
+<div class="section" id="basic-configuration">
+<h3>Basic configuration<a class="headerlink" href="#basic-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Only one keyword argument is truly required: either <code class="docutils literal notranslate"><span class="pre">value</span></code> or <code class="docutils literal notranslate"><span class="pre">dtype</span></code>.</p>
+<div class="section" id="value-or-dtype">
+<h4><code class="docutils literal notranslate"><span class="pre">value</span></code> or <code class="docutils literal notranslate"><span class="pre">dtype</span></code><a class="headerlink" href="#value-or-dtype" title="Permalink to this headline">¶</a></h4>
+<p>If you specify a <code class="docutils literal notranslate"><span class="pre">value</span></code> keyword argument, the <code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> will assume its
+data type based on the supported data types table.  That is, if you give a
+value of <code class="docutils literal notranslate"><span class="pre">1</span></code>, dtype will be assumed to be <code class="docutils literal notranslate"><span class="pre">int</span></code> and the pvproperty will
+produce a <a class="reference internal" href="generated/caproto.server.PvpropertyInteger.html#caproto.server.PvpropertyInteger" title="caproto.server.PvpropertyInteger"><code class="xref py py-class docutils literal notranslate"><span class="pre">PvpropertyInteger</span></code></a> (<a class="reference internal" href="generated/caproto.ChannelInteger.html#caproto.ChannelInteger" title="caproto.ChannelInteger"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChannelInteger</span></code></a>).</p>
+<p>Alternatively, <code class="docutils literal notranslate"><span class="pre">dtype</span></code> may be specified directly as either a <cite>ChannelType</cite>
+such as <code class="docutils literal notranslate"><span class="pre">dtype=ChannelType.LONG</span></code> or equivalently the built-in Python type
+<code class="docutils literal notranslate"><span class="pre">dtype=int</span></code>.  The default value will be chosen from the PVGroup’s
+<code class="docutils literal notranslate"><span class="pre">default_values</span></code> dictionary:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyPVGroup</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
+    <span class="n">default_values</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nb">str</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nb">int</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nb">float</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="nb">bool</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+
+        <span class="n">ChannelType</span><span class="o">.</span><span class="n">STRING</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">ChannelType</span><span class="o">.</span><span class="n">INT</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">ChannelType</span><span class="o">.</span><span class="n">LONG</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">ChannelType</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">ChannelType</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">ChannelType</span><span class="o">.</span><span class="n">ENUM</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">ChannelType</span><span class="o">.</span><span class="n">CHAR</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="name">
+<h4><code class="docutils literal notranslate"><span class="pre">name</span></code><a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h4>
+<p>Properties in Python are a bit magical in their own right - <code class="docutils literal notranslate"><span class="pre">property</span></code>, when
+defined on a class, is aware of the name you have given it (by way of the
+<code class="docutils literal notranslate"><span class="pre">descriptor</span></code> protocol).</p>
+<p>This means that <code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> can give a reasonable default for its PV name.
+You are free to customize this, however, by specifying <code class="docutils literal notranslate"><span class="pre">name=&quot;PV:SUFFIX&quot;</span></code>
+where <code class="docutils literal notranslate"><span class="pre">PV:SUFFIX</span></code> is your desired suffix to be appended to the parent
+<code class="docutils literal notranslate"><span class="pre">PVGroup</span></code> prefix.</p>
+</div>
+<div class="section" id="doc">
+<h4><code class="docutils literal notranslate"><span class="pre">doc</span></code><a class="headerlink" href="#doc" title="Permalink to this headline">¶</a></h4>
+<p>Please consider documenting what each individual property does by adding a
+human-understandable explanation string to the <code class="docutils literal notranslate"><span class="pre">doc</span></code> keyword argument.</p>
+<p>This will be picked up by automatic documentation generation utilities
+and added to its parent group’s <code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> table.</p>
+<p>Also, if using a <code class="docutils literal notranslate"><span class="pre">record</span></code>, your <code class="docutils literal notranslate"><span class="pre">doc</span></code> string will automatically be sent
+over EPICS with the <code class="docutils literal notranslate"><span class="pre">.DESC</span></code> field.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_property</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">record</span><span class="o">=</span><span class="s1">&#39;ai&#39;</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;My property&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ caget prefix:my_property.DESC
+prefix:my_property.DESC        My property
+</pre></div>
+</div>
+</div>
+<div class="section" id="alarm-group">
+<h4><code class="docutils literal notranslate"><span class="pre">alarm_group</span></code><a class="headerlink" href="#alarm-group" title="Permalink to this headline">¶</a></h4>
+<p>By default, pvproperties in a given PVGroup instance share the same alarm
+instance.</p>
+<p>This is usually a reasonable guess for small groups of PVs.  For finer-grained
+customization, the easiest way to change this functionality is to specify a
+per-pvproperty alarm group using the <code class="docutils literal notranslate"><span class="pre">alarm_group</span></code> keyword argument.  It
+expects a string identifier, which should be reused on all other pvproperties
+that are to share the alarm instance.</p>
+</div>
+<div class="section" id="max-length">
+<h4><code class="docutils literal notranslate"><span class="pre">max_length</span></code><a class="headerlink" href="#max-length" title="Permalink to this headline">¶</a></h4>
+<p>This is the length of the array (when used with integers, floats) or the
+number of characters in a character or byte string.</p>
+<p>By default, it will be the length of the <code class="docutils literal notranslate"><span class="pre">value</span></code> that is passed in - or <code class="docutils literal notranslate"><span class="pre">1</span></code>
+for scalar values.</p>
+<p>EPICS clients expect to know the maximum length of an array at connection
+time and may not properly handle it changing dynamically.  As such,
+<code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> allows you to customize the size at property definition-time.</p>
+</div>
+<div class="section" id="record">
+<h4><code class="docutils literal notranslate"><span class="pre">record</span></code><a class="headerlink" href="#record" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> allows you to pretend your value has common EPICS record fields.
+For example, it is possible to report a given property as an analog input
+(<code class="docutils literal notranslate"><span class="pre">ai</span></code>) record:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_property</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">record</span><span class="o">=</span><span class="s1">&#39;ai&#39;</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;My property&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>More on this in a later section.</p>
+</div>
+<div class="section" id="hooks">
+<h4>Hooks<a class="headerlink" href="#hooks" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">put</span></code>, <code class="docutils literal notranslate"><span class="pre">startup</span></code>, <code class="docutils literal notranslate"><span class="pre">shutdown</span></code>, <code class="docutils literal notranslate"><span class="pre">scan</span></code> may be passed in directly with
+the <code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> for reuse among multiple properties or to avoid the
+decorator syntax (the generally preferred syntax, shown in detail in later
+sections).</p>
+<p>This can look like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">write_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Wrote </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">instance</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">pv_a</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">put</span><span class="o">=</span><span class="n">single_write</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;The first PV&quot;</span><span class="p">)</span>
+<span class="n">pv_b</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">put</span><span class="o">=</span><span class="n">single_write</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;The second PV&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="other-arguments">
+<h4>Other arguments<a class="headerlink" href="#other-arguments" title="Permalink to this headline">¶</a></h4>
+<p>Other arguments will be passed to the <code class="docutils literal notranslate"><span class="pre">ChannelData</span></code> instance as-is.   For
+example, these allow you to customize special classes such as <code class="docutils literal notranslate"><span class="pre">ChannelEnum</span></code>
+which may take in <code class="docutils literal notranslate"><span class="pre">enum_strings</span></code> - which would, of course, be unacceptable
+for a floating point value.</p>
+</div>
+</div>
 <div class="section" id="supported-data-types">
 <h3>Supported data types<a class="headerlink" href="#supported-data-types" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">value</span></code> may be an instance of one of the following, or <code class="docutils literal notranslate"><span class="pre">dtype</span></code> may be
@@ -569,8 +689,36 @@ in EPICS - 32-bit integers and 64-bit floats, respectively.</p>
 </div>
 <div class="section" id="strings">
 <h4>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h4>
-<p>Strings are a bit complicated when it comes to EPICS and caproto follows suit.
-See the “how to” section below for more information on long strings.</p>
+<p>Strings are a bit complicated when it comes to EPICS and caproto follows suit.</p>
+<p>At minimum, the following will work to store up to 40 character strings:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span>
+    <span class="c1"># The default value:</span>
+    <span class="n">value</span><span class="o">=</span><span class="s2">&quot;String value&quot;</span><span class="p">,</span>
+    <span class="c1"># Document it!</span>
+    <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Indicator as to what this does.&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>A more complete specification looks like the following. See the “how to”
+section below for more details on why the following is the preferred method for
+strings.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span>
+    <span class="c1"># The default value:</span>
+    <span class="n">value</span><span class="o">=</span><span class="s2">&quot;String value&quot;</span><span class="p">,</span>
+    <span class="c1"># Document it!</span>
+    <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Indicator as to what this does.&quot;</span><span class="p">,</span>
+    <span class="c1"># Configure the PV suffix, if different than ``my_string``:</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;:PV:SUFFIX&quot;</span><span class="p">,</span>
+    <span class="c1"># Optionally configure the encoding:</span>
+    <span class="n">string_encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span>
+    <span class="c1"># Ensure that this is marked as &quot;report_as_string&quot; (** optional)</span>
+    <span class="n">report_as_string</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="c1"># Optionally specify how long the string can get - the default is</span>
+    <span class="c1"># the length of the provided value.</span>
+    <span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="enums">
 <h4>Enums<a class="headerlink" href="#enums" title="Permalink to this headline">¶</a></h4>
@@ -621,8 +769,8 @@ fields are automatically populated with the string equivalent values for 0 and
 1.  These are derived from the <code class="docutils literal notranslate"><span class="pre">enum_strings</span></code> keyword argument.</p>
 </div>
 </div>
-<div class="section" id="hooks">
-<h3>Hooks<a class="headerlink" href="#hooks" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Hooks<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Hooks allow you to react to certain events that happen during the life of
 the IOC by providing your own methods.</p>
 <div class="section" id="putter-hook">
@@ -780,18 +928,8 @@ change the rate to common EPICS-defined ones.</p>
 </table>
 </div>
 </div>
-<div class="section" id="records">
-<h3>Records<a class="headerlink" href="#records" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> allows you to pretend your value has common EPICS record fields.
-For example, it is possible to report a given property as an analog input
-(<code class="docutils literal notranslate"><span class="pre">ai</span></code>) record:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_property</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">record</span><span class="o">=</span><span class="s1">&#39;ai&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>More on this in a later section.</p>
-</div>
-<div class="section" id="id1">
-<h3>API<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>API<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -1950,8 +2088,8 @@ subgroup4.random is: &lt;caproto.server.server.PvpropertyInteger object at 0x109
 </pre></div>
 </div>
 </div>
-<div class="section" id="records-example">
-<span id="id2"></span><h3>Records<a class="headerlink" href="#records-example" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="records">
+<span id="records-example"></span><h3>Records<a class="headerlink" href="#records" title="Permalink to this headline">¶</a></h3>
 <p>See <a class="reference internal" href="records.html"><span class="doc">Records</span></a>.</p>
 <table class="longtable docutils align-default">
 <colgroup>
