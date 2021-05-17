@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.server.autosave.RotatingFileManager &mdash; caproto 0+untagged.1.gc4e667f documentation</title>
+  <title>caproto.server.autosave.RotatingFileManager &mdash; caproto 0+untagged.1.g2515182 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/inheritance.css" type="text/css" />
 
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0+untagged.1.gc4e667f
+                0+untagged.1.g2515182
               </div>
             
           
@@ -218,8 +221,8 @@
 <map id="inheritance4db8f45224" name="inheritance4db8f45224">
 <area shape="rect" id="node1" href="#caproto.server.autosave.RotatingFileManager" target="_top" title="Save to a primary filename, while rotating out old copies." alt="" coords="5,5,324,31"/>
 </map><dl class="py class">
-<dt id="caproto.server.autosave.RotatingFileManager">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.server.autosave.</span></code><code class="sig-name descname"><span class="pre">RotatingFileManager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">max_files_per_day=5</span></em>, <em class="sig-param"><span class="pre">max_file_age=30</span></em>, <em class="sig-param"><span class="pre">date_suffix='_%Y%m%d-%H%M%S'</span></em>, <em class="sig-param"><span class="pre">logger=&lt;Logger</span> <span class="pre">caproto.server.autosave</span> <span class="pre">(WARNING)&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/server/autosave.html#RotatingFileManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.server.autosave.RotatingFileManager" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.server.autosave.RotatingFileManager">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.server.autosave.</span></span><span class="sig-name descname"><span class="pre">RotatingFileManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">max_files_per_day=5</span></em>, <em class="sig-param"><span class="pre">max_file_age=30</span></em>, <em class="sig-param"><span class="pre">date_suffix='_%Y%m%d-%H%M%S'</span></em>, <em class="sig-param"><span class="pre">logger=&lt;Logger</span> <span class="pre">caproto.server.autosave</span> <span class="pre">(WARNING)&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/server/autosave.html#RotatingFileManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.server.autosave.RotatingFileManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save to a primary filename, while rotating out old copies.</p>
 <p>Automatically prunes old copies of the file beyond a certain age or a
 maximum file count (overall or per day).</p>

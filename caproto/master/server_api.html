@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Server API &mdash; caproto 0+untagged.1.gc4e667f documentation</title>
+  <title>Server API &mdash; caproto 0+untagged.1.g2515182 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="_static/inheritance.css" type="text/css" />
 
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0+untagged.1.gc4e667f
+                0+untagged.1.g2515182
               </div>
             
           
@@ -318,9 +321,13 @@
 can be sent over an EPICS V3 channel in caproto.</p>
 <div class="section" id="numeric-data">
 <h4>Numeric Data<a class="headerlink" href="#numeric-data" title="Permalink to this headline">¶</a></h4>
-<div class="graphviz"><img src="_images/inheritance-f80fd4231150d5309a84c6c7bc742c7a146cd183.png" alt="Inheritance diagram of caproto.ChannelData, caproto.ChannelDouble, caproto.ChannelFloat, caproto.ChannelInteger, caproto.ChannelShort" usemap="#inheritance0f1f8116e6" class="inheritance graphviz" /></div>
+<div class="graphviz"><img src="_images/inheritance-8a7387fd4095fd111269e5a5b1bdc288cbe07c3b.png" alt="Inheritance diagram of caproto.ChannelData, caproto.ChannelDouble, caproto.ChannelFloat, caproto.ChannelInteger, caproto.ChannelShort" usemap="#inheritance0f1f8116e6" class="inheritance graphviz" /></div>
 <map id="inheritance0f1f8116e6" name="inheritance0f1f8116e6">
 <area shape="rect" id="node1" href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="221,5,327,31"/>
+<area shape="rect" id="node2" href="generated/caproto.ChannelDouble.html#caproto.ChannelDouble" target="_top" title="64&#45;bit floating point data and metadata which can be sent over a channel." alt="" coords="5,152,127,177"/>
+<area shape="rect" id="node4" href="generated/caproto.ChannelFloat.html#caproto.ChannelFloat" target="_top" title="32&#45;bit floating point data and metadata which can be sent over a channel." alt="" coords="151,152,259,177"/>
+<area shape="rect" id="node5" href="generated/caproto.ChannelInteger.html#caproto.ChannelInteger" target="_top" title="32&#45;bit LONG integer data and metadata which can be sent over a channel." alt="" coords="283,152,404,177"/>
+<area shape="rect" id="node6" href="generated/caproto.ChannelShort.html#caproto.ChannelShort" target="_top" title="16&#45;bit SHORT integer data and metadata which can be sent over a channel." alt="" coords="429,152,538,177"/>
 </map><table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -347,9 +354,13 @@ can be sent over an EPICS V3 channel in caproto.</p>
 </div>
 <div class="section" id="string-or-byte-data">
 <h4>String or Byte Data<a class="headerlink" href="#string-or-byte-data" title="Permalink to this headline">¶</a></h4>
-<div class="graphviz"><img src="_images/inheritance-bbcf17263d2e072966ecea7271664e38f4ccbf5c.png" alt="Inheritance diagram of caproto.ChannelByte, caproto.ChannelChar, caproto.ChannelEnum, caproto.ChannelString" usemap="#inheritance95902393fd" class="inheritance graphviz" /></div>
+<div class="graphviz"><img src="_images/inheritance-dec0ed1b8f4d77be7e476b275154c5c3b4871e03.png" alt="Inheritance diagram of caproto.ChannelByte, caproto.ChannelChar, caproto.ChannelEnum, caproto.ChannelString" usemap="#inheritance95902393fd" class="inheritance graphviz" /></div>
 <map id="inheritance95902393fd" name="inheritance95902393fd">
+<area shape="rect" id="node1" href="generated/caproto.ChannelByte.html#caproto.ChannelByte" target="_top" title="8&#45;bit unencoded CHAR data plus metadata which can be sent over a channel." alt="" coords="18,152,123,177"/>
+<area shape="rect" id="node3" href="generated/caproto.ChannelChar.html#caproto.ChannelChar" target="_top" title="8&#45;bit encoded CHAR data plus metadata which can be sent over a channel." alt="" coords="161,79,266,104"/>
 <area shape="rect" id="node4" href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="225,5,332,31"/>
+<area shape="rect" id="node5" href="generated/caproto.ChannelEnum.html#caproto.ChannelEnum" target="_top" title="ENUM data which can be sent over a channel." alt="" coords="289,79,401,104"/>
+<area shape="rect" id="node6" href="generated/caproto.ChannelString.html#caproto.ChannelString" target="_top" title="8&#45;bit encoded string data plus metadata which can be sent over a channel." alt="" coords="426,79,539,104"/>
 </map><table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -405,8 +416,21 @@ by whether or not they are read-only.</p>
 </table>
 <div class="section" id="read-write">
 <h4>Read/write<a class="headerlink" href="#read-write" title="Permalink to this headline">¶</a></h4>
-<div class="graphviz"><img src="_images/inheritance-a1b69fba966f6a1ecd7a245123b3ad233de24214.png" alt="Inheritance diagram of caproto.server.PvpropertyBoolEnum, caproto.server.PvpropertyByte, caproto.server.PvpropertyChar, caproto.server.PvpropertyData, caproto.server.PvpropertyDouble, caproto.server.PvpropertyEnum, caproto.server.PvpropertyString" class="inheritance graphviz" /></div>
-<table class="longtable docutils align-default">
+<div class="graphviz"><img src="_images/inheritance-0d92ee55d71605781c324fd9bfb63f87bb8150f8.png" alt="Inheritance diagram of caproto.server.PvpropertyBoolEnum, caproto.server.PvpropertyByte, caproto.server.PvpropertyChar, caproto.server.PvpropertyData, caproto.server.PvpropertyDouble, caproto.server.PvpropertyEnum, caproto.server.PvpropertyString" usemap="#inheritancef5300b3804" class="inheritance graphviz" /></div>
+<map id="inheritancef5300b3804" name="inheritancef5300b3804">
+<area shape="rect" id="node1" href="generated/caproto.ChannelByte.html#caproto.ChannelByte" target="_top" title="8&#45;bit unencoded CHAR data plus metadata which can be sent over a channel." alt="" coords="14,5,119,31"/>
+<area shape="rect" id="node8" href="generated/caproto.server.PvpropertyByte.html#caproto.server.PvpropertyByte" target="_top" title="Read&#45;write 8&#45;bit CHAR data for pvproperty for bytes." alt="" coords="5,79,128,104"/>
+<area shape="rect" id="node2" href="generated/caproto.ChannelChar.html#caproto.ChannelChar" target="_top" title="8&#45;bit encoded CHAR data plus metadata which can be sent over a channel." alt="" coords="499,5,605,31"/>
+<area shape="rect" id="node9" href="generated/caproto.server.PvpropertyChar.html#caproto.server.PvpropertyChar" target="_top" title="Read&#45;write 8&#45;bit CHAR data for pvproperty with string encoding." alt="" coords="491,79,613,104"/>
+<area shape="rect" id="node3" href="generated/caproto.ChannelDouble.html#caproto.ChannelDouble" target="_top" title="64&#45;bit floating point data and metadata which can be sent over a channel." alt="" coords="646,5,767,31"/>
+<area shape="rect" id="node10" href="generated/caproto.server.PvpropertyDouble.html#caproto.server.PvpropertyDouble" target="_top" title="Read&#45;write DOUBLE data for pvproperty (64 bits)." alt="" coords="637,79,776,104"/>
+<area shape="rect" id="node4" href="generated/caproto.ChannelEnum.html#caproto.ChannelEnum" target="_top" title="ENUM data which can be sent over a channel." alt="" coords="189,5,301,31"/>
+<area shape="rect" id="node6" href="generated/caproto.server.PvpropertyBoolEnum.html#caproto.server.PvpropertyBoolEnum" target="_top" title="Read&#45;write ENUM data for pvproperty, with Off/On as default strings." alt="" coords="153,79,311,104"/>
+<area shape="rect" id="node11" href="generated/caproto.server.PvpropertyEnum.html#caproto.server.PvpropertyEnum" target="_top" title="Read&#45;write ENUM data for pvproperty." alt="" coords="336,79,467,104"/>
+<area shape="rect" id="node5" href="generated/caproto.ChannelString.html#caproto.ChannelString" target="_top" title="8&#45;bit encoded string data plus metadata which can be sent over a channel." alt="" coords="809,5,922,31"/>
+<area shape="rect" id="node12" href="generated/caproto.server.PvpropertyString.html#caproto.server.PvpropertyString" target="_top" title="Read&#45;write STRING data for pvproperty (up to 40 chars)." alt="" coords="800,79,931,104"/>
+<area shape="rect" id="node7" href="generated/caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" target="_top" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="345,5,469,31"/>
+</map><table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -449,8 +473,22 @@ by whether or not they are read-only.</p>
 <h4>Read-only<a class="headerlink" href="#read-only" title="Permalink to this headline">¶</a></h4>
 <p>Read-only data classes mix in with
 <a class="reference internal" href="generated/caproto.server.PvpropertyReadOnlyData.html#caproto.server.PvpropertyReadOnlyData" title="caproto.server.PvpropertyReadOnlyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PvpropertyReadOnlyData</span></code></a>.</p>
-<div class="graphviz"><img src="_images/inheritance-4deb65d80cdeb829e3f8a8e4f98cb989ed006fe1.png" alt="Inheritance diagram of caproto.server.PvpropertyBoolEnumRO, caproto.server.PvpropertyByteRO, caproto.server.PvpropertyCharRO, caproto.server.PvpropertyData, caproto.server.PvpropertyDoubleRO, caproto.server.PvpropertyEnumRO, caproto.server.PvpropertyStringRO" class="inheritance graphviz" /></div>
-<table class="longtable docutils align-default">
+<div class="graphviz"><img src="_images/inheritance-c43f8b334efdcee5a743be603c107ba0e6659cf0.png" alt="Inheritance diagram of caproto.server.PvpropertyBoolEnumRO, caproto.server.PvpropertyByteRO, caproto.server.PvpropertyCharRO, caproto.server.PvpropertyData, caproto.server.PvpropertyDoubleRO, caproto.server.PvpropertyEnumRO, caproto.server.PvpropertyStringRO" usemap="#inheritance834168d9bf" class="inheritance graphviz" /></div>
+<map id="inheritance834168d9bf" name="inheritance834168d9bf">
+<area shape="rect" id="node1" href="generated/caproto.ChannelByte.html#caproto.ChannelByte" target="_top" title="8&#45;bit unencoded CHAR data plus metadata which can be sent over a channel." alt="" coords="24,79,129,104"/>
+<area shape="rect" id="node8" href="generated/caproto.server.PvpropertyByteRO.html#caproto.server.PvpropertyByteRO" target="_top" title="Read&#45;only 8&#45;bit CHAR data for pvproperty for bytes." alt="" coords="5,152,148,177"/>
+<area shape="rect" id="node2" href="generated/caproto.ChannelChar.html#caproto.ChannelChar" target="_top" title="8&#45;bit encoded CHAR data plus metadata which can be sent over a channel." alt="" coords="568,79,673,104"/>
+<area shape="rect" id="node9" href="generated/caproto.server.PvpropertyCharRO.html#caproto.server.PvpropertyCharRO" target="_top" title="Read&#45;only 8&#45;bit CHAR data for pvproperty with string encoding." alt="" coords="549,152,692,177"/>
+<area shape="rect" id="node3" href="generated/caproto.ChannelDouble.html#caproto.ChannelDouble" target="_top" title="64&#45;bit floating point data and metadata which can be sent over a channel." alt="" coords="735,79,856,104"/>
+<area shape="rect" id="node11" href="generated/caproto.server.PvpropertyDoubleRO.html#caproto.server.PvpropertyDoubleRO" target="_top" title="Read&#45;only DOUBLE data for pvproperty (64 bits)." alt="" coords="716,152,875,177"/>
+<area shape="rect" id="node4" href="generated/caproto.ChannelEnum.html#caproto.ChannelEnum" target="_top" title="ENUM data which can be sent over a channel." alt="" coords="213,79,325,104"/>
+<area shape="rect" id="node6" href="generated/caproto.server.PvpropertyBoolEnumRO.html#caproto.server.PvpropertyBoolEnumRO" target="_top" title="Read&#45;only ENUM data for pvproperty, with Off/On as default strings." alt="" coords="173,152,351,177"/>
+<area shape="rect" id="node12" href="generated/caproto.server.PvpropertyEnumRO.html#caproto.server.PvpropertyEnumRO" target="_top" title="Read&#45;only ENUM data for pvproperty." alt="" coords="375,152,525,177"/>
+<area shape="rect" id="node5" href="generated/caproto.ChannelString.html#caproto.ChannelString" target="_top" title="8&#45;bit encoded string data plus metadata which can be sent over a channel." alt="" coords="917,79,1031,104"/>
+<area shape="rect" id="node13" href="generated/caproto.server.PvpropertyStringRO.html#caproto.server.PvpropertyStringRO" target="_top" title="Read&#45;only STRING data for pvproperty (up to 40 chars)." alt="" coords="899,152,1049,177"/>
+<area shape="rect" id="node7" href="generated/caproto.server.PvpropertyReadOnlyData.html#caproto.server.PvpropertyReadOnlyData" target="_top" title="A mixin class which marks this data as read&#45;only from channel access." alt="" coords="357,79,543,104"/>
+<area shape="rect" id="node10" href="generated/caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" target="_top" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="388,5,512,31"/>
+</map><table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />

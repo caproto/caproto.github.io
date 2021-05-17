@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.ioc_examples.random_walk.RandomWalkIOC &mdash; caproto 0+untagged.1.gc4e667f documentation</title>
+  <title>caproto.ioc_examples.random_walk.RandomWalkIOC &mdash; caproto 0+untagged.1.g2515182 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/inheritance.css" type="text/css" />
 
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0+untagged.1.gc4e667f
+                0+untagged.1.g2515182
               </div>
             
           
@@ -220,12 +223,13 @@
             
   <div class="section" id="caproto-ioc-examples-random-walk-randomwalkioc">
 <h1>caproto.ioc_examples.random_walk.RandomWalkIOC<a class="headerlink" href="#caproto-ioc-examples-random-walk-randomwalkioc" title="Permalink to this headline">¶</a></h1>
-<div class="graphviz"><img src="../_images/inheritance-fece499618f7009c562bd531f6fcbdb2620b6dd7.png" alt="Inheritance diagram of RandomWalkIOC" usemap="#inheritance7ecf48140c" class="inheritance graphviz" /></div>
+<div class="graphviz"><img src="../_images/inheritance-f11273c9d040900e4bc9a26398b8d7e828d5605b.png" alt="Inheritance diagram of RandomWalkIOC" usemap="#inheritance7ecf48140c" class="inheritance graphviz" /></div>
 <map id="inheritance7ecf48140c" name="inheritance7ecf48140c">
 <area shape="rect" id="node1" href="#caproto.ioc_examples.random_walk.RandomWalkIOC" target="_top" title="This example contains a PV ``x`` that takes random steps at an update rate" alt="" coords="5,79,376,104"/>
+<area shape="rect" id="node2" href="caproto.server.PVGroup.html#caproto.server.PVGroup" target="_top" title="Class which groups a set of PVs for a high&#45;level caproto server" alt="" coords="81,5,300,31"/>
 </map><dl class="py class">
-<dt id="caproto.ioc_examples.random_walk.RandomWalkIOC">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.ioc_examples.random_walk.</span></code><code class="sig-name descname"><span class="pre">RandomWalkIOC</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">macros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/ioc_examples/random_walk.html#RandomWalkIOC"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.ioc_examples.random_walk.RandomWalkIOC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.ioc_examples.random_walk.RandomWalkIOC">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.ioc_examples.random_walk.</span></span><span class="sig-name descname"><span class="pre">RandomWalkIOC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">macros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/ioc_examples/random_walk.html#RandomWalkIOC"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.ioc_examples.random_walk.RandomWalkIOC" title="Permalink to this definition">¶</a></dt>
 <dd><p>This example contains a PV <code class="docutils literal notranslate"><span class="pre">x</span></code> that takes random steps at an update rate
 controlled by a second PV, <code class="docutils literal notranslate"><span class="pre">dt</span></code>.</p>
 <table class="colwidths-auto docutils align-default" id="id1">
@@ -291,37 +295,26 @@ controlled by a second PV, <code class="docutils literal notranslate"><span clas
 </table>
 <p class="rubric">pvproperty methods</p>
 <dl class="py method">
-<dt id="caproto.ioc_examples.random_walk.RandomWalkIOC.x.startup">
-<code class="sig-prename descclassname"><span class="pre">x.</span></code><code class="sig-name descname"><span class="pre">startup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">async_lib</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#caproto.ioc_examples.random_walk.RandomWalkIOC.x.startup" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.ioc_examples.random_walk.RandomWalkIOC.x.startup">
+<span class="sig-prename descclassname"><span class="pre">x.</span></span><span class="sig-name descname"><span class="pre">startup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">async_lib</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#caproto.ioc_examples.random_walk.RandomWalkIOC.x.startup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>This is a startup hook which periodically updates the value.</p>
 <details>
-<summary>Source code: x.startup</summary><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@x</span><span class="o">.</span><span class="n">startup</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;This is a startup hook which periodically updates the value.&quot;&quot;&quot;</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="c1"># Grab the current value from `self.x` and compute the next value:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">-</span> <span class="mf">1.0</span>
-
-        <span class="c1"># Update the ChannelData instance and notify any subscribers:</span>
-        <span class="k">await</span> <span class="n">instance</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
-
-        <span class="c1"># Let the async library wait for the next iteration</span>
-        <span class="k">await</span> <span class="n">async_lib</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<summary>Source code: x.startup</summary><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">16</span><span class="nd">@x</span><span class="o">.</span><span class="n">startup</span>
+<span class="linenos">17</span><span class="k">async</span> <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
+<span class="linenos">18</span>    <span class="sd">&quot;&quot;&quot;This is a startup hook which periodically updates the value.&quot;&quot;&quot;</span>
+<span class="linenos">19</span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">20</span>        <span class="c1"># Grab the current value from `self.x` and compute the next value:</span>
+<span class="linenos">21</span>        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">-</span> <span class="mf">1.0</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>        <span class="c1"># Update the ChannelData instance and notify any subscribers:</span>
+<span class="linenos">24</span>        <span class="k">await</span> <span class="n">instance</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span>        <span class="c1"># Let the async library wait for the next iteration</span>
+<span class="linenos">27</span>        <span class="k">await</span> <span class="n">async_lib</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </details>
 <br/></dd></dl>
 

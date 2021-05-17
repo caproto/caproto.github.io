@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.server.autosave.AutosaveHelper &mdash; caproto 0+untagged.1.gc4e667f documentation</title>
+  <title>caproto.server.autosave.AutosaveHelper &mdash; caproto 0+untagged.1.g2515182 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/inheritance.css" type="text/css" />
 
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0+untagged.1.gc4e667f
+                0+untagged.1.g2515182
               </div>
             
           
@@ -214,12 +217,13 @@
             
   <div class="section" id="caproto-server-autosave-autosavehelper">
 <h1>caproto.server.autosave.AutosaveHelper<a class="headerlink" href="#caproto-server-autosave-autosavehelper" title="Permalink to this headline">¶</a></h1>
-<div class="graphviz"><img src="../_images/inheritance-d2a90f687d4034a9f3ffe62e0f6ba931350aeb56.png" alt="Inheritance diagram of AutosaveHelper" usemap="#inheritance12a5c7c46f" class="inheritance graphviz" /></div>
+<div class="graphviz"><img src="../_images/inheritance-6e360cd6d3d9d80ac1c786ec53a96c99a149c4a9.png" alt="Inheritance diagram of AutosaveHelper" usemap="#inheritance12a5c7c46f" class="inheritance graphviz" /></div>
 <map id="inheritance12a5c7c46f" name="inheritance12a5c7c46f">
 <area shape="rect" id="node1" href="#caproto.server.autosave.AutosaveHelper" target="_top" title="caproto.server.autosave.AutosaveHelper" alt="" coords="5,79,292,104"/>
+<area shape="rect" id="node2" href="caproto.server.PVGroup.html#caproto.server.PVGroup" target="_top" title="Class which groups a set of PVs for a high&#45;level caproto server" alt="" coords="39,5,258,31"/>
 </map><dl class="py class">
-<dt id="caproto.server.autosave.AutosaveHelper">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.server.autosave.</span></code><code class="sig-name descname"><span class="pre">AutosaveHelper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_manager</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="caproto.server.autosave.RotatingFileManager.html#caproto.server.autosave.RotatingFileManager" title="caproto.server.autosave.RotatingFileManager"><span class="pre">caproto.server.autosave.RotatingFileManager</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/server/autosave.html#AutosaveHelper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.server.autosave.AutosaveHelper" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.server.autosave.AutosaveHelper">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.server.autosave.</span></span><span class="sig-name descname"><span class="pre">AutosaveHelper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_manager</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="caproto.server.autosave.RotatingFileManager.html#caproto.server.autosave.RotatingFileManager" title="caproto.server.autosave.RotatingFileManager"><span class="pre">caproto.server.autosave.RotatingFileManager</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/server/autosave.html#AutosaveHelper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.server.autosave.AutosaveHelper" title="Permalink to this definition">¶</a></dt>
 <dd><table class="colwidths-auto docutils align-default" id="id1">
 <caption><span class="caption-text">AutosaveHelper pvproperties</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <thead>
@@ -298,8 +302,8 @@
 </table>
 <p class="rubric">pvproperty methods</p>
 <dl class="py method">
-<dt id="caproto.server.autosave.AutosaveHelper.autosave_hook.startup">
-<code class="sig-prename descclassname"><span class="pre">autosave_hook.</span></code><code class="sig-name descname"><span class="pre">startup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">async_lib</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#caproto.server.autosave.AutosaveHelper.autosave_hook.startup" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.server.autosave.AutosaveHelper.autosave_hook.startup">
+<span class="sig-prename descclassname"><span class="pre">autosave_hook.</span></span><span class="sig-name descname"><span class="pre">startup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">async_lib</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#caproto.server.autosave.AutosaveHelper.autosave_hook.startup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A startup hook which lives until the IOC exits.</p>
@@ -309,33 +313,21 @@ periodically - at <cite>self.period</cite> seconds - saves autosave data to
 <cite>self.filename</cite>.</p>
 </div></blockquote>
 <details>
-<summary>Source code: autosave_hook.startup</summary><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">218</span>
-<span class="normal">219</span>
-<span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span>
-<span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span>
-<span class="normal">226</span>
-<span class="normal">227</span>
-<span class="normal">228</span>
-<span class="normal">229</span>
-<span class="normal">230</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@autosave_hook</span><span class="o">.</span><span class="n">startup</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">autosave_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A startup hook which lives until the IOC exits.</span>
-
-<span class="sd">    Initially restores values from the autosave file `self.filename`, then</span>
-<span class="sd">    periodically - at `self.period` seconds - saves autosave data to</span>
-<span class="sd">    `self.filename`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">restore_from_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="k">await</span> <span class="n">async_lib</span><span class="o">.</span><span class="n">library</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">period</span><span class="p">)</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<summary>Source code: autosave_hook.startup</summary><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">218</span><span class="nd">@autosave_hook</span><span class="o">.</span><span class="n">startup</span>
+<span class="linenos">219</span><span class="k">async</span> <span class="k">def</span> <span class="nf">autosave_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
+<span class="linenos">220</span>    <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">221</span><span class="sd">    A startup hook which lives until the IOC exits.</span>
+<span class="linenos">222</span>
+<span class="linenos">223</span><span class="sd">    Initially restores values from the autosave file `self.filename`, then</span>
+<span class="linenos">224</span><span class="sd">    periodically - at `self.period` seconds - saves autosave data to</span>
+<span class="linenos">225</span><span class="sd">    `self.filename`.</span>
+<span class="linenos">226</span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos">227</span>    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">restore_from_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+<span class="linenos">228</span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">229</span>        <span class="k">await</span> <span class="n">async_lib</span><span class="o">.</span><span class="n">library</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">period</span><span class="p">)</span>
+<span class="linenos">230</span>        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </details>
 <br/></dd></dl>
 

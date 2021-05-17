@@ -161,7 +161,7 @@
         <summary>Source code: process_id.startup</summary>
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/server/stats.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/stats.py
         :language: python
         :linenos:
         :dedent: 0

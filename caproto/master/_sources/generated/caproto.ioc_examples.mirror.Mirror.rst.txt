@@ -76,7 +76,7 @@
         <summary>Source code: value.startup</summary>
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/ioc_examples/mirror.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/ioc_examples/mirror.py
         :language: python
         :linenos:
         :dedent: 0

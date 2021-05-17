@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.ioc_examples.io_interrupt.IOInterruptIOC &mdash; caproto 0+untagged.1.gc4e667f documentation</title>
+  <title>caproto.ioc_examples.io_interrupt.IOInterruptIOC &mdash; caproto 0+untagged.1.g2515182 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/inheritance.css" type="text/css" />
 
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0+untagged.1.gc4e667f
+                0+untagged.1.g2515182
               </div>
             
           
@@ -221,12 +224,13 @@
             
   <div class="section" id="caproto-ioc-examples-io-interrupt-iointerruptioc">
 <h1>caproto.ioc_examples.io_interrupt.IOInterruptIOC<a class="headerlink" href="#caproto-ioc-examples-io-interrupt-iointerruptioc" title="Permalink to this headline">¶</a></h1>
-<div class="graphviz"><img src="../_images/inheritance-ec30e547ec5b7abe18cc472a57b05bd3231a6893.png" alt="Inheritance diagram of IOInterruptIOC" usemap="#inheritanceefaf3755c8" class="inheritance graphviz" /></div>
+<div class="graphviz"><img src="../_images/inheritance-5f566d391564d194abca4dbb44740e6f88ed358a.png" alt="Inheritance diagram of IOInterruptIOC" usemap="#inheritanceefaf3755c8" class="inheritance graphviz" /></div>
 <map id="inheritanceefaf3755c8" name="inheritanceefaf3755c8">
 <area shape="rect" id="node1" href="#caproto.ioc_examples.io_interrupt.IOInterruptIOC" target="_top" title="An IOC that updates on keypress events." alt="" coords="5,79,347,104"/>
+<area shape="rect" id="node2" href="caproto.server.PVGroup.html#caproto.server.PVGroup" target="_top" title="Class which groups a set of PVs for a high&#45;level caproto server" alt="" coords="67,5,285,31"/>
 </map><dl class="py class">
-<dt id="caproto.ioc_examples.io_interrupt.IOInterruptIOC">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.ioc_examples.io_interrupt.</span></code><code class="sig-name descname"><span class="pre">IOInterruptIOC</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">macros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/ioc_examples/io_interrupt.html#IOInterruptIOC"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.ioc_examples.io_interrupt.IOInterruptIOC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.ioc_examples.io_interrupt.IOInterruptIOC">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.ioc_examples.io_interrupt.</span></span><span class="sig-name descname"><span class="pre">IOInterruptIOC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">macros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/ioc_examples/io_interrupt.html#IOInterruptIOC"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.ioc_examples.io_interrupt.IOInterruptIOC" title="Permalink to this definition">¶</a></dt>
 <dd><p>An IOC that updates on keypress events.</p>
 <table class="colwidths-auto docutils align-default" id="id1">
 <caption><span class="caption-text">IOInterruptIOC pvproperties</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
@@ -286,58 +290,36 @@ Length(10)
 </table>
 <p class="rubric">pvproperty methods</p>
 <dl class="py method">
-<dt id="caproto.ioc_examples.io_interrupt.IOInterruptIOC.keypress.startup">
-<code class="sig-prename descclassname"><span class="pre">keypress.</span></code><code class="sig-name descname"><span class="pre">startup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">async_lib</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#caproto.ioc_examples.io_interrupt.IOInterruptIOC.keypress.startup" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.ioc_examples.io_interrupt.IOInterruptIOC.keypress.startup">
+<span class="sig-prename descclassname"><span class="pre">keypress.</span></span><span class="sig-name descname"><span class="pre">startup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">async_lib</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#caproto.ioc_examples.io_interrupt.IOInterruptIOC.keypress.startup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <details>
-<summary>Source code: keypress.startup</summary><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@keypress</span><span class="o">.</span><span class="n">startup</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">keypress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-    <span class="c1"># This method will be called when the server starts up.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;* keypress method called at server startup&#39;</span><span class="p">)</span>
-    <span class="n">queue</span> <span class="o">=</span> <span class="n">async_lib</span><span class="o">.</span><span class="n">ThreadsafeQueue</span><span class="p">()</span>
-
-    <span class="c1"># Start a separate thread that monitors keyboard input, telling it to</span>
-    <span class="c1"># put new values into our async-friendly queue</span>
-    <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span>
-        <span class="n">target</span><span class="o">=</span><span class="n">start_io_interrupt_monitor</span><span class="p">,</span>
-        <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">new_value_callback</span><span class="o">=</span><span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">)</span>
-    <span class="p">)</span>
-    <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-
-    <span class="c1"># Loop and grab items from the queue one at a time</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">async_get</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Saw new value on async side: </span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-        <span class="c1"># Propagate the keypress to the EPICS PV, triggering any monitors</span>
-        <span class="c1"># along the way</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypress</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+<summary>Source code: keypress.startup</summary><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 78</span><span class="nd">@keypress</span><span class="o">.</span><span class="n">startup</span>
+<span class="linenos"> 79</span><span class="k">async</span> <span class="k">def</span> <span class="nf">keypress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
+<span class="linenos"> 80</span>    <span class="c1"># This method will be called when the server starts up.</span>
+<span class="linenos"> 81</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;* keypress method called at server startup&#39;</span><span class="p">)</span>
+<span class="linenos"> 82</span>    <span class="n">queue</span> <span class="o">=</span> <span class="n">async_lib</span><span class="o">.</span><span class="n">ThreadsafeQueue</span><span class="p">()</span>
+<span class="linenos"> 83</span>
+<span class="linenos"> 84</span>    <span class="c1"># Start a separate thread that monitors keyboard input, telling it to</span>
+<span class="linenos"> 85</span>    <span class="c1"># put new values into our async-friendly queue</span>
+<span class="linenos"> 86</span>    <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span>
+<span class="linenos"> 87</span>        <span class="n">target</span><span class="o">=</span><span class="n">start_io_interrupt_monitor</span><span class="p">,</span>
+<span class="linenos"> 88</span>        <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 89</span>        <span class="n">kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">new_value_callback</span><span class="o">=</span><span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">)</span>
+<span class="linenos"> 90</span>    <span class="p">)</span>
+<span class="linenos"> 91</span>    <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="linenos"> 92</span>
+<span class="linenos"> 93</span>    <span class="c1"># Loop and grab items from the queue one at a time</span>
+<span class="linenos"> 94</span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos"> 95</span>        <span class="n">value</span> <span class="o">=</span> <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">async_get</span><span class="p">()</span>
+<span class="linenos"> 96</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Saw new value on async side: </span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos"> 97</span>
+<span class="linenos"> 98</span>        <span class="c1"># Propagate the keypress to the EPICS PV, triggering any monitors</span>
+<span class="linenos"> 99</span>        <span class="c1"># along the way</span>
+<span class="linenos">100</span>        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypress</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </details>
 <br/></dd></dl>
 

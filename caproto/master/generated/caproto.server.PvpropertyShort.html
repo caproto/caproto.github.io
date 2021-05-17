@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.server.PvpropertyShort &mdash; caproto 0+untagged.1.gc4e667f documentation</title>
+  <title>caproto.server.PvpropertyShort &mdash; caproto 0+untagged.1.g2515182 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/inheritance.css" type="text/css" />
 
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0+untagged.1.gc4e667f
+                0+untagged.1.g2515182
               </div>
             
           
@@ -213,12 +216,15 @@
             
   <div class="section" id="caproto-server-pvpropertyshort">
 <h1>caproto.server.PvpropertyShort<a class="headerlink" href="#caproto-server-pvpropertyshort" title="Permalink to this headline">¶</a></h1>
-<div class="graphviz"><img src="../_images/inheritance-f62f3eecaf7347876e177bea0ef30a94764d0294.png" alt="Inheritance diagram of PvpropertyShort" usemap="#inheritance477e17a7f2" class="inheritance graphviz" /></div>
+<div class="graphviz"><img src="../_images/inheritance-a697bed90d3f0bdf60dcbce4ff58a46dfe8fe48d.png" alt="Inheritance diagram of PvpropertyShort" usemap="#inheritance477e17a7f2" class="inheritance graphviz" /></div>
 <map id="inheritance477e17a7f2" name="inheritance477e17a7f2">
 <area shape="rect" id="node1" href="caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="17,5,216,31"/>
+<area shape="rect" id="node3" href="caproto.ChannelShort.html#caproto.ChannelShort" target="_top" title="16&#45;bit SHORT integer data and metadata which can be sent over a channel." alt="" coords="15,152,218,177"/>
+<area shape="rect" id="node5" href="#caproto.server.PvpropertyShort" target="_top" title="Read&#45;write SHORT/INT data for pvproperty (16 bits)." alt="" coords="112,225,380,251"/>
+<area shape="rect" id="node4" href="caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" target="_top" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="243,152,508,177"/>
 </map><dl class="py class">
-<dt id="caproto.server.PvpropertyShort">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.server.</span></code><code class="sig-name descname"><span class="pre">PvpropertyShort</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pvname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pvspec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/server/server.html#PvpropertyShort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.server.PvpropertyShort" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.server.PvpropertyShort">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.server.</span></span><span class="sig-name descname"><span class="pre">PvpropertyShort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pvname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pvspec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/server/server.html#PvpropertyShort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.server.PvpropertyShort" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read-write SHORT/INT data for pvproperty (16 bits).</p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">

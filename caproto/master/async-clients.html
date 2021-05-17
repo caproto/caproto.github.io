@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Asynchronous Clients &mdash; caproto 0+untagged.1.gc4e667f documentation</title>
+  <title>Asynchronous Clients &mdash; caproto 0+untagged.1.g2515182 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="_static/inheritance.css" type="text/css" />
 
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0+untagged.1.gc4e667f
+                0+untagged.1.g2515182
               </div>
             
           
@@ -313,13 +316,13 @@ raw bytes of that response are:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">richer_res</span> <span class="o">=</span> <span class="k">await</span> <span class="n">dt</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
 
 <span class="gp">In [14]: </span><span class="n">richer_res</span><span class="o">.</span><span class="n">metadata</span>
-<span class="gh">Out[14]: </span><span class="go">DBR_TIME_DOUBLE(status=&lt;AlarmStatus.NO_ALARM: 0&gt;, severity=&lt;AlarmSeverity.NO_ALARM: 0&gt;, timestamp=1616788081.816489)</span>
+<span class="gh">Out[14]: </span><span class="go">DBR_TIME_DOUBLE(status=&lt;AlarmStatus.NO_ALARM: 0&gt;, severity=&lt;AlarmSeverity.NO_ALARM: 0&gt;, timestamp=1621271890.303057)</span>
 
 <span class="gp">In [15]: </span><span class="n">richer_res</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">timestamp</span>
-<span class="gh">Out[15]: </span><span class="go">1616788081.816489</span>
+<span class="gh">Out[15]: </span><span class="go">1621271890.303057</span>
 
 <span class="gp">In [16]: </span><span class="n">richer_res</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">stamp</span><span class="o">.</span><span class="n">as_datetime</span><span class="p">()</span>  <span class="c1"># a convenience method</span>
-<span class="gh">Out[16]: </span><span class="go">datetime.datetime(2021, 3, 26, 19, 48, 1, 816489)</span>
+<span class="gh">Out[16]: </span><span class="go">datetime.datetime(2021, 5, 17, 17, 18, 10, 303057)</span>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#caproto.asyncio.client.PV.read" title="caproto.asyncio.client.PV.read"><code class="xref py py-meth docutils literal notranslate"><span class="pre">PV.read()</span></code></a> for more information on the values accepted by the
@@ -333,7 +336,7 @@ data structures.</p>
 <span class="gh">Out[17]: </span><span class="go">MessageHeader(command=15, payload_size=8, data_type=6, data_count=1, parameter1=1, parameter2=0)</span>
 
 <span class="gp">In [18]: </span><span class="n">res</span><span class="o">.</span><span class="n">buffers</span>  <span class="c1"># a collection of one or more buffers</span>
-<span class="gh">Out[18]: </span><span class="go">(b&#39;&#39;, &lt;memory at 0x7f2278af9040&gt;)</span>
+<span class="gh">Out[18]: </span><span class="go">(b&#39;&#39;, &lt;memory at 0x7fb2b1d3cb80&gt;)</span>
 </pre></div>
 </div>
 <p>They were received directly from the socket into these structure with no
@@ -437,10 +440,10 @@ take control - and see what we get.</p>
 
 <span class="gp">In [30]: </span><span class="n">values</span>
 <span class="gh">Out[30]: </span><span class="go"></span>
-<span class="go">[0.5650321987675884,</span>
-<span class="go"> 1.3495651115103313,</span>
-<span class="go"> 0.6420913855783712,</span>
-<span class="go"> 1.6179691225546113]</span>
+<span class="go">[-0.13036717186975721,</span>
+<span class="go"> 0.009534641813885969,</span>
+<span class="go"> -0.9214006054908745,</span>
+<span class="go"> -1.3162667831412236]</span>
 </pre></div>
 </div>
 <p>An alternative syntax is a bit more convenient here:</p>
@@ -448,7 +451,7 @@ take control - and see what we get.</p>
 <span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Received value&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 <span class="gp">   ....: </span>    <span class="k">break</span>
 <span class="gp">   ....: </span>
-<span class="go">Received value EventAddResponse(data=array([1.61796912]), data_type=&lt;ChannelType.DOUBLE: 6&gt;, data_count=1, status=CAStatusCode(name=&#39;ECA_NORMAL&#39;, code=0, code_with_severity=1, severity=&lt;CASeverity.SUCCESS: 1&gt;, success=1, defunct=False, description=&#39;Normal successful completion&#39;), subscriptionid=0, metadata=None)</span>
+<span class="go">Received value EventAddResponse(data=array([-1.31626678]), data_type=&lt;ChannelType.DOUBLE: 6&gt;, data_count=1, status=CAStatusCode(name=&#39;ECA_NORMAL&#39;, code=0, code_with_severity=1, severity=&lt;CASeverity.SUCCESS: 1&gt;, success=1, defunct=False, description=&#39;Normal successful completion&#39;), subscriptionid=0, metadata=None)</span>
 </pre></div>
 </div>
 <p>At any point we can remove a specific callback function:</p>
@@ -498,7 +501,7 @@ requested. In order to reduce the load on the network, a PV can be temporarily
 made “idle” (disconnected). It will silently, automatically reconnect the next
 time it is used.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [34]: </span><span class="n">x</span>
-<span class="gh">Out[34]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 address=(&#39;10.1.0.4&#39;, 5064), circuit_state=States.CONNECTED, channel_state=States.CONNECTED&gt;</span>
+<span class="gh">Out[34]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 address=(&#39;10.1.0.47&#39;, 5064), circuit_state=States.CONNECTED, channel_state=States.CONNECTED&gt;</span>
 
 <span class="gp">In [35]: </span><span class="k">await</span> <span class="n">x</span><span class="o">.</span><span class="n">go_idle</span><span class="p">()</span>
 
@@ -506,10 +509,10 @@ time it is used.</p>
 <span class="gh">Out[36]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 (idle)&gt;</span>
 
 <span class="gp">In [37]: </span><span class="k">await</span> <span class="n">x</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="gh">Out[37]: </span><span class="go">ReadNotifyResponse(data=array([1.61796912]), data_type=&lt;ChannelType.DOUBLE: 6&gt;, data_count=1, status=CAStatusCode(name=&#39;ECA_NORMAL&#39;, code=0, code_with_severity=1, severity=&lt;CASeverity.SUCCESS: 1&gt;, success=1, defunct=False, description=&#39;Normal successful completion&#39;), ioid=3, metadata=None)</span>
+<span class="gh">Out[37]: </span><span class="go">ReadNotifyResponse(data=array([-1.31626678]), data_type=&lt;ChannelType.DOUBLE: 6&gt;, data_count=1, status=CAStatusCode(name=&#39;ECA_NORMAL&#39;, code=0, code_with_severity=1, severity=&lt;CASeverity.SUCCESS: 1&gt;, success=1, defunct=False, description=&#39;Normal successful completion&#39;), ioid=3, metadata=None)</span>
 
 <span class="gp">In [38]: </span><span class="n">x</span>
-<span class="gh">Out[38]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 address=(&#39;10.1.0.4&#39;, 5064), circuit_state=States.CONNECTED, channel_state=States.CONNECTED&gt;</span>
+<span class="gh">Out[38]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 address=(&#39;10.1.0.47&#39;, 5064), circuit_state=States.CONNECTED, channel_state=States.CONNECTED&gt;</span>
 </pre></div>
 </div>
 <p>Notice that when the PV was read it automatically reconnected, requiring no
@@ -572,8 +575,8 @@ management. For more information and copy/paste-able examples, see
 <div class="section" id="api-documentation">
 <h2>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="caproto.asyncio.client.Context">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.asyncio.client.</span></code><code class="sig-name descname"><span class="pre">Context</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">broadcaster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#Context"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.Context" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.Context">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.asyncio.client.</span></span><span class="sig-name descname"><span class="pre">Context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">broadcaster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#Context"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.Context" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encapsulates the state and connections of a client.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -605,8 +608,8 @@ value from 1.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="caproto.asyncio.client.Context.get_pvs">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">get_pvs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_state_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">access_rights_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">CONTEXT_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#Context.get_pvs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.Context.get_pvs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.Context.get_pvs">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">get_pvs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_state_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">access_rights_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">CONTEXT_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#Context.get_pvs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.Context.get_pvs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of PV objects.</p>
 <p>These objects may not be connected at first. Channel creation occurs on
 a background thread.</p>
@@ -642,12 +645,12 @@ timeout.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="caproto.asyncio.client.PV">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.asyncio.client.</span></code><code class="sig-name descname"><span class="pre">PV</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_state_callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">access_rights_callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.asyncio.client.</span></span><span class="sig-name descname"><span class="pre">PV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_state_callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">access_rights_callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV" title="Permalink to this definition">¶</a></dt>
 <dd><p>These must be instantiated by a Context, never directly.</p>
-<dl class="py method">
-<dt id="caproto.asyncio.client.PV.timeout">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">timeout</span></code><a class="headerlink" href="#caproto.asyncio.client.PV.timeout" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV.timeout">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">timeout</span></span><a class="headerlink" href="#caproto.asyncio.client.PV.timeout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Effective default timeout.</p>
 <p>Valid values are:
 * CONTEXT_DEFAULT_TIMEOUT (fall back to Context.timeout)
@@ -655,34 +658,34 @@ timeout.</p>
 * None (never timeout)</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="caproto.asyncio.client.PV.circuit_manager">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">circuit_manager</span></code><a class="headerlink" href="#caproto.asyncio.client.PV.circuit_manager" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV.circuit_manager">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">circuit_manager</span></span><a class="headerlink" href="#caproto.asyncio.client.PV.circuit_manager" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV.channel">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">channel</span></span><a class="headerlink" href="#caproto.asyncio.client.PV.channel" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.PV.channel">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">channel</span></code><a class="headerlink" href="#caproto.asyncio.client.PV.channel" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV.access_rights_changed">
+<span class="sig-name descname"><span class="pre">access_rights_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rights</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.access_rights_changed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.access_rights_changed" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.PV.access_rights_changed">
-<code class="sig-name descname"><span class="pre">access_rights_changed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rights</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.access_rights_changed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.access_rights_changed" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV.connection_state_changed">
+<span class="sig-name descname"><span class="pre">connection_state_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.connection_state_changed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.connection_state_changed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV.connected">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">connected</span></span><a class="headerlink" href="#caproto.asyncio.client.PV.connected" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.PV.connection_state_changed">
-<code class="sig-name descname"><span class="pre">connection_state_changed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.connection_state_changed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.connection_state_changed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="caproto.asyncio.client.PV.connected">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">connected</span></code><a class="headerlink" href="#caproto.asyncio.client.PV.connected" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="caproto.asyncio.client.PV.wait_for_search">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">wait_for_search</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.wait_for_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.wait_for_search" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV.wait_for_search">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">wait_for_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.wait_for_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.wait_for_search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wait for this PV to be found.</p>
 <p>This does not wait for the PV’s Channel to be created; it merely waits
 for an address (and a VirtualCircuit) to be assigned.</p>
@@ -699,8 +702,8 @@ None, never timeout.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.PV.wait_for_connection">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">wait_for_connection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.wait_for_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.wait_for_connection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV.wait_for_connection">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">wait_for_connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.wait_for_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.wait_for_connection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wait for this PV to be connected.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -715,8 +718,8 @@ set. If None, never timeout.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.PV.go_idle">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">go_idle</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.go_idle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.go_idle" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV.go_idle">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">go_idle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.go_idle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.go_idle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request to clear this Channel to reduce load on client and server.</p>
 <p>A new Channel will be automatically, silently created the next time any
 method requiring a connection is called. Thus, this saves some memory
@@ -729,8 +732,8 @@ request will be processed when they are complete.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.PV.read">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.read" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV.read">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request a fresh reading.</p>
 <p>Can do one or both of:
 - Block while waiting for the response, and return it.
@@ -764,8 +767,8 @@ default.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.PV.write">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.write" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV.write">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write a new value. Optionally, request confirmation from the server.</p>
 <p>Can do one or both of:
 - Block while waiting for the response, and return it.
@@ -802,8 +805,8 @@ count.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.PV.subscribe">
-<code class="sig-name descname"><span class="pre">subscribe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.subscribe" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV.subscribe">
+<span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.subscribe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start a new subscription to which user callback may be added.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -845,14 +848,14 @@ is added.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.PV.unsubscribe_all">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">unsubscribe_all</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.unsubscribe_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.unsubscribe_all" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV.unsubscribe_all">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">unsubscribe_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.unsubscribe_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.unsubscribe_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear all subscriptions. (Remove all user callbacks from them.)</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.PV.time_since_last_heard">
-<code class="sig-name descname"><span class="pre">time_since_last_heard</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.time_since_last_heard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.time_since_last_heard" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.PV.time_since_last_heard">
+<span class="sig-name descname"><span class="pre">time_since_last_heard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#PV.time_since_last_heard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.PV.time_since_last_heard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Seconds since last message from the server that provides this channel.</p>
 <p>The time is reset to 0 whenever we receive a TCP message related to
 user activity <em>or</em> a Beacon. Servers are expected to send Beacons at
@@ -880,16 +883,16 @@ set. If None, never timeout.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="caproto.asyncio.client.Subscription">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.asyncio.client.</span></code><code class="sig-name descname"><span class="pre">Subscription</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#Subscription"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.Subscription" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.Subscription">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.asyncio.client.</span></span><span class="sig-name descname"><span class="pre">Subscription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#Subscription"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.Subscription" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents one subscription, specified by a PV and configurational parameters</p>
 <p>It may fan out to zero, one, or multiple user-registered callback
 functions.</p>
 <p>This object should never be instantiated directly by user code; rather
 it should be made by calling the <code class="docutils literal notranslate"><span class="pre">subscribe()</span></code> method on a <code class="docutils literal notranslate"><span class="pre">PV</span></code> object.</p>
 <dl class="py method">
-<dt id="caproto.asyncio.client.Subscription.add_callback">
-<code class="sig-name descname"><span class="pre">add_callback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#Subscription.add_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.Subscription.add_callback" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.Subscription.add_callback">
+<span class="sig-name descname"><span class="pre">add_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#Subscription.add_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.Subscription.add_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a callback to receive responses.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -915,14 +918,14 @@ to <code class="docutils literal notranslate"><span class="pre">func(sub,</span>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.Subscription.clear">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#Subscription.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.Subscription.clear" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.Subscription.clear">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#Subscription.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.Subscription.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove all callbacks.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.Subscription.remove_callback">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">remove_callback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#Subscription.remove_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.Subscription.remove_callback" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.Subscription.remove_callback">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">remove_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#Subscription.remove_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.Subscription.remove_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove callback using token that was returned by <a class="reference internal" href="#caproto.asyncio.client.Subscription.add_callback" title="caproto.asyncio.client.Subscription.add_callback"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_callback()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -938,52 +941,52 @@ to <code class="docutils literal notranslate"><span class="pre">func(sub,</span>
 
 <p>The following are internal components. There API may change in the future.</p>
 <dl class="py class">
-<dt id="caproto.asyncio.client.VirtualCircuitManager">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.asyncio.client.</span></code><code class="sig-name descname"><span class="pre">VirtualCircuitManager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circuit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#VirtualCircuitManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.VirtualCircuitManager" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.VirtualCircuitManager">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.asyncio.client.</span></span><span class="sig-name descname"><span class="pre">VirtualCircuitManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circuit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#VirtualCircuitManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.VirtualCircuitManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encapsulates a VirtualCircuit, a TCP socket, and additional state</p>
 <p># This object should never be instantiated directly by user code. It is used
 # internally by the Context. Its methods may be touched by user code, but
 # this is rarely necessary.
 #</p>
-<dl class="py method">
-<dt id="caproto.asyncio.client.VirtualCircuitManager.server_protocol_version">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">server_protocol_version</span></code><a class="headerlink" href="#caproto.asyncio.client.VirtualCircuitManager.server_protocol_version" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="caproto.asyncio.client.VirtualCircuitManager.server_protocol_version">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">server_protocol_version</span></span><a class="headerlink" href="#caproto.asyncio.client.VirtualCircuitManager.server_protocol_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="caproto.asyncio.client.VirtualCircuitManager.connected">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">connected</span></span><a class="headerlink" href="#caproto.asyncio.client.VirtualCircuitManager.connected" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.VirtualCircuitManager.connected">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">connected</span></code><a class="headerlink" href="#caproto.asyncio.client.VirtualCircuitManager.connected" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.VirtualCircuitManager.send">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">commands</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#VirtualCircuitManager.send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.VirtualCircuitManager.send" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.VirtualCircuitManager.send">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">send</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">commands</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#VirtualCircuitManager.send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.VirtualCircuitManager.send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="caproto.asyncio.client.VirtualCircuitManager.events_off">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">events_off</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#VirtualCircuitManager.events_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.VirtualCircuitManager.events_off" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.VirtualCircuitManager.events_off">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">events_off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#VirtualCircuitManager.events_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.VirtualCircuitManager.events_off" title="Permalink to this definition">¶</a></dt>
 <dd><p>Suspend updates to all subscriptions on this circuit.</p>
 <p>This may be useful if the server produces updates faster than the
 client can processs them.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.VirtualCircuitManager.events_on">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">events_on</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#VirtualCircuitManager.events_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.VirtualCircuitManager.events_on" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.VirtualCircuitManager.events_on">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">events_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#VirtualCircuitManager.events_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.VirtualCircuitManager.events_on" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reactive updates to all subscriptions on this circuit.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.VirtualCircuitManager.disconnect">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">disconnect</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#VirtualCircuitManager.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.VirtualCircuitManager.disconnect" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.VirtualCircuitManager.disconnect">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#VirtualCircuitManager.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.VirtualCircuitManager.disconnect" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="caproto.asyncio.client.SharedBroadcaster">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.asyncio.client.</span></code><code class="sig-name descname"><span class="pre">SharedBroadcaster</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registration_retry_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.SharedBroadcaster">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.asyncio.client.</span></span><span class="sig-name descname"><span class="pre">SharedBroadcaster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registration_retry_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster" title="Permalink to this definition">¶</a></dt>
 <dd><p>A broadcaster client which can be shared among multiple Contexts</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -995,42 +998,42 @@ repeater. Default is 10.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="caproto.asyncio.client.SharedBroadcaster.add_listener">
-<code class="sig-name descname"><span class="pre">add_listener</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster.add_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster.add_listener" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.SharedBroadcaster.add_listener">
+<span class="sig-name descname"><span class="pre">add_listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster.add_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster.add_listener" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.SharedBroadcaster.remove_listener">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">remove_listener</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster.remove_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster.remove_listener" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.SharedBroadcaster.remove_listener">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">remove_listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster.remove_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster.remove_listener" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.SharedBroadcaster.send">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">send</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">commands</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster.send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster.send" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.SharedBroadcaster.send">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">commands</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster.send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster.send" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process a command and tranport it over the UDP socket.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.SharedBroadcaster.disconnect">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">disconnect</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster.disconnect" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.SharedBroadcaster.disconnect">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster.disconnect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Disconnect the broadcaster and stop listening</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.SharedBroadcaster.register">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">register</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster.register" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.SharedBroadcaster.register">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster.register" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register this client with the CA Repeater.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.SharedBroadcaster.search">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">search</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results_queue</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster.search" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.SharedBroadcaster.search">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results_queue</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate, process, and transport search request(s)</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.asyncio.client.SharedBroadcaster.time_since_last_heard">
-<code class="sig-name descname"><span class="pre">time_since_last_heard</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster.time_since_last_heard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster.time_since_last_heard" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.asyncio.client.SharedBroadcaster.time_since_last_heard">
+<span class="sig-name descname"><span class="pre">time_since_last_heard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/asyncio/client.html#SharedBroadcaster.time_since_last_heard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.client.SharedBroadcaster.time_since_last_heard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Map each known server address to seconds since its last message.</p>
 <p>The time is reset to 0 whenever we receive a TCP message related to
 user activity <em>or</em> a Beacon. Servers are expected to send Beacons at

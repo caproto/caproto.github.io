@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Pyepics-Compatible Client &mdash; caproto 0+untagged.1.gc4e667f documentation</title>
+  <title>Pyepics-Compatible Client &mdash; caproto 0+untagged.1.g2515182 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="_static/inheritance.css" type="text/css" />
 
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0+untagged.1.gc4e667f
+                0+untagged.1.g2515182
               </div>
             
           
@@ -281,10 +284,10 @@ Get and put to <code class="docutils literal notranslate"><span class="pre">rand
 <span class="gh">Out[11]: </span><span class="go">0</span>
 
 <span class="gp">In [12]: </span><span class="kn">import</span> <span class="nn">time</span><span class="p">;</span> <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># give some time for responses to come in</span>
-<span class="go">received value 0.1848021645352289</span>
-<span class="go">received value 0.09769365616325731</span>
-<span class="go">received value 0.001719221525500636</span>
-<span class="go">received value 0.663062541295586</span>
+<span class="go">received value 0.9285726795569313</span>
+<span class="go">received value 0.21249424113481385</span>
+<span class="go">received value 0.3171671339576023</span>
+<span class="go">received value 0.7463653937415708</span>
 
 <span class="gp">In [13]: </span><span class="n">x_pv</span><span class="o">.</span><span class="n">clear_callbacks</span><span class="p">()</span>
 </pre></div>
@@ -292,7 +295,7 @@ Get and put to <code class="docutils literal notranslate"><span class="pre">rand
 <p>The underlying caproto PV and Context objects from caproto’s main
 <a class="reference internal" href="threading-client.html"><span class="doc">Threading Client</span></a>. are accessible:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">pv</span><span class="o">.</span><span class="n">_caproto_pv</span>
-<span class="gh">Out[14]: </span><span class="go">&lt;PV name=&#39;random_walk:dt&#39; priority=0 address=(&#39;10.1.0.4&#39;, 5064), circuit_state=States.CONNECTED, channel_state=States.CONNECTED&gt;</span>
+<span class="gh">Out[14]: </span><span class="go">&lt;PV name=&#39;random_walk:dt&#39; priority=0 address=(&#39;10.1.0.47&#39;, 5064), circuit_state=States.CONNECTED, channel_state=States.CONNECTED&gt;</span>
 
 <span class="gp">In [15]: </span><span class="n">pv</span><span class="o">.</span><span class="n">_caproto_pv</span><span class="o">.</span><span class="n">context</span>
 <span class="gh">Out[15]: </span><span class="go">&lt;Context searches_pending=0 circuits=1 pvs=2 idle=0&gt;</span>

@@ -1,7 +1,0 @@
-<map id="inheritancec653bad299" name="inheritancec653bad299">
-<area shape="rect" id="node1" href="caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="17,5,216,31"/>
-<area shape="rect" id="node3" title="Base class for numeric data types with limits." alt="" coords="5,79,228,104"/>
-<area shape="rect" id="node2" title="64&#45;bit floating point data and metadata which can be sent over a channel." alt="" coords="9,152,224,177"/>
-<area shape="rect" id="node5" title="Read&#45;write DOUBLE data for pvproperty (64 bits)." alt="" coords="109,225,389,251"/>
-<area shape="rect" id="node4" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="248,152,513,177"/>
-</map>

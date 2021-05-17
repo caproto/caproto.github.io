@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.ioc_examples.mirror.Mirror &mdash; caproto 0+untagged.1.gc4e667f documentation</title>
+  <title>caproto.ioc_examples.mirror.Mirror &mdash; caproto 0+untagged.1.g2515182 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/inheritance.css" type="text/css" />
 
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0+untagged.1.gc4e667f
+                0+untagged.1.g2515182
               </div>
             
           
@@ -225,12 +228,13 @@
             
   <div class="section" id="caproto-ioc-examples-mirror-mirror">
 <h1>caproto.ioc_examples.mirror.Mirror<a class="headerlink" href="#caproto-ioc-examples-mirror-mirror" title="Permalink to this headline">¶</a></h1>
-<div class="graphviz"><img src="../_images/inheritance-2d8c4de74632c842c52f8ef6c5a67627b206a51e.png" alt="Inheritance diagram of Mirror" usemap="#inheritance2a29a4ff98" class="inheritance graphviz" /></div>
+<div class="graphviz"><img src="../_images/inheritance-f63373903ab1c5612313c0e6600b0886e7b88d16.png" alt="Inheritance diagram of Mirror" usemap="#inheritance2a29a4ff98" class="inheritance graphviz" /></div>
 <map id="inheritance2a29a4ff98" name="inheritance2a29a4ff98">
 <area shape="rect" id="node1" href="#caproto.ioc_examples.mirror.Mirror" target="_top" title="Subscribe to a PV and serve its value." alt="" coords="5,79,256,104"/>
+<area shape="rect" id="node2" href="caproto.server.PVGroup.html#caproto.server.PVGroup" target="_top" title="Class which groups a set of PVs for a high&#45;level caproto server" alt="" coords="21,5,240,31"/>
 </map><dl class="py class">
-<dt id="caproto.ioc_examples.mirror.Mirror">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.ioc_examples.mirror.</span></code><code class="sig-name descname"><span class="pre">Mirror</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/ioc_examples/mirror.html#Mirror"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.ioc_examples.mirror.Mirror" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.ioc_examples.mirror.Mirror">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.ioc_examples.mirror.</span></span><span class="sig-name descname"><span class="pre">Mirror</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/ioc_examples/mirror.html#Mirror"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.ioc_examples.mirror.Mirror" title="Permalink to this definition">¶</a></dt>
 <dd><p>Subscribe to a PV and serve its value.</p>
 <p>The default prefix is <code class="docutils literal notranslate"><span class="pre">mirror:</span></code>.</p>
 <table class="colwidths-auto docutils align-default" id="id1">
@@ -290,34 +294,24 @@
 </table>
 <p class="rubric">pvproperty methods</p>
 <dl class="py method">
-<dt id="caproto.ioc_examples.mirror.Mirror.value.startup">
-<code class="sig-prename descclassname"><span class="pre">value.</span></code><code class="sig-name descname"><span class="pre">startup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">async_lib</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#caproto.ioc_examples.mirror.Mirror.value.startup" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.ioc_examples.mirror.Mirror.value.startup">
+<span class="sig-prename descclassname"><span class="pre">value.</span></span><span class="sig-name descname"><span class="pre">startup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">async_lib</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#caproto.ioc_examples.mirror.Mirror.value.startup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <details>
-<summary>Source code: value.startup</summary><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@value</span><span class="o">.</span><span class="n">startup</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-    <span class="c1"># Note that the asyncio context must be created here so that it knows</span>
-    <span class="c1"># which asyncio loop to use:</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">client_context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">()</span>
-
-    <span class="bp">self</span><span class="o">.</span><span class="n">pv</span><span class="p">,</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_context</span><span class="o">.</span><span class="n">get_pvs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
-
-    <span class="c1"># Subscribe to the target PV and register self._callback.</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pv</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">subscription</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_callback</span><span class="p">)</span>
+<summary>Source code: value.startup</summary><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">34</span><span class="nd">@value</span><span class="o">.</span><span class="n">startup</span>
+<span class="linenos">35</span><span class="k">async</span> <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
+<span class="linenos">36</span>    <span class="c1"># Note that the asyncio context must be created here so that it knows</span>
+<span class="linenos">37</span>    <span class="c1"># which asyncio loop to use:</span>
+<span class="linenos">38</span>    <span class="bp">self</span><span class="o">.</span><span class="n">client_context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">()</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span>    <span class="bp">self</span><span class="o">.</span><span class="n">pv</span><span class="p">,</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_context</span><span class="o">.</span><span class="n">get_pvs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span>    <span class="c1"># Subscribe to the target PV and register self._callback.</span>
+<span class="linenos">43</span>    <span class="bp">self</span><span class="o">.</span><span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pv</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="linenos">44</span>    <span class="bp">self</span><span class="o">.</span><span class="n">subscription</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_callback</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </details>
 <br/></dd></dl>
 

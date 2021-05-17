@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Threading Client &mdash; caproto 0+untagged.1.gc4e667f documentation</title>
+  <title>Threading Client &mdash; caproto 0+untagged.1.g2515182 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="_static/inheritance.css" type="text/css" />
 
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0+untagged.1.gc4e667f
+                0+untagged.1.g2515182
               </div>
             
           
@@ -287,13 +290,13 @@ raw bytes of that response are:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">richer_res</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
 
 <span class="gp">In [12]: </span><span class="n">richer_res</span><span class="o">.</span><span class="n">metadata</span>
-<span class="gh">Out[12]: </span><span class="go">DBR_TIME_DOUBLE(status=&lt;AlarmStatus.NO_ALARM: 0&gt;, severity=&lt;AlarmSeverity.NO_ALARM: 0&gt;, timestamp=1616788139.313869)</span>
+<span class="gh">Out[12]: </span><span class="go">DBR_TIME_DOUBLE(status=&lt;AlarmStatus.NO_ALARM: 0&gt;, severity=&lt;AlarmSeverity.NO_ALARM: 0&gt;, timestamp=1621271936.321897)</span>
 
 <span class="gp">In [13]: </span><span class="n">richer_res</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">timestamp</span>
-<span class="gh">Out[13]: </span><span class="go">1616788139.313869</span>
+<span class="gh">Out[13]: </span><span class="go">1621271936.321897</span>
 
 <span class="gp">In [14]: </span><span class="n">richer_res</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">stamp</span><span class="o">.</span><span class="n">as_datetime</span><span class="p">()</span>  <span class="c1"># a convenience method</span>
-<span class="gh">Out[14]: </span><span class="go">datetime.datetime(2021, 3, 26, 19, 48, 59, 313869)</span>
+<span class="gh">Out[14]: </span><span class="go">datetime.datetime(2021, 5, 17, 17, 18, 56, 321897)</span>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#caproto.threading.client.PV.read" title="caproto.threading.client.PV.read"><code class="xref py py-meth docutils literal notranslate"><span class="pre">PV.read()</span></code></a> for more information on the values accepted by the
@@ -307,7 +310,7 @@ data structures.</p>
 <span class="gh">Out[15]: </span><span class="go">MessageHeader(command=15, payload_size=8, data_type=6, data_count=1, parameter1=1, parameter2=0)</span>
 
 <span class="gp">In [16]: </span><span class="n">res</span><span class="o">.</span><span class="n">buffers</span>  <span class="c1"># a collection of one or more buffers</span>
-<span class="gh">Out[16]: </span><span class="go">(b&#39;&#39;, &lt;memory at 0x7f223940e880&gt;)</span>
+<span class="gh">Out[16]: </span><span class="go">(b&#39;&#39;, &lt;memory at 0x7fb298cab700&gt;)</span>
 </pre></div>
 </div>
 <p>They were received directly from the socket into these structure with no
@@ -406,10 +409,10 @@ define a second callback:</p>
 
 <span class="gp">In [26]: </span><span class="n">values</span>
 <span class="gh">Out[26]: </span><span class="go"></span>
-<span class="go">[-0.7322657309944147,</span>
-<span class="go"> -0.8945947589064329,</span>
-<span class="go"> -1.7087463246299914,</span>
-<span class="go"> -1.4321147952639288]</span>
+<span class="go">[-0.4898501771092951,</span>
+<span class="go"> -0.9460138651461192,</span>
+<span class="go"> -0.40771770193218493,</span>
+<span class="go"> -1.2446948133777465]</span>
 </pre></div>
 </div>
 <p>At any point we can remove a specific callback function:</p>
@@ -488,7 +491,7 @@ upon exiting the <code class="docutils literal notranslate"><span class="pre">wi
 background thread. As the responses come in, the <code class="docutils literal notranslate"><span class="pre">results</span></code> dictionary will be
 updated.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [35]: </span><span class="n">results</span>
-<span class="gh">Out[35]: </span><span class="go">{&#39;random_walk:x&#39;: array([-1.4321148]), &#39;random_walk:dt&#39;: array([1.])}</span>
+<span class="gh">Out[35]: </span><span class="go">{&#39;random_walk:x&#39;: array([-1.92903153]), &#39;random_walk:dt&#39;: array([1.])}</span>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#caproto.threading.client.Batch" title="caproto.threading.client.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> for more.</p>
@@ -501,7 +504,7 @@ requested. In order to reduce the load on the network, a PV can be temporarily
 made “idle” (disconnected). It will silently, automatically reconnect the next
 time it is used.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [36]: </span><span class="n">x</span>
-<span class="gh">Out[36]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 address=(&#39;10.1.0.4&#39;, 5064), circuit_state=States.CONNECTED, channel_state=States.CONNECTED&gt;</span>
+<span class="gh">Out[36]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 address=(&#39;10.1.0.47&#39;, 5064), circuit_state=States.CONNECTED, channel_state=States.CONNECTED&gt;</span>
 
 <span class="gp">In [37]: </span><span class="n">x</span><span class="o">.</span><span class="n">go_idle</span><span class="p">()</span>
 
@@ -509,10 +512,10 @@ time it is used.</p>
 <span class="gh">Out[38]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 (idle)&gt;</span>
 
 <span class="gp">In [39]: </span><span class="n">x</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="gh">Out[39]: </span><span class="go">ReadNotifyResponse(data=array([-2.11604532]), data_type=&lt;ChannelType.DOUBLE: 6&gt;, data_count=1, status=CAStatusCode(name=&#39;ECA_NORMAL&#39;, code=0, code_with_severity=1, severity=&lt;CASeverity.SUCCESS: 1&gt;, success=1, defunct=False, description=&#39;Normal successful completion&#39;), ioid=5, metadata=None)</span>
+<span class="gh">Out[39]: </span><span class="go">ReadNotifyResponse(data=array([-1.92903153]), data_type=&lt;ChannelType.DOUBLE: 6&gt;, data_count=1, status=CAStatusCode(name=&#39;ECA_NORMAL&#39;, code=0, code_with_severity=1, severity=&lt;CASeverity.SUCCESS: 1&gt;, success=1, defunct=False, description=&#39;Normal successful completion&#39;), ioid=5, metadata=None)</span>
 
 <span class="gp">In [40]: </span><span class="n">x</span>
-<span class="gh">Out[40]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 address=(&#39;10.1.0.4&#39;, 5064), circuit_state=States.CONNECTED, channel_state=States.CONNECTED&gt;</span>
+<span class="gh">Out[40]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 address=(&#39;10.1.0.47&#39;, 5064), circuit_state=States.CONNECTED, channel_state=States.CONNECTED&gt;</span>
 </pre></div>
 </div>
 <p>Notice that when the PV was read it automatically reconnected, requiring no
@@ -575,8 +578,8 @@ management. For more information and copy/paste-able examples, see
 <div class="section" id="api-documentation">
 <h2>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="caproto.threading.client.Context">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.threading.client.</span></code><code class="sig-name descname"><span class="pre">Context</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">broadcaster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Context"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Context" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.Context">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.threading.client.</span></span><span class="sig-name descname"><span class="pre">Context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">broadcaster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Context"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Context" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encapsulates the state and connections of a client</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -608,8 +611,8 @@ value from 1.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="caproto.threading.client.Context.get_pvs">
-<code class="sig-name descname"><span class="pre">get_pvs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_state_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">access_rights_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">CONTEXT_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Context.get_pvs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Context.get_pvs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.Context.get_pvs">
+<span class="sig-name descname"><span class="pre">get_pvs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_state_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">access_rights_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">CONTEXT_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Context.get_pvs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Context.get_pvs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of PV objects.</p>
 <p>These objects may not be connected at first. Channel creation occurs on
 a background thread.</p>
@@ -645,67 +648,67 @@ timeout.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="caproto.threading.client.PV">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.threading.client.</span></code><code class="sig-name descname"><span class="pre">PV</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.threading.client.</span></span><span class="sig-name descname"><span class="pre">PV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV" title="Permalink to this definition">¶</a></dt>
 <dd><p>These must be instantiated by a Context, never directly.</p>
 <dl class="py attribute">
-<dt id="caproto.threading.client.PV.name">
-<code class="sig-name descname"><span class="pre">name</span></code><a class="headerlink" href="#caproto.threading.client.PV.name" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#caproto.threading.client.PV.name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.PV.priority">
-<code class="sig-name descname"><span class="pre">priority</span></code><a class="headerlink" href="#caproto.threading.client.PV.priority" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.priority">
+<span class="sig-name descname"><span class="pre">priority</span></span><a class="headerlink" href="#caproto.threading.client.PV.priority" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.PV.context">
-<code class="sig-name descname"><span class="pre">context</span></code><a class="headerlink" href="#caproto.threading.client.PV.context" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.context">
+<span class="sig-name descname"><span class="pre">context</span></span><a class="headerlink" href="#caproto.threading.client.PV.context" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.PV.access_rights">
-<code class="sig-name descname"><span class="pre">access_rights</span></code><a class="headerlink" href="#caproto.threading.client.PV.access_rights" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.access_rights">
+<span class="sig-name descname"><span class="pre">access_rights</span></span><a class="headerlink" href="#caproto.threading.client.PV.access_rights" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.PV.log">
-<code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#caproto.threading.client.PV.log" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.log">
+<span class="sig-name descname"><span class="pre">log</span></span><a class="headerlink" href="#caproto.threading.client.PV.log" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.PV.component_lock">
-<code class="sig-name descname"><span class="pre">component_lock</span></code><a class="headerlink" href="#caproto.threading.client.PV.component_lock" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.component_lock">
+<span class="sig-name descname"><span class="pre">component_lock</span></span><a class="headerlink" href="#caproto.threading.client.PV.component_lock" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.PV.circuit_ready">
-<code class="sig-name descname"><span class="pre">circuit_ready</span></code><a class="headerlink" href="#caproto.threading.client.PV.circuit_ready" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.circuit_ready">
+<span class="sig-name descname"><span class="pre">circuit_ready</span></span><a class="headerlink" href="#caproto.threading.client.PV.circuit_ready" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.PV.channel_ready">
-<code class="sig-name descname"><span class="pre">channel_ready</span></code><a class="headerlink" href="#caproto.threading.client.PV.channel_ready" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.channel_ready">
+<span class="sig-name descname"><span class="pre">channel_ready</span></span><a class="headerlink" href="#caproto.threading.client.PV.channel_ready" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.PV.connection_state_callback">
-<code class="sig-name descname"><span class="pre">connection_state_callback</span></code><a class="headerlink" href="#caproto.threading.client.PV.connection_state_callback" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.connection_state_callback">
+<span class="sig-name descname"><span class="pre">connection_state_callback</span></span><a class="headerlink" href="#caproto.threading.client.PV.connection_state_callback" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.PV.access_rights_callback">
-<code class="sig-name descname"><span class="pre">access_rights_callback</span></code><a class="headerlink" href="#caproto.threading.client.PV.access_rights_callback" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.access_rights_callback">
+<span class="sig-name descname"><span class="pre">access_rights_callback</span></span><a class="headerlink" href="#caproto.threading.client.PV.access_rights_callback" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.PV.subscriptions">
-<code class="sig-name descname"><span class="pre">subscriptions</span></code><a class="headerlink" href="#caproto.threading.client.PV.subscriptions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.subscriptions">
+<span class="sig-name descname"><span class="pre">subscriptions</span></span><a class="headerlink" href="#caproto.threading.client.PV.subscriptions" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="caproto.threading.client.PV.timeout">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">timeout</span></code><a class="headerlink" href="#caproto.threading.client.PV.timeout" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="caproto.threading.client.PV.timeout">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">timeout</span></span><a class="headerlink" href="#caproto.threading.client.PV.timeout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Effective default timeout.</p>
 <p>Valid values are:
 * CONTEXT_DEFAULT_TIMEOUT (fall back to Context.timeout)
@@ -713,34 +716,34 @@ timeout.</p>
 * None (never timeout)</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="caproto.threading.client.PV.circuit_manager">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">circuit_manager</span></code><a class="headerlink" href="#caproto.threading.client.PV.circuit_manager" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="caproto.threading.client.PV.circuit_manager">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">circuit_manager</span></span><a class="headerlink" href="#caproto.threading.client.PV.circuit_manager" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="caproto.threading.client.PV.channel">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">channel</span></span><a class="headerlink" href="#caproto.threading.client.PV.channel" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.PV.channel">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">channel</span></code><a class="headerlink" href="#caproto.threading.client.PV.channel" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.access_rights_changed">
+<span class="sig-name descname"><span class="pre">access_rights_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rights</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.access_rights_changed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.access_rights_changed" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.PV.access_rights_changed">
-<code class="sig-name descname"><span class="pre">access_rights_changed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rights</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.access_rights_changed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.access_rights_changed" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.connection_state_changed">
+<span class="sig-name descname"><span class="pre">connection_state_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.connection_state_changed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.connection_state_changed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="caproto.threading.client.PV.connected">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">connected</span></span><a class="headerlink" href="#caproto.threading.client.PV.connected" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.PV.connection_state_changed">
-<code class="sig-name descname"><span class="pre">connection_state_changed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.connection_state_changed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.connection_state_changed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="caproto.threading.client.PV.connected">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">connected</span></code><a class="headerlink" href="#caproto.threading.client.PV.connected" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="caproto.threading.client.PV.wait_for_search">
-<code class="sig-name descname"><span class="pre">wait_for_search</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.wait_for_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.wait_for_search" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.wait_for_search">
+<span class="sig-name descname"><span class="pre">wait_for_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.wait_for_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.wait_for_search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wait for this PV to be found.</p>
 <p>This does not wait for the PV’s Channel to be created; it merely waits
 for an address (and a VirtualCircuit) to be assigned.</p>
@@ -757,8 +760,8 @@ None, never timeout.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.PV.wait_for_connection">
-<code class="sig-name descname"><span class="pre">wait_for_connection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.wait_for_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.wait_for_connection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.wait_for_connection">
+<span class="sig-name descname"><span class="pre">wait_for_connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.wait_for_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.wait_for_connection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wait for this PV to be connected.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -773,8 +776,8 @@ set. If None, never timeout.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.PV.go_idle">
-<code class="sig-name descname"><span class="pre">go_idle</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.go_idle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.go_idle" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.go_idle">
+<span class="sig-name descname"><span class="pre">go_idle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.go_idle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.go_idle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request to clear this Channel to reduce load on client and server.</p>
 <p>A new Channel will be automatically, silently created the next time any
 method requiring a connection is called. Thus, this saves some memory
@@ -787,8 +790,8 @@ request will be processed when they are complete.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.PV.read">
-<code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.read" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request a fresh reading.</p>
 <p>Can do one or both of:
 - Block while waiting for the response, and return it.
@@ -822,8 +825,8 @@ default.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.PV.write">
-<code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.write" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write a new value. Optionally, request confirmation from the server.</p>
 <p>Can do one or both of:
 - Block while waiting for the response, and return it.
@@ -860,8 +863,8 @@ count.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.PV.subscribe">
-<code class="sig-name descname"><span class="pre">subscribe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.subscribe" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.subscribe">
+<span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.subscribe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start a new subscription to which user callback may be added.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -903,14 +906,14 @@ is added.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.PV.unsubscribe_all">
-<code class="sig-name descname"><span class="pre">unsubscribe_all</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.unsubscribe_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.unsubscribe_all" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.unsubscribe_all">
+<span class="sig-name descname"><span class="pre">unsubscribe_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.unsubscribe_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.unsubscribe_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear all subscriptions. (Remove all user callbacks from them.)</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.PV.time_since_last_heard">
-<code class="sig-name descname"><span class="pre">time_since_last_heard</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.time_since_last_heard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.time_since_last_heard" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.time_since_last_heard">
+<span class="sig-name descname"><span class="pre">time_since_last_heard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PV_DEFAULT_TIMEOUT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#PV.time_since_last_heard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.PV.time_since_last_heard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Seconds since last message from the server that provides this channel.</p>
 <p>The time is reset to 0 whenever we receive a TCP message related to
 user activity <em>or</em> a Beacon. Servers are expected to send Beacons at
@@ -936,23 +939,23 @@ set. If None, never timeout.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.PV.command_bundle_queue">
-<code class="sig-name descname"><span class="pre">command_bundle_queue</span></code><a class="headerlink" href="#caproto.threading.client.PV.command_bundle_queue" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.PV.command_bundle_queue">
+<span class="sig-name descname"><span class="pre">command_bundle_queue</span></span><a class="headerlink" href="#caproto.threading.client.PV.command_bundle_queue" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="caproto.threading.client.Subscription">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.threading.client.</span></code><code class="sig-name descname"><span class="pre">Subscription</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Subscription"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Subscription" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.Subscription">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.threading.client.</span></span><span class="sig-name descname"><span class="pre">Subscription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Subscription"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Subscription" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents one subscription, specified by a PV and configurational parameters</p>
 <p>It may fan out to zero, one, or multiple user-registered callback
 functions.</p>
 <p>This object should never be instantiated directly by user code; rather
 it should be made by calling the <code class="docutils literal notranslate"><span class="pre">subscribe()</span></code> method on a <code class="docutils literal notranslate"><span class="pre">PV</span></code> object.</p>
 <dl class="py method">
-<dt id="caproto.threading.client.Subscription.add_callback">
-<code class="sig-name descname"><span class="pre">add_callback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Subscription.add_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Subscription.add_callback" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.Subscription.add_callback">
+<span class="sig-name descname"><span class="pre">add_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Subscription.add_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Subscription.add_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a callback to receive responses.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -978,14 +981,14 @@ to <code class="docutils literal notranslate"><span class="pre">func(sub,</span>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.Subscription.clear">
-<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Subscription.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Subscription.clear" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.Subscription.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Subscription.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Subscription.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove all callbacks.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.Subscription.remove_callback">
-<code class="sig-name descname"><span class="pre">remove_callback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Subscription.remove_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Subscription.remove_callback" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.Subscription.remove_callback">
+<span class="sig-name descname"><span class="pre">remove_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Subscription.remove_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Subscription.remove_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove callback using token that was returned by <a class="reference internal" href="#caproto.threading.client.Subscription.add_callback" title="caproto.threading.client.Subscription.add_callback"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_callback()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1000,8 +1003,8 @@ to <code class="docutils literal notranslate"><span class="pre">func(sub,</span>
 </dd></dl>
 
 <dl class="py class">
-<dt id="caproto.threading.client.Batch">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.threading.client.</span></code><code class="sig-name descname"><span class="pre">Batch</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Batch" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.Batch">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.threading.client.</span></span><span class="sig-name descname"><span class="pre">Batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Batch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accumulate requests and then issue them all in batch.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1028,8 +1031,8 @@ come in.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">results</span></code> dictionary will be populated as responses come in.</p>
 <dl class="py method">
-<dt id="caproto.threading.client.Batch.read">
-<code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Batch.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Batch.read" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.Batch.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Batch.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Batch.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request a fresh reading as part of a batched request.</p>
 <p>Notice that, unlike <a class="reference internal" href="#caproto.threading.client.PV.read" title="caproto.threading.client.PV.read"><code class="xref py py-meth docutils literal notranslate"><span class="pre">PV.read()</span></code></a>, the callback is required. (There
 is no other way to get the result back from a batched read.)</p>
@@ -1051,8 +1054,8 @@ count.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.Batch.write">
-<code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Batch.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Batch.write" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.Batch.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#Batch.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.Batch.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write a new value as part of a batched request.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1077,128 +1080,128 @@ count.</p>
 
 <p>The following are internal components. There API may change in the future.</p>
 <dl class="py class">
-<dt id="caproto.threading.client.VirtualCircuitManager">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.threading.client.</span></code><code class="sig-name descname"><span class="pre">VirtualCircuitManager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circuit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#VirtualCircuitManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.threading.client.</span></span><span class="sig-name descname"><span class="pre">VirtualCircuitManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circuit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#VirtualCircuitManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encapsulates a VirtualCircuit, a TCP socket, and additional state</p>
 <p>This object should never be instantiated directly by user code. It is used
 internally by the Context. Its methods may be touched by user code, but
 this is rarely necessary.</p>
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.context">
-<code class="sig-name descname"><span class="pre">context</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.context" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.context">
+<span class="sig-name descname"><span class="pre">context</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.context" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.circuit">
-<code class="sig-name descname"><span class="pre">circuit</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.circuit" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.circuit">
+<span class="sig-name descname"><span class="pre">circuit</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.circuit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.log">
-<code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.log" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.log">
+<span class="sig-name descname"><span class="pre">log</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.log" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.channels">
-<code class="sig-name descname"><span class="pre">channels</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.channels" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.channels">
+<span class="sig-name descname"><span class="pre">channels</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.channels" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.pvs">
-<code class="sig-name descname"><span class="pre">pvs</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.pvs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.pvs">
+<span class="sig-name descname"><span class="pre">pvs</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.pvs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.ioids">
-<code class="sig-name descname"><span class="pre">ioids</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.ioids" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.ioids">
+<span class="sig-name descname"><span class="pre">ioids</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.ioids" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.subscriptions">
-<code class="sig-name descname"><span class="pre">subscriptions</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.subscriptions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.subscriptions">
+<span class="sig-name descname"><span class="pre">subscriptions</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.subscriptions" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.selector">
-<code class="sig-name descname"><span class="pre">selector</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.selector" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.selector">
+<span class="sig-name descname"><span class="pre">selector</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.selector" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.user_callback_executor">
-<code class="sig-name descname"><span class="pre">user_callback_executor</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.user_callback_executor" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.user_callback_executor">
+<span class="sig-name descname"><span class="pre">user_callback_executor</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.user_callback_executor" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.last_tcp_receipt">
-<code class="sig-name descname"><span class="pre">last_tcp_receipt</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.last_tcp_receipt" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.last_tcp_receipt">
+<span class="sig-name descname"><span class="pre">last_tcp_receipt</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.last_tcp_receipt" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.all_created_pvnames">
-<code class="sig-name descname"><span class="pre">all_created_pvnames</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.all_created_pvnames" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.all_created_pvnames">
+<span class="sig-name descname"><span class="pre">all_created_pvnames</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.all_created_pvnames" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.dead">
-<code class="sig-name descname"><span class="pre">dead</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.dead" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.dead">
+<span class="sig-name descname"><span class="pre">dead</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.dead" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.socket">
-<code class="sig-name descname"><span class="pre">socket</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.socket" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.socket">
+<span class="sig-name descname"><span class="pre">socket</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.socket" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.connected">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">connected</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.connected" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.VirtualCircuitManager.connected">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">connected</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.connected" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">commands</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#VirtualCircuitManager.send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.send" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.VirtualCircuitManager.send">
-<code class="sig-name descname"><span class="pre">send</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">commands</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#VirtualCircuitManager.send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="caproto.threading.client.VirtualCircuitManager.received">
-<code class="sig-name descname"><span class="pre">received</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_recv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#VirtualCircuitManager.received"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.received" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.received">
+<span class="sig-name descname"><span class="pre">received</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_recv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#VirtualCircuitManager.received"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.received" title="Permalink to this definition">¶</a></dt>
 <dd><p>Receive and process and next command from the virtual circuit.</p>
 <p>This will be run on the recv thread</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.VirtualCircuitManager.events_off">
-<code class="sig-name descname"><span class="pre">events_off</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#VirtualCircuitManager.events_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.events_off" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.events_off">
+<span class="sig-name descname"><span class="pre">events_off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#VirtualCircuitManager.events_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.events_off" title="Permalink to this definition">¶</a></dt>
 <dd><p>Suspend updates to all subscriptions on this circuit.</p>
 <p>This may be useful if the server produces updates faster than the
 client can processs them.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.VirtualCircuitManager.events_on">
-<code class="sig-name descname"><span class="pre">events_on</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#VirtualCircuitManager.events_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.events_on" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.events_on">
+<span class="sig-name descname"><span class="pre">events_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#VirtualCircuitManager.events_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.events_on" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reactive updates to all subscriptions on this circuit.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.VirtualCircuitManager.disconnect">
-<code class="sig-name descname"><span class="pre">disconnect</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#VirtualCircuitManager.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.disconnect" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#VirtualCircuitManager.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.disconnect" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.process_queue">
-<code class="sig-name descname"><span class="pre">process_queue</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.process_queue" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.process_queue">
+<span class="sig-name descname"><span class="pre">process_queue</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.process_queue" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="caproto.threading.client.VirtualCircuitManager.processing">
-<code class="sig-name descname"><span class="pre">processing</span></code><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.processing" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.VirtualCircuitManager.processing">
+<span class="sig-name descname"><span class="pre">processing</span></span><a class="headerlink" href="#caproto.threading.client.VirtualCircuitManager.processing" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="caproto.threading.client.SharedBroadcaster">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.threading.client.</span></code><code class="sig-name descname"><span class="pre">SharedBroadcaster</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registration_retry_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.SharedBroadcaster">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.threading.client.</span></span><span class="sig-name descname"><span class="pre">SharedBroadcaster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registration_retry_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster" title="Permalink to this definition">¶</a></dt>
 <dd><p>A broadcaster client which can be shared among multiple Contexts</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1210,40 +1213,40 @@ repeater. Default is 10.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="caproto.threading.client.SharedBroadcaster.new_id">
-<code class="sig-name descname"><span class="pre">new_id</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.new_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.new_id" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.SharedBroadcaster.new_id">
+<span class="sig-name descname"><span class="pre">new_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.new_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.new_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.SharedBroadcaster.add_listener">
-<code class="sig-name descname"><span class="pre">add_listener</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.add_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.add_listener" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.SharedBroadcaster.add_listener">
+<span class="sig-name descname"><span class="pre">add_listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.add_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.add_listener" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.SharedBroadcaster.remove_listener">
-<code class="sig-name descname"><span class="pre">remove_listener</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.remove_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.remove_listener" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.SharedBroadcaster.remove_listener">
+<span class="sig-name descname"><span class="pre">remove_listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.remove_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.remove_listener" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.SharedBroadcaster.disconnect">
-<code class="sig-name descname"><span class="pre">disconnect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.disconnect" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.SharedBroadcaster.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.disconnect" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.SharedBroadcaster.send">
-<code class="sig-name descname"><span class="pre">send</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">commands</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.send" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.SharedBroadcaster.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">commands</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.send" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process a command and transport it over the UDP socket.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.SharedBroadcaster.get_cached_search_result">
-<code class="sig-name descname"><span class="pre">get_cached_search_result</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.get_cached_search_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.get_cached_search_result" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.SharedBroadcaster.get_cached_search_result">
+<span class="sig-name descname"><span class="pre">get_cached_search_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.get_cached_search_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.get_cached_search_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns address if found, raises KeyError if missing or stale.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.SharedBroadcaster.search">
-<code class="sig-name descname"><span class="pre">search</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results_queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.search" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.SharedBroadcaster.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results_queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Search for PV names.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">results_queue</span></code> will receive <code class="docutils literal notranslate"><span class="pre">(address,</span> <span class="pre">names)</span></code> (the address of
 a server and a list of name(s) that it has) when results are received.</p>
@@ -1256,8 +1259,8 @@ the <code class="docutils literal notranslate"><span class="pre">results_queue</
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.SharedBroadcaster.cancel">
-<code class="sig-name descname"><span class="pre">cancel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.cancel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.cancel" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.SharedBroadcaster.cancel">
+<span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.cancel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.cancel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cancel searches for these names.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1272,8 +1275,8 @@ the <code class="docutils literal notranslate"><span class="pre">results_queue</
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.SharedBroadcaster.search_now">
-<code class="sig-name descname"><span class="pre">search_now</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.search_now"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.search_now" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.SharedBroadcaster.search_now">
+<span class="sig-name descname"><span class="pre">search_now</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.search_now"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.search_now" title="Permalink to this definition">¶</a></dt>
 <dd><p>Force the Broadcaster to reissue all unanswered search requests now.</p>
 <p>Left to its own devices, the Broadcaster will do this at regular
 intervals automatically. This method is intended primarily for
@@ -1281,19 +1284,19 @@ debugging and should not be needed in normal use.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.SharedBroadcaster.received">
-<code class="sig-name descname"><span class="pre">received</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_recv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.received"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.received" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.SharedBroadcaster.received">
+<span class="sig-name descname"><span class="pre">received</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_recv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.received"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.received" title="Permalink to this definition">¶</a></dt>
 <dd><p>Receive and process and next command broadcasted over UDP.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.SharedBroadcaster.command_loop">
-<code class="sig-name descname"><span class="pre">command_loop</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.command_loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.command_loop" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.SharedBroadcaster.command_loop">
+<span class="sig-name descname"><span class="pre">command_loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.command_loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.command_loop" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="caproto.threading.client.SharedBroadcaster.time_since_last_heard">
-<code class="sig-name descname"><span class="pre">time_since_last_heard</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.time_since_last_heard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.time_since_last_heard" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.threading.client.SharedBroadcaster.time_since_last_heard">
+<span class="sig-name descname"><span class="pre">time_since_last_heard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/threading/client.html#SharedBroadcaster.time_since_last_heard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.threading.client.SharedBroadcaster.time_since_last_heard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Map each known server address to seconds since its last message.</p>
 <p>The time is reset to 0 whenever we receive a TCP message related to
 user activity <em>or</em> a Beacon. Servers are expected to send Beacons at

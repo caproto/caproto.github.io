@@ -69,7 +69,7 @@
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/caproto/ioc_examples/scan_rate.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/ioc_examples/scan_rate.py
         :language: python
         :linenos:
         :dedent: 4

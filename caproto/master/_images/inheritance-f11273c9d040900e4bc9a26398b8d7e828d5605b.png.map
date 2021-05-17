@@ -1,0 +1,4 @@
+<map id="inheritance7ecf48140c" name="inheritance7ecf48140c">
+<area shape="rect" id="node1" href="#caproto.ioc_examples.random_walk.RandomWalkIOC" target="_top" title="This example contains a PV ``x`` that takes random steps at an update rate" alt="" coords="5,79,376,104"/>
+<area shape="rect" id="node2" href="caproto.server.PVGroup.html#caproto.server.PVGroup" target="_top" title="Class which groups a set of PVs for a high&#45;level caproto server" alt="" coords="81,5,300,31"/>
+</map>

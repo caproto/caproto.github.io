@@ -1,4 +1,0 @@
-<map id="inheritancef8507f08ec" name="inheritancef8507f08ec">
-<area shape="rect" id="node1" title="Class which groups a set of PVs for a high&#45;level caproto server" alt="" coords="45,5,264,31"/>
-<area shape="rect" id="node2" href="#caproto.server.stats.MemoryTracingHelper" target="_top" title="A helper which quickly allows for tracing memory usage and allocations on a" alt="" coords="5,79,304,104"/>
-</map>

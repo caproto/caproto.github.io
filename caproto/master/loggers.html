@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Logging &mdash; caproto 0+untagged.1.gc4e667f documentation</title>
+  <title>Logging &mdash; caproto 0+untagged.1.g2515182 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="_static/inheritance.css" type="text/css" />
 
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0+untagged.1.gc4e667f
+                0+untagged.1.g2515182
               </div>
             
           
@@ -384,8 +387,8 @@ built-in filters. Note the functionality of the <code class="docutils literal no
 arguments, explained below, which aim to support composition of multiple
 filters.:</p>
 <dl class="py class">
-<dt id="caproto.PVFilter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.</span></code><code class="sig-name descname"><span class="pre">PVFilter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'WARNING'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclusive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/_log.html#PVFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.PVFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.PVFilter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.</span></span><span class="sig-name descname"><span class="pre">PVFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'WARNING'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclusive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/_log.html#PVFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.PVFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a filter.</p>
 <p>Initialize with the name of the logger which, together with its
 children, will have its events allowed through the filter. If no
@@ -393,8 +396,8 @@ name is specified, allow every event.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="caproto.AddressFilter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.</span></code><code class="sig-name descname"><span class="pre">AddressFilter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">addresses_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'WARNING'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclusive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/_log.html#AddressFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.AddressFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.AddressFilter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.</span></span><span class="sig-name descname"><span class="pre">AddressFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">addresses_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'WARNING'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclusive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/_log.html#AddressFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.AddressFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a filter.</p>
 <p>Initialize with the name of the logger which, together with its
 children, will have its events allowed through the filter. If no
@@ -402,8 +405,8 @@ name is specified, allow every event.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="caproto.RoleFilter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.</span></code><code class="sig-name descname"><span class="pre">RoleFilter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'WARNING'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclusive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/_log.html#RoleFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.RoleFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.RoleFilter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.</span></span><span class="sig-name descname"><span class="pre">RoleFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'WARNING'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclusive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/_log.html#RoleFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.RoleFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a filter.</p>
 <p>Initialize with the name of the logger which, together with its
 children, will have its events allowed through the filter. If no
@@ -414,8 +417,8 @@ name is specified, allow every event.</p>
 <div class="section" id="formatter">
 <h3>Formatter<a class="headerlink" href="#formatter" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
-<dt id="caproto.LogFormatter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">caproto.</span></code><code class="sig-name descname"><span class="pre">LogFormatter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%(color)s[%(levelname)1.1s</span> <span class="pre">%(asctime)s</span> <span class="pre">%(module)12s:%(lineno)d]%(end_color)s</span> <span class="pre">%(message)s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datefmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%y%m%d</span> <span class="pre">%H:%M:%S'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{10:</span> <span class="pre">4,</span> <span class="pre">20:</span> <span class="pre">2,</span> <span class="pre">30:</span> <span class="pre">3,</span> <span class="pre">40:</span> <span class="pre">1}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/_log.html#LogFormatter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.LogFormatter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.LogFormatter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">caproto.</span></span><span class="sig-name descname"><span class="pre">LogFormatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%(color)s[%(levelname)1.1s</span> <span class="pre">%(asctime)s</span> <span class="pre">%(module)12s:%(lineno)d]%(end_color)s</span> <span class="pre">%(message)s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datefmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%y%m%d</span> <span class="pre">%H:%M:%S'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{10:</span> <span class="pre">4,</span> <span class="pre">20:</span> <span class="pre">2,</span> <span class="pre">30:</span> <span class="pre">3,</span> <span class="pre">40:</span> <span class="pre">1}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/_log.html#LogFormatter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.LogFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize the formatter with specified format strings.</p>
 <p>Initialize the formatter either with the specified format string, or a
 default as described above. Allow for specialized date formatting with
@@ -439,8 +442,8 @@ additional options—and scoped to the <code class="docutils literal notranslate
 <a class="reference internal" href="#caproto.LogFormatter" title="caproto.LogFormatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogFormatter</span></code></a>. It streamlines common use cases without interfering with
 more sophisticated use cases.</p>
 <dl class="py function">
-<dt id="caproto.config_caproto_logging">
-<code class="sig-prename descclassname"><span class="pre">caproto.</span></code><code class="sig-name descname"><span class="pre">config_caproto_logging</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">file=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></em>, <em class="sig-param"><span class="pre">datefmt='%H:%M:%S'</span></em>, <em class="sig-param"><span class="pre">color=True</span></em>, <em class="sig-param"><span class="pre">level='WARNING'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/_log.html#config_caproto_logging"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.config_caproto_logging" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.config_caproto_logging">
+<span class="sig-prename descclassname"><span class="pre">caproto.</span></span><span class="sig-name descname"><span class="pre">config_caproto_logging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">file=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></em>, <em class="sig-param"><span class="pre">datefmt='%H:%M:%S'</span></em>, <em class="sig-param"><span class="pre">color=True</span></em>, <em class="sig-param"><span class="pre">level='WARNING'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/_log.html#config_caproto_logging"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.config_caproto_logging" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set a new handler on the <code class="docutils literal notranslate"><span class="pre">logging.getLogger('caproto')</span></code> logger.</p>
 <p>If this is called more than once, the handler from the previous invocation
 is removed (if still present) and replaced.</p>
@@ -486,8 +489,8 @@ microseconds, which are configured separately, not as part of ‘datefmt’.)</p
 </dd></dl>
 
 <dl class="py function">
-<dt id="caproto.get_handler">
-<code class="sig-prename descclassname"><span class="pre">caproto.</span></code><code class="sig-name descname"><span class="pre">get_handler</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/_log.html#get_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.get_handler" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="caproto.get_handler">
+<span class="sig-prename descclassname"><span class="pre">caproto.</span></span><span class="sig-name descname"><span class="pre">get_handler</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/caproto/_log.html#get_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.get_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the handler configured by the most recent call to <a class="reference internal" href="#caproto.config_caproto_logging" title="caproto.config_caproto_logging"><code class="xref py py-func docutils literal notranslate"><span class="pre">config_caproto_logging()</span></code></a>.</p>
 <p>If <a class="reference internal" href="#caproto.config_caproto_logging" title="caproto.config_caproto_logging"><code class="xref py py-func docutils literal notranslate"><span class="pre">config_caproto_logging()</span></code></a> has not yet been called, this returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd></dl>
