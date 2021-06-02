@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto._data &mdash; caproto 0+untagged.1.ge011f4f documentation</title>
+  <title>caproto._data &mdash; caproto 0+untagged.1.g9f0eb37 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0+untagged.1.ge011f4f
+                0+untagged.1.g9f0eb37
               </div>
             
           
@@ -208,9 +208,9 @@
 <span class="kn">from</span> <span class="nn">._constants</span> <span class="kn">import</span> <span class="n">MAX_ENUM_STATES</span><span class="p">,</span> <span class="n">MAX_ENUM_STRING_SIZE</span>
 <span class="kn">from</span> <span class="nn">._dbr</span> <span class="kn">import</span> <span class="p">(</span><span class="n">DBR_STSACK_STRING</span><span class="p">,</span> <span class="n">DBR_TYPES</span><span class="p">,</span> <span class="n">AccessRights</span><span class="p">,</span> <span class="n">AlarmSeverity</span><span class="p">,</span>
                    <span class="n">AlarmStatus</span><span class="p">,</span> <span class="n">ChannelType</span><span class="p">,</span> <span class="n">GraphicControlBase</span><span class="p">,</span>
-                   <span class="n">SubscriptionType</span><span class="p">,</span> <span class="n">_channel_type_by_name</span><span class="p">,</span>
+                   <span class="n">SubscriptionType</span><span class="p">,</span> <span class="n">TimeStamp</span><span class="p">,</span> <span class="n">_channel_type_by_name</span><span class="p">,</span>
                    <span class="n">_LongStringChannelType</span><span class="p">,</span> <span class="n">native_type</span><span class="p">,</span> <span class="n">native_types</span><span class="p">,</span>
-                   <span class="n">time_types</span><span class="p">,</span> <span class="n">timestamp_to_epics</span><span class="p">)</span>
+                   <span class="n">time_types</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="p">(</span><span class="n">CaprotoError</span><span class="p">,</span> <span class="n">CaprotoValueError</span><span class="p">,</span> <span class="n">ConversionDirection</span><span class="p">,</span>
                      <span class="n">is_array_read_only</span><span class="p">)</span>
 
@@ -434,8 +434,10 @@
 <span class="sd">    ----------</span>
 <span class="sd">    value :</span>
 <span class="sd">        Data which has to match with this class&#39;s ``data_type``.</span>
-<span class="sd">    timestamp : float, optional</span>
-<span class="sd">        Posix timestamp associated with the value. Defaults to ``time.time()``.</span>
+<span class="sd">    timestamp : float, TimeStamp, or 2-tuple, optional</span>
+<span class="sd">        Timestamp associated with the value. Defaults to ``time.time()``.</span>
+<span class="sd">        Raw EPICS timestamps are also supported in the form of</span>
+<span class="sd">        ``TimeStamp`` or ``(seconds_since_epoch, nanoseconds)``.</span>
 <span class="sd">    max_length : int, optional</span>
 <span class="sd">        Maximum array length of the data.</span>
 <span class="sd">    string_encoding : str, optional</span>
@@ -475,8 +477,13 @@
             <span class="c1"># minimum length here is required to be at least 1.</span>
 
         <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span>
-                          <span class="n">timestamp</span><span class="o">=</span><span class="n">timestamp</span><span class="p">)</span>
+
+        <span class="c1"># The following _data isn&#39;t meant to be modified directly. It should be</span>
+        <span class="c1"># modified by way of the ``write()`` and ``write_metadata`` methods.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span>
+            <span class="n">timestamp</span><span class="o">=</span><span class="n">TimeStamp</span><span class="o">.</span><span class="n">from_flexible_value</span><span class="p">(</span><span class="n">timestamp</span><span class="p">),</span>
+        <span class="p">)</span>
         <span class="c1"># This is a dict keyed on queues that will receive subscription</span>
         <span class="c1"># updates.  (Each queue belongs to a Context.) Each value is itself a</span>
         <span class="c1"># dict, mapping data_types to the set of SubscriptionSpecs that request</span>
@@ -548,16 +555,17 @@
 
     <span class="k">def</span> <span class="nf">__getnewargs_ex__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># ref: https://docs.python.org/3/library/pickle.html</span>
-        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
-                  <span class="s1">&#39;alarm&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">alarm</span><span class="p">,</span>
-                  <span class="s1">&#39;string_encoding&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">string_encoding</span><span class="p">,</span>
-                  <span class="s1">&#39;reported_record_type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">reported_record_type</span><span class="p">,</span>
-                  <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span>
-                  <span class="s1">&#39;max_length&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_length</span><span class="p">}</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">epics_timestamp</span><span class="p">,</span>
+            <span class="s1">&#39;alarm&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">alarm</span><span class="p">,</span>
+            <span class="s1">&#39;string_encoding&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">string_encoding</span><span class="p">,</span>
+            <span class="s1">&#39;reported_record_type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">reported_record_type</span><span class="p">,</span>
+            <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span>
+            <span class="s1">&#39;max_length&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_length</span>
+        <span class="p">}</span>
         <span class="k">return</span> <span class="p">((),</span> <span class="n">kwargs</span><span class="p">)</span>
 
     <span class="n">value</span> <span class="o">=</span> <span class="n">_read_only_property</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
-    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">_read_only_property</span><span class="p">(</span><span class="s1">&#39;timestamp&#39;</span><span class="p">)</span>
 
     <span class="c1"># &quot;before&quot; — only the last value received before the state changes from</span>
     <span class="c1">#     false to true is forwarded to the client.</span>
@@ -832,6 +840,10 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Write data from native Python types.</span>
 
+<span class="sd">        Metadata may be updated at the same time by way of keyword arguments.</span>
+<span class="sd">        Refer to the parameters section below for the keywords or the method</span>
+<span class="sd">        ``write_metadata``.</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        value :</span>
@@ -842,6 +854,34 @@
 <span class="sd">            Run the ``verify_value`` hook prior to updating internal state.</span>
 <span class="sd">        update_fields : bool, optional</span>
 <span class="sd">            Run the ``update_fields`` hook prior to updating internal state.</span>
+<span class="sd">        units : str, optional</span>
+<span class="sd">            [Metadata] Updated units.</span>
+<span class="sd">        precision : int, optional</span>
+<span class="sd">            [Metadata] Updated precision value.</span>
+<span class="sd">        timestamp : float, TimeStamp, or 2-tuple, optional</span>
+<span class="sd">            [Metadata] Updated timestamp. Supported options include</span>
+<span class="sd">            ``time.time()``-style UNIX timestamps, raw EPICS timestamps in the</span>
+<span class="sd">            form of ``TimeStamp`` or ``(seconds_since_epoch, nanoseconds)``.</span>
+<span class="sd">        upper_disp_limit : int or float, optional</span>
+<span class="sd">            [Metadata] Updated upper display limit.</span>
+<span class="sd">        lower_disp_limit : int or float, optional</span>
+<span class="sd">            [Metadata] Updated lower display limit.</span>
+<span class="sd">        upper_alarm_limit : int or float, optional</span>
+<span class="sd">            [Metadata] Updated upper alarm limit.</span>
+<span class="sd">        upper_warning_limit : int or float, optional</span>
+<span class="sd">            [Metadata] Updated upper warning limit.</span>
+<span class="sd">        lower_warning_limit : int or float, optional</span>
+<span class="sd">            [Metadata] Updated lower warning limit.</span>
+<span class="sd">        lower_alarm_limit : int or float, optional</span>
+<span class="sd">            [Metadata] Updated lower alarm limit.</span>
+<span class="sd">        upper_ctrl_limit : int or float, optional</span>
+<span class="sd">            [Metadata] Updated upper control limit.</span>
+<span class="sd">        lower_ctrl_limit : int or float, optional</span>
+<span class="sd">            [Metadata] Updated lower control limit.</span>
+<span class="sd">        status : AlarmStatus, optional</span>
+<span class="sd">            [Metadata] Updated alarm status.</span>
+<span class="sd">        severity : AlarmSeverity, optional</span>
+<span class="sd">            [Metadata] Updated alarm severity.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
@@ -980,9 +1020,7 @@
             <span class="n">dbr_metadata</span><span class="o">.</span><span class="n">precision</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">to_type</span> <span class="ow">in</span> <span class="n">time_types</span><span class="p">:</span>
-            <span class="n">epics_ts</span> <span class="o">=</span> <span class="n">timestamp_to_epics</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">])</span>
-            <span class="n">stamp</span> <span class="o">=</span> <span class="n">dbr_metadata</span><span class="o">.</span><span class="n">stamp</span>
-            <span class="n">stamp</span><span class="o">.</span><span class="n">secondsSinceEpoch</span><span class="p">,</span> <span class="n">stamp</span><span class="o">.</span><span class="n">nanoSeconds</span> <span class="o">=</span> <span class="n">epics_ts</span>
+            <span class="n">dbr_metadata</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epics_timestamp</span>
 
         <span class="n">convert_attrs</span> <span class="o">=</span> <span class="p">(</span><span class="n">GraphicControlBase</span><span class="o">.</span><span class="n">control_fields</span> <span class="o">+</span>
                          <span class="n">GraphicControlBase</span><span class="o">.</span><span class="n">graphic_fields</span><span class="p">)</span>
@@ -1023,8 +1061,10 @@
 <span class="sd">            Updated units.</span>
 <span class="sd">        precision : int, optional</span>
 <span class="sd">            Updated precision value.</span>
-<span class="sd">        timestamp : float, optional</span>
-<span class="sd">            Updated timestamp.</span>
+<span class="sd">        timestamp : float, TimeStamp, or 2-tuple, optional</span>
+<span class="sd">            Updated timestamp. Supported options include ``time.time()``-style</span>
+<span class="sd">            UNIX timestamps, raw EPICS timestamps in the form of ``TimeStamp``</span>
+<span class="sd">            or ``(seconds_since_epoch, nanoseconds)``.</span>
 <span class="sd">        upper_disp_limit : int or float, optional</span>
 <span class="sd">            Updated upper display limit.</span>
 <span class="sd">        lower_disp_limit : int or float, optional</span>
@@ -1047,7 +1087,7 @@
 <span class="sd">            Updated alarm severity.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
-        <span class="k">for</span> <span class="n">kw</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;units&#39;</span><span class="p">,</span> <span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="s1">&#39;upper_disp_limit&#39;</span><span class="p">,</span>
+        <span class="k">for</span> <span class="n">kw</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;units&#39;</span><span class="p">,</span> <span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="s1">&#39;upper_disp_limit&#39;</span><span class="p">,</span>
                    <span class="s1">&#39;lower_disp_limit&#39;</span><span class="p">,</span> <span class="s1">&#39;upper_alarm_limit&#39;</span><span class="p">,</span>
                    <span class="s1">&#39;upper_warning_limit&#39;</span><span class="p">,</span> <span class="s1">&#39;lower_warning_limit&#39;</span><span class="p">,</span>
                    <span class="s1">&#39;lower_alarm_limit&#39;</span><span class="p">,</span> <span class="s1">&#39;upper_ctrl_limit&#39;</span><span class="p">,</span>
@@ -1063,8 +1103,10 @@
                     <span class="k">pass</span>
                 <span class="n">data</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
-        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">alarm_val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-               <span class="k">for</span> <span class="n">alarm_val</span> <span class="ow">in</span> <span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">severity</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">timestamp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">TimeStamp</span><span class="o">.</span><span class="n">from_flexible_value</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">status</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">severity</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">alarm</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">,</span> <span class="n">severity</span><span class="o">=</span><span class="n">severity</span><span class="p">,</span>
                                    <span class="n">publish</span><span class="o">=</span><span class="n">publish</span><span class="p">)</span>
 
@@ -1072,9 +1114,14 @@
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">SubscriptionType</span><span class="o">.</span><span class="n">DBE_PROPERTY</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">epics_timestamp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="s1">&#39;EPICS timestamp as (seconds, nanoseconds) since EPICS epoch&#39;</span>
-        <span class="k">return</span> <span class="n">timestamp_to_epics</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">])</span>
+    <span class="k">def</span> <span class="nf">timestamp</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;UNIX timestamp in seconds.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">timestamp</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">epics_timestamp</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeStamp</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;EPICS timestamp as (seconds, nanoseconds) since EPICS epoch.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">])</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1183,8 +1230,10 @@
 <span class="sd">        The string value in the enum, or an integer index of that list.</span>
 <span class="sd">    enum_strings : list, tuple, optional</span>
 <span class="sd">        Enum strings to be used for the data.</span>
-<span class="sd">    timestamp : float, optional</span>
-<span class="sd">        Posix timestamp associated with the value. Defaults to ``time.time()``.</span>
+<span class="sd">    timestamp : float, TimeStamp, or 2-tuple, optional</span>
+<span class="sd">        Timestamp to report for the current value. Supported options include</span>
+<span class="sd">        ``time.time()``-style UNIX timestamps, raw EPICS timestamps in the form</span>
+<span class="sd">        of ``TimeStamp`` or ``(seconds_since_epoch, nanoseconds)``.</span>
 <span class="sd">    max_length : int, optional</span>
 <span class="sd">        Maximum array length of the data.</span>
 <span class="sd">    string_encoding : str, optional</span>
@@ -1273,8 +1322,10 @@
 <span class="sd">    ----------</span>
 <span class="sd">    value :</span>
 <span class="sd">        Data which has to match with this class&#39;s ``data_type``.</span>
-<span class="sd">    timestamp : float, optional</span>
-<span class="sd">        Posix timestamp associated with the value. Defaults to ``time.time()``.</span>
+<span class="sd">    timestamp : float, TimeStamp, or 2-tuple, optional</span>
+<span class="sd">        Timestamp to report for the current value. Supported options include</span>
+<span class="sd">        ``time.time()``-style UNIX timestamps, raw EPICS timestamps in the form</span>
+<span class="sd">        of ``TimeStamp`` or ``(seconds_since_epoch, nanoseconds)``.</span>
 <span class="sd">    max_length : int, optional</span>
 <span class="sd">        Maximum array length of the data.</span>
 <span class="sd">    string_encoding : str, optional</span>
@@ -1448,8 +1499,10 @@
 <span class="sd">    ----------</span>
 <span class="sd">    value : int or list of int</span>
 <span class="sd">        Default starting value.</span>
-<span class="sd">    timestamp : float, optional</span>
-<span class="sd">        Posix timestamp associated with the value. Defaults to ``time.time()``.</span>
+<span class="sd">    timestamp : float, TimeStamp, or 2-tuple, optional</span>
+<span class="sd">        Timestamp to report for the current value. Supported options include</span>
+<span class="sd">        ``time.time()``-style UNIX timestamps, raw EPICS timestamps in the form</span>
+<span class="sd">        of ``TimeStamp`` or ``(seconds_since_epoch, nanoseconds)``.</span>
 <span class="sd">    max_length : int, optional</span>
 <span class="sd">        Maximum array length of the data.</span>
 <span class="sd">    string_encoding : str, optional</span>
@@ -1496,8 +1549,10 @@
 <span class="sd">    ----------</span>
 <span class="sd">    value : int or list of int</span>
 <span class="sd">        Default starting value.</span>
-<span class="sd">    timestamp : float, optional</span>
-<span class="sd">        Posix timestamp associated with the value. Defaults to ``time.time()``.</span>
+<span class="sd">    timestamp : float, TimeStamp, or 2-tuple, optional</span>
+<span class="sd">        Timestamp to report for the current value. Supported options include</span>
+<span class="sd">        ``time.time()``-style UNIX timestamps, raw EPICS timestamps in the form</span>
+<span class="sd">        of ``TimeStamp`` or ``(seconds_since_epoch, nanoseconds)``.</span>
 <span class="sd">    max_length : int, optional</span>
 <span class="sd">        Maximum array length of the data.</span>
 <span class="sd">    string_encoding : str, optional</span>
@@ -1544,8 +1599,10 @@
 <span class="sd">    ----------</span>
 <span class="sd">    value : float or list of float</span>
 <span class="sd">        Initial value for the data.</span>
-<span class="sd">    timestamp : float, optional</span>
-<span class="sd">        Posix timestamp associated with the value. Defaults to ``time.time()``.</span>
+<span class="sd">    timestamp : float, TimeStamp, or 2-tuple, optional</span>
+<span class="sd">        Timestamp to report for the current value. Supported options include</span>
+<span class="sd">        ``time.time()``-style UNIX timestamps, raw EPICS timestamps in the form</span>
+<span class="sd">        of ``TimeStamp`` or ``(seconds_since_epoch, nanoseconds)``.</span>
 <span class="sd">    max_length : int, optional</span>
 <span class="sd">        Maximum array length of the data.</span>
 <span class="sd">    string_encoding : str, optional</span>
@@ -1604,8 +1661,10 @@
 <span class="sd">    ----------</span>
 <span class="sd">    value : float or list of float</span>
 <span class="sd">        Initial value for the data.</span>
-<span class="sd">    timestamp : float, optional</span>
-<span class="sd">        Posix timestamp associated with the value. Defaults to ``time.time()``.</span>
+<span class="sd">    timestamp : float, TimeStamp, or 2-tuple, optional</span>
+<span class="sd">        Timestamp to report for the current value. Supported options include</span>
+<span class="sd">        ``time.time()``-style UNIX timestamps, raw EPICS timestamps in the form</span>
+<span class="sd">        of ``TimeStamp`` or ``(seconds_since_epoch, nanoseconds)``.</span>
 <span class="sd">    max_length : int, optional</span>
 <span class="sd">        Maximum array length of the data.</span>
 <span class="sd">    string_encoding : str, optional</span>
@@ -1664,8 +1723,10 @@
 <span class="sd">    ----------</span>
 <span class="sd">    value : int or bytes</span>
 <span class="sd">        Initial starting data.</span>
-<span class="sd">    timestamp : float, optional</span>
-<span class="sd">        Posix timestamp associated with the value. Defaults to ``time.time()``.</span>
+<span class="sd">    timestamp : float, TimeStamp, or 2-tuple, optional</span>
+<span class="sd">        Timestamp to report for the current value. Supported options include</span>
+<span class="sd">        ``time.time()``-style UNIX timestamps, raw EPICS timestamps in the form</span>
+<span class="sd">        of ``TimeStamp`` or ``(seconds_since_epoch, nanoseconds)``.</span>
 <span class="sd">    max_length : int, optional</span>
 <span class="sd">        Maximum array length of the data.</span>
 <span class="sd">    string_encoding : str, optional</span>
@@ -1761,8 +1822,10 @@
 <span class="sd">        Initial starting data.</span>
 <span class="sd">    string_encoding : str, optional</span>
 <span class="sd">        The string encoding to use, defaults to &#39;latin-1&#39;.</span>
-<span class="sd">    timestamp : float, optional</span>
-<span class="sd">        Posix timestamp associated with the value. Defaults to ``time.time()``.</span>
+<span class="sd">    timestamp : float, TimeStamp, or 2-tuple, optional</span>
+<span class="sd">        Timestamp to report for the current value. Supported options include</span>
+<span class="sd">        ``time.time()``-style UNIX timestamps, raw EPICS timestamps in the form</span>
+<span class="sd">        of ``TimeStamp`` or ``(seconds_since_epoch, nanoseconds)``.</span>
 <span class="sd">    max_length : int, optional</span>
 <span class="sd">        Maximum array length of the data.</span>
 <span class="sd">    string_encoding : str, optional</span>
@@ -1855,8 +1918,10 @@
 <span class="sd">    long_string_max_length : str, optional</span>
 <span class="sd">        When requested as a long string (DBR_CHAR over Channel Access), this</span>
 <span class="sd">        is the reported maximum length.</span>
-<span class="sd">    timestamp : float, optional</span>
-<span class="sd">        Posix timestamp associated with the value. Defaults to ``time.time()``.</span>
+<span class="sd">    timestamp : float, TimeStamp, or 2-tuple, optional</span>
+<span class="sd">        Timestamp to report for the current value. Supported options include</span>
+<span class="sd">        ``time.time()``-style UNIX timestamps, raw EPICS timestamps in the form</span>
+<span class="sd">        of ``TimeStamp`` or ``(seconds_since_epoch, nanoseconds)``.</span>
 <span class="sd">    max_length : int, optional</span>
 <span class="sd">        Maximum array length of the data.</span>
 <span class="sd">    string_encoding : str, optional</span>

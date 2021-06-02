@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto.ChannelDouble &mdash; caproto 0+untagged.1.ge011f4f documentation</title>
+  <title>caproto.ChannelDouble &mdash; caproto 0+untagged.1.g9f0eb37 documentation</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0+untagged.1.ge011f4f
+                0+untagged.1.g9f0eb37
               </div>
             
           
@@ -230,7 +230,9 @@
 <dd class="field-odd"><dl class="simple">
 <dt><strong>value</strong><span class="classifier">float or list of float</span></dt><dd><p>Initial value for the data.</p>
 </dd>
-<dt><strong>timestamp</strong><span class="classifier">float, optional</span></dt><dd><p>Posix timestamp associated with the value. Defaults to <code class="docutils literal notranslate"><span class="pre">time.time()</span></code>.</p>
+<dt><strong>timestamp</strong><span class="classifier">float, TimeStamp, or 2-tuple, optional</span></dt><dd><p>Timestamp to report for the current value. Supported options include
+<code class="docutils literal notranslate"><span class="pre">time.time()</span></code>-style UNIX timestamps, raw EPICS timestamps in the form
+of <code class="docutils literal notranslate"><span class="pre">TimeStamp</span></code> or <code class="docutils literal notranslate"><span class="pre">(seconds_since_epoch,</span> <span class="pre">nanoseconds)</span></code>.</p>
 </dd>
 <dt><strong>max_length</strong><span class="classifier">int, optional</span></dt><dd><p>Maximum array length of the data.</p>
 </dd>
@@ -341,7 +343,7 @@ access.</p>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">epics_timestamp</span></code></p></td>
-<td><p>EPICS timestamp as (seconds, nanoseconds) since EPICS epoch</p></td>
+<td><p>EPICS timestamp as (seconds, nanoseconds) since EPICS epoch.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">length</span></code></p></td>
 <td><p>The number of elements (length) of the current value</p></td>
@@ -371,7 +373,7 @@ access.</p>
 <td><p>Alarm status</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">timestamp</span></code></p></td>
-<td><p>Read-only access to timestamp data</p></td>
+<td><p>UNIX timestamp in seconds.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">units</span></code></p></td>
 <td><p>Read-only access to units data</p></td>

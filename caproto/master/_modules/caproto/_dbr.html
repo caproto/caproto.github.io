@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>caproto._dbr &mdash; caproto 0+untagged.1.ge011f4f documentation</title>
+  <title>caproto._dbr &mdash; caproto 0+untagged.1.g9f0eb37 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0+untagged.1.ge011f4f
+                0+untagged.1.g9f0eb37
               </div>
             
           
@@ -199,14 +199,16 @@
 <span class="c1"># The organizational code, making use of Enum, comes from pypvasync by Kenneth</span>
 <span class="c1"># Lauer.</span>
 
+<span class="kn">import</span> <span class="nn">collections</span>
 <span class="kn">import</span> <span class="nn">ctypes</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">import</span> <span class="nn">collections</span>
 <span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">numbers</span>
+<span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">IntEnum</span><span class="p">,</span> <span class="n">IntFlag</span>
-<span class="kn">from</span> <span class="nn">._constants</span> <span class="kn">import</span> <span class="p">(</span><span class="n">EPICS2UNIX_EPOCH</span><span class="p">,</span> <span class="n">EPICS_EPOCH</span><span class="p">,</span> <span class="n">MAX_STRING_SIZE</span><span class="p">,</span>
-                         <span class="n">MAX_UNITS_SIZE</span><span class="p">,</span> <span class="n">MAX_ENUM_STRING_SIZE</span><span class="p">,</span> <span class="n">MAX_ENUM_STATES</span><span class="p">)</span>
 
+<span class="kn">from</span> <span class="nn">._constants</span> <span class="kn">import</span> <span class="p">(</span><span class="n">EPICS2UNIX_EPOCH</span><span class="p">,</span> <span class="n">EPICS_EPOCH</span><span class="p">,</span> <span class="n">MAX_ENUM_STATES</span><span class="p">,</span>
+                         <span class="n">MAX_ENUM_STRING_SIZE</span><span class="p">,</span> <span class="n">MAX_STRING_SIZE</span><span class="p">,</span> <span class="n">MAX_UNITS_SIZE</span><span class="p">)</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;AccessRights&#39;</span><span class="p">,</span> <span class="s1">&#39;AlarmSeverity&#39;</span><span class="p">,</span> <span class="s1">&#39;AlarmStatus&#39;</span><span class="p">,</span> <span class="s1">&#39;ConnStatus&#39;</span><span class="p">,</span>
            <span class="s1">&#39;TimeStamp&#39;</span><span class="p">,</span> <span class="s1">&#39;ChannelType&#39;</span><span class="p">,</span> <span class="s1">&#39;SubscriptionType&#39;</span><span class="p">,</span> <span class="s1">&#39;DbrStringArray&#39;</span><span class="p">,</span>
@@ -469,18 +471,52 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">timestamp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="s1">&#39;Timestamp as UNIX timestamp (seconds)&#39;</span>
+        <span class="sd">&quot;&quot;&quot;Timestamp as a UNIX timestamp (seconds).&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">epics_timestamp_to_unix</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">secondsSinceEpoch</span><span class="p">,</span>
                                        <span class="bp">self</span><span class="o">.</span><span class="n">nanoSeconds</span><span class="p">)</span>
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_unix_timestamp</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a ``TimeStamp`` from a UNIX timestamp.&quot;&quot;&quot;</span>
         <span class="n">sec</span><span class="p">,</span> <span class="n">nano</span> <span class="o">=</span> <span class="n">timestamp_to_epics</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">secondsSinceEpoch</span><span class="o">=</span><span class="n">sec</span><span class="p">,</span> <span class="n">nanoSeconds</span><span class="o">=</span><span class="n">nano</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">now</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a new ``TimeStamp`` representing &#39;now&#39; (``time.time()``)&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_unix_timestamp</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_flexible_value</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Flexible TimeStamp conversion.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        timestamp : float, int, TimeStamp, or 2-tuple</span>
+<span class="sd">            Accepts either a number (UNIX timestamp), a TimeStamp instance, or</span>
+<span class="sd">            a tuple of (seconds, nanoseconds).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        TimeStamp</span>
+<span class="sd">            The EPICS-compatible timestamp.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Real</span><span class="p">):</span>
+            <span class="n">sec</span><span class="p">,</span> <span class="n">nano</span> <span class="o">=</span> <span class="n">timestamp_to_epics</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sec</span><span class="p">,</span> <span class="n">nano</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">secondsSinceEpoch</span><span class="o">=</span><span class="n">sec</span><span class="p">,</span> <span class="n">nanoSeconds</span><span class="o">=</span><span class="n">nano</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">as_datetime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="s1">&#39;Timestamp as a datetime&#39;</span>
-        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">secondsSinceEpoch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nanoSeconds</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">TimeTypeBase</span><span class="p">(</span><span class="n">DbrTypeBase</span><span class="p">):</span>
@@ -1309,7 +1345,7 @@
 
 <span class="k">def</span> <span class="nf">timestamp_to_epics</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Python timestamp from EPICS TimeStamp structure&#39;&#39;&#39;</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Real</span><span class="p">):</span>
         <span class="n">ts</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
     <span class="n">dt</span> <span class="o">=</span> <span class="n">ts</span> <span class="o">-</span> <span class="n">EPICS_EPOCH</span>
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">microseconds</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">)</span>
