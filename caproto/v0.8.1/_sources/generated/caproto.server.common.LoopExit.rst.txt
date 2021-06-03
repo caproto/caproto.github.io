@@ -1,0 +1,6 @@
+﻿caproto.server.common.LoopExit
+==============================
+
+.. currentmodule:: caproto.server.common
+
+.. autoexception:: LoopExit

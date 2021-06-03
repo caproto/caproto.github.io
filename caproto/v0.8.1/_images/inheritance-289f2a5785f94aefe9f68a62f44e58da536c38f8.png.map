@@ -1,0 +1,7 @@
+<map id="inheritancecece8c526e" name="inheritancecece8c526e">
+<area shape="rect" id="node1" href="caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="17,5,216,31"/>
+<area shape="rect" id="node3" title="Base class for numeric data types with limits." alt="" coords="5,79,228,104"/>
+<area shape="rect" id="node2" href="caproto.ChannelFloat.html#caproto.ChannelFloat" target="_top" title="32&#45;bit floating point data and metadata which can be sent over a channel." alt="" coords="16,152,217,177"/>
+<area shape="rect" id="node5" href="#caproto.server.PvpropertyFloat" target="_top" title="Read&#45;write FLOAT data for pvproperty (32 bits)." alt="" coords="111,225,378,251"/>
+<area shape="rect" id="node4" href="caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" target="_top" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="241,152,507,177"/>
+</map>

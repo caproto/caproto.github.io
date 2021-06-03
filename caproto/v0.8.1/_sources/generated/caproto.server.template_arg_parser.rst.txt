@@ -1,0 +1,6 @@
+﻿caproto.server.template\_arg\_parser
+====================================
+
+.. currentmodule:: caproto.server
+
+.. autofunction:: template_arg_parser

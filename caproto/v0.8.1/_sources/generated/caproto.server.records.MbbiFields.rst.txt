@@ -1,0 +1,1110 @@
+﻿caproto.server.records.MbbiFields
+=================================
+
+
+.. currentmodule:: caproto.server.records
+
+.. inheritance-diagram:: MbbiFields
+
+.. autoclass:: MbbiFields
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+    
+        .. note:: To use this, specify
+                  ``record="mbbi"`` in a
+                  :class:`pvproperty`.
+    
+    
+
+    
+    
+    .. list-table:: MbbiFields pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - access_security_group
+           - ``ASG``
+           - Access Security Group
+           - CHAR 
+           - 
+                 Length(29)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_severity
+           - ``ACKS``
+           - Alarm Ack Severity
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_transient
+           - ``ACKT``
+           - Alarm Ack Transient
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_filter_time_constant
+           - ``AFTC``
+           - Alarm Filter Time Constant
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - alarm_filter_value
+           - ``AFVL``
+           - Alarm Filter Value
+           - DOUBLE 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - alarm_status
+           - ``STAT``
+           - Alarm Status
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - change_of_state_svr
+           - ``COSV``
+           - Change of State Svr
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - current_alarm_severity
+           - ``SEVR``
+           - Alarm Severity
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - dbputfield_process
+           - ``PUTF``
+           - dbPutField process
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - description
+           - ``DESC``
+           - Descriptor
+           - CHAR 
+           - 
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - device_type
+           - ``DTYP``
+           - Device Type
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable
+           - ``DISA``
+           - Disable
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_alarm_severity
+           - ``DISS``
+           - Disable Alarm Sevrty
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_putfield
+           - ``DISP``
+           - Disable putField
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_value
+           - ``DISV``
+           - Disable Value
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - eight_string
+           - ``EIST``
+           - Eight String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - eight_value
+           - ``EIVL``
+           - Eight Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - eleven_string
+           - ``ELST``
+           - Eleven String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - eleven_value
+           - ``ELVL``
+           - Eleven Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - event_name
+           - ``EVNT``
+           - Event Name
+           - CHAR 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - fifteen_string
+           - ``FFST``
+           - Fifteen String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - fifteen_value
+           - ``FFVL``
+           - Fifteen Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - five_string
+           - ``FVST``
+           - Five String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - five_value
+           - ``FVVL``
+           - Five Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - forward_link
+           - ``FLNK``
+           - Forward Process Link
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - four_string
+           - ``FRST``
+           - Four String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - four_value
+           - ``FRVL``
+           - Four Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - fourteen_string
+           - ``FTST``
+           - Fourteen String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - fourteen_value
+           - ``FTVL``
+           - Fourteen Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - hardware_mask
+           - ``MASK``
+           - Hardware Mask
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - input_specification
+           - ``INP``
+           - Input Specification
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - last_value_alarmed
+           - ``LALM``
+           - Last Value Alarmed
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - last_value_monitored
+           - ``MLST``
+           - Last Value Monitored
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - lock_count
+           - ``LCNT``
+           - Lock Count
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_severity
+           - ``NSEV``
+           - New Alarm Severity
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_status
+           - ``NSTA``
+           - New Alarm Status
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - nine_string
+           - ``NIST``
+           - Nine String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - nine_value
+           - ``NIVL``
+           - Nine Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - number_of_bits
+           - ``NOBT``
+           - Number of Bits
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - one_string
+           - ``ONST``
+           - One String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - one_value
+           - ``ONVL``
+           - One Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - prev_raw_value
+           - ``ORAW``
+           - Prev Raw Value
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - prev_simulation_mode
+           - ``OLDSIMM``
+           - Prev. Simulation Mode
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - process_at_iocinit
+           - ``PINI``
+           - Process at iocInit
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - process_record
+           - ``PROC``
+           - Force Processing
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - raw_value
+           - ``RVAL``
+           - Raw Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Put**
+           - 
+    
+        *  - record_active
+           - ``PACT``
+           - Record active
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_name
+           - ``NAME``
+           - Record Name
+           - CHAR 
+           - 
+                 **Read-only**
+                 Length(61)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_type
+           - ``RTYP``
+           - Record type
+           - STRING 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
+           - 
+    
+        *  - reprocess
+           - ``RPRO``
+           - Reprocess 
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_phase
+           - ``PHAS``
+           - Scan Phase
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_rate
+           - ``SCAN``
+           - Scan Mechanism
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scanning_disable
+           - ``SDIS``
+           - Scanning Disable
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scheduling_priority
+           - ``PRIO``
+           - Scheduling Priority
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - seven_string
+           - ``SVST``
+           - Seven String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - seven_value
+           - ``SVVL``
+           - Seven Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - shift
+           - ``SHFT``
+           - Shift
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - sim_mode_async_delay
+           - ``SDLY``
+           - Sim. Mode Async Delay
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - sim_mode_scan
+           - ``SSCN``
+           - Sim. Mode Scan
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - simulation_input_link
+           - ``SIOL``
+           - Simulation Input Link
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - simulation_mode
+           - ``SIMM``
+           - Simulation Mode
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - simulation_mode_link
+           - ``SIML``
+           - Simulation Mode Link
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - simulation_mode_severity
+           - ``SIMS``
+           - Simulation Mode Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - simulation_value
+           - ``SVAL``
+           - Simulation Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - six_string
+           - ``SXST``
+           - Six String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - six_value
+           - ``SXVL``
+           - Six Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_eight_severity
+           - ``EISV``
+           - State Eight Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_eleven_severity
+           - ``ELSV``
+           - State Eleven Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_fifteen_severity
+           - ``FFSV``
+           - State Fifteen Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_five_severity
+           - ``FVSV``
+           - State Five Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_four_severity
+           - ``FRSV``
+           - State Four Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_fourteen_sevr
+           - ``FTSV``
+           - State Fourteen Sevr
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_nine_severity
+           - ``NISV``
+           - State Nine Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_one_severity
+           - ``ONSV``
+           - State One Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_seven_severity
+           - ``SVSV``
+           - State Seven Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_six_severity
+           - ``SXSV``
+           - State Six Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_ten_severity
+           - ``TESV``
+           - State Ten Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_thirteen_sevr
+           - ``TTSV``
+           - State Thirteen Sevr
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_three_severity
+           - ``THSV``
+           - State Three Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_twelve_severity
+           - ``TVSV``
+           - State Twelve Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_two_severity
+           - ``TWSV``
+           - State Two Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - state_zero_severity
+           - ``ZRSV``
+           - State Zero Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - states_defined
+           - ``SDEF``
+           - States Defined
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - ten_string
+           - ``TEST``
+           - Ten String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - ten_value
+           - ``TEVL``
+           - Ten Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - thirteen_string
+           - ``TTST``
+           - Thirteen String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - thirteen_value
+           - ``TTVL``
+           - Thirteen Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - three_string
+           - ``THST``
+           - Three String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - three_value
+           - ``THVL``
+           - Three Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - time_stamp_event
+           - ``TSE``
+           - Time Stamp Event
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_link
+           - ``TSEL``
+           - Time Stamp Link
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - trace_processing
+           - ``TPRO``
+           - Trace Processing
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - twelve_string
+           - ``TVST``
+           - Twelve String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - twelve_value
+           - ``TVVL``
+           - Twelve Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - two_string
+           - ``TWST``
+           - Two String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - two_value
+           - ``TWVL``
+           - Two Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - undefined
+           - ``UDF``
+           - Undefined
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined_alarm_severity
+           - ``UDFS``
+           - Undefined Alarm Sevrty
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - unknown_state_severity
+           - ``UNSV``
+           - Unknown State Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+        *  - zero_string
+           - ``ZRST``
+           - Zero String
+           - CHAR 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - zero_value
+           - ``ZRVL``
+           - Zero Value
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbiFields`
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~MbbiFields.group_read
+       ~MbbiFields.group_write
+       ~MbbiFields.publish
+       ~MbbiFields.value_write_hook
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~MbbiFields.default_values
+       ~MbbiFields.has_val_field
+       ~MbbiFields.scan_rate_sec
+       ~MbbiFields.type_map
+       ~MbbiFields.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods
+    .. method:: eight_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: eleven_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: fifteen_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: five_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: four_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: fourteen_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: nine_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: one_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: seven_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: six_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: ten_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: thirteen_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: three_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: twelve_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: two_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68
+    .. method:: zero_string.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 63
+        :lines: 63-68

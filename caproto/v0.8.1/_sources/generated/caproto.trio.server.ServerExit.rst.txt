@@ -1,0 +1,6 @@
+﻿caproto.trio.server.ServerExit
+==============================
+
+.. currentmodule:: caproto.trio.server
+
+.. autoexception:: ServerExit

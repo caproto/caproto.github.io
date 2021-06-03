@@ -1,0 +1,6 @@
+﻿caproto.curio.server.ServerExit
+===============================
+
+.. currentmodule:: caproto.curio.server
+
+.. autoexception:: ServerExit

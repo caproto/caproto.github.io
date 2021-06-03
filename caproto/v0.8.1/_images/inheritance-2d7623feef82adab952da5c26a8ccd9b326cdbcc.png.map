@@ -1,0 +1,4 @@
+<map id="inheritancef6625bdb6f" name="inheritancef6625bdb6f">
+<area shape="rect" id="node1" href="#caproto.ioc_examples.mini_beamline.MiniBeamline" target="_top" title="A collection of detectors coupled to motors and an oscillating beam" alt="" coords="5,79,365,104"/>
+<area shape="rect" id="node2" href="caproto.server.PVGroup.html#caproto.server.PVGroup" target="_top" title="Class which groups a set of PVs for a high&#45;level caproto server" alt="" coords="76,5,295,31"/>
+</map>

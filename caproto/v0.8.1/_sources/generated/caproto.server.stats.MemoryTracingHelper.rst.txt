@@ -1,0 +1,91 @@
+﻿caproto.server.stats.MemoryTracingHelper
+========================================
+
+
+.. currentmodule:: caproto.server.stats
+
+.. inheritance-diagram:: MemoryTracingHelper
+
+.. autoclass:: MemoryTracingHelper
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+    .. list-table:: MemoryTracingHelper pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - diff_results
+           - ``TraceDiffResults``
+           - Trace diff from snapshot to snapshot
+           - str (:class:`waveform <caproto.server.records.records.WaveformFields>`)
+           - 
+                 **Read-only**
+                 Length(20000)
+           - 
+    
+        *  - enable_tracing
+           - ``EnableTracing``
+           - Enable/disable in-depth memory analysis
+           - ENUM (:class:`bo <caproto.server.records.records.BoFields>`)
+           - 
+           - 
+    
+        *  - top_allocations
+           - ``TraceTopAllocations``
+           - Top allocations in snapshot
+           - str (:class:`waveform <caproto.server.records.records.WaveformFields>`)
+           - 
+                 **Read-only**
+                 Length(20000)
+           - 
+    
+        *  - trace_count
+           - ``TraceCount``
+           - Number of top allocations to view
+           - int (:class:`ao <caproto.server.records.records.AoFields>`)
+           - 
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~MemoryTracingHelper.group_read
+       ~MemoryTracingHelper.group_write
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~MemoryTracingHelper.default_values
+       ~MemoryTracingHelper.type_map
+       ~MemoryTracingHelper.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods

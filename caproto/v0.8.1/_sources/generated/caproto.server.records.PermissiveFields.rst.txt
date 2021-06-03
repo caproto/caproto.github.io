@@ -1,0 +1,376 @@
+﻿caproto.server.records.PermissiveFields
+=======================================
+
+
+.. currentmodule:: caproto.server.records
+
+.. inheritance-diagram:: PermissiveFields
+
+.. autoclass:: PermissiveFields
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+    
+        .. note:: To use this, specify
+                  ``record="permissive"`` in a
+                  :class:`pvproperty`.
+    
+    
+
+    
+    
+    .. list-table:: PermissiveFields pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - access_security_group
+           - ``ASG``
+           - Access Security Group
+           - CHAR 
+           - 
+                 Length(29)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_severity
+           - ``ACKS``
+           - Alarm Ack Severity
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_transient
+           - ``ACKT``
+           - Alarm Ack Transient
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_status
+           - ``STAT``
+           - Alarm Status
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - button_label
+           - ``LABL``
+           - Button Label
+           - CHAR 
+           - 
+                 Length(20)
+                 Inherited from :class:`~caproto.server.records.base.PermissiveFields`
+           - 
+    
+        *  - current_alarm_severity
+           - ``SEVR``
+           - Alarm Severity
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - dbputfield_process
+           - ``PUTF``
+           - dbPutField process
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - description
+           - ``DESC``
+           - Descriptor
+           - CHAR 
+           - 
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - device_type
+           - ``DTYP``
+           - Device Type
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable
+           - ``DISA``
+           - Disable
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_alarm_severity
+           - ``DISS``
+           - Disable Alarm Sevrty
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_putfield
+           - ``DISP``
+           - Disable putField
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_value
+           - ``DISV``
+           - Disable Value
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - event_name
+           - ``EVNT``
+           - Event Name
+           - CHAR 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - forward_link
+           - ``FLNK``
+           - Forward Process Link
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - lock_count
+           - ``LCNT``
+           - Lock Count
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_severity
+           - ``NSEV``
+           - New Alarm Severity
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_status
+           - ``NSTA``
+           - New Alarm Status
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - old_flag
+           - ``OFLG``
+           - Old Flag
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.PermissiveFields`
+           - 
+    
+        *  - old_status
+           - ``OVAL``
+           - Old Status
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.PermissiveFields`
+           - 
+    
+        *  - process_at_iocinit
+           - ``PINI``
+           - Process at iocInit
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - process_record
+           - ``PROC``
+           - Force Processing
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_active
+           - ``PACT``
+           - Record active
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_name
+           - ``NAME``
+           - Record Name
+           - CHAR 
+           - 
+                 **Read-only**
+                 Length(61)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_type
+           - ``RTYP``
+           - Record type
+           - STRING 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
+           - 
+    
+        *  - reprocess
+           - ``RPRO``
+           - Reprocess 
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_phase
+           - ``PHAS``
+           - Scan Phase
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_rate
+           - ``SCAN``
+           - Scan Mechanism
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scanning_disable
+           - ``SDIS``
+           - Scanning Disable
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scheduling_priority
+           - ``PRIO``
+           - Scheduling Priority
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_event
+           - ``TSE``
+           - Time Stamp Event
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_link
+           - ``TSEL``
+           - Time Stamp Link
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - trace_processing
+           - ``TPRO``
+           - Trace Processing
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined
+           - ``UDF``
+           - Undefined
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined_alarm_severity
+           - ``UDFS``
+           - Undefined Alarm Sevrty
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - wait_flag
+           - ``WFLG``
+           - Wait Flag
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.PermissiveFields`
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PermissiveFields.group_read
+       ~PermissiveFields.group_write
+       ~PermissiveFields.publish
+       ~PermissiveFields.value_write_hook
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PermissiveFields.default_values
+       ~PermissiveFields.has_val_field
+       ~PermissiveFields.scan_rate_sec
+       ~PermissiveFields.type_map
+       ~PermissiveFields.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods

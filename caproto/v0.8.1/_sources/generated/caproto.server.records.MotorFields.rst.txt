@@ -1,0 +1,1455 @@
+﻿caproto.server.records.MotorFields
+==================================
+
+
+.. currentmodule:: caproto.server.records
+
+.. inheritance-diagram:: MotorFields
+
+.. autoclass:: MotorFields
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+    
+        .. note:: To use this, specify
+                  ``record="motor"`` in a
+                  :class:`pvproperty`.
+    
+    
+
+    
+    
+    .. list-table:: MotorFields pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - access_security_group
+           - ``ASG``
+           - Access Security Group
+           - CHAR 
+           - 
+                 Length(29)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_severity
+           - ``ACKS``
+           - Alarm Ack Severity
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_transient
+           - ``ACKT``
+           - Alarm Ack Transient
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_status
+           - ``STAT``
+           - Alarm Status
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - archive_deadband
+           - ``ADEL``
+           - Archive Deadband
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - at_home
+           - ``ATHM``
+           - At HOME
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - base_speed
+           - ``SBAS``
+           - Base Speed (RPS)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - base_velocity
+           - ``VBAS``
+           - Base Velocity (EGU/s)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - bl_distance
+           - ``BDST``
+           - BL Distance (EGU)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - bl_seconds_to_velocity
+           - ``BACC``
+           - BL Seconds to Velocity
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - bl_speed
+           - ``SBAK``
+           - BL Speed (RPS)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - bl_velocity
+           - ``BVEL``
+           - BL Velocity (EGU/s)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - card_number
+           - ``CARD``
+           - Card Number
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - code_version
+           - ``VERS``
+           - Code Version
+           - FLOAT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - current_alarm_severity
+           - ``SEVR``
+           - Alarm Severity
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - dbputfield_process
+           - ``PUTF``
+           - dbPutField process
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - derivative_gain
+           - ``DCOF``
+           - Derivative Gain
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - description
+           - ``DESC``
+           - Descriptor
+           - CHAR 
+           - 
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - desired_output_loc
+           - ``DOL``
+           - Desired Output Loc
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - device_type
+           - ``DTYP``
+           - Device Type
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - dial_desired_value
+           - ``DVAL``
+           - Dial Desired Value (EGU
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - dial_high_limit
+           - ``DHLM``
+           - Dial High Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - dial_low_limit
+           - ``DLLM``
+           - Dial Low Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - dial_readback_value
+           - ``DRBV``
+           - Dial Readback Value
+           - DOUBLE 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - difference_dval_drbv
+           - ``DIFF``
+           - Difference dval-drbv
+           - DOUBLE 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - difference_rval_rrbv
+           - ``RDIF``
+           - Difference rval-rrbv
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - direction_of_travel
+           - ``TDIR``
+           - Direction of Travel
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - disable
+           - ``DISA``
+           - Disable
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_alarm_severity
+           - ``DISS``
+           - Disable Alarm Sevrty
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_putfield
+           - ``DISP``
+           - Disable putField
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_value
+           - ``DISV``
+           - Disable Value
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - display_precision
+           - ``PREC``
+           - Display Precision
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - dmov_input_link
+           - ``DINP``
+           - DMOV Input Link
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - done_moving_to_value
+           - ``DMOV``
+           - Done moving to value
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - egu_s_per_revolution
+           - ``UREV``
+           - EGU's per Revolution
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - enable_control
+           - ``CNEN``
+           - Enable control
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - encoder_step_size
+           - ``ERES``
+           - Encoder Step Size (EGU)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - engineering_units
+           - ``EGU``
+           - Engineering Units
+           - CHAR 
+           - 
+                 Length(16)
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - event_name
+           - ``EVNT``
+           - Event Name
+           - CHAR 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - forward_link
+           - ``FLNK``
+           - Forward Process Link
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - freeze_offset
+           - ``FOF``
+           - Freeze Offset
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - high_alarm_limit
+           - ``HIGH``
+           - High Alarm Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - high_operating_range
+           - ``HOPR``
+           - High Operating Range
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - high_severity
+           - ``HSV``
+           - High Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+           - 
+    
+        *  - hihi_alarm_limit
+           - ``HIHI``
+           - Hihi Alarm Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - hihi_severity
+           - ``HHSV``
+           - Hihi Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+           - 
+    
+        *  - home_forward
+           - ``HOMF``
+           - Home Forward
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - home_reverse
+           - ``HOMR``
+           - Home Reverse
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - home_velocity
+           - ``HVEL``
+           - Home Velocity (EGU/s)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - hw_limit_violation_svr
+           - ``HLSV``
+           - HW Limit Violation Svr
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - ignore_set_field
+           - ``IGSET``
+           - Ignore SET field
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - integral_gain
+           - ``ICOF``
+           - Integral Gain
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - jog_accel
+           - ``JAR``
+           - Jog Accel. (EGU/s^2)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - jog_motor_forward
+           - ``JOGF``
+           - Jog motor Forward
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - jog_motor_reverse
+           - ``JOGR``
+           - Jog motor Reverse
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - jog_velocity
+           - ``JVEL``
+           - Jog Velocity (EGU/s)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - last_dial_des_val
+           - ``LDVL``
+           - Last Dial Des Val (EGU)
+           - DOUBLE 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - last_raw_des_val
+           - ``LRVL``
+           - Last Raw Des Val (steps
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - last_rel_value
+           - ``LRLV``
+           - Last Rel Value (EGU)
+           - DOUBLE 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - last_spmg
+           - ``LSPG``
+           - Last SPMG
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - last_user_des_val
+           - ``LVAL``
+           - Last User Des Val (EGU)
+           - DOUBLE 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - last_val_monitored
+           - ``MLST``
+           - Last Val Monitored
+           - DOUBLE 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - last_value_archived
+           - ``ALST``
+           - Last Value Archived
+           - DOUBLE 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - limit_violation
+           - ``LVIO``
+           - Limit violation
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - lock_count
+           - ``LCNT``
+           - Lock Count
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - lolo_alarm_limit
+           - ``LOLO``
+           - Lolo Alarm Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - lolo_severity
+           - ``LLSV``
+           - Lolo Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+           - 
+    
+        *  - low_alarm_limit
+           - ``LOW``
+           - Low Alarm Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - low_operating_range
+           - ``LOPR``
+           - Low Operating Range
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - low_severity
+           - ``LSV``
+           - Low Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+           - 
+    
+        *  - max_retry_count
+           - ``RTRY``
+           - Max retry count
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - max_speed
+           - ``SMAX``
+           - Max. Speed (RPS)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - max_velocity
+           - ``VMAX``
+           - Max. Velocity (EGU/s)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - monitor_deadband
+           - ``MDEL``
+           - Monitor Deadband
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - monitor_mask
+           - ``MMAP``
+           - Monitor Mask
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - monitor_mask_more
+           - ``NMAP``
+           - Monitor Mask (more)
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - motion_in_progress
+           - ``MIP``
+           - Motion In Progress
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - motor_is_moving
+           - ``MOVN``
+           - Motor is moving
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - motor_status
+           - ``MSTA``
+           - Motor Status
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - motor_step_size
+           - ``MRES``
+           - Motor Step Size (EGU)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - move_fraction
+           - ``FRAC``
+           - Move Fraction
+           - FLOAT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - new_alarm_severity
+           - ``NSEV``
+           - New Alarm Severity
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_status
+           - ``NSTA``
+           - New Alarm Status
+           - ENUM 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_target_monitor
+           - ``NTM``
+           - New Target Monitor
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - ntm_deadband_factor
+           - ``NTMF``
+           - NTM Deadband Factor
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - offset_freeze_switch
+           - ``FOFF``
+           - Offset-Freeze Switch
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - output_mode_select
+           - ``OMSL``
+           - Output Mode Select
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - output_specification
+           - ``OUT``
+           - Output Specification
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - post_move_commands
+           - ``POST``
+           - Post-move commands
+           - CHAR 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - post_process_command
+           - ``PP``
+           - Post process command
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - pre_move_commands
+           - ``PREM``
+           - Pre-move commands
+           - CHAR 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - process_at_iocinit
+           - ``PINI``
+           - Process at iocInit
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - process_record
+           - ``PROC``
+           - Force Processing
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - proportional_gain
+           - ``PCOF``
+           - Proportional Gain
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - ran_out_of_retries
+           - ``MISS``
+           - Ran out of retries
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - raw_cmnd_direction
+           - ``CDIR``
+           - Raw cmnd direction
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - raw_desired_value
+           - ``RVAL``
+           - Raw Desired Value (step
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - raw_encoder_position
+           - ``REP``
+           - Raw Encoder Position
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - raw_high_limit_switch
+           - ``RHLS``
+           - Raw High Limit Switch
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - raw_low_limit_switch
+           - ``RLLS``
+           - Raw Low Limit Switch
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - raw_motor_position
+           - ``RMP``
+           - Raw Motor Position
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - raw_readback_value
+           - ``RRBV``
+           - Raw Readback Value
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - raw_velocity
+           - ``RVEL``
+           - Raw Velocity
+           - LONG 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - readback_location
+           - ``RDBL``
+           - Readback Location
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - readback_outlink
+           - ``RLNK``
+           - Readback OutLink
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - readback_settle_time
+           - ``DLY``
+           - Readback settle time (s)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - readback_step_size
+           - ``RRES``
+           - Readback Step Size (EGU
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - record_active
+           - ``PACT``
+           - Record active
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_name
+           - ``NAME``
+           - Record Name
+           - CHAR 
+           - 
+                 **Read-only**
+                 Length(61)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_type
+           - ``RTYP``
+           - Record type
+           - STRING 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
+           - 
+    
+        *  - relative_value
+           - ``RLV``
+           - Relative Value (EGU)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - reprocess
+           - ``RPRO``
+           - Reprocess 
+           - CHAR 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - retry_count
+           - ``RCNT``
+           - Retry count
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - retry_deadband
+           - ``RDBD``
+           - Retry Deadband (EGU)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - retry_mode
+           - ``RMOD``
+           - Retry Mode
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - rmp_input_link
+           - ``RINP``
+           - RMP Input Link
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - scan_phase
+           - ``PHAS``
+           - Scan Phase
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_rate
+           - ``SCAN``
+           - Scan Mechanism
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scanning_disable
+           - ``SDIS``
+           - Scanning Disable
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scheduling_priority
+           - ``PRIO``
+           - Scheduling Priority
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - seconds_to_velocity
+           - ``ACCL``
+           - Seconds to Velocity
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - set_set_mode
+           - ``SSET``
+           - Set SET Mode
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - set_use_mode
+           - ``SUSE``
+           - Set USE Mode
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - set_use_switch
+           - ``SET``
+           - Set/Use Switch
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - setpoint_deadband
+           - ``SPDB``
+           - Setpoint Deadband (EGU)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - soft_channel_position_lock
+           - ``LOCK``
+           - Soft Channel Position Lock
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - speed
+           - ``S``
+           - Speed (revolutions/sec)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - startup_commands
+           - ``INIT``
+           - Startup commands
+           - CHAR 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - status_update
+           - ``STUP``
+           - Status Update
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - steps_per_revolution
+           - ``SREV``
+           - Steps per Revolution
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - stop
+           - ``STOP``
+           - Stop
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - stop_outlink
+           - ``STOO``
+           - STOP OutLink
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - stop_pause_move_go
+           - ``SPMG``
+           - Stop/Pause/Move/Go
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - sync_position
+           - ``SYNC``
+           - Sync position
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - time_stamp_event
+           - ``TSE``
+           - Time Stamp Event
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_link
+           - ``TSEL``
+           - Time Stamp Link
+           - STRING 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - trace_processing
+           - ``TPRO``
+           - Trace Processing
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - tweak_motor_forward
+           - ``TWF``
+           - Tweak motor Forward
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - tweak_motor_reverse
+           - ``TWR``
+           - Tweak motor Reverse
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - tweak_step_size
+           - ``TWV``
+           - Tweak Step Size (EGU)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - undefined
+           - ``UDF``
+           - Undefined
+           - CHAR 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined_alarm_severity
+           - ``UDFS``
+           - Undefined Alarm Sevrty
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - use_encoder_if_present
+           - ``UEIP``
+           - Use Encoder If Present
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - use_rdbl_link_if_presen
+           - ``URIP``
+           - Use RDBL Link If Presen
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - user_direction
+           - ``DIR``
+           - User Direction
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - user_high_limit
+           - ``HLM``
+           - User High Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - user_high_limit_switch
+           - ``HLS``
+           - User High Limit Switch
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - user_low_limit
+           - ``LLM``
+           - User Low Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - user_low_limit_switch
+           - ``LLS``
+           - User Low Limit Switch
+           - INT 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - user_offset
+           - ``OFF``
+           - User Offset (EGU)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - user_readback_value
+           - ``RBV``
+           - User Readback Value
+           - DOUBLE 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - variable_offset
+           - ``VOF``
+           - Variable Offset
+           - INT 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+        *  - velocity
+           - ``VELO``
+           - Velocity (EGU/s)
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MotorFields`
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~MotorFields.group_read
+       ~MotorFields.group_write
+       ~MotorFields.publish
+       ~MotorFields.value_write_hook
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~MotorFields.default_values
+       ~MotorFields.has_val_field
+       ~MotorFields.scan_rate_sec
+       ~MotorFields.type_map
+       ~MotorFields.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods
+    .. method:: archive_deadband.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 38
+        :lines: 38-40
+    .. method:: display_precision.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 38
+        :lines: 38-40
+    .. method:: high_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 38
+        :lines: 38-40
+    .. method:: high_operating_range.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 38
+        :lines: 38-40
+    .. method:: hihi_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 38
+        :lines: 38-40
+    .. method:: lolo_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 38
+        :lines: 38-40
+    .. method:: low_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 38
+        :lines: 38-40
+    .. method:: low_operating_range.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 38
+        :lines: 38-40
+    .. method:: monitor_deadband.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 38
+        :lines: 38-40
