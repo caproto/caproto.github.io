@@ -1,0 +1,667 @@
+﻿caproto.server.records.LonginFields
+===================================
+
+
+.. currentmodule:: caproto.server.records
+
+.. inheritance-diagram:: LonginFields
+
+.. autoclass:: LonginFields
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+    
+        .. note:: To use this, specify
+                  ``record="longin"`` in a
+                  :class:`pvproperty`.
+    
+    
+
+    
+    
+    .. list-table:: LonginFields pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - access_security_group
+           - ``ASG``
+           - Access Security Group
+           - PvpropertyChar 
+           - 
+                 Length(29)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_severity
+           - ``ACKS``
+           - Alarm Ack Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_transient
+           - ``ACKT``
+           - Alarm Ack Transient
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_deadband
+           - ``HYST``
+           - Alarm Deadband
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - alarm_filter_time_constant
+           - ``AFTC``
+           - Alarm Filter Time Constant
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - alarm_filter_value
+           - ``AFVL``
+           - Alarm Filter Value
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - alarm_status
+           - ``STAT``
+           - Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - archive_deadband
+           - ``ADEL``
+           - Archive Deadband
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - current_alarm_severity
+           - ``SEVR``
+           - Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - dbputfield_process
+           - ``PUTF``
+           - dbPutField process
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - description
+           - ``DESC``
+           - Descriptor
+           - PvpropertyChar 
+           - 
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - device_type
+           - ``DTYP``
+           - Device Type
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable
+           - ``DISA``
+           - Disable
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_alarm_severity
+           - ``DISS``
+           - Disable Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_putfield
+           - ``DISP``
+           - Disable putField
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_value
+           - ``DISV``
+           - Disable Value
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - engineering_units
+           - ``EGU``
+           - Engineering Units
+           - PvpropertyChar 
+           - 
+                 Length(16)
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - event_name
+           - ``EVNT``
+           - Event Name
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - forward_link
+           - ``FLNK``
+           - Forward Process Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - high_alarm_limit
+           - ``HIGH``
+           - High Alarm Limit
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._LimitsLong`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - high_operating_range
+           - ``HOPR``
+           - High Operating Range
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._LimitsLong`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - high_severity
+           - ``HSV``
+           - High Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._LimitsLong`
+           - 
+    
+        *  - hihi_alarm_limit
+           - ``HIHI``
+           - Hihi Alarm Limit
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._LimitsLong`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - hihi_severity
+           - ``HHSV``
+           - Hihi Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._LimitsLong`
+           - 
+    
+        *  - input_specification
+           - ``INP``
+           - Input Specification
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - last_val_monitored
+           - ``MLST``
+           - Last Val Monitored
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - last_value_alarmed
+           - ``LALM``
+           - Last Value Alarmed
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - last_value_archived
+           - ``ALST``
+           - Last Value Archived
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - lock_count
+           - ``LCNT``
+           - Lock Count
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - lolo_alarm_limit
+           - ``LOLO``
+           - Lolo Alarm Limit
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._LimitsLong`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - lolo_severity
+           - ``LLSV``
+           - Lolo Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._LimitsLong`
+           - 
+    
+        *  - low_alarm_limit
+           - ``LOW``
+           - Low Alarm Limit
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._LimitsLong`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - low_operating_range
+           - ``LOPR``
+           - Low Operating Range
+           - LONG 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._LimitsLong`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - low_severity
+           - ``LSV``
+           - Low Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._LimitsLong`
+           - 
+    
+        *  - monitor_deadband
+           - ``MDEL``
+           - Monitor Deadband
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - new_alarm_severity
+           - ``NSEV``
+           - New Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_status
+           - ``NSTA``
+           - New Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - prev_simulation_mode
+           - ``OLDSIMM``
+           - Prev. Simulation Mode
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - process_at_iocinit
+           - ``PINI``
+           - Process at iocInit
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - process_record
+           - ``PROC``
+           - Force Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_active
+           - ``PACT``
+           - Record active
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_name
+           - ``NAME``
+           - Record Name
+           - PvpropertyCharRO 
+           - 
+                 **Read-only**
+                 Length(61)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_type
+           - ``RTYP``
+           - Record type
+           - PvpropertyStringRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
+           - 
+    
+        *  - reprocess
+           - ``RPRO``
+           - Reprocess
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_phase
+           - ``PHAS``
+           - Scan Phase
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_rate
+           - ``SCAN``
+           - Scan Mechanism
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scanning_disable
+           - ``SDIS``
+           - Scanning Disable
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scheduling_priority
+           - ``PRIO``
+           - Scheduling Priority
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - sim_input_specifctn
+           - ``SIOL``
+           - Sim Input Specifctn
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - sim_mode_alarm_svrty
+           - ``SIMS``
+           - Sim mode Alarm Svrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - sim_mode_async_delay
+           - ``SDLY``
+           - Sim. Mode Async Delay
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - sim_mode_location
+           - ``SIML``
+           - Sim Mode Location
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - sim_mode_scan
+           - ``SSCN``
+           - Sim. Mode Scan
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - simulation_mode
+           - ``SIMM``
+           - Simulation Mode
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - simulation_value
+           - ``SVAL``
+           - Simulation Value
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.LonginFields`
+           - 
+    
+        *  - time_stamp_event
+           - ``TSE``
+           - Time Stamp Event
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_link
+           - ``TSEL``
+           - Time Stamp Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - trace_processing
+           - ``TPRO``
+           - Trace Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined
+           - ``UDF``
+           - Undefined
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined_alarm_severity
+           - ``UDFS``
+           - Undefined Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~LonginFields.group_read
+       ~LonginFields.group_write
+       ~LonginFields.publish
+       ~LonginFields.value_write_hook
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~LonginFields.default_values
+       ~LonginFields.has_val_field
+       ~LonginFields.scan_rate_sec
+       ~LonginFields.type_map
+       ~LonginFields.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods
+    .. method:: archive_deadband.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: high_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: high_operating_range.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: hihi_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: lolo_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: low_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: low_operating_range.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: monitor_deadband.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43

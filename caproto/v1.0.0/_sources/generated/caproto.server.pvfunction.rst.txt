@@ -1,0 +1,46 @@
+﻿caproto.server.pvfunction
+=========================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: pvfunction
+
+.. autoclass:: pvfunction
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~pvfunction.get_additional_parameters
+       ~pvfunction.pvspec_from_parameter
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~pvfunction.default_names
+       ~pvfunction.group
+       ~pvfunction.group_dict
+    
+
+    

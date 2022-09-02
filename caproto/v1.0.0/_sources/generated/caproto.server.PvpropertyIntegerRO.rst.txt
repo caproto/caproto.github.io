@@ -1,0 +1,78 @@
+﻿caproto.server.PvpropertyIntegerRO
+==================================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: PvpropertyIntegerRO
+
+.. autoclass:: PvpropertyIntegerRO
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PvpropertyIntegerRO.auth_read
+       ~PvpropertyIntegerRO.auth_write
+       ~PvpropertyIntegerRO.calculate_length
+       ~PvpropertyIntegerRO.check_access
+       ~PvpropertyIntegerRO.get_field
+       ~PvpropertyIntegerRO.is_compatible_array
+       ~PvpropertyIntegerRO.post_state_change
+       ~PvpropertyIntegerRO.pre_state_change
+       ~PvpropertyIntegerRO.preprocess_value
+       ~PvpropertyIntegerRO.publish
+       ~PvpropertyIntegerRO.read
+       ~PvpropertyIntegerRO.subscribe
+       ~PvpropertyIntegerRO.unsubscribe
+       ~PvpropertyIntegerRO.update_fields
+       ~PvpropertyIntegerRO.verify_value
+       ~PvpropertyIntegerRO.write
+       ~PvpropertyIntegerRO.write_from_dbr
+       ~PvpropertyIntegerRO.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PvpropertyIntegerRO.alarm
+       ~PvpropertyIntegerRO.data_type
+       ~PvpropertyIntegerRO.default_value
+       ~PvpropertyIntegerRO.epics_timestamp
+       ~PvpropertyIntegerRO.length
+       ~PvpropertyIntegerRO.lower_alarm_limit
+       ~PvpropertyIntegerRO.lower_ctrl_limit
+       ~PvpropertyIntegerRO.lower_disp_limit
+       ~PvpropertyIntegerRO.lower_warning_limit
+       ~PvpropertyIntegerRO.max_length
+       ~PvpropertyIntegerRO.severity
+       ~PvpropertyIntegerRO.status
+       ~PvpropertyIntegerRO.timestamp
+       ~PvpropertyIntegerRO.units
+       ~PvpropertyIntegerRO.upper_alarm_limit
+       ~PvpropertyIntegerRO.upper_ctrl_limit
+       ~PvpropertyIntegerRO.upper_disp_limit
+       ~PvpropertyIntegerRO.upper_warning_limit
+       ~PvpropertyIntegerRO.value
+    
+
+    

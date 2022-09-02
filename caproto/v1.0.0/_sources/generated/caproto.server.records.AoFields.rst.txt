@@ -1,0 +1,869 @@
+﻿caproto.server.records.AoFields
+===============================
+
+
+.. currentmodule:: caproto.server.records
+
+.. inheritance-diagram:: AoFields
+
+.. autoclass:: AoFields
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+    
+        .. note:: To use this, specify
+                  ``record="ao"`` in a
+                  :class:`pvproperty`.
+    
+    
+
+    
+    
+    .. list-table:: AoFields pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - access_security_group
+           - ``ASG``
+           - Access Security Group
+           - PvpropertyChar 
+           - 
+                 Length(29)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - adjustment_offset
+           - ``AOFF``
+           - Adjustment Offset
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - adjustment_slope
+           - ``ASLO``
+           - Adjustment Slope
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - alarm_acknowledge_severity
+           - ``ACKS``
+           - Alarm Ack Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_transient
+           - ``ACKT``
+           - Alarm Ack Transient
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_deadband
+           - ``HYST``
+           - Alarm Deadband
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - alarm_status
+           - ``STAT``
+           - Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - archive_deadband
+           - ``ADEL``
+           - Archive Deadband
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - current_alarm_severity
+           - ``SEVR``
+           - Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - current_raw_value
+           - ``RVAL``
+           - Current Raw Value
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - dbputfield_process
+           - ``PUTF``
+           - dbPutField process
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - description
+           - ``DESC``
+           - Descriptor
+           - PvpropertyChar 
+           - 
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - desired_output_loc
+           - ``DOL``
+           - Desired Output Loc
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - device_type
+           - ``DTYP``
+           - Device Type
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable
+           - ``DISA``
+           - Disable
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_alarm_severity
+           - ``DISS``
+           - Disable Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_putfield
+           - ``DISP``
+           - Disable putField
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_value
+           - ``DISV``
+           - Disable Value
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - display_precision
+           - ``PREC``
+           - Display Precision
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - drive_high_limit
+           - ``DRVH``
+           - Drive High Limit
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - drive_low_limit
+           - ``DRVL``
+           - Drive Low Limit
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - egu_to_raw_offset
+           - ``EOFF``
+           - EGU to Raw Offset
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - egu_to_raw_slope
+           - ``ESLO``
+           - EGU to Raw Slope
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - eng_units_full
+           - ``EGUF``
+           - Eng Units Full
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - eng_units_low
+           - ``EGUL``
+           - Eng Units Low
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - engineering_units
+           - ``EGU``
+           - Engineering Units
+           - PvpropertyChar 
+           - 
+                 Length(16)
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - event_name
+           - ``EVNT``
+           - Event Name
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - forward_link
+           - ``FLNK``
+           - Forward Process Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - high_alarm_limit
+           - ``HIGH``
+           - High Alarm Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - high_operating_range
+           - ``HOPR``
+           - High Operating Range
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - high_severity
+           - ``HSV``
+           - High Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+           - 
+    
+        *  - hihi_alarm_limit
+           - ``HIHI``
+           - Hihi Alarm Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - hihi_severity
+           - ``HHSV``
+           - Hihi Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+           - 
+    
+        *  - initialized
+           - ``INIT``
+           - Initialized?
+           - PvpropertyShortRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - invalid_output_action
+           - ``IVOA``
+           - INVALID output action
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - invalid_output_value
+           - ``IVOV``
+           - INVALID output value
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - last_val_monitored
+           - ``MLST``
+           - Last Val Monitored
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - last_value_alarmed
+           - ``LALM``
+           - Last Value Alarmed
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - last_value_archived
+           - ``ALST``
+           - Last Value Archived
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - lastbreak_point
+           - ``LBRK``
+           - LastBreak Point
+           - PvpropertyShortRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - linearization
+           - ``LINR``
+           - Linearization
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - lock_count
+           - ``LCNT``
+           - Lock Count
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - lolo_alarm_limit
+           - ``LOLO``
+           - Lolo Alarm Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - lolo_severity
+           - ``LLSV``
+           - Lolo Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+           - 
+    
+        *  - low_alarm_limit
+           - ``LOW``
+           - Low Alarm Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - low_operating_range
+           - ``LOPR``
+           - Low Operating Range
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - low_severity
+           - ``LSV``
+           - Low Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+           - 
+    
+        *  - monitor_deadband
+           - ``MDEL``
+           - Monitor Deadband
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - new_alarm_severity
+           - ``NSEV``
+           - New Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_status
+           - ``NSTA``
+           - New Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - out_full_incremental
+           - ``OIF``
+           - Out Full/Incremental
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - output_mode_select
+           - ``OMSL``
+           - Output Mode Select
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - output_rate_of_change
+           - ``OROC``
+           - Output Rate of Change
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - output_specification
+           - ``OUT``
+           - Output Specification
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - output_value
+           - ``OVAL``
+           - Output Value
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - prev_readback_value
+           - ``ORBV``
+           - Prev Readback Value
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - prev_simulation_mode
+           - ``OLDSIMM``
+           - Prev. Simulation Mode
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - previous_raw_value
+           - ``ORAW``
+           - Previous Raw Value
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - previous_value
+           - ``PVAL``
+           - Previous value
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - process_at_iocinit
+           - ``PINI``
+           - Process at iocInit
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - process_record
+           - ``PROC``
+           - Force Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - raw_offset
+           - ``ROFF``
+           - Raw Offset
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - readback_value
+           - ``RBV``
+           - Readback Value
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - record_active
+           - ``PACT``
+           - Record active
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_name
+           - ``NAME``
+           - Record Name
+           - PvpropertyCharRO 
+           - 
+                 **Read-only**
+                 Length(61)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_type
+           - ``RTYP``
+           - Record type
+           - PvpropertyStringRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
+           - 
+    
+        *  - reprocess
+           - ``RPRO``
+           - Reprocess
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_phase
+           - ``PHAS``
+           - Scan Phase
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_rate
+           - ``SCAN``
+           - Scan Mechanism
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scanning_disable
+           - ``SDIS``
+           - Scanning Disable
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scheduling_priority
+           - ``PRIO``
+           - Scheduling Priority
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - sim_mode_async_delay
+           - ``SDLY``
+           - Sim. Mode Async Delay
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - sim_mode_scan
+           - ``SSCN``
+           - Sim. Mode Scan
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - simulation_mode
+           - ``SIMM``
+           - Simulation Mode
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - simulation_mode_link
+           - ``SIML``
+           - Simulation Mode Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - simulation_mode_severity
+           - ``SIMS``
+           - Simulation Mode Severity
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - simulation_output_link
+           - ``SIOL``
+           - Simulation Output Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+        *  - time_stamp_event
+           - ``TSE``
+           - Time Stamp Event
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_link
+           - ``TSEL``
+           - Time Stamp Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - trace_processing
+           - ``TPRO``
+           - Trace Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined
+           - ``UDF``
+           - Undefined
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined_alarm_severity
+           - ``UDFS``
+           - Undefined Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - was_oval_modified
+           - ``OMOD``
+           - Was OVAL modified?
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AoFields`
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~AoFields.group_read
+       ~AoFields.group_write
+       ~AoFields.publish
+       ~AoFields.value_write_hook
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~AoFields.default_values
+       ~AoFields.has_val_field
+       ~AoFields.scan_rate_sec
+       ~AoFields.type_map
+       ~AoFields.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods
+    .. method:: archive_deadband.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: display_precision.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: high_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: high_operating_range.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: hihi_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: lolo_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: low_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: low_operating_range.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: monitor_deadband.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43

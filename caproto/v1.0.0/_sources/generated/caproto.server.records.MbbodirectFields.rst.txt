@@ -1,0 +1,765 @@
+﻿caproto.server.records.MbbodirectFields
+=======================================
+
+
+.. currentmodule:: caproto.server.records
+
+.. inheritance-diagram:: MbbodirectFields
+
+.. autoclass:: MbbodirectFields
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+    
+        .. note:: To use this, specify
+                  ``record="mbboDirect"`` in a
+                  :class:`pvproperty`.
+    
+    
+
+    
+    
+    .. list-table:: MbbodirectFields pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - access_security_group
+           - ``ASG``
+           - Access Security Group
+           - PvpropertyChar 
+           - 
+                 Length(29)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_severity
+           - ``ACKS``
+           - Alarm Ack Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_transient
+           - ``ACKT``
+           - Alarm Ack Transient
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_status
+           - ``STAT``
+           - Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - bit_0
+           - ``B0``
+           - Bit 0
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_1
+           - ``B1``
+           - Bit 1
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_10
+           - ``BA``
+           - Bit 10
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_11
+           - ``BB``
+           - Bit 11
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_12
+           - ``BC``
+           - Bit 12
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_13
+           - ``BD``
+           - Bit 13
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_14
+           - ``BE``
+           - Bit 14
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_15
+           - ``BF``
+           - Bit 15
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_16
+           - ``B10``
+           - Bit 16
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_17
+           - ``B11``
+           - Bit 17
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_18
+           - ``B12``
+           - Bit 18
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_19
+           - ``B13``
+           - Bit 19
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_2
+           - ``B2``
+           - Bit 2
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_20
+           - ``B14``
+           - Bit 20
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_21
+           - ``B15``
+           - Bit 21
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_22
+           - ``B16``
+           - Bit 22
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_23
+           - ``B17``
+           - Bit 23
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_24
+           - ``B18``
+           - Bit 24
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_25
+           - ``B19``
+           - Bit 25
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_26
+           - ``B1A``
+           - Bit 26
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_27
+           - ``B1B``
+           - Bit 27
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_28
+           - ``B1C``
+           - Bit 28
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_29
+           - ``B1D``
+           - Bit 29
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_3
+           - ``B3``
+           - Bit 3
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_30
+           - ``B1E``
+           - Bit 30
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_31
+           - ``B1F``
+           - Bit 31
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_4
+           - ``B4``
+           - Bit 4
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_5
+           - ``B5``
+           - Bit 5
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_6
+           - ``B6``
+           - Bit 6
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_7
+           - ``B7``
+           - Bit 7
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_8
+           - ``B8``
+           - Bit 8
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - bit_9
+           - ``B9``
+           - Bit 9
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - current_alarm_severity
+           - ``SEVR``
+           - Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - dbputfield_process
+           - ``PUTF``
+           - dbPutField process
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - description
+           - ``DESC``
+           - Descriptor
+           - PvpropertyChar 
+           - 
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - desired_output_loc
+           - ``DOL``
+           - Desired Output Loc
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - device_type
+           - ``DTYP``
+           - Device Type
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable
+           - ``DISA``
+           - Disable
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_alarm_severity
+           - ``DISS``
+           - Disable Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_putfield
+           - ``DISP``
+           - Disable putField
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_value
+           - ``DISV``
+           - Disable Value
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - event_name
+           - ``EVNT``
+           - Event Name
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - forward_link
+           - ``FLNK``
+           - Forward Process Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - hardware_mask
+           - ``MASK``
+           - Hardware Mask
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - invalid_outpt_action
+           - ``IVOA``
+           - INVALID outpt action
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - invalid_output_value
+           - ``IVOV``
+           - INVALID output value
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - last_value_monitored
+           - ``MLST``
+           - Last Value Monitored
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - lock_count
+           - ``LCNT``
+           - Lock Count
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_severity
+           - ``NSEV``
+           - New Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_status
+           - ``NSTA``
+           - New Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - number_of_bits
+           - ``NOBT``
+           - Number of Bits
+           - PvpropertyShortRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - output_mode_select
+           - ``OMSL``
+           - Output Mode Select
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - output_specification
+           - ``OUT``
+           - Output Specification
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - prev_raw_value
+           - ``ORAW``
+           - Prev Raw Value
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - prev_readback_value
+           - ``ORBV``
+           - Prev Readback Value
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - prev_simulation_mode
+           - ``OLDSIMM``
+           - Prev. Simulation Mode
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - process_at_iocinit
+           - ``PINI``
+           - Process at iocInit
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - process_record
+           - ``PROC``
+           - Force Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - raw_value
+           - ``RVAL``
+           - Raw Value
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - readback_value
+           - ``RBV``
+           - Readback Value
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - record_active
+           - ``PACT``
+           - Record active
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_name
+           - ``NAME``
+           - Record Name
+           - PvpropertyCharRO 
+           - 
+                 **Read-only**
+                 Length(61)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_type
+           - ``RTYP``
+           - Record type
+           - PvpropertyStringRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
+           - 
+    
+        *  - reprocess
+           - ``RPRO``
+           - Reprocess
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_phase
+           - ``PHAS``
+           - Scan Phase
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_rate
+           - ``SCAN``
+           - Scan Mechanism
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scanning_disable
+           - ``SDIS``
+           - Scanning Disable
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scheduling_priority
+           - ``PRIO``
+           - Scheduling Priority
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - shift
+           - ``SHFT``
+           - Shift
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - sim_mode_async_delay
+           - ``SDLY``
+           - Sim. Mode Async Delay
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - sim_mode_scan
+           - ``SSCN``
+           - Sim. Mode Scan
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - simulation_mode
+           - ``SIMM``
+           - Simulation Mode
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - simulation_mode_link
+           - ``SIML``
+           - Simulation Mode Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - simulation_mode_severity
+           - ``SIMS``
+           - Simulation Mode Severity
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - simulation_output_link
+           - ``SIOL``
+           - Simulation Output Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.MbbodirectFields`
+           - 
+    
+        *  - time_stamp_event
+           - ``TSE``
+           - Time Stamp Event
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_link
+           - ``TSEL``
+           - Time Stamp Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - trace_processing
+           - ``TPRO``
+           - Trace Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined
+           - ``UDF``
+           - Undefined
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined_alarm_severity
+           - ``UDFS``
+           - Undefined Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~MbbodirectFields.group_read
+       ~MbbodirectFields.group_write
+       ~MbbodirectFields.publish
+       ~MbbodirectFields.value_write_hook
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~MbbodirectFields.default_values
+       ~MbbodirectFields.has_val_field
+       ~MbbodirectFields.scan_rate_sec
+       ~MbbodirectFields.type_map
+       ~MbbodirectFields.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods

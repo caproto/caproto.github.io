@@ -1,0 +1,509 @@
+﻿caproto.server.records.FanoutFields
+===================================
+
+
+.. currentmodule:: caproto.server.records
+
+.. inheritance-diagram:: FanoutFields
+
+.. autoclass:: FanoutFields
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+    
+        .. note:: To use this, specify
+                  ``record="fanout"`` in a
+                  :class:`pvproperty`.
+    
+    
+
+    
+    
+    .. list-table:: FanoutFields pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - access_security_group
+           - ``ASG``
+           - Access Security Group
+           - PvpropertyChar 
+           - 
+                 Length(29)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_severity
+           - ``ACKS``
+           - Alarm Ack Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_transient
+           - ``ACKT``
+           - Alarm Ack Transient
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_status
+           - ``STAT``
+           - Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - current_alarm_severity
+           - ``SEVR``
+           - Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - dbputfield_process
+           - ``PUTF``
+           - dbPutField process
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - description
+           - ``DESC``
+           - Descriptor
+           - PvpropertyChar 
+           - 
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - device_type
+           - ``DTYP``
+           - Device Type
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable
+           - ``DISA``
+           - Disable
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_alarm_severity
+           - ``DISS``
+           - Disable Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_putfield
+           - ``DISP``
+           - Disable putField
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_value
+           - ``DISV``
+           - Disable Value
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - event_name
+           - ``EVNT``
+           - Event Name
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - forward_link
+           - ``FLNK``
+           - Forward Process Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - forward_link_0
+           - ``LNK0``
+           - Forward Link 0
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_1
+           - ``LNK1``
+           - Forward Link 1
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_10
+           - ``LNKA``
+           - Forward Link 10
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_11
+           - ``LNKB``
+           - Forward Link 11
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_12
+           - ``LNKC``
+           - Forward Link 12
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_13
+           - ``LNKD``
+           - Forward Link 13
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_14
+           - ``LNKE``
+           - Forward Link 14
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_15
+           - ``LNKF``
+           - Forward Link 15
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_2
+           - ``LNK2``
+           - Forward Link 2
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_3
+           - ``LNK3``
+           - Forward Link 3
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_4
+           - ``LNK4``
+           - Forward Link 4
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_5
+           - ``LNK5``
+           - Forward Link 5
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_6
+           - ``LNK6``
+           - Forward Link 6
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_7
+           - ``LNK7``
+           - Forward Link 7
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_8
+           - ``LNK8``
+           - Forward Link 8
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - forward_link_9
+           - ``LNK9``
+           - Forward Link 9
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - link_selection
+           - ``SELN``
+           - Link Selection
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - link_selection_loc
+           - ``SELL``
+           - Link Selection Loc
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - lock_count
+           - ``LCNT``
+           - Lock Count
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_severity
+           - ``NSEV``
+           - New Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_status
+           - ``NSTA``
+           - New Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - offset_for_specified
+           - ``OFFS``
+           - Offset for Specified
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - process_at_iocinit
+           - ``PINI``
+           - Process at iocInit
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - process_record
+           - ``PROC``
+           - Force Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_active
+           - ``PACT``
+           - Record active
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_name
+           - ``NAME``
+           - Record Name
+           - PvpropertyCharRO 
+           - 
+                 **Read-only**
+                 Length(61)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_type
+           - ``RTYP``
+           - Record type
+           - PvpropertyStringRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
+           - 
+    
+        *  - reprocess
+           - ``RPRO``
+           - Reprocess
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_phase
+           - ``PHAS``
+           - Scan Phase
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_rate
+           - ``SCAN``
+           - Scan Mechanism
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scanning_disable
+           - ``SDIS``
+           - Scanning Disable
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scheduling_priority
+           - ``PRIO``
+           - Scheduling Priority
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - select_mechanism
+           - ``SELM``
+           - Select Mechanism
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - shift_for_mask_mode
+           - ``SHFT``
+           - Shift for Mask mode
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.FanoutFields`
+           - 
+    
+        *  - time_stamp_event
+           - ``TSE``
+           - Time Stamp Event
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_link
+           - ``TSEL``
+           - Time Stamp Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - trace_processing
+           - ``TPRO``
+           - Trace Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined
+           - ``UDF``
+           - Undefined
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined_alarm_severity
+           - ``UDFS``
+           - Undefined Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~FanoutFields.group_read
+       ~FanoutFields.group_write
+       ~FanoutFields.publish
+       ~FanoutFields.value_write_hook
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~FanoutFields.default_values
+       ~FanoutFields.has_val_field
+       ~FanoutFields.scan_rate_sec
+       ~FanoutFields.type_map
+       ~FanoutFields.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods

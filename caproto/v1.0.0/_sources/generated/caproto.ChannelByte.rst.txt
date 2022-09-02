@@ -1,0 +1,77 @@
+﻿caproto.ChannelByte
+===================
+
+
+.. currentmodule:: caproto
+
+.. inheritance-diagram:: ChannelByte
+
+.. autoclass:: ChannelByte
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~ChannelByte.auth_read
+       ~ChannelByte.auth_write
+       ~ChannelByte.calculate_length
+       ~ChannelByte.check_access
+       ~ChannelByte.is_compatible_array
+       ~ChannelByte.post_state_change
+       ~ChannelByte.pre_state_change
+       ~ChannelByte.preprocess_value
+       ~ChannelByte.publish
+       ~ChannelByte.read
+       ~ChannelByte.subscribe
+       ~ChannelByte.unsubscribe
+       ~ChannelByte.update_fields
+       ~ChannelByte.verify_value
+       ~ChannelByte.write
+       ~ChannelByte.write_from_dbr
+       ~ChannelByte.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~ChannelByte.alarm
+       ~ChannelByte.data_type
+       ~ChannelByte.default_value
+       ~ChannelByte.epics_timestamp
+       ~ChannelByte.length
+       ~ChannelByte.lower_alarm_limit
+       ~ChannelByte.lower_ctrl_limit
+       ~ChannelByte.lower_disp_limit
+       ~ChannelByte.lower_warning_limit
+       ~ChannelByte.max_length
+       ~ChannelByte.severity
+       ~ChannelByte.status
+       ~ChannelByte.timestamp
+       ~ChannelByte.units
+       ~ChannelByte.upper_alarm_limit
+       ~ChannelByte.upper_ctrl_limit
+       ~ChannelByte.upper_disp_limit
+       ~ChannelByte.upper_warning_limit
+       ~ChannelByte.value
+    
+
+    

@@ -1,0 +1,70 @@
+﻿caproto.server.PvpropertyStringRO
+=================================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: PvpropertyStringRO
+
+.. autoclass:: PvpropertyStringRO
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PvpropertyStringRO.auth_read
+       ~PvpropertyStringRO.auth_write
+       ~PvpropertyStringRO.calculate_length
+       ~PvpropertyStringRO.check_access
+       ~PvpropertyStringRO.get_field
+       ~PvpropertyStringRO.is_compatible_array
+       ~PvpropertyStringRO.post_state_change
+       ~PvpropertyStringRO.pre_state_change
+       ~PvpropertyStringRO.preprocess_value
+       ~PvpropertyStringRO.publish
+       ~PvpropertyStringRO.read
+       ~PvpropertyStringRO.subscribe
+       ~PvpropertyStringRO.unsubscribe
+       ~PvpropertyStringRO.update_fields
+       ~PvpropertyStringRO.verify_value
+       ~PvpropertyStringRO.write
+       ~PvpropertyStringRO.write_from_dbr
+       ~PvpropertyStringRO.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PvpropertyStringRO.alarm
+       ~PvpropertyStringRO.data_type
+       ~PvpropertyStringRO.default_value
+       ~PvpropertyStringRO.epics_timestamp
+       ~PvpropertyStringRO.length
+       ~PvpropertyStringRO.long_string_max_length
+       ~PvpropertyStringRO.max_length
+       ~PvpropertyStringRO.severity
+       ~PvpropertyStringRO.status
+       ~PvpropertyStringRO.timestamp
+       ~PvpropertyStringRO.value
+    
+
+    

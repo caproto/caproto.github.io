@@ -1,0 +1,6 @@
+﻿caproto.server.get\_pv\_pair\_wrapper
+=====================================
+
+.. currentmodule:: caproto.server
+
+.. autofunction:: get_pv_pair_wrapper

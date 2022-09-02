@@ -1,0 +1,6 @@
+<map id="inheritance9266b6718d" name="inheritance9266b6718d">
+<area shape="rect" id="node1" href="generated/caproto.server.common.Context.html#caproto.server.common.Context" target="_top" title="caproto.server.common.Context" alt="" coords="5,5,216,29"/>
+<area shape="rect" id="node3" href="generated/caproto.trio.server.Context.html#caproto.trio.server.Context" target="_top" title="caproto.trio.server.Context" alt="" coords="22,77,199,101"/>
+<area shape="rect" id="node2" href="generated/caproto.server.common.VirtualCircuit.html#caproto.server.common.VirtualCircuit" target="_top" title="caproto.server.common.VirtualCircuit" alt="" coords="240,5,480,29"/>
+<area shape="rect" id="node4" href="generated/caproto.trio.server.VirtualCircuit.html#caproto.trio.server.VirtualCircuit" target="_top" title="Wraps a caproto.VirtualCircuit with a trio client." alt="" coords="256,77,463,101"/>
+</map>

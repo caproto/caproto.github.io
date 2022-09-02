@@ -1,0 +1,6 @@
+﻿caproto.trio.server.run
+=======================
+
+.. currentmodule:: caproto.trio.server
+
+.. autofunction:: run

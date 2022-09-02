@@ -1,0 +1,4 @@
+<map id="inheritanceab034a5b31" name="inheritanceab034a5b31">
+<area shape="rect" id="node1" href="#caproto.ioc_examples.autosave.AutosavedSimpleIOC" target="_top" title="An IOC with three uncoupled read/writable PVs" alt="" coords="5,77,345,101"/>
+<area shape="rect" id="node2" title="Class which groups a set of PVs for a high&#45;level caproto server" alt="" coords="73,5,278,29"/>
+</map>

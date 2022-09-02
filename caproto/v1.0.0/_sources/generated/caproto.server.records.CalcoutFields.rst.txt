@@ -1,0 +1,1138 @@
+﻿caproto.server.records.CalcoutFields
+====================================
+
+
+.. currentmodule:: caproto.server.records
+
+.. inheritance-diagram:: CalcoutFields
+
+.. autoclass:: CalcoutFields
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+    
+        .. note:: To use this, specify
+                  ``record="calcout"`` in a
+                  :class:`pvproperty`.
+    
+    
+
+    
+    
+    .. list-table:: CalcoutFields pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - access_security_group
+           - ``ASG``
+           - Access Security Group
+           - PvpropertyChar 
+           - 
+                 Length(29)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_severity
+           - ``ACKS``
+           - Alarm Ack Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_transient
+           - ``ACKT``
+           - Alarm Ack Transient
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_deadband
+           - ``HYST``
+           - Alarm Deadband
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - alarm_status
+           - ``STAT``
+           - Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - archive_deadband
+           - ``ADEL``
+           - Archive Deadband
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - calc_valid
+           - ``CLCV``
+           - CALC Valid
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - calculation
+           - ``CALC``
+           - Calculation
+           - PvpropertyChar 
+           - 
+                 Length(80)
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - current_alarm_severity
+           - ``SEVR``
+           - Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - dbputfield_process
+           - ``PUTF``
+           - dbPutField process
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - description
+           - ``DESC``
+           - Descriptor
+           - PvpropertyChar 
+           - 
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - device_type
+           - ``DTYP``
+           - Device Type
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable
+           - ``DISA``
+           - Disable
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_alarm_severity
+           - ``DISS``
+           - Disable Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_putfield
+           - ``DISP``
+           - Disable putField
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_value
+           - ``DISV``
+           - Disable Value
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - display_precision
+           - ``PREC``
+           - Display Precision
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - engineering_units
+           - ``EGU``
+           - Engineering Units
+           - PvpropertyChar 
+           - 
+                 Length(16)
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - event_name
+           - ``EVNT``
+           - Event Name
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - event_to_issue
+           - ``OEVT``
+           - Event To Issue
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - forward_link
+           - ``FLNK``
+           - Forward Process Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - high_alarm_limit
+           - ``HIGH``
+           - High Alarm Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - high_operating_range
+           - ``HOPR``
+           - High Operating Range
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - high_severity
+           - ``HSV``
+           - High Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+           - 
+    
+        *  - hihi_alarm_limit
+           - ``HIHI``
+           - Hihi Alarm Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - hihi_severity
+           - ``HHSV``
+           - Hihi Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+           - 
+    
+        *  - inpa_pv_status
+           - ``INAV``
+           - INPA PV Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - inpb_pv_status
+           - ``INBV``
+           - INPB PV Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - inpc_pv_status
+           - ``INCV``
+           - INPC PV Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - inpd_pv_status
+           - ``INDV``
+           - INPD PV Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - inpe_pv_status
+           - ``INEV``
+           - INPE PV Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - inpf_pv_status
+           - ``INFV``
+           - INPF PV Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - inpg_pv_status
+           - ``INGV``
+           - INPG PV Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - inph_pv_status
+           - ``INHV``
+           - INPH PV Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - inpi_pv_status
+           - ``INIV``
+           - INPI PV Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - inpj_pv_status
+           - ``INJV``
+           - INPJ PV Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - inpk_pv_status
+           - ``INKV``
+           - INPK PV Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - inpl_pv_status
+           - ``INLV``
+           - INPL PV Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - input_a
+           - ``INPA``
+           - Input A
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - input_b
+           - ``INPB``
+           - Input B
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - input_c
+           - ``INPC``
+           - Input C
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - input_d
+           - ``INPD``
+           - Input D
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - input_e
+           - ``INPE``
+           - Input E
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - input_f
+           - ``INPF``
+           - Input F
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - input_g
+           - ``INPG``
+           - Input G
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - input_h
+           - ``INPH``
+           - Input H
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - input_i
+           - ``INPI``
+           - Input I
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - input_j
+           - ``INPJ``
+           - Input J
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - input_k
+           - ``INPK``
+           - Input K
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - input_l
+           - ``INPL``
+           - Input L
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - invalid_output_action
+           - ``IVOA``
+           - INVALID output action
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - invalid_output_value
+           - ``IVOV``
+           - INVALID output value
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - last_val_monitored
+           - ``MLST``
+           - Last Val Monitored
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - last_value_alarmed
+           - ``LALM``
+           - Last Value Alarmed
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - last_value_archived
+           - ``ALST``
+           - Last Value Archived
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - lock_count
+           - ``LCNT``
+           - Lock Count
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - lolo_alarm_limit
+           - ``LOLO``
+           - Lolo Alarm Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - lolo_severity
+           - ``LLSV``
+           - Lolo Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+           - 
+    
+        *  - low_alarm_limit
+           - ``LOW``
+           - Low Alarm Limit
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - low_operating_range
+           - ``LOPR``
+           - Low Operating Range
+           - DOUBLE 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - low_severity
+           - ``LSV``
+           - Low Severity
+           - ENUM 
+           - 
+                 Inherited from :class:`~caproto.server.records.mixins._Limits`
+           - 
+    
+        *  - monitor_deadband
+           - ``MDEL``
+           - Monitor Deadband
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - new_alarm_severity
+           - ``NSEV``
+           - New Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_status
+           - ``NSTA``
+           - New Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - ocal_valid
+           - ``OCLV``
+           - OCAL Valid
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - out_pv_status
+           - ``OUTV``
+           - OUT PV Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - output_calculation
+           - ``OCAL``
+           - Output Calculation
+           - PvpropertyChar 
+           - 
+                 Length(80)
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - output_data_opt
+           - ``DOPT``
+           - Output Data Opt
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - output_delay_active
+           - ``DLYA``
+           - Output Delay Active
+           - PvpropertyShortRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - output_execute_delay
+           - ``ODLY``
+           - Output Execute Delay
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - output_execute_opt
+           - ``OOPT``
+           - Output Execute Opt
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - output_specification
+           - ``OUT``
+           - Output Specification
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - output_value
+           - ``OVAL``
+           - Output Value
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - prev_value_of_a
+           - ``LA``
+           - Prev Value of A
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - prev_value_of_b
+           - ``LB``
+           - Prev Value of B
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - prev_value_of_c
+           - ``LC``
+           - Prev Value of C
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - prev_value_of_d
+           - ``LD``
+           - Prev Value of D
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - prev_value_of_e
+           - ``LE``
+           - Prev Value of E
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - prev_value_of_f
+           - ``LF``
+           - Prev Value of F
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - prev_value_of_g
+           - ``LG``
+           - Prev Value of G
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - prev_value_of_h
+           - ``LH``
+           - Prev Value of H
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - prev_value_of_i
+           - ``LI``
+           - Prev Value of I
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - prev_value_of_j
+           - ``LJ``
+           - Prev Value of J
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - prev_value_of_k
+           - ``LK``
+           - Prev Value of K
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - prev_value_of_l
+           - ``LL``
+           - Prev Value of L
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - prev_value_of_oval
+           - ``POVL``
+           - Prev Value of OVAL
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - previous_value
+           - ``PVAL``
+           - Previous Value
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - process_at_iocinit
+           - ``PINI``
+           - Process at iocInit
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - process_record
+           - ``PROC``
+           - Force Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_active
+           - ``PACT``
+           - Record active
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_name
+           - ``NAME``
+           - Record Name
+           - PvpropertyCharRO 
+           - 
+                 **Read-only**
+                 Length(61)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_type
+           - ``RTYP``
+           - Record type
+           - PvpropertyStringRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
+           - 
+    
+        *  - reprocess
+           - ``RPRO``
+           - Reprocess
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_phase
+           - ``PHAS``
+           - Scan Phase
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_rate
+           - ``SCAN``
+           - Scan Mechanism
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scanning_disable
+           - ``SDIS``
+           - Scanning Disable
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scheduling_priority
+           - ``PRIO``
+           - Scheduling Priority
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_event
+           - ``TSE``
+           - Time Stamp Event
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_link
+           - ``TSEL``
+           - Time Stamp Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - trace_processing
+           - ``TPRO``
+           - Trace Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined
+           - ``UDF``
+           - Undefined
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined_alarm_severity
+           - ``UDFS``
+           - Undefined Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - value_of_input_a
+           - ``A``
+           - Value of Input A
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - value_of_input_b
+           - ``B``
+           - Value of Input B
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - value_of_input_c
+           - ``C``
+           - Value of Input C
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - value_of_input_d
+           - ``D``
+           - Value of Input D
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - value_of_input_e
+           - ``E``
+           - Value of Input E
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - value_of_input_f
+           - ``F``
+           - Value of Input F
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - value_of_input_g
+           - ``G``
+           - Value of Input G
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - value_of_input_h
+           - ``H``
+           - Value of Input H
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - value_of_input_i
+           - ``I``
+           - Value of Input I
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - value_of_input_j
+           - ``J``
+           - Value of Input J
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - value_of_input_k
+           - ``K``
+           - Value of Input K
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+        *  - value_of_input_l
+           - ``L``
+           - Value of Input L
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.CalcoutFields`
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~CalcoutFields.group_read
+       ~CalcoutFields.group_write
+       ~CalcoutFields.publish
+       ~CalcoutFields.value_write_hook
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~CalcoutFields.default_values
+       ~CalcoutFields.has_val_field
+       ~CalcoutFields.scan_rate_sec
+       ~CalcoutFields.type_map
+       ~CalcoutFields.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods
+    .. method:: archive_deadband.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: display_precision.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: high_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: high_operating_range.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: hihi_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: lolo_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: low_alarm_limit.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: low_operating_range.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43
+    .. method:: monitor_deadband.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43

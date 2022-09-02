@@ -1,0 +1,40 @@
+﻿caproto.asyncio.server.Event
+============================
+
+
+.. currentmodule:: caproto.asyncio.server
+
+.. inheritance-diagram:: Event
+
+.. autoclass:: Event
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~Event.clear
+       ~Event.is_set
+       ~Event.set
+       ~Event.wait
+    
+    
+
+    
+    
+    
+
+    

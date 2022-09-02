@@ -1,0 +1,48 @@
+﻿caproto.curio.server.UniversalQueue
+===================================
+
+
+.. currentmodule:: caproto.curio.server
+
+.. inheritance-diagram:: UniversalQueue
+
+.. autoclass:: UniversalQueue
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~UniversalQueue.async_get
+       ~UniversalQueue.async_put
+       ~UniversalQueue.empty
+       ~UniversalQueue.fileno
+       ~UniversalQueue.full
+       ~UniversalQueue.get
+       ~UniversalQueue.join
+       ~UniversalQueue.join_sync
+       ~UniversalQueue.put
+       ~UniversalQueue.qsize
+       ~UniversalQueue.task_done
+       ~UniversalQueue.task_done_sync
+    
+    
+
+    
+    
+    
+
+    

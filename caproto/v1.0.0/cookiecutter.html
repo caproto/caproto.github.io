@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IOC Template Cookiecutters &mdash; caproto 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/inheritance.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/doctr-versions-menu.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Writing Your Own Documentation" href="own_docs.html" />
+    <link rel="prev" title="caproto.server.records.summarize" href="generated/caproto.server.records.summarize.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> caproto
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install Caproto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients.html">Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IOCs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="records.html">Records</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IOC Template Cookiecutters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ioc-cookiecutter">IOC Cookiecutter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-cookiecutter">Install cookiecutter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-the-cookiecutter">Use the cookiecutter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-test-environment">Create a test environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-the-project-in-that-environment">Install the project in that environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-the-ioc">Run the IOC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alternatively">Alternatively:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-the-docs">Build the docs:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#open-them-in-your-browser">Open them in your browser:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#startup-script-cookiecutter">Startup Script Cookiecutter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Install cookiecutter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Use the cookiecutter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#customize-any-settings">Customize any settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Run the IOC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server_api.html">Server API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Writing Your Own Channel Access Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Core API Documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="protocol-compliance.html">Details of our Protocol Compliance for CA Nerds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="containers.html">Caproto-in-a-box</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">caproto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>IOC Template Cookiecutters</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/cookiecutter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ioc-template-cookiecutters">
+<h1>IOC Template Cookiecutters<a class="headerlink" href="#ioc-template-cookiecutters" title="Permalink to this headline">¶</a></h1>
+<p>Caproto IOCs are easy to get started with and only require a single source code
+file as shown in the many examples provided here.</p>
+<p>For larger projecs, making a single caproto IOC into its own Python package
+brings along some benefits:</p>
+<ol class="arabic simple">
+<li><p>Easily installed into a Python environment</p></li>
+<li><p>Ability to add command-line hooks</p></li>
+<li><p>Better structure - relatve imports</p></li>
+<li><p>Add tests, documentation</p></li>
+</ol>
+<p>To ease this process, caproto offers two “<a class="reference external" href="https://github.com/caproto/cookiecutter-caproto-ioc">cookiecutter</a>” templates, one for
+generating your IOC package and one for creating a startup script that can
+be used by procServ, systemd, init.d, and so on.</p>
+<div class="section" id="ioc-cookiecutter">
+<h2>IOC Cookiecutter<a class="headerlink" href="#ioc-cookiecutter" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/caproto/cookiecutter-caproto-ioc">cookiecutter</a> is available in the caproto organization on GitHub.</p>
+<p>The steps outlining an IOC creation are tersely shown here for a quick example.</p>
+<div class="section" id="install-cookiecutter">
+<h3>Install cookiecutter<a class="headerlink" href="#install-cookiecutter" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install cookiecutter
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-the-cookiecutter">
+<h3>Use the cookiecutter<a class="headerlink" href="#use-the-cookiecutter" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cookiecutter https://github.com/caproto/cookiecutter-caproto-ioc
+project_name <span class="o">[</span>project_name<span class="o">]</span>:
+github_repo_group <span class="o">[</span>pcdshub<span class="o">]</span>:
+repo_name <span class="o">[</span>project_name<span class="o">]</span>:
+default_prefix <span class="o">[</span>SIM:<span class="o">]</span>:
+author_name <span class="o">[</span>SLAC National Accelerator Laboratory<span class="o">]</span>:
+email <span class="o">[]</span>:
+folder_name <span class="o">[</span>project_name<span class="o">]</span>:
+import_name <span class="o">[</span>project_name<span class="o">]</span>:
+description <span class="o">[</span>project_name<span class="o">]</span>:
+Select license:
+<span class="m">1</span> - SLAC
+<span class="m">2</span> - BNL
+<span class="m">3</span> - MIT
+<span class="m">4</span> - BSD-3
+Choose from <span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span> <span class="o">[</span><span class="m">1</span><span class="o">]</span>:
+Select auto_git_setup:
+<span class="m">1</span> - no
+<span class="m">2</span> - yes
+Choose from <span class="m">1</span>, <span class="m">2</span> <span class="o">[</span><span class="m">1</span><span class="o">]</span>:
+git_remote_name <span class="o">[</span>origin<span class="o">]</span>:
+Select auto_doctr_setup:
+<span class="m">1</span> - no
+<span class="m">2</span> - yes
+Choose from <span class="m">1</span>, <span class="m">2</span> <span class="o">[</span><span class="m">1</span><span class="o">]</span>:
+Select use_x11_on_travis:
+<span class="m">1</span> - no
+<span class="m">2</span> - yes
+Choose from <span class="m">1</span>, <span class="m">2</span> <span class="o">[</span><span class="m">1</span><span class="o">]</span>:
+year <span class="o">[</span><span class="m">2020</span><span class="o">]</span>:
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-test-environment">
+<h3>Create a test environment<a class="headerlink" href="#create-a-test-environment" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ conda create -n my_test_env <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
+$ conda activate my_test_env
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-the-project-in-that-environment">
+<h3>Install the project in that environment<a class="headerlink" href="#install-the-project-in-that-environment" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> project_name
+$ pip install .
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-the-ioc">
+<h3>Run the IOC<a class="headerlink" href="#run-the-ioc" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ project_name --list-pvs
+<span class="o">[</span>I <span class="m">17</span>:33:28.970       server:  <span class="m">133</span><span class="o">]</span> Asyncio server starting up...
+<span class="o">[</span>I <span class="m">17</span>:33:28.971       server:  <span class="m">146</span><span class="o">]</span> Listening on <span class="m">0</span>.0.0.0:5064
+<span class="o">[</span>I <span class="m">17</span>:33:28.972       server:  <span class="m">205</span><span class="o">]</span> Server startup complete.
+<span class="o">[</span>I <span class="m">17</span>:33:28.973       server:  <span class="m">207</span><span class="o">]</span> PVs available:
+    SIM:SampleValue
+    SIM:SampleScanned
+This happens at IOC boot!
+Initial value was: <span class="m">0</span>.0
+Now it is: <span class="m">0</span>.1
+
+^C
+<span class="o">[</span>I <span class="m">17</span>:33:30.442       server:  <span class="m">212</span><span class="o">]</span> Server task cancelled. Will shut down.
+<span class="o">[</span>I <span class="m">17</span>:33:30.442       server:  <span class="m">222</span><span class="o">]</span> Server exiting....
+</pre></div>
+</div>
+</div>
+<div class="section" id="alternatively">
+<h3>Alternatively:<a class="headerlink" href="#alternatively" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ python -m project_name --list-pvs
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-the-docs">
+<h3>Build the docs:<a class="headerlink" href="#build-the-docs" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> docs
+$ make html
+</pre></div>
+</div>
+</div>
+<div class="section" id="open-them-in-your-browser">
+<h3>Open them in your browser:<a class="headerlink" href="#open-them-in-your-browser" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># (macOS)</span>
+$ open build/html/index.html
+<span class="c1"># (Linux)</span>
+$ xdg-open build/html/index.html
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="startup-script-cookiecutter">
+<h2>Startup Script Cookiecutter<a class="headerlink" href="#startup-script-cookiecutter" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/caproto/cookiecutter-caproto-ioc-startup">startup_cookiecutter</a> is available in the caproto organization on GitHub.</p>
+<p>Before using this cookiecutter, you should already have a caproto-based IOC you
+wish to create startup scripts for. Please consider starting with the
+cookiecutter from the previous section.</p>
+<p>With standard EPICS IOCs, the IOC supporting code tends to be reused many
+times, with only a per-IOC startup script configuring which records get created
+with what PV prefixes, device IP addresses, and so on.</p>
+<p>This cookiecutter aims to do something similar - take your existing IOC source
+code and easily template multiple instances of that IOC. Several key points
+(and benefits in the author’s opinion) of this method are:</p>
+<ol class="arabic simple">
+<li><p>Decoupling PVGroup source code from per-IOC settings.</p></li>
+<li><p>A git submodule of the IOC source to specify a released (or unreleased)
+versino of the IOC source code.</p></li>
+<li><p>An independent conda environment per IOC.</p></li>
+</ol>
+<p>If you want to use your IOC with <strong>procServ</strong>, this is the cookiecutter for
+you.</p>
+<p>The steps outlining an IOC startup script creation are tersely shown here for a
+quick example.</p>
+<div class="section" id="id1">
+<h3>Install cookiecutter<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install cookiecutter
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Use the cookiecutter<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cookiecutter https://github.com/pcdshub/cookiecutter-caproto-ioc-startup
+$ <span class="nb">cd</span> ioc-my-iocname
+</pre></div>
+</div>
+</div>
+<div class="section" id="customize-any-settings">
+<h3>Customize any settings<a class="headerlink" href="#customize-any-settings" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ vim config.sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Run the IOC<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./st.cmd
+<span class="o">[</span>I <span class="m">17</span>:33:28.970       server:  <span class="m">133</span><span class="o">]</span> Asyncio server starting up...
+<span class="o">[</span>I <span class="m">17</span>:33:28.971       server:  <span class="m">146</span><span class="o">]</span> Listening on <span class="m">0</span>.0.0.0:5064
+<span class="o">[</span>I <span class="m">17</span>:33:28.972       server:  <span class="m">205</span><span class="o">]</span> Server startup complete.
+<span class="o">[</span>I <span class="m">17</span>:33:28.973       server:  <span class="m">207</span><span class="o">]</span> PVs available:
+    SIM:SampleValue
+    SIM:SampleScanned
+This happens at IOC boot!
+Initial value was: <span class="m">0</span>.0
+Now it is: <span class="m">0</span>.1
+
+^C
+<span class="o">[</span>I <span class="m">17</span>:33:30.442       server:  <span class="m">212</span><span class="o">]</span> Server task cancelled. Will shut down.
+<span class="o">[</span>I <span class="m">17</span>:33:30.442       server:  <span class="m">222</span><span class="o">]</span> Server exiting....
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="own_docs.html" class="btn btn-neutral float-right" title="Writing Your Own Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="generated/caproto.server.records.summarize.html" class="btn btn-neutral float-left" title="caproto.server.records.summarize" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Daniel Allan
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

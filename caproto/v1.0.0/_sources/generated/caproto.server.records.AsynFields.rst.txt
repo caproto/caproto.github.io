@@ -1,0 +1,952 @@
+﻿caproto.server.records.AsynFields
+=================================
+
+
+.. currentmodule:: caproto.server.records
+
+.. inheritance-diagram:: AsynFields
+
+.. autoclass:: AsynFields
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+    
+        .. note:: To use this, specify
+                  ``record="asyn"`` in a
+                  :class:`pvproperty`.
+    
+    
+
+    
+    
+    .. list-table:: AsynFields pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - abort_queuerequest
+           - ``AQR``
+           - Abort queueRequest
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - access_security_group
+           - ``ASG``
+           - Access Security Group
+           - PvpropertyChar 
+           - 
+                 Length(29)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - addressed_command
+           - ``ACMD``
+           - Addressed command
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - alarm_acknowledge_severity
+           - ``ACKS``
+           - Alarm Ack Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_transient
+           - ``ACKT``
+           - Alarm Ack Transient
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_status
+           - ``STAT``
+           - Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - asyn_address
+           - ``ADDR``
+           - asyn address
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asyn_port
+           - ``PORT``
+           - asyn port
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asynfloat64_input
+           - ``F64INP``
+           - asynFloat64 input
+           - PvpropertyDoubleRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asynfloat64_is_valid
+           - ``F64IV``
+           - asynFloat64 is valid
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asynfloat64_output
+           - ``F64OUT``
+           - asynFloat64 output
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asyngpib_is_valid
+           - ``GPIBIV``
+           - asynGPIB is valid
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asynint32_input
+           - ``I32INP``
+           - asynInt32 input
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asynint32_is_valid
+           - ``I32IV``
+           - asynInt32 is valid
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asynint32_output
+           - ``I32OUT``
+           - asynInt32 output
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asynoctet_is_valid
+           - ``OCTETIV``
+           - asynOctet is valid
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asynoption_is_valid
+           - ``OPTIONIV``
+           - asynOption is valid
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asynuint32digital_input
+           - ``UI32INP``
+           - asynUInt32Digital input
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asynuint32digital_is_valid
+           - ``UI32IV``
+           - asynUInt32Digital is valid
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asynuint32digital_mask
+           - ``UI32MASK``
+           - asynUInt32Digital mask
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asynuint32digital_output
+           - ``UI32OUT``
+           - asynUInt32Digital output
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - asynuser_reason
+           - ``REASON``
+           - asynUser->reason
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - autoconnect
+           - ``AUCT``
+           - Autoconnect
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - baud_rate
+           - ``BAUD``
+           - Baud rate
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - connect_disconnect
+           - ``CNCT``
+           - Connect/Disconnect
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - current_alarm_severity
+           - ``SEVR``
+           - Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - data_bits
+           - ``DBIT``
+           - Data bits
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - dbputfield_process
+           - ``PUTF``
+           - dbPutField process
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - description
+           - ``DESC``
+           - Descriptor
+           - PvpropertyChar 
+           - 
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - device_type
+           - ``DTYP``
+           - Device Type
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable
+           - ``DISA``
+           - Disable
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_alarm_severity
+           - ``DISS``
+           - Disable Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_putfield
+           - ``DISP``
+           - Disable putField
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_value
+           - ``DISV``
+           - Disable Value
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disconnect_on_timeout
+           - ``DRTO``
+           - Disconnect on timeout
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - driver_info_string
+           - ``DRVINFO``
+           - Driver info string
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - enable_disable
+           - ``ENBL``
+           - Enable/Disable
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - eom_reason
+           - ``EOMR``
+           - EOM reason
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - event_name
+           - ``EVNT``
+           - Event Name
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - flow_control
+           - ``FCTL``
+           - Flow control
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - forward_link
+           - ``FLNK``
+           - Forward Process Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - host_info
+           - ``HOSTINFO``
+           - host info
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - input
+           - ``AINP``
+           - Input (response) string
+           - PvpropertyCharRO 
+           - 
+                 **Read-only**
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - input_binary_data
+           - ``BINP``
+           - Input binary data
+           - PvpropertyChar 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - input_delimiter
+           - ``IEOS``
+           - Input Delimiter
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - input_format
+           - ``IFMT``
+           - Input format
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - input_xon_xoff
+           - ``IXOFF``
+           - Input XON/XOFF
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - interface
+           - ``IFACE``
+           - Interface
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - lock_count
+           - ``LCNT``
+           - Lock Count
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - long_baud_rate
+           - ``LBAUD``
+           - Baud rate
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - max_size_of_input_array
+           - ``IMAX``
+           - Max. size of input array
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - max_size_of_output_array
+           - ``OMAX``
+           - Max. size of output array
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - modem_control
+           - ``MCTL``
+           - Modem control
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - new_alarm_severity
+           - ``NSEV``
+           - New Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_status
+           - ``NSTA``
+           - New Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - number_of_bytes_actually_written
+           - ``NAWT``
+           - Number of bytes actually written
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - number_of_bytes_read
+           - ``NORD``
+           - Number of bytes read
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - number_of_bytes_to_read
+           - ``NRRD``
+           - Number of bytes to read
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - number_of_bytes_to_write
+           - ``NOWT``
+           - Number of bytes to write
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - output
+           - ``AOUT``
+           - Output (command) string
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - output_binary_data
+           - ``BOUT``
+           - Output binary data
+           - PvpropertyChar 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - output_delimiter
+           - ``OEOS``
+           - Output delimiter
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - output_format
+           - ``OFMT``
+           - Output format
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - output_xon_xoff
+           - ``IXON``
+           - Output XON/XOFF
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - parity
+           - ``PRTY``
+           - Parity
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - port_connect_disconnect
+           - ``PCNCT``
+           - Port Connect/Disconnect
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - process_at_iocinit
+           - ``PINI``
+           - Process at iocInit
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - process_record
+           - ``PROC``
+           - Force Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_active
+           - ``PACT``
+           - Record active
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_name
+           - ``NAME``
+           - Record Name
+           - PvpropertyCharRO 
+           - 
+                 **Read-only**
+                 Length(61)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_type
+           - ``RTYP``
+           - Record type
+           - PvpropertyStringRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
+           - 
+    
+        *  - reprocess
+           - ``RPRO``
+           - Reprocess
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_phase
+           - ``PHAS``
+           - Scan Phase
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_rate
+           - ``SCAN``
+           - Scan Mechanism
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scanning_disable
+           - ``SDIS``
+           - Scanning Disable
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scheduling_priority
+           - ``PRIO``
+           - Scheduling Priority
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - serial_poll_response
+           - ``SPR``
+           - Serial poll response
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - stop_bits
+           - ``SBIT``
+           - Stop bits
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - time_stamp_event
+           - ``TSE``
+           - Time Stamp Event
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_link
+           - ``TSEL``
+           - Time Stamp Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - timeout
+           - ``TMOT``
+           - Timeout (sec)
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_error
+           - ``TB0``
+           - Trace error
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_flow
+           - ``TB4``
+           - Trace flow
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_i_o_mask
+           - ``TIOM``
+           - Trace I/O mask
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_info_mask
+           - ``TINM``
+           - Trace Info mask
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_info_port
+           - ``TINB1``
+           - Trace Info Port
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_info_source
+           - ``TINB2``
+           - Trace Info Source
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_info_thread
+           - ``TINB3``
+           - Trace Info Thread
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_info_time
+           - ``TINB0``
+           - Trace Info Time
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_io_ascii
+           - ``TIB0``
+           - Trace IO ASCII
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_io_device
+           - ``TB1``
+           - Trace IO device
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_io_driver
+           - ``TB3``
+           - Trace IO driver
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_io_escape
+           - ``TIB1``
+           - Trace IO escape
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_io_file
+           - ``TFIL``
+           - Trace IO file
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_io_filter
+           - ``TB2``
+           - Trace IO filter
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_io_hex
+           - ``TIB2``
+           - Trace IO hex
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_io_truncate_size
+           - ``TSIZ``
+           - Trace IO truncate size
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_mask
+           - ``TMSK``
+           - Trace mask
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - trace_processing
+           - ``TPRO``
+           - Trace Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - trace_warning
+           - ``TB5``
+           - Trace warning
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - transaction_mode
+           - ``TMOD``
+           - Transaction mode
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - translated_input_string
+           - ``TINP``
+           - Translated input string
+           - PvpropertyCharRO 
+           - 
+                 **Read-only**
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - undefined
+           - ``UDF``
+           - Undefined
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined_alarm_severity
+           - ``UDFS``
+           - Undefined Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - universal_command
+           - ``UCMD``
+           - Universal command
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+        *  - xon_any_character
+           - ``IXANY``
+           - XON=any character
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsynFields`
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~AsynFields.group_read
+       ~AsynFields.group_write
+       ~AsynFields.publish
+       ~AsynFields.value_write_hook
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~AsynFields.default_values
+       ~AsynFields.has_val_field
+       ~AsynFields.scan_rate_sec
+       ~AsynFields.type_map
+       ~AsynFields.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods

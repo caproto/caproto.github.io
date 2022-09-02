@@ -1,0 +1,2091 @@
+﻿caproto.server.records.AsubFields
+=================================
+
+
+.. currentmodule:: caproto.server.records
+
+.. inheritance-diagram:: AsubFields
+
+.. autoclass:: AsubFields
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+    
+        .. note:: To use this, specify
+                  ``record="aSub"`` in a
+                  :class:`pvproperty`.
+    
+    
+
+    
+    
+    .. list-table:: AsubFields pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - access_security_group
+           - ``ASG``
+           - Access Security Group
+           - PvpropertyChar 
+           - 
+                 Length(29)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_severity
+           - ``ACKS``
+           - Alarm Ack Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_transient
+           - ``ACKT``
+           - Alarm Ack Transient
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_status
+           - ``STAT``
+           - Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - bad_return_severity
+           - ``BRSV``
+           - Bad Return Severity
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - current_alarm_severity
+           - ``SEVR``
+           - Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - dbputfield_process
+           - ``PUTF``
+           - dbPutField process
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - description
+           - ``DESC``
+           - Descriptor
+           - PvpropertyChar 
+           - 
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - device_type
+           - ``DTYP``
+           - Device Type
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable
+           - ``DISA``
+           - Disable
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_alarm_severity
+           - ``DISS``
+           - Disable Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_putfield
+           - ``DISP``
+           - Disable putField
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_value
+           - ``DISV``
+           - Disable Value
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - display_precision
+           - ``PREC``
+           - Display Precision
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - event_name
+           - ``EVNT``
+           - Event Name
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - forward_link
+           - ``FLNK``
+           - Forward Process Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - initialize_subr_name
+           - ``INAM``
+           - Initialize Subr. Name
+           - PvpropertyCharRO 
+           - 
+                 **Read-only**
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_a
+           - ``INPA``
+           - Input Link A
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_b
+           - ``INPB``
+           - Input Link B
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_c
+           - ``INPC``
+           - Input Link C
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_d
+           - ``INPD``
+           - Input Link D
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_e
+           - ``INPE``
+           - Input Link E
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_f
+           - ``INPF``
+           - Input Link F
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_g
+           - ``INPG``
+           - Input Link G
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_h
+           - ``INPH``
+           - Input Link H
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_i
+           - ``INPI``
+           - Input Link I
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_j
+           - ``INPJ``
+           - Input Link J
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_k
+           - ``INPK``
+           - Input Link K
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_l
+           - ``INPL``
+           - Input Link L
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_m
+           - ``INPM``
+           - Input Link M
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_n
+           - ``INPN``
+           - Input Link N
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_o
+           - ``INPO``
+           - Input Link O
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_p
+           - ``INPP``
+           - Input Link P
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_q
+           - ``INPQ``
+           - Input Link Q
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_r
+           - ``INPR``
+           - Input Link R
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_s
+           - ``INPS``
+           - Input Link S
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_t
+           - ``INPT``
+           - Input Link T
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - input_link_u
+           - ``INPU``
+           - Input Link U
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - lock_count
+           - ``LCNT``
+           - Lock Count
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - max_elements_in_a
+           - ``NOA``
+           - Max. elements in A
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_b
+           - ``NOB``
+           - Max. elements in B
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_c
+           - ``NOC``
+           - Max. elements in C
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_d
+           - ``NOD``
+           - Max. elements in D
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_e
+           - ``NOE``
+           - Max. elements in E
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_f
+           - ``NOF``
+           - Max. elements in F
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_g
+           - ``NOG``
+           - Max. elements in G
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_h
+           - ``NOH``
+           - Max. elements in H
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_i
+           - ``NOI``
+           - Max. elements in I
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_j
+           - ``NOJ``
+           - Max. elements in J
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_k
+           - ``NOK``
+           - Max. elements in K
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_l
+           - ``NOL``
+           - Max. elements in L
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_m
+           - ``NOM``
+           - Max. elements in M
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_n
+           - ``NON``
+           - Max. elements in N
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_o
+           - ``NOO``
+           - Max. elements in O
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_p
+           - ``NOP``
+           - Max. elements in P
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_q
+           - ``NOQ``
+           - Max. elements in Q
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_r
+           - ``NOR``
+           - Max. elements in R
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_s
+           - ``NOS``
+           - Max. elements in S
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_t
+           - ``NOT``
+           - Max. elements in T
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_u
+           - ``NOU``
+           - Max. elements in U
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_vala
+           - ``NOVA``
+           - Max. elements in VALA
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valb
+           - ``NOVB``
+           - Max. elements in VALB
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valc
+           - ``NOVC``
+           - Max. elements in VALC
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_vald
+           - ``NOVD``
+           - Max. elements in VALD
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_vale
+           - ``NOVE``
+           - Max. elements in VALE
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valf
+           - ``NOVF``
+           - Max. elements in VALF
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valg
+           - ``NOVG``
+           - Max. elements in VALG
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valh
+           - ``NOVH``
+           - Max. elements in VAlH
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_vali
+           - ``NOVI``
+           - Max. elements in VALI
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valj
+           - ``NOVJ``
+           - Max. elements in VALJ
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valk
+           - ``NOVK``
+           - Max. elements in VALK
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_vall
+           - ``NOVL``
+           - Max. elements in VALL
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valm
+           - ``NOVM``
+           - Max. elements in VALM
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valn
+           - ``NOVN``
+           - Max. elements in VALN
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valo
+           - ``NOVO``
+           - Max. elements in VALO
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valp
+           - ``NOVP``
+           - Max. elements in VALP
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valq
+           - ``NOVQ``
+           - Max. elements in VALQ
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valr
+           - ``NOVR``
+           - Max. elements in VALR
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_vals
+           - ``NOVS``
+           - Max. elements in VALS
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valt
+           - ``NOVT``
+           - Max. elements in VALT
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - max_elements_in_valu
+           - ``NOVU``
+           - Max. elements in VALU
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - new_alarm_severity
+           - ``NSEV``
+           - New Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_status
+           - ``NSTA``
+           - New Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - num_elements_in_a
+           - ``NEA``
+           - Num. elements in A
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_b
+           - ``NEB``
+           - Num. elements in B
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_c
+           - ``NEC``
+           - Num. elements in C
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_d
+           - ``NED``
+           - Num. elements in D
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_e
+           - ``NEE``
+           - Num. elements in E
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_f
+           - ``NEF``
+           - Num. elements in F
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_g
+           - ``NEG``
+           - Num. elements in G
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_h
+           - ``NEH``
+           - Num. elements in H
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_i
+           - ``NEI``
+           - Num. elements in I
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_j
+           - ``NEJ``
+           - Num. elements in J
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_k
+           - ``NEK``
+           - Num. elements in K
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_l
+           - ``NEL``
+           - Num. elements in L
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_m
+           - ``NEM``
+           - Num. elements in M
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_n
+           - ``NEN``
+           - Num. elements in N
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_o
+           - ``NEO``
+           - Num. elements in O
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovla
+           - ``ONVA``
+           - Num. elements in OVLA
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovlb
+           - ``ONVB``
+           - Num. elements in OVLB
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovlc
+           - ``ONVC``
+           - Num. elements in OVLC
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovld
+           - ``ONVD``
+           - Num. elements in OVLD
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovle
+           - ``ONVE``
+           - Num. elements in OVLE
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovlf
+           - ``ONVF``
+           - Num. elements in OVLF
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovlg
+           - ``ONVG``
+           - Num. elements in OVLG
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovlh
+           - ``ONVH``
+           - Num. elements in VAlH
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovli
+           - ``ONVI``
+           - Num. elements in OVLI
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovlj
+           - ``ONVJ``
+           - Num. elements in OVLJ
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovlk
+           - ``ONVK``
+           - Num. elements in OVLK
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovll
+           - ``ONVL``
+           - Num. elements in OVLL
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovlm
+           - ``ONVM``
+           - Num. elements in OVLM
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovln
+           - ``ONVN``
+           - Num. elements in OVLN
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovlo
+           - ``ONVO``
+           - Num. elements in OVLO
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovlp
+           - ``ONVP``
+           - Num. elements in OVLP
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovlq
+           - ``ONVQ``
+           - Num. elements in OVLQ
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovlr
+           - ``ONVR``
+           - Num. elements in OVLR
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovls
+           - ``ONVS``
+           - Num. elements in OVLS
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovlt
+           - ``ONVT``
+           - Num. elements in OVLT
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_ovlu
+           - ``ONVU``
+           - Num. elements in OVLU
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_p
+           - ``NEP``
+           - Num. elements in P
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_q
+           - ``NEQ``
+           - Num. elements in Q
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_r
+           - ``NER``
+           - Num. elements in R
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_s
+           - ``NES``
+           - Num. elements in S
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_t
+           - ``NET``
+           - Num. elements in T
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_u
+           - ``NEU``
+           - Num. elements in U
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_vala
+           - ``NEVA``
+           - Num. elements in VALA
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valb
+           - ``NEVB``
+           - Num. elements in VALB
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valc
+           - ``NEVC``
+           - Num. elements in VALC
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_vald
+           - ``NEVD``
+           - Num. elements in VALD
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_vale
+           - ``NEVE``
+           - Num. elements in VALE
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valf
+           - ``NEVF``
+           - Num. elements in VALF
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valg
+           - ``NEVG``
+           - Num. elements in VALG
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valh
+           - ``NEVH``
+           - Num. elements in VAlH
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_vali
+           - ``NEVI``
+           - Num. elements in VALI
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valj
+           - ``NEVJ``
+           - Num. elements in VALJ
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valk
+           - ``NEVK``
+           - Num. elements in VALK
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_vall
+           - ``NEVL``
+           - Num. elements in VALL
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valm
+           - ``NEVM``
+           - Num. elements in VALM
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valn
+           - ``NEVN``
+           - Num. elements in VALN
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valo
+           - ``NEVO``
+           - Num. elements in VALO
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valp
+           - ``NEVP``
+           - Num. elements in VALP
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valq
+           - ``NEVQ``
+           - Num. elements in VALQ
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valr
+           - ``NEVR``
+           - Num. elements in VALR
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_vals
+           - ``NEVS``
+           - Num. elements in VALS
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valt
+           - ``NEVT``
+           - Num. elements in VALT
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - num_elements_in_valu
+           - ``NEVU``
+           - Num. elements in VALU
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - old_return_value
+           - ``OVAL``
+           - Old return value
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - old_subr_name
+           - ``ONAM``
+           - Old Subr. Name
+           - PvpropertyCharRO 
+           - 
+                 **Read-only**
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_event_flag
+           - ``EFLG``
+           - Output Event Flag
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_a
+           - ``OUTA``
+           - Output Link A
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_b
+           - ``OUTB``
+           - Output Link B
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_c
+           - ``OUTC``
+           - Output Link C
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_d
+           - ``OUTD``
+           - Output Link D
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_e
+           - ``OUTE``
+           - Output Link E
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_f
+           - ``OUTF``
+           - Output Link F
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_g
+           - ``OUTG``
+           - Output Link G
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_h
+           - ``OUTH``
+           - Output Link H
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_i
+           - ``OUTI``
+           - Output Link I
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_j
+           - ``OUTJ``
+           - Output Link J
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_k
+           - ``OUTK``
+           - Output Link K
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_l
+           - ``OUTL``
+           - Output Link L
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_m
+           - ``OUTM``
+           - Output Link M
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_n
+           - ``OUTN``
+           - Output Link N
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_o
+           - ``OUTO``
+           - Output Link O
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_p
+           - ``OUTP``
+           - Output Link P
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_q
+           - ``OUTQ``
+           - Output Link Q
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_r
+           - ``OUTR``
+           - Output Link R
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_s
+           - ``OUTS``
+           - Output Link S
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_t
+           - ``OUTT``
+           - Output Link T
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - output_link_u
+           - ``OUTU``
+           - Output Link U
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - process_at_iocinit
+           - ``PINI``
+           - Process at iocInit
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - process_record
+           - ``PROC``
+           - Force Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - process_subr_name
+           - ``SNAM``
+           - Process Subr. Name
+           - PvpropertyChar 
+           - 
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - record_active
+           - ``PACT``
+           - Record active
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_name
+           - ``NAME``
+           - Record Name
+           - PvpropertyCharRO 
+           - 
+                 **Read-only**
+                 Length(61)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_type
+           - ``RTYP``
+           - Record type
+           - PvpropertyStringRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
+           - 
+    
+        *  - reprocess
+           - ``RPRO``
+           - Reprocess
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_phase
+           - ``PHAS``
+           - Scan Phase
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_rate
+           - ``SCAN``
+           - Scan Mechanism
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scanning_disable
+           - ``SDIS``
+           - Scanning Disable
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scheduling_priority
+           - ``PRIO``
+           - Scheduling Priority
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - subr_input_enable
+           - ``LFLG``
+           - Subr. Input Enable
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - subroutine_name_link
+           - ``SUBL``
+           - Subroutine Name Link
+           - PvpropertyStringRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - time_stamp_event
+           - ``TSE``
+           - Time Stamp Event
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_link
+           - ``TSEL``
+           - Time Stamp Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - trace_processing
+           - ``TPRO``
+           - Trace Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - type_of_a
+           - ``FTA``
+           - Type of A
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_b
+           - ``FTB``
+           - Type of B
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_c
+           - ``FTC``
+           - Type of C
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_d
+           - ``FTD``
+           - Type of D
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_e
+           - ``FTE``
+           - Type of E
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_f
+           - ``FTF``
+           - Type of F
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_g
+           - ``FTG``
+           - Type of G
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_h
+           - ``FTH``
+           - Type of H
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_i
+           - ``FTI``
+           - Type of I
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_j
+           - ``FTJ``
+           - Type of J
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_k
+           - ``FTK``
+           - Type of K
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_l
+           - ``FTL``
+           - Type of L
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_m
+           - ``FTM``
+           - Type of M
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_n
+           - ``FTN``
+           - Type of N
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_o
+           - ``FTO``
+           - Type of O
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_p
+           - ``FTP``
+           - Type of P
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_q
+           - ``FTQ``
+           - Type of Q
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_r
+           - ``FTR``
+           - Type of R
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_s
+           - ``FTS``
+           - Type of S
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_t
+           - ``FTT``
+           - Type of T
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_u
+           - ``FTU``
+           - Type of U
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_vala
+           - ``FTVA``
+           - Type of VALA
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valb
+           - ``FTVB``
+           - Type of VALB
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valc
+           - ``FTVC``
+           - Type of VALC
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_vald
+           - ``FTVD``
+           - Type of VALD
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_vale
+           - ``FTVE``
+           - Type of VALE
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valf
+           - ``FTVF``
+           - Type of VALF
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valg
+           - ``FTVG``
+           - Type of VALG
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valh
+           - ``FTVH``
+           - Type of VALH
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_vali
+           - ``FTVI``
+           - Type of VALI
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valj
+           - ``FTVJ``
+           - Type of VALJ
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valk
+           - ``FTVK``
+           - Type of VALK
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_vall
+           - ``FTVL``
+           - Type of VALL
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valm
+           - ``FTVM``
+           - Type of VALM
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valn
+           - ``FTVN``
+           - Type of VALN
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valo
+           - ``FTVO``
+           - Type of VALO
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valp
+           - ``FTVP``
+           - Type of VALP
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valq
+           - ``FTVQ``
+           - Type of VALQ
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valr
+           - ``FTVR``
+           - Type of VALR
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_vals
+           - ``FTVS``
+           - Type of VALS
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valt
+           - ``FTVT``
+           - Type of VALT
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - type_of_valu
+           - ``FTVU``
+           - Type of VALU
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.AsubFields`
+           - 
+    
+        *  - undefined
+           - ``UDF``
+           - Undefined
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined_alarm_severity
+           - ``UDFS``
+           - Undefined Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~AsubFields.group_read
+       ~AsubFields.group_write
+       ~AsubFields.publish
+       ~AsubFields.value_write_hook
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~AsubFields.default_values
+       ~AsubFields.has_val_field
+       ~AsubFields.scan_rate_sec
+       ~AsubFields.type_map
+       ~AsubFields.type_map_read_only
+    
+
+    
+    .. rubric:: pvproperty methods
+    .. method:: display_precision.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../caproto/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 41
+        :lines: 41-43

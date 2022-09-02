@@ -1,0 +1,5 @@
+<map id="inheritance04b5dec48c" name="inheritance04b5dec48c">
+<area shape="rect" id="node1" href="#caproto.curio.server.UniversalQueue" target="_top" title="caproto.curio.server.UniversalQueue" alt="" coords="66,149,303,173"/>
+<area shape="rect" id="node2" title="A FIFO queue for communicating between Curio and external threads," alt="" coords="89,77,280,101"/>
+<area shape="rect" id="node4" title="A queue for communicating between Curio and external threads," alt="" coords="179,5,400,29"/>
+</map>

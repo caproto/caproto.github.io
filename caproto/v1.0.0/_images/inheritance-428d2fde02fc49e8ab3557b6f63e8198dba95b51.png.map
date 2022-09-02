@@ -1,0 +1,5 @@
+<map id="inheritance98de3ab68e" name="inheritance98de3ab68e">
+<area shape="rect" id="node1" href="#caproto.curio.server.QueueWithFullError" target="_top" title="caproto.curio.server.QueueWithFullError" alt="" coords="41,149,301,173"/>
+<area shape="rect" id="node2" title="A First&#45;In First&#45;Out queue for communicating between Curio tasks." alt="" coords="104,77,239,101"/>
+<area shape="rect" id="node4" title="Base class for queues used to communicate between Curio tasks." alt="" coords="179,5,344,29"/>
+</map>

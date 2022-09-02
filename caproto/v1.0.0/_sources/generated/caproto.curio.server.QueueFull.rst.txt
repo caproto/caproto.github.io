@@ -1,0 +1,6 @@
+﻿caproto.curio.server.QueueFull
+==============================
+
+.. currentmodule:: caproto.curio.server
+
+.. autoexception:: QueueFull

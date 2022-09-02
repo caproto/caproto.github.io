@@ -1,0 +1,16 @@
+<map id="inheritancef5300b3804" name="inheritancef5300b3804">
+<area shape="rect" id="node1" title="8&#45;bit unencoded CHAR data plus metadata which can be sent over a channel." alt="" coords="13,77,110,101"/>
+<area shape="rect" id="node10" title="Read&#45;write 8&#45;bit CHAR data for pvproperty for bytes." alt="" coords="5,149,118,173"/>
+<area shape="rect" id="node2" title="8&#45;bit encoded CHAR data plus metadata which can be sent over a channel." alt="" coords="464,77,564,101"/>
+<area shape="rect" id="node11" title="Read&#45;write 8&#45;bit CHAR data for pvproperty with string encoding." alt="" coords="456,149,571,173"/>
+<area shape="rect" id="node3" href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="273,5,372,29"/>
+<area shape="rect" id="node9" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="321,77,435,101"/>
+<area shape="rect" id="node4" title="64&#45;bit floating point data and metadata which can be sent over a channel." alt="" coords="602,77,716,101"/>
+<area shape="rect" id="node12" title="Read&#45;write DOUBLE data for pvproperty (64 bits)." alt="" coords="595,149,723,173"/>
+<area shape="rect" id="node5" title="ENUM data which can be sent over a channel." alt="" coords="177,77,282,101"/>
+<area shape="rect" id="node8" title="Read&#45;write ENUM data for pvproperty, with Off/On as default strings." alt="" coords="141,149,289,173"/>
+<area shape="rect" id="node13" title="Read&#45;write ENUM data for pvproperty." alt="" coords="312,149,433,173"/>
+<area shape="rect" id="node6" title="8&#45;bit encoded string data plus metadata which can be sent over a channel." alt="" coords="754,77,860,101"/>
+<area shape="rect" id="node14" title="Read&#45;write STRING data for pvproperty (up to 40 chars)." alt="" coords="747,149,867,173"/>
+<area shape="rect" id="node7" title="Abstract base class for generic types." alt="" coords="396,5,468,29"/>
+</map>

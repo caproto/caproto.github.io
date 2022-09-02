@@ -1,0 +1,39 @@
+﻿caproto.server.server.PVGroupMeta
+=================================
+
+
+.. currentmodule:: caproto.server.server
+
+.. inheritance-diagram:: PVGroupMeta
+
+.. autoclass:: PVGroupMeta
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PVGroupMeta.find_pvproperties
+       ~PVGroupMeta.find_subgroups
+       ~PVGroupMeta.mro
+    
+    
+
+    
+    
+    
+
+    

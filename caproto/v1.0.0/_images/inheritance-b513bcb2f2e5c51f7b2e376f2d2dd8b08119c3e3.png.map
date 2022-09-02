@@ -1,0 +1,4 @@
+<map id="inheritanceb7dcdc93a2" name="inheritanceb7dcdc93a2">
+<area shape="rect" id="node1" href="#caproto.curio.server.VirtualCircuit" target="_top" title="Wraps a caproto.VirtualCircuit with a curio client." alt="" coords="16,77,234,101"/>
+<area shape="rect" id="node2" href="caproto.server.common.VirtualCircuit.html#caproto.server.common.VirtualCircuit" target="_top" title="caproto.server.common.VirtualCircuit" alt="" coords="5,5,245,29"/>
+</map>

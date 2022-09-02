@@ -1,0 +1,72 @@
+﻿caproto.server.PvpropertyEnum
+=============================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: PvpropertyEnum
+
+.. autoclass:: PvpropertyEnum
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PvpropertyEnum.auth_read
+       ~PvpropertyEnum.auth_write
+       ~PvpropertyEnum.calculate_length
+       ~PvpropertyEnum.check_access
+       ~PvpropertyEnum.get_field
+       ~PvpropertyEnum.get_raw_value
+       ~PvpropertyEnum.is_compatible_array
+       ~PvpropertyEnum.post_state_change
+       ~PvpropertyEnum.pre_state_change
+       ~PvpropertyEnum.preprocess_value
+       ~PvpropertyEnum.publish
+       ~PvpropertyEnum.read
+       ~PvpropertyEnum.subscribe
+       ~PvpropertyEnum.unsubscribe
+       ~PvpropertyEnum.update_fields
+       ~PvpropertyEnum.verify_value
+       ~PvpropertyEnum.write
+       ~PvpropertyEnum.write_from_dbr
+       ~PvpropertyEnum.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PvpropertyEnum.alarm
+       ~PvpropertyEnum.data_type
+       ~PvpropertyEnum.default_value
+       ~PvpropertyEnum.enum_strings
+       ~PvpropertyEnum.epics_timestamp
+       ~PvpropertyEnum.length
+       ~PvpropertyEnum.max_length
+       ~PvpropertyEnum.raw_value
+       ~PvpropertyEnum.severity
+       ~PvpropertyEnum.status
+       ~PvpropertyEnum.timestamp
+       ~PvpropertyEnum.value
+    
+
+    

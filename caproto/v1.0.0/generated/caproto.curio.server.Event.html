@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>caproto.curio.server.Event &mdash; caproto 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/inheritance.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/doctr-versions-menu.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="caproto.curio.server.ServerExit" href="caproto.curio.server.ServerExit.html" />
+    <link rel="prev" title="caproto.curio.server.Context" href="caproto.curio.server.Context.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> caproto
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install Caproto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clients.html">Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shark.html">Shark (pcap/tcpdump parsing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loggers.html">Logging</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IOCs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../records.html">Records</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookiecutter.html">IOC Template Cookiecutters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../server_api.html">Server API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#data-containers">Data Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#high-level-api-pvproperty-magic">High-level API / pvproperty magic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#library-agnostic-server-core">Library-agnostic server core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#asyncio-server">asyncio server</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../server_api.html#curio-server">Curio server</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../server_api.html#id1">Implementation classes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="caproto.curio.server.CurioAsyncLayer.html">caproto.curio.server.CurioAsyncLayer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.curio.server.Context.html">caproto.curio.server.Context</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">caproto.curio.server.Event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.curio.server.ServerExit.html">caproto.curio.server.ServerExit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="caproto.curio.server.VirtualCircuit.html">caproto.curio.server.VirtualCircuit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../server_api.html#id2">Helper functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../server_api.html#miscellaneous">Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#trio-server">Trio server</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">Writing Your Own Channel Access Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Core API Documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../protocol-compliance.html">Details of our Protocol Compliance for CA Nerds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers.html">Caproto-in-a-box</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">caproto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../server_api.html">Server API</a> &raquo;</li>
+        
+      <li>caproto.curio.server.Event</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/generated/caproto.curio.server.Event.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="caproto-curio-server-event">
+<h1>caproto.curio.server.Event<a class="headerlink" href="#caproto-curio-server-event" title="Permalink to this headline">¶</a></h1>
+<div class="graphviz"><img src="../_images/inheritance-de1497f0b9d1579cfe6f88250e93e5e833ed88e5.png" alt="Inheritance diagram of Event" usemap="#inheritance78a777213a" class="inheritance graphviz" /></div>
+<map id="inheritance78a777213a" name="inheritance78a777213a">
+<area shape="rect" id="node1" href="#caproto.curio.server.Event" target="_top" title="caproto.curio.server.Event" alt="" coords="5,77,182,101"/>
+</map><dl class="py class">
+<dt id="caproto.curio.server.Event">
+<em class="property">class </em><code class="sig-prename descclassname">caproto.curio.server.</code><code class="sig-name descname">Event</code><a class="reference internal" href="../_modules/caproto/curio/server.html#Event"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caproto.curio.server.Event" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_set</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">wait</span></code>([timeout])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="caproto.curio.server.ServerExit.html" class="btn btn-neutral float-right" title="caproto.curio.server.ServerExit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="caproto.curio.server.Context.html" class="btn btn-neutral float-left" title="caproto.curio.server.Context" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Daniel Allan
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
