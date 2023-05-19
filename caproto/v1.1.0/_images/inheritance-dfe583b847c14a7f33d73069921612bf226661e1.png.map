@@ -1,0 +1,5 @@
+<map id="inheritance09cd7d9b7e" name="inheritance09cd7d9b7e">
+<area shape="rect" id="node1" href="caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="17,5,216,31"/>
+<area shape="rect" id="node3" title="Base class for numeric data types with limits." alt="" coords="5,79,228,104"/>
+<area shape="rect" id="node2" href="#caproto.ChannelFloat" target="_top" title="32&#45;bit floating point data and metadata which can be sent over a channel." alt="" coords="16,152,217,177"/>
+</map>

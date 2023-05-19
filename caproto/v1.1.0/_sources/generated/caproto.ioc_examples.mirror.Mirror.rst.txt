@@ -1,0 +1,95 @@
+﻿caproto.ioc\_examples.mirror.Mirror
+===================================
+
+
+.. currentmodule:: caproto.ioc_examples.mirror
+
+.. inheritance-diagram:: Mirror
+
+.. autoclass:: Mirror
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+    .. list-table:: Mirror pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - value
+           - ``value``
+           - 
+           - float 
+           - 
+                 **Read-only**
+                 **Startup**
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~Mirror.group_read
+       ~Mirror.group_write
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~Mirror.default_values
+       ~Mirror.type_map
+       ~Mirror.type_map_read_only
+       ~Mirror.pvdb
+       ~Mirror.attr_pvdb
+       ~Mirror.attr_to_pvname
+       ~Mirror.groups
+    
+
+    
+    .. rubric:: pvproperty methods
+    .. method:: value.startup(self, instance, async_lib)
+        
+
+    
+    .. raw:: html
+
+        <details>
+        <summary>Source code: value.startup</summary>
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/caproto/ioc_examples/mirror.py
+        :language: python
+        :linenos:
+        :dedent: 0
+        :lineno-start: 34
+        :lines: 34-44
+
+    .. raw:: html
+
+        </details>
+        <br/>
+
+    

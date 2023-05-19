@@ -1,0 +1,44 @@
+﻿caproto.server.SubGroup
+=======================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: SubGroup
+
+.. autoclass:: SubGroup
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~SubGroup.group
+       ~SubGroup.group_dict
+       ~SubGroup.attr_separator
+       ~SubGroup.base
+       ~SubGroup.group_cls
+       ~SubGroup.init_kwargs
+       ~SubGroup.macros
+       ~SubGroup.prefix
+    
+
+    

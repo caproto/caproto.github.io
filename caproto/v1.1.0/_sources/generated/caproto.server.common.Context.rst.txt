@@ -1,0 +1,51 @@
+﻿caproto.server.common.Context
+=============================
+
+
+.. currentmodule:: caproto.server.common
+
+.. inheritance-diagram:: Context
+
+.. autoclass:: Context
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~Context.broadcast_beacon_loop
+       ~Context.broadcaster_queue_loop
+       ~Context.circuit_disconnected
+       ~Context.stop
+       ~Context.subscription_queue_loop
+       ~Context.tcp_handler
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~Context.pvdb_with_fields
+       ~Context.shutdown_methods
+       ~Context.startup_methods
+       ~Context.subscriptions
+    
+
+    

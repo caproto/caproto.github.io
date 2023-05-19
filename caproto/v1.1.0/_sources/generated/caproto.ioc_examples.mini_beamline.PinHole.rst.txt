@@ -1,0 +1,117 @@
+﻿caproto.ioc\_examples.mini\_beamline.PinHole
+============================================
+
+
+.. currentmodule:: caproto.ioc_examples.mini_beamline
+
+.. inheritance-diagram:: PinHole
+
+.. autoclass:: PinHole
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+    .. list-table:: PinHole pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - det
+           - ``det``
+           - Scalar detector value
+           - float 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.ioc_examples.mini_beamline._JitterDetector`
+           - 
+    
+        *  - exp
+           - ``exp``
+           - Exponential value
+           - float 
+           - 
+                 Inherited from :class:`~caproto.ioc_examples.mini_beamline._JitterDetector`
+                 **Put**
+           - 
+    
+        *  - mtr
+           - ``mtr``
+           - Motor
+           - float (:class:`ai <caproto.server.records.records.AiFields>`)
+           - 
+                 Inherited from :class:`~caproto.ioc_examples.mini_beamline._JitterDetector`
+                 **Startup**
+                 **Put**
+           - 
+    
+        *  - mtr_tick_rate
+           - ``mtr_tick_rate``
+           - Update tick rate
+           - float 
+           - 
+                 Inherited from :class:`~caproto.ioc_examples.mini_beamline._JitterDetector`
+           - 
+    
+        *  - vel
+           - ``vel``
+           - Velocity
+           - float 
+           - 
+                 Inherited from :class:`~caproto.ioc_examples.mini_beamline._JitterDetector`
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PinHole.group_read
+       ~PinHole.group_write
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PinHole.default_values
+       ~PinHole.type_map
+       ~PinHole.type_map_read_only
+       ~PinHole.pvdb
+       ~PinHole.attr_pvdb
+       ~PinHole.attr_to_pvname
+       ~PinHole.groups
+    
+
+    
+    .. rubric:: pvproperty methods
+    .. method:: mtr.startup(self, instance, async_lib)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/caproto/ioc_examples/mini_beamline.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 90
+        :lines: 90-93

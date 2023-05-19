@@ -1,0 +1,70 @@
+﻿caproto.ioc\_examples.client\_monitor\_async.MirrorClientIOC
+============================================================
+
+
+.. currentmodule:: caproto.ioc_examples.client_monitor_async
+
+.. inheritance-diagram:: MirrorClientIOC
+
+.. autoclass:: MirrorClientIOC
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+    .. list-table:: MirrorClientIOC pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - mirrored
+           - ``mirrored``
+           - 
+           - float (:class:`ai <caproto.server.records.records.AiFields>`)
+           - 
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~MirrorClientIOC.group_read
+       ~MirrorClientIOC.group_write
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~MirrorClientIOC.default_values
+       ~MirrorClientIOC.type_map
+       ~MirrorClientIOC.type_map_read_only
+       ~MirrorClientIOC.pvdb
+       ~MirrorClientIOC.attr_pvdb
+       ~MirrorClientIOC.attr_to_pvname
+       ~MirrorClientIOC.groups
+    
+
+    
+    .. rubric:: pvproperty methods

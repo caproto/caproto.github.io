@@ -1,0 +1,50 @@
+﻿caproto.server.PVGroup
+======================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: PVGroup
+
+.. autoclass:: PVGroup
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PVGroup.group_read
+       ~PVGroup.group_write
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PVGroup.default_values
+       ~PVGroup.type_map
+       ~PVGroup.type_map_read_only
+       ~PVGroup.pvdb
+       ~PVGroup.attr_pvdb
+       ~PVGroup.attr_to_pvname
+       ~PVGroup.groups
+    
+
+    

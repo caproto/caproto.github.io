@@ -1,0 +1,91 @@
+﻿caproto.ioc\_examples.enums.EnumIOC
+===================================
+
+
+.. currentmodule:: caproto.ioc_examples.enums
+
+.. inheritance-diagram:: EnumIOC
+
+.. autoclass:: EnumIOC
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+    .. list-table:: EnumIOC pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - bi
+           - ``bi``
+           - 
+           - ENUM (:class:`bi <caproto.server.records.records.BiFields>`)
+           - 
+           - 
+    
+        *  - bo
+           - ``bo``
+           - 
+           - ENUM (:class:`bo <caproto.server.records.records.BoFields>`)
+           - 
+           - 
+    
+        *  - enum_class
+           - ``enum_class``
+           - 
+           - MyEnum (:class:`mbbi <caproto.server.records.records.MbbiFields>`)
+           - 
+           - 
+    
+        *  - mbbi
+           - ``mbbi``
+           - 
+           - ENUM (:class:`mbbi <caproto.server.records.records.MbbiFields>`)
+           - 
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~EnumIOC.group_read
+       ~EnumIOC.group_write
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~EnumIOC.default_values
+       ~EnumIOC.type_map
+       ~EnumIOC.type_map_read_only
+       ~EnumIOC.pvdb
+       ~EnumIOC.attr_pvdb
+       ~EnumIOC.attr_to_pvname
+       ~EnumIOC.groups
+    
+
+    
+    .. rubric:: pvproperty methods

@@ -1,0 +1,79 @@
+﻿caproto.ChannelDouble
+=====================
+
+
+.. currentmodule:: caproto
+
+.. inheritance-diagram:: ChannelDouble
+
+.. autoclass:: ChannelDouble
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~ChannelDouble.auth_read
+       ~ChannelDouble.auth_write
+       ~ChannelDouble.calculate_length
+       ~ChannelDouble.check_access
+       ~ChannelDouble.is_compatible_array
+       ~ChannelDouble.post_state_change
+       ~ChannelDouble.pre_state_change
+       ~ChannelDouble.preprocess_value
+       ~ChannelDouble.publish
+       ~ChannelDouble.read
+       ~ChannelDouble.subscribe
+       ~ChannelDouble.unsubscribe
+       ~ChannelDouble.update_fields
+       ~ChannelDouble.verify_value
+       ~ChannelDouble.write
+       ~ChannelDouble.write_from_dbr
+       ~ChannelDouble.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~ChannelDouble.alarm
+       ~ChannelDouble.data_type
+       ~ChannelDouble.default_value
+       ~ChannelDouble.epics_timestamp
+       ~ChannelDouble.length
+       ~ChannelDouble.lower_alarm_limit
+       ~ChannelDouble.lower_ctrl_limit
+       ~ChannelDouble.lower_disp_limit
+       ~ChannelDouble.lower_warning_limit
+       ~ChannelDouble.max_length
+       ~ChannelDouble.precision
+       ~ChannelDouble.severity
+       ~ChannelDouble.status
+       ~ChannelDouble.timestamp
+       ~ChannelDouble.units
+       ~ChannelDouble.upper_alarm_limit
+       ~ChannelDouble.upper_ctrl_limit
+       ~ChannelDouble.upper_disp_limit
+       ~ChannelDouble.upper_warning_limit
+       ~ChannelDouble.value
+       ~ChannelDouble.max_subscription_backlog
+    
+
+    

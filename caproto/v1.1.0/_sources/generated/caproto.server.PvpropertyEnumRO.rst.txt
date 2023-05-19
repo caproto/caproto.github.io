@@ -1,0 +1,86 @@
+﻿caproto.server.PvpropertyEnumRO
+===============================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: PvpropertyEnumRO
+
+.. autoclass:: PvpropertyEnumRO
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PvpropertyEnumRO.auth_read
+       ~PvpropertyEnumRO.auth_write
+       ~PvpropertyEnumRO.calculate_length
+       ~PvpropertyEnumRO.check_access
+       ~PvpropertyEnumRO.get_field
+       ~PvpropertyEnumRO.get_raw_value
+       ~PvpropertyEnumRO.is_compatible_array
+       ~PvpropertyEnumRO.post_state_change
+       ~PvpropertyEnumRO.pre_state_change
+       ~PvpropertyEnumRO.preprocess_value
+       ~PvpropertyEnumRO.publish
+       ~PvpropertyEnumRO.read
+       ~PvpropertyEnumRO.subscribe
+       ~PvpropertyEnumRO.unsubscribe
+       ~PvpropertyEnumRO.update_fields
+       ~PvpropertyEnumRO.verify_value
+       ~PvpropertyEnumRO.write
+       ~PvpropertyEnumRO.write_from_dbr
+       ~PvpropertyEnumRO.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PvpropertyEnumRO.alarm
+       ~PvpropertyEnumRO.data_type
+       ~PvpropertyEnumRO.default_value
+       ~PvpropertyEnumRO.enum_strings
+       ~PvpropertyEnumRO.epics_timestamp
+       ~PvpropertyEnumRO.length
+       ~PvpropertyEnumRO.max_length
+       ~PvpropertyEnumRO.raw_value
+       ~PvpropertyEnumRO.severity
+       ~PvpropertyEnumRO.status
+       ~PvpropertyEnumRO.timestamp
+       ~PvpropertyEnumRO.value
+       ~PvpropertyEnumRO.field_inst
+       ~PvpropertyEnumRO.fields
+       ~PvpropertyEnumRO.getter
+       ~PvpropertyEnumRO.group
+       ~PvpropertyEnumRO.log
+       ~PvpropertyEnumRO.name
+       ~PvpropertyEnumRO.putter
+       ~PvpropertyEnumRO.pvname
+       ~PvpropertyEnumRO.pvspec
+       ~PvpropertyEnumRO.record_type
+       ~PvpropertyEnumRO.scan
+       ~PvpropertyEnumRO.shutdown
+       ~PvpropertyEnumRO.startup
+       ~PvpropertyEnumRO.max_subscription_backlog
+    
+
+    
