@@ -85,6 +85,11 @@
        ~MemoryTracingHelper.default_values
        ~MemoryTracingHelper.type_map
        ~MemoryTracingHelper.type_map_read_only
+       ~MemoryTracingHelper.filters
+       ~MemoryTracingHelper.pvdb
+       ~MemoryTracingHelper.attr_pvdb
+       ~MemoryTracingHelper.attr_to_pvname
+       ~MemoryTracingHelper.groups
     
 
     

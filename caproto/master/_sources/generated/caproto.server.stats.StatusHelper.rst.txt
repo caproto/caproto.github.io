@@ -61,6 +61,10 @@
        ~StatusHelper.default_values
        ~StatusHelper.type_map
        ~StatusHelper.type_map_read_only
+       ~StatusHelper.pvdb
+       ~StatusHelper.attr_pvdb
+       ~StatusHelper.attr_to_pvname
+       ~StatusHelper.groups
     
 
     

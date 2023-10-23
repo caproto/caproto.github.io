@@ -55,6 +55,7 @@
     
        ~ChannelByte.alarm
        ~ChannelByte.data_type
+       ~ChannelByte.default_value
        ~ChannelByte.epics_timestamp
        ~ChannelByte.length
        ~ChannelByte.lower_alarm_limit
@@ -71,6 +72,7 @@
        ~ChannelByte.upper_disp_limit
        ~ChannelByte.upper_warning_limit
        ~ChannelByte.value
+       ~ChannelByte.max_subscription_backlog
     
 
     

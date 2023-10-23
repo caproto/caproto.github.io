@@ -37,6 +37,12 @@
 
     
     
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~VirtualCircuit.circuit
     
 
     

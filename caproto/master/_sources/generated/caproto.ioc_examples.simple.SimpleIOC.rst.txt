@@ -74,6 +74,10 @@
        ~SimpleIOC.default_values
        ~SimpleIOC.type_map
        ~SimpleIOC.type_map_read_only
+       ~SimpleIOC.pvdb
+       ~SimpleIOC.attr_pvdb
+       ~SimpleIOC.attr_to_pvname
+       ~SimpleIOC.groups
     
 
     

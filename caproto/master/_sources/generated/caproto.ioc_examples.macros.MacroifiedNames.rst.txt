@@ -67,6 +67,10 @@
        ~MacroifiedNames.default_values
        ~MacroifiedNames.type_map
        ~MacroifiedNames.type_map_read_only
+       ~MacroifiedNames.pvdb
+       ~MacroifiedNames.attr_pvdb
+       ~MacroifiedNames.attr_to_pvname
+       ~MacroifiedNames.groups
     
 
     

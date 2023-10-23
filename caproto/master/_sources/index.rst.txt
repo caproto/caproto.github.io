@@ -32,7 +32,7 @@ time, caproto is suitable for use at large experimental facilities.
 Try caproto in four lines
 ==========================
 
-First verify that you have Python 3.6+.
+First verify that you have Python 3.8+.
 
 .. code-block:: bash
 
@@ -124,13 +124,12 @@ formally committed resources to its continued support. If a facility makes a
 What about pvAccess?
 ====================
 
-Caproto offers *very* preliminary pvAccess support.  See more in the
-:doc:`pva/index` section.
+Caproto offered preliminary pvAccess support, but it has since been removed.
 
 Vital Statistics
 ================
 
-* Requirements: Python 3.6+ (no other required dependencies!)
+* Requirements: Python 3.8+ (no other required dependencies!)
 * License: 3-clause BSD
 
 Acknowledgement
@@ -178,15 +177,6 @@ learning exercises.
 
    basics
    api
-
-.. toctree::
-   :maxdepth: 4
-   :caption: pvAccess
-
-   pva/index
-   pva/clients
-   pva/iocs
-   pva/api
 
 .. toctree::
    :maxdepth: 2

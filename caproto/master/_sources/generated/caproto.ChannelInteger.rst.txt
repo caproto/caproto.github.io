@@ -55,6 +55,7 @@
     
        ~ChannelInteger.alarm
        ~ChannelInteger.data_type
+       ~ChannelInteger.default_value
        ~ChannelInteger.epics_timestamp
        ~ChannelInteger.length
        ~ChannelInteger.lower_alarm_limit
@@ -71,6 +72,7 @@
        ~ChannelInteger.upper_disp_limit
        ~ChannelInteger.upper_warning_limit
        ~ChannelInteger.value
+       ~ChannelInteger.max_subscription_backlog
     
 
     

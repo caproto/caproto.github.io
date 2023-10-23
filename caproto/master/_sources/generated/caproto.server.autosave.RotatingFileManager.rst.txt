@@ -41,6 +41,11 @@
        ~RotatingFileManager.directory
        ~RotatingFileManager.files_by_age
        ~RotatingFileManager.glob_string
+       ~RotatingFileManager.date_suffix
+       ~RotatingFileManager.filename
+       ~RotatingFileManager.log
+       ~RotatingFileManager.max_file_age
+       ~RotatingFileManager.max_files_per_day
     
 
     

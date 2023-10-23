@@ -56,6 +56,7 @@
     
        ~PvpropertyString.alarm
        ~PvpropertyString.data_type
+       ~PvpropertyString.default_value
        ~PvpropertyString.epics_timestamp
        ~PvpropertyString.length
        ~PvpropertyString.long_string_max_length
@@ -64,6 +65,20 @@
        ~PvpropertyString.status
        ~PvpropertyString.timestamp
        ~PvpropertyString.value
+       ~PvpropertyString.field_inst
+       ~PvpropertyString.fields
+       ~PvpropertyString.getter
+       ~PvpropertyString.group
+       ~PvpropertyString.log
+       ~PvpropertyString.name
+       ~PvpropertyString.putter
+       ~PvpropertyString.pvname
+       ~PvpropertyString.pvspec
+       ~PvpropertyString.record_type
+       ~PvpropertyString.scan
+       ~PvpropertyString.shutdown
+       ~PvpropertyString.startup
+       ~PvpropertyString.max_subscription_backlog
     
 
     

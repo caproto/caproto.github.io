@@ -1,99 +1,51 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Input-Output Controllers (IOCs) &mdash; caproto 0+untagged.1.g1e2dad8 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-  <link rel="stylesheet" href="_static/inheritance.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>Input-Output Controllers (IOCs) &mdash; caproto 0+untagged.1.g5a2cae9 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/inheritance.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/doctr-versions-menu.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=cb2fa7bc"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="_static/docs-versions-menu.js?v=302f4f97"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="caproto.server.PVGroup" href="generated/caproto.server.PVGroup.html" />
     <link rel="prev" title="Logging" href="loggers.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home"> caproto
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            caproto
           </a>
-
-          
-            
-            
               <div class="version">
-                0+untagged.1.g1e2dad8
+                0+untagged.1.g5a2cae9
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install Caproto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clients.html">Clients</a></li>
@@ -102,7 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
 </ul>
-<p class="caption"><span class="caption-text">IOCs</span></p>
+<p class="caption" role="heading"><span class="caption-text">IOCs</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Input-Output Controllers (IOCs)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#why-write-an-ioc-using-caproto">Why Write an IOC Using Caproto?</a></li>
@@ -156,11 +108,17 @@
 <li class="toctree-l3"><a class="reference internal" href="#reactive-design">Reactive design</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#help">Help!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#my-server-is-saying-high-load">My server is saying “High load”!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#this-warning-says-my-pv-will-take-up-a-considerable-amount-of-memory">This warning says my PV will take up a considerable amount of memory…</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i">How do I…</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#access-async-lib-directly-in-my-class">… access <code class="docutils literal notranslate"><span class="pre">async_lib</span></code> directly in my class?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#stop-every-pv-in-my-group-from-sharing-the-same-alarm">… stop every PV in my group from sharing the same alarm?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#make-a-string-pv-all-i-see-is-an-array-of-numbers">… make a string PV? All I see is an array of numbers!</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#structure-an-ioc-when-talking-to-a-real-piece-of-hardware">… structure an IOC when talking to a real piece of hardware?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interact-with-threaded-non-async-code-functions-and-libraries">… interact with threaded/non-async code, functions, and libraries?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-rid-of-pvgroup-and-pvproperty-i-hate-them">… get rid of PVGroup and pvproperty? I hate them!</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#represent-both-the-setpoint-and-readback-with-one-pvproperty">… represent both the setpoint and readback with one pvproperty?</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.get_pv_pair_wrapper.html">caproto.server.get_pv_pair_wrapper</a></li>
@@ -243,19 +201,12 @@
 <li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="server_api.html">Server API</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
+<p class="caption" role="heading"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Writing Your Own Channel Access Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Core API Documentation</a></li>
 </ul>
-<p class="caption"><span class="caption-text">pvAccess</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pva/index.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pva/clients.html">Synchronous Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pva/iocs.html">Input-Output Controllers (IOCs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pva/api.html">PVAccess API</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Appendix</span></p>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="protocol-compliance.html">Details of our Protocol Compliance for CA Nerds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
@@ -263,80 +214,39 @@
 <li class="toctree-l1"><a class="reference internal" href="containers.html">Caproto-in-a-box</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">caproto</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Input-Output Controllers (IOCs)</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Input-Output Controllers (IOCs)</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/iocs.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="input-output-controllers-iocs">
-<h1>Input-Output Controllers (IOCs)<a class="headerlink" href="#input-output-controllers-iocs" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="input-output-controllers-iocs">
+<h1>Input-Output Controllers (IOCs)<a class="headerlink" href="#input-output-controllers-iocs" title="Permalink to this heading">¶</a></h1>
 <p>EPICS Input-Output Controllers (IOCs) expose an EPICS server. Behind the
 server, they may connect to a device driver, data-processing code, and/or
 an EPICS client for chaining with other servers.</p>
 <p>In this section, we will review some of the example IOCs that are included with
 caproto, intended as demonstrations of what is possible.</p>
-<div class="section" id="why-write-an-ioc-using-caproto">
-<h2>Why Write an IOC Using Caproto?<a class="headerlink" href="#why-write-an-ioc-using-caproto" title="Permalink to this headline">¶</a></h2>
+<section id="why-write-an-ioc-using-caproto">
+<h2>Why Write an IOC Using Caproto?<a class="headerlink" href="#why-write-an-ioc-using-caproto" title="Permalink to this heading">¶</a></h2>
 <p>Caproto makes it is easy to launch a protocol-compliant Channel Access server
 in just a couple lines of Python. This opens up some interesting possibilities:</p>
 <ul class="simple">
@@ -353,48 +263,48 @@ logging, and debugging.</p></li>
 <p>Take a look around
 <a class="reference external" href="https://github.com/caproto/caproto/tree/master/caproto/ioc_examples">the ioc_examples subpackage</a> for
 more examples not covered in this document.</p>
-</div>
-<div class="section" id="using-the-ioc-examples">
-<h2>Using the IOC Examples<a class="headerlink" href="#using-the-ioc-examples" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-the-ioc-examples">
+<h2>Using the IOC Examples<a class="headerlink" href="#using-the-ioc-examples" title="Permalink to this heading">¶</a></h2>
 <p>They can be started like so:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m caproto.ioc_examples.simple
-<span class="o">[</span>I <span class="m">16</span>:51:09.751 server:93<span class="o">]</span> Server starting up...
-<span class="o">[</span>I <span class="m">16</span>:51:09.752 server:109<span class="o">]</span> Listening on <span class="m">0</span>.0.0.0:54966
-<span class="o">[</span>I <span class="m">16</span>:51:09.753 server:121<span class="o">]</span> Server startup complete.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>caproto.ioc_examples.simple
+<span class="o">[</span>I<span class="w"> </span><span class="m">16</span>:51:09.751<span class="w"> </span>server:93<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>starting<span class="w"> </span>up...
+<span class="o">[</span>I<span class="w"> </span><span class="m">16</span>:51:09.752<span class="w"> </span>server:109<span class="o">]</span><span class="w"> </span>Listening<span class="w"> </span>on<span class="w"> </span><span class="m">0</span>.0.0.0:54966
+<span class="o">[</span>I<span class="w"> </span><span class="m">16</span>:51:09.753<span class="w"> </span>server:121<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>startup<span class="w"> </span>complete.
 </pre></div>
 </div>
 <p>and stopped using Ctrl+C:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>^C
-<span class="o">[</span>I <span class="m">16</span>:51:10.828 server:129<span class="o">]</span> Server task cancelled. Must shut down.
-<span class="o">[</span>I <span class="m">16</span>:51:10.828 server:132<span class="o">]</span> Server exiting....
+<span class="o">[</span>I<span class="w"> </span><span class="m">16</span>:51:10.828<span class="w"> </span>server:129<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>task<span class="w"> </span>cancelled.<span class="w"> </span>Must<span class="w"> </span>shut<span class="w"> </span>down.
+<span class="o">[</span>I<span class="w"> </span><span class="m">16</span>:51:10.828<span class="w"> </span>server:132<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>exiting....
 </pre></div>
 </div>
 <p>Use <code class="docutils literal notranslate"><span class="pre">--list-pvs</span></code> to display which PVs they serve:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m caproto.ioc_examples.simple --list-pvs
-<span class="o">[</span>I <span class="m">16</span>:52:36.087 server:93<span class="o">]</span> Server starting up...
-<span class="o">[</span>I <span class="m">16</span>:52:36.089 server:109<span class="o">]</span> Listening on <span class="m">0</span>.0.0.0:62005
-<span class="o">[</span>I <span class="m">16</span>:52:36.089 server:121<span class="o">]</span> Server startup complete.
-<span class="o">[</span>I <span class="m">16</span>:52:36.089 server:123<span class="o">]</span> PVs available:
-    simple:A
-    simple:B
-    simple:C
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>caproto.ioc_examples.simple<span class="w"> </span>--list-pvs
+<span class="o">[</span>I<span class="w"> </span><span class="m">16</span>:52:36.087<span class="w"> </span>server:93<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>starting<span class="w"> </span>up...
+<span class="o">[</span>I<span class="w"> </span><span class="m">16</span>:52:36.089<span class="w"> </span>server:109<span class="o">]</span><span class="w"> </span>Listening<span class="w"> </span>on<span class="w"> </span><span class="m">0</span>.0.0.0:62005
+<span class="o">[</span>I<span class="w"> </span><span class="m">16</span>:52:36.089<span class="w"> </span>server:121<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>startup<span class="w"> </span>complete.
+<span class="o">[</span>I<span class="w"> </span><span class="m">16</span>:52:36.089<span class="w"> </span>server:123<span class="o">]</span><span class="w"> </span>PVs<span class="w"> </span>available:
+<span class="w">    </span>simple:A
+<span class="w">    </span>simple:B
+<span class="w">    </span>simple:C
 </pre></div>
 </div>
 <p>and use <code class="docutils literal notranslate"><span class="pre">--prefix</span></code> to conveniently customize the PV prefix:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m caproto.ioc_examples.simple --list-pvs --prefix my_custom_prefix:
-<span class="o">[</span>I <span class="m">16</span>:54:14.528 server:93<span class="o">]</span> Server starting up...
-<span class="o">[</span>I <span class="m">16</span>:54:14.530 server:109<span class="o">]</span> Listening on <span class="m">0</span>.0.0.0:55810
-<span class="o">[</span>I <span class="m">16</span>:54:14.530 server:121<span class="o">]</span> Server startup complete.
-<span class="o">[</span>I <span class="m">16</span>:54:14.530 server:123<span class="o">]</span> PVs available:
-    my_custom_prefix:A
-    my_custom_prefix:B
-    my_custom_prefix:C
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>caproto.ioc_examples.simple<span class="w"> </span>--list-pvs<span class="w"> </span>--prefix<span class="w"> </span>my_custom_prefix:
+<span class="o">[</span>I<span class="w"> </span><span class="m">16</span>:54:14.528<span class="w"> </span>server:93<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>starting<span class="w"> </span>up...
+<span class="o">[</span>I<span class="w"> </span><span class="m">16</span>:54:14.530<span class="w"> </span>server:109<span class="o">]</span><span class="w"> </span>Listening<span class="w"> </span>on<span class="w"> </span><span class="m">0</span>.0.0.0:55810
+<span class="o">[</span>I<span class="w"> </span><span class="m">16</span>:54:14.530<span class="w"> </span>server:121<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>startup<span class="w"> </span>complete.
+<span class="o">[</span>I<span class="w"> </span><span class="m">16</span>:54:14.530<span class="w"> </span>server:123<span class="o">]</span><span class="w"> </span>PVs<span class="w"> </span>available:
+<span class="w">    </span>my_custom_prefix:A
+<span class="w">    </span>my_custom_prefix:B
+<span class="w">    </span>my_custom_prefix:C
 </pre></div>
 </div>
 <p>Type <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">caproto.ioc_examples.simple</span> <span class="pre">-h</span></code> for more options.</p>
-</div>
-<div class="section" id="pvgroup">
-<h2>PVGroup<a class="headerlink" href="#pvgroup" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="pvgroup">
+<h2>PVGroup<a class="headerlink" href="#pvgroup" title="Permalink to this heading">¶</a></h2>
 <p>The <a class="reference internal" href="generated/caproto.server.PVGroup.html#caproto.server.PVGroup" title="caproto.server.PVGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">PVGroup</span></code></a> is a container for <code class="docutils literal notranslate"><span class="pre">pvproperty</span></code>
 instances which determine how to represent the group’s contents as EPICS
 process variables (PVs).</p>
@@ -427,21 +337,21 @@ an async library backend to use:</p>
 </pre></div>
 </div>
 <p>The above would allow you to access <code class="docutils literal notranslate"><span class="pre">prefix:my_pv</span></code> over Channel Access.</p>
-<div class="section" id="group-write">
-<h3>group_write<a class="headerlink" href="#group-write" title="Permalink to this headline">¶</a></h3>
+<section id="group-write">
+<h3>group_write<a class="headerlink" href="#group-write" title="Permalink to this heading">¶</a></h3>
 <p>By default, if an explicit putter hook is not supplied for a given
 <cite>.pvproperty</cite>, an implicit one defined in the group will be used.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyGroup</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
     <span class="k">async</span> <span class="k">def</span> <span class="nf">group_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Generic write called for channels without `put` defined.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generic write called for channels without `put` defined.&quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">instance</span><span class="o">.</span><span class="n">pvspec</span><span class="o">.</span><span class="n">attr</span><span class="si">}</span><span class="s2"> was written to with </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This can be used to generically handle or modify the put handling of
 any pvproperty in the group.</p>
-</div>
-<div class="section" id="alarms">
-<h3>Alarms<a class="headerlink" href="#alarms" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="alarms">
+<h3>Alarms<a class="headerlink" href="#alarms" title="Permalink to this heading">¶</a></h3>
 <p>PVGroup by default has an <code class="docutils literal notranslate"><span class="pre">alarms</span></code> attribute which is defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alarms</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="n">ChannelAlarm</span><span class="p">)</span>
 </pre></div>
@@ -462,32 +372,28 @@ convention.</p>
 instance share the same alarm instance - as their key to the above dictionary
 is left at the default value. This is usually a reasonable guess for small
 groups of PVs.</p>
-</div>
-<div class="section" id="api">
-<h3>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+</section>
+<section id="api">
+<h3>API<a class="headerlink" href="#api" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PVGroup.html#caproto.server.PVGroup" title="caproto.server.PVGroup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PVGroup</span></code></a>(prefix, *[, macros, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PVGroup.html#caproto.server.PVGroup" title="caproto.server.PVGroup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PVGroup</span></code></a>(prefix, *[, macros, ...])</p></td>
 <td><p>Class which groups a set of PVs for a high-level caproto server</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="pvproperty">
-<h2>pvproperty<a class="headerlink" href="#pvproperty" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="pvproperty">
+<h2>pvproperty<a class="headerlink" href="#pvproperty" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> combines information as to how to represent your information
 over EPICS Channel Access and provides easy-to-use hooks for reacting to
 certain events – by hooking user-provided Python methods.</p>
-<div class="section" id="basic-configuration">
-<h3>Basic configuration<a class="headerlink" href="#basic-configuration" title="Permalink to this headline">¶</a></h3>
+<section id="basic-configuration">
+<h3>Basic configuration<a class="headerlink" href="#basic-configuration" title="Permalink to this heading">¶</a></h3>
 <p>Only one keyword argument is truly required: either <code class="docutils literal notranslate"><span class="pre">value</span></code> or <code class="docutils literal notranslate"><span class="pre">dtype</span></code>.</p>
-<div class="section" id="value-or-dtype">
-<h4><code class="docutils literal notranslate"><span class="pre">value</span></code> or <code class="docutils literal notranslate"><span class="pre">dtype</span></code><a class="headerlink" href="#value-or-dtype" title="Permalink to this headline">¶</a></h4>
+<section id="value-or-dtype">
+<h4><code class="docutils literal notranslate"><span class="pre">value</span></code> or <code class="docutils literal notranslate"><span class="pre">dtype</span></code><a class="headerlink" href="#value-or-dtype" title="Permalink to this heading">¶</a></h4>
 <p>If you specify a <code class="docutils literal notranslate"><span class="pre">value</span></code> keyword argument, the <code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> will assume its
 data type based on the supported data types table.  That is, if you give a
 value of <code class="docutils literal notranslate"><span class="pre">1</span></code>, dtype will be assumed to be <code class="docutils literal notranslate"><span class="pre">int</span></code> and the pvproperty will
@@ -513,9 +419,9 @@ such as <code class="docutils literal notranslate"><span class="pre">dtype=Chann
     <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="name">
-<h4><code class="docutils literal notranslate"><span class="pre">name</span></code><a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="name">
+<h4><code class="docutils literal notranslate"><span class="pre">name</span></code><a class="headerlink" href="#name" title="Permalink to this heading">¶</a></h4>
 <p>Properties in Python are a bit magical in their own right - <code class="docutils literal notranslate"><span class="pre">property</span></code>, when
 defined on a class, is aware of the name you have given it (by way of the
 <code class="docutils literal notranslate"><span class="pre">descriptor</span></code> protocol).</p>
@@ -523,9 +429,9 @@ defined on a class, is aware of the name you have given it (by way of the
 You are free to customize this, however, by specifying <code class="docutils literal notranslate"><span class="pre">name=&quot;PV:SUFFIX&quot;</span></code>
 where <code class="docutils literal notranslate"><span class="pre">PV:SUFFIX</span></code> is your desired suffix to be appended to the parent
 <code class="docutils literal notranslate"><span class="pre">PVGroup</span></code> prefix.</p>
-</div>
-<div class="section" id="doc">
-<h4><code class="docutils literal notranslate"><span class="pre">doc</span></code><a class="headerlink" href="#doc" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="doc">
+<h4><code class="docutils literal notranslate"><span class="pre">doc</span></code><a class="headerlink" href="#doc" title="Permalink to this heading">¶</a></h4>
 <p>Please consider documenting what each individual property does by adding a
 human-understandable explanation string to the <code class="docutils literal notranslate"><span class="pre">doc</span></code> keyword argument.</p>
 <p>This will be picked up by automatic documentation generation utilities
@@ -535,13 +441,13 @@ over EPICS with the <code class="docutils literal notranslate"><span class="pre"
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_property</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">record</span><span class="o">=</span><span class="s1">&#39;ai&#39;</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;My property&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ caget prefix:my_property.DESC
-prefix:my_property.DESC        My property
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>caget<span class="w"> </span>prefix:my_property.DESC
+prefix:my_property.DESC<span class="w">        </span>My<span class="w"> </span>property
 </pre></div>
 </div>
-</div>
-<div class="section" id="alarm-group">
-<h4><code class="docutils literal notranslate"><span class="pre">alarm_group</span></code><a class="headerlink" href="#alarm-group" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="alarm-group">
+<h4><code class="docutils literal notranslate"><span class="pre">alarm_group</span></code><a class="headerlink" href="#alarm-group" title="Permalink to this heading">¶</a></h4>
 <p>By default, pvproperties in a given PVGroup instance share the same alarm
 instance.</p>
 <p>This is usually a reasonable guess for small groups of PVs.  For finer-grained
@@ -549,9 +455,9 @@ customization, the easiest way to change this functionality is to specify a
 per-pvproperty alarm group using the <code class="docutils literal notranslate"><span class="pre">alarm_group</span></code> keyword argument.  It
 expects a string identifier, which should be reused on all other pvproperties
 that are to share the alarm instance.</p>
-</div>
-<div class="section" id="max-length">
-<h4><code class="docutils literal notranslate"><span class="pre">max_length</span></code><a class="headerlink" href="#max-length" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="max-length">
+<h4><code class="docutils literal notranslate"><span class="pre">max_length</span></code><a class="headerlink" href="#max-length" title="Permalink to this heading">¶</a></h4>
 <p>This is the length of the array (when used with integers, floats) or the
 number of characters in a character or byte string.</p>
 <p>By default, it will be the length of the <code class="docutils literal notranslate"><span class="pre">value</span></code> that is passed in - or <code class="docutils literal notranslate"><span class="pre">1</span></code>
@@ -559,9 +465,9 @@ for scalar values.</p>
 <p>EPICS clients expect to know the maximum length of an array at connection
 time and may not properly handle it changing dynamically.  As such,
 <code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> allows you to customize the size at property definition-time.</p>
-</div>
-<div class="section" id="record">
-<h4><code class="docutils literal notranslate"><span class="pre">record</span></code><a class="headerlink" href="#record" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="record">
+<h4><code class="docutils literal notranslate"><span class="pre">record</span></code><a class="headerlink" href="#record" title="Permalink to this heading">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> allows you to pretend your value has common EPICS record fields.
 For example, it is possible to report a given property as an analog input
 (<code class="docutils literal notranslate"><span class="pre">ai</span></code>) record:</p>
@@ -569,9 +475,9 @@ For example, it is possible to report a given property as an analog input
 </pre></div>
 </div>
 <p>More on this in a later section.</p>
-</div>
-<div class="section" id="hooks">
-<h4>Hooks<a class="headerlink" href="#hooks" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="hooks">
+<h4>Hooks<a class="headerlink" href="#hooks" title="Permalink to this heading">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">put</span></code>, <code class="docutils literal notranslate"><span class="pre">startup</span></code>, <code class="docutils literal notranslate"><span class="pre">shutdown</span></code>, <code class="docutils literal notranslate"><span class="pre">scan</span></code> may be passed in directly with
 the <code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> for reuse among multiple properties or to avoid the
 decorator syntax (the generally preferred syntax, shown in detail in later
@@ -584,26 +490,21 @@ sections).</p>
 <span class="n">pv_b</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">put</span><span class="o">=</span><span class="n">single_write</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;The second PV&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="other-arguments">
-<h4>Other arguments<a class="headerlink" href="#other-arguments" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="other-arguments">
+<h4>Other arguments<a class="headerlink" href="#other-arguments" title="Permalink to this heading">¶</a></h4>
 <p>Other arguments will be passed to the <code class="docutils literal notranslate"><span class="pre">ChannelData</span></code> instance as-is.   For
 example, these allow you to customize special classes such as <code class="docutils literal notranslate"><span class="pre">ChannelEnum</span></code>
 which may take in <code class="docutils literal notranslate"><span class="pre">enum_strings</span></code> - which would, of course, be unacceptable
 for a floating point value.</p>
-</div>
-</div>
-<div class="section" id="supported-data-types">
-<h3>Supported data types<a class="headerlink" href="#supported-data-types" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="supported-data-types">
+<h3>Supported data types<a class="headerlink" href="#supported-data-types" title="Permalink to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">value</span></code> may be an instance of one of the following, or <code class="docutils literal notranslate"><span class="pre">dtype</span></code> may be
 one of the following types:</p>
-<table class="docutils align-default" id="id4">
-<caption><span class="caption-text">Built-in Data Type Mapping</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">Built-in Data Type Mapping</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Data Type</p></th>
 <th class="head"><p>Data Class</p></th>
@@ -641,13 +542,8 @@ one of the following types:</p>
 <p>If you desire finer-grained control over the data type provided (e.g., you
 specifically want a 32-bit float instead of a 64-bit double), you may
 use the appropriate <cite>ChannelType</cite> directly:</p>
-<table class="docutils align-default" id="id5">
-<caption><span class="caption-text">ChannelType Mapping</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text">ChannelType Mapping</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Data Type</p></th>
 <th class="head"><p>Data Class</p></th>
@@ -685,13 +581,13 @@ use the appropriate <cite>ChannelType</cite> directly:</p>
 </tr>
 </tbody>
 </table>
-<div class="section" id="integers-and-floats">
-<h4>Integers and floats<a class="headerlink" href="#integers-and-floats" title="Permalink to this headline">¶</a></h4>
+<section id="integers-and-floats">
+<h4>Integers and floats<a class="headerlink" href="#integers-and-floats" title="Permalink to this heading">¶</a></h4>
 <p>Integer and floating point values by default map to the largest containers
 in EPICS - 32-bit integers and 64-bit floats, respectively.</p>
-</div>
-<div class="section" id="strings">
-<h4>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="strings">
+<h4>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">¶</a></h4>
 <p>Strings are a bit complicated when it comes to EPICS and caproto follows suit.</p>
 <p>At minimum, the following will work to store up to 40 character strings:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span>
@@ -722,10 +618,10 @@ strings.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="enums">
-<h4>Enums<a class="headerlink" href="#enums" title="Permalink to this headline">¶</a></h4>
-<p>A new syntax for specifying enums using built-in <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></a> is
+</section>
+<section id="enums">
+<h4>Enums<a class="headerlink" href="#enums" title="Permalink to this heading">¶</a></h4>
+<p>A new syntax for specifying enums using built-in <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></a> is
 recommended:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">caproto.server</span> <span class="kn">import</span> <span class="n">PVGroup</span><span class="p">,</span> <span class="n">pvproperty</span>
 <span class="kn">import</span> <span class="nn">enum</span>
@@ -762,22 +658,22 @@ recommended:</p>
 <p>For the above mbbi records, the <code class="docutils literal notranslate"><span class="pre">ZRST</span></code> (zero string) field, <code class="docutils literal notranslate"><span class="pre">ONST</span></code> (one
 string) field, and so on (up to 15), are similarly respected and mapped from
 the enum strings (keyword argument or <code class="docutils literal notranslate"><span class="pre">IntEnum</span></code> class).</p>
-</div>
-<div class="section" id="booleans">
-<h4>Booleans<a class="headerlink" href="#booleans" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="booleans">
+<h4>Booleans<a class="headerlink" href="#booleans" title="Permalink to this heading">¶</a></h4>
 <p>Boolean values map to an enum type, with “Off” and “On” as the default
 strings.</p>
 <p>When using either the <code class="docutils literal notranslate"><span class="pre">bi</span></code> or <code class="docutils literal notranslate"><span class="pre">bo</span></code> records, the <code class="docutils literal notranslate"><span class="pre">ZNAM</span></code> and <code class="docutils literal notranslate"><span class="pre">ONAM</span></code>
 fields are automatically populated with the string equivalent values for 0 and
 1.  These are derived from the <code class="docutils literal notranslate"><span class="pre">enum_strings</span></code> keyword argument.</p>
-</div>
-</div>
-<div class="section" id="id1">
-<h3>Hooks<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="id1">
+<h3>Hooks<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <p>Hooks allow you to react to certain events that happen during the life of
 the IOC by providing your own methods.</p>
-<div class="section" id="putter-hook">
-<h4>Putter Hook<a class="headerlink" href="#putter-hook" title="Permalink to this headline">¶</a></h4>
+<section id="putter-hook">
+<h4>Putter Hook<a class="headerlink" href="#putter-hook" title="Permalink to this heading">¶</a></h4>
 <p>This is the most common hook you will need when writing a caproto-based IOC.</p>
 <p>The “putter” associated with a <code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> is called whenever a user writes
 to the associated PV through any client (<code class="docutils literal notranslate"><span class="pre">caput</span></code>, <code class="docutils literal notranslate"><span class="pre">caproto-put</span></code>, pyepics,
@@ -787,7 +683,7 @@ caproto clients, and so on) and also when you write directly to it in code.</p>
 
 <span class="nd">@my_property</span><span class="o">.</span><span class="n">putter</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">my_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Startup hook for ``my_property``.</span>
 
 <span class="sd">    Parameters</span>
@@ -831,14 +727,14 @@ Otherwise, the implicit value of <code class="docutils literal notranslate"><spa
 <p>Additionally, you may completely reject the write entirely by raising the
 <cite>.SkipWrite</cite> exception.  This is a non-error exception which will leave the
 previously-stored value intact.</p>
-</div>
-<div class="section" id="startup-hook">
-<h4>Startup Hook<a class="headerlink" href="#startup-hook" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="startup-hook">
+<h4>Startup Hook<a class="headerlink" href="#startup-hook" title="Permalink to this heading">¶</a></h4>
 <p>This hook is executed when the IOC starts up.</p>
 <p>An example of usage and the required method signature is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@my_property</span><span class="o">.</span><span class="n">startup</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">my_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Startup hook for ``my_property``.</span>
 
 <span class="sd">    Parameters</span>
@@ -865,14 +761,14 @@ layer that is in use.  It is considered good practice to use, for example,
 <code class="docutils literal notranslate"><span class="pre">async_lib.sleep</span></code> instead of <code class="docutils literal notranslate"><span class="pre">asyncio.sleep</span></code> – or similarly
 <code class="docutils literal notranslate"><span class="pre">trio.sleep</span></code>, <code class="docutils literal notranslate"><span class="pre">curio.sleep</span></code>.  This will allow your IOC to work no matter if
 you decide to use asyncio, curio, or trio as your async library.</p>
-</div>
-<div class="section" id="shutdown-hook">
-<h4>Shutdown Hook<a class="headerlink" href="#shutdown-hook" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="shutdown-hook">
+<h4>Shutdown Hook<a class="headerlink" href="#shutdown-hook" title="Permalink to this heading">¶</a></h4>
 <p>This hook is executed when the IOC shuts down.</p>
 <p>An example of usage and the required method signature is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@my_property</span><span class="o">.</span><span class="n">shutdown</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">my_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Shutdown hook for ``my_property``.</span>
 
 <span class="sd">    Parameters</span>
@@ -889,14 +785,14 @@ you decide to use asyncio, curio, or trio as your async library.</p>
 </div>
 <p>See the startup hook section above for more details on what these parameters
 mean.</p>
-</div>
-<div class="section" id="scan-hook">
-<h4>Scan Hook<a class="headerlink" href="#scan-hook" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="scan-hook">
+<h4>Scan Hook<a class="headerlink" href="#scan-hook" title="Permalink to this heading">¶</a></h4>
 <p>This hook is executed periodically, with the exact rate depending on its
 configuration.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@my_property</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">my_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Scan hook for ``my_property``.</span>
 
 <span class="sd">    Parameters</span>
@@ -918,43 +814,35 @@ to further customize how the routine is called.  For example, it is possible
 to stop the scan routine when an exception happens (<code class="docutils literal notranslate"><span class="pre">stop_on_error=True</span></code>)
 or let users put to the <code class="docutils literal notranslate"><span class="pre">.SCAN</span></code> field (when using <code class="docutils literal notranslate"><span class="pre">record=&quot;...&quot;</span></code>) to
 change the rate to common EPICS-defined ones.</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.scan_wrapper.html#caproto.server.scan_wrapper" title="caproto.server.scan_wrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.scan_wrapper</span></code></a>(scan_function, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.scan_wrapper.html#caproto.server.scan_wrapper" title="caproto.server.scan_wrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.scan_wrapper</span></code></a>(scan_function, ...)</p></td>
 <td><p>Wrap a function intended for <cite>pvproperty.scan</cite> with common logic to periodically call it.</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="id2">
-<h3>API<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+</section>
+</section>
+<section id="id2">
+<h3>API<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.pvproperty.html#caproto.server.pvproperty" title="caproto.server.pvproperty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.pvproperty</span></code></a>([get, put, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.pvproperty.html#caproto.server.pvproperty" title="caproto.server.pvproperty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.pvproperty</span></code></a>([get, put, ...])</p></td>
 <td><p>A property-like descriptor for specifying a PV in a <cite>PVGroup</cite>.</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="general-tips">
-<h2>General Tips<a class="headerlink" href="#general-tips" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="don-t-use-a-getter">
-<h3>Don’t use a getter<a class="headerlink" href="#don-t-use-a-getter" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="general-tips">
+<h2>General Tips<a class="headerlink" href="#general-tips" title="Permalink to this heading">¶</a></h2>
+<section id="don-t-use-a-getter">
+<h3>Don’t use a getter<a class="headerlink" href="#don-t-use-a-getter" title="Permalink to this heading">¶</a></h3>
 <p>Generally speaking, you should not define a getter. This goes back to original
 design decisions for how <code class="docutils literal notranslate"><span class="pre">pvproperty</span></code> instances could work. The authors
 now know that this was a mistake to make easily accessible.</p>
-<div class="section" id="why">
-<h4>Why?<a class="headerlink" href="#why" title="Permalink to this headline">¶</a></h4>
+<section id="why">
+<h4>Why?<a class="headerlink" href="#why" title="Permalink to this heading">¶</a></h4>
 <p>Inclusion of a getter can unfortunately make value monitoring less intuitive at
 best, or break its functionality at worst.</p>
 <p>There is no way to monitor such a value for changes, as it requires calling
@@ -964,22 +852,44 @@ getter performs a write to update the instance, all other clients watching
 <code class="docutils literal notranslate"><span class="pre">YOUR:PV</span></code> will then see an update. The more clients added to the mix, the
 more frequent that other clients will see updates - seemingly at arbitrary
 times.</p>
-</div>
-</div>
-<div class="section" id="reactive-design">
-<h3>Reactive design<a class="headerlink" href="#reactive-design" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="reactive-design">
+<h3>Reactive design<a class="headerlink" href="#reactive-design" title="Permalink to this heading">¶</a></h3>
 <p>Most of what your IOC does should be in response to what the user requests by
 way of <code class="docutils literal notranslate"><span class="pre">putter</span></code> hooks.</p>
 <p>Periodic updates should happen in <code class="docutils literal notranslate"><span class="pre">scan</span></code> loops.</p>
 <p>If PVGroup data is sourced from a database, real device, website, etc,
 then a different approach may be more appropriate.  See below in the “how do I”
 section.</p>
-</div>
-</div>
-<div class="section" id="how-do-i">
-<h2>How do I…<a class="headerlink" href="#how-do-i" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="access-async-lib-directly-in-my-class">
-<h3>… access <code class="docutils literal notranslate"><span class="pre">async_lib</span></code> directly in my class?<a class="headerlink" href="#access-async-lib-directly-in-my-class" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="help">
+<h2>Help!<a class="headerlink" href="#help" title="Permalink to this heading">¶</a></h2>
+<section id="my-server-is-saying-high-load">
+<h3>My server is saying “High load”!<a class="headerlink" href="#my-server-is-saying-high-load" title="Permalink to this heading">¶</a></h3>
+<p>You may have a real issue in your code, or you may have clients which are
+saturating your server with requests.</p>
+<p>Take a look at your code and see that you don’t have any synchronous (i.e.,
+threaded) code being run in your async functions.  This is really important.
+Defer it to an executor and you can avoid further headaches: see
+<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.run_in_executor">here</a>.</p>
+<p>If you just have a lot of clients hitting your server without any apparent
+negative effect, you can customize caproto’s server settings to not display
+this message.</p>
+</section>
+<section id="this-warning-says-my-pv-will-take-up-a-considerable-amount-of-memory">
+<h3>This warning says my PV will take up a considerable amount of memory…<a class="headerlink" href="#this-warning-says-my-pv-will-take-up-a-considerable-amount-of-memory" title="Permalink to this heading">¶</a></h3>
+<p>It’s probably true and it’s there to save you from the default settings.</p>
+<p>You may either set <code class="docutils literal notranslate"><span class="pre">max_subscription_backlog</span></code> for each of your big PVs
+manually, or let caproto tweak it for you in an automated fashion.</p>
+<p>See the environment variable section for details on what each variable means.</p>
+</section>
+</section>
+<section id="how-do-i">
+<h2>How do I…<a class="headerlink" href="#how-do-i" title="Permalink to this heading">¶</a></h2>
+<section id="access-async-lib-directly-in-my-class">
+<h3>… access <code class="docutils literal notranslate"><span class="pre">async_lib</span></code> directly in my class?<a class="headerlink" href="#access-async-lib-directly-in-my-class" title="Permalink to this heading">¶</a></h3>
 <p>If you have any startup hooks defined, you can stash <code class="docutils literal notranslate"><span class="pre">async_lib</span></code> there.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">thing</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;An integer-valued PV.&quot;</span><span class="p">)</span>
 
@@ -1005,18 +915,18 @@ section.</p>
 </div>
 <p>As an convention, consider naming your method <code class="docutils literal notranslate"><span class="pre">__ainit__</span></code>.</p>
 <p>See the full IOC example in <code class="docutils literal notranslate"><span class="pre">startup_and_shutdown_hooks</span></code>.</p>
-</div>
-<div class="section" id="stop-every-pv-in-my-group-from-sharing-the-same-alarm">
-<h3>… stop every PV in my group from sharing the same alarm?<a class="headerlink" href="#stop-every-pv-in-my-group-from-sharing-the-same-alarm" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="stop-every-pv-in-my-group-from-sharing-the-same-alarm">
+<h3>… stop every PV in my group from sharing the same alarm?<a class="headerlink" href="#stop-every-pv-in-my-group-from-sharing-the-same-alarm" title="Permalink to this heading">¶</a></h3>
 <p>By default, pvproperties in a given PVGroup instance share the same alarm
 instance. This is usually a reasonable guess for small groups of PVs.  For
 finer-grained customization, the easiest way to change this functionality is to
 specify a per-pvproperty alarm group using the <code class="docutils literal notranslate"><span class="pre">alarm_group</span></code> keyword
 argument.  It expects a string identifier, which should be reused on all other
 pvproperties that are expected to use the same alarm instance.</p>
-</div>
-<div class="section" id="make-a-string-pv-all-i-see-is-an-array-of-numbers">
-<h3>… make a string PV? All I see is an array of numbers!<a class="headerlink" href="#make-a-string-pv-all-i-see-is-an-array-of-numbers" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="make-a-string-pv-all-i-see-is-an-array-of-numbers">
+<h3>… make a string PV? All I see is an array of numbers!<a class="headerlink" href="#make-a-string-pv-all-i-see-is-an-array-of-numbers" title="Permalink to this heading">¶</a></h3>
 <p>If you have a short string that can fit into the EPICS definition of
 <code class="docutils literal notranslate"><span class="pre">DBR_STRING</span></code> - a maximum length of <code class="docutils literal notranslate"><span class="pre">MAX_STRING_SIZE</span> <span class="pre">=</span> <span class="pre">40</span></code> - you can use
 the following and not worry about anything further:</p>
@@ -1035,19 +945,19 @@ the following and not worry about anything further:</p>
 <p>There is a convention you may not have heard about, what caproto refers to as
 long string support, in which <code class="docutils literal notranslate"><span class="pre">DBR_STRING</span></code> values can be longer than 40
 characters when <strong>clients</strong> append a special character to the PV name:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ caget -S my_property.$ my_property.VAL$
-my_property.$ String value
-my_property.VAL$ String value
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>caget<span class="w"> </span>-S<span class="w"> </span>my_property.$<span class="w"> </span>my_property.VAL$
+my_property.$<span class="w"> </span>String<span class="w"> </span>value
+my_property.VAL$<span class="w"> </span>String<span class="w"> </span>value
 
-$ caput -S my_property.VAL$ <span class="m">1234567890123456789012345678901234567890123456789012345678901234567890</span>
-Old : my_property.VAL$ String value
-New my_property.VAL$ <span class="m">1234567890123456789012345678901234567890123456789012345678901234567890</span>
+$<span class="w"> </span>caput<span class="w"> </span>-S<span class="w"> </span>my_property.VAL$<span class="w"> </span><span class="m">1234567890123456789012345678901234567890123456789012345678901234567890</span>
+Old<span class="w"> </span>:<span class="w"> </span>my_property.VAL$<span class="w"> </span>String<span class="w"> </span>value
+New<span class="w"> </span>my_property.VAL$<span class="w"> </span><span class="m">1234567890123456789012345678901234567890123456789012345678901234567890</span>
 </pre></div>
 </div>
 <p>Note that the last string is 70 characters long.  What happens if we request it
 as a regular string without the long string modifier now?</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ caget my_property
-my_property       <span class="m">1234567890123456789012345678901234567890</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>caget<span class="w"> </span>my_property
+my_property<span class="w">       </span><span class="m">1234567890123456789012345678901234567890</span>
 </pre></div>
 </div>
 <p>… it’s truncated to only 40 characters! There’s not much we can do about it,
@@ -1076,9 +986,9 @@ of [-127, 127].  These can also be used to represent arbitrarily long strings.</
 closely to the first example provided in this section.  You can access up
 to the first 40 characters of the string without any special modifiers to
 <code class="docutils literal notranslate"><span class="pre">caget</span></code> and <code class="docutils literal notranslate"><span class="pre">caput</span></code>, or <code class="docutils literal notranslate"><span class="pre">caproto-get</span></code> and <code class="docutils literal notranslate"><span class="pre">caproto-put</span></code>.</p>
-</div>
-<div class="section" id="structure-an-ioc-when-talking-to-a-real-piece-of-hardware">
-<h3>… structure an IOC when talking to a real piece of hardware?<a class="headerlink" href="#structure-an-ioc-when-talking-to-a-real-piece-of-hardware" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="structure-an-ioc-when-talking-to-a-real-piece-of-hardware">
+<h3>… structure an IOC when talking to a real piece of hardware?<a class="headerlink" href="#structure-an-ioc-when-talking-to-a-real-piece-of-hardware" title="Permalink to this heading">¶</a></h3>
 <p>When talking to a single device and requesting a bunch of different information
 from it to update a single <code class="docutils literal notranslate"><span class="pre">PVGroup</span></code> to represent its status, we recommend
 the inclusion of a polling loop.</p>
@@ -1087,7 +997,7 @@ the inclusion of a polling loop.</p>
 
 <span class="nd">@update_hook</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">use_scan_field</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">update_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Scan hook for ``update_hook``.</span>
 
 <span class="sd">    Parameters</span>
@@ -1114,7 +1024,7 @@ work required.  Consider using async_lib queues for this.</p>
 
 <span class="nd">@update_hook</span><span class="o">.</span><span class="n">startup</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">update_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Startup hook for ``update_hook``.</span>
 
 <span class="sd">    Parameters</span>
@@ -1144,7 +1054,7 @@ control flow decisions to make, instead consider something like:</p>
 
 <span class="nd">@update_hook</span><span class="o">.</span><span class="n">startup</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">update_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Startup hook for ``update_hook``.</span>
 
 <span class="sd">    Parameters</span>
@@ -1194,9 +1104,14 @@ control flow decisions to make, instead consider something like:</p>
                 <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="get-rid-of-pvgroup-and-pvproperty-i-hate-them">
-<h3>… get rid of PVGroup and pvproperty? I hate them!<a class="headerlink" href="#get-rid-of-pvgroup-and-pvproperty-i-hate-them" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="interact-with-threaded-non-async-code-functions-and-libraries">
+<h3>… interact with threaded/non-async code, functions, and libraries?<a class="headerlink" href="#interact-with-threaded-non-async-code-functions-and-libraries" title="Permalink to this heading">¶</a></h3>
+<p>Defer it to an executor:
+<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.run_in_executor">here</a>.</p>
+</section>
+<section id="get-rid-of-pvgroup-and-pvproperty-i-hate-them">
+<h3>… get rid of PVGroup and pvproperty? I hate them!<a class="headerlink" href="#get-rid-of-pvgroup-and-pvproperty-i-hate-them" title="Permalink to this heading">¶</a></h3>
 <p>Those are some strong words!</p>
 <p>caproto developers think the ease of customization and terseness of the class
 definition are positives - making it the easiest possible way to spin up an IOC
@@ -1208,9 +1123,9 @@ Take a look at the <code class="docutils literal notranslate"><span class="pre">
 <p>The second option is going down to the lowest level, working with
 <code class="docutils literal notranslate"><span class="pre">ChannelData</span></code> instances directly. Take a look at the advanced
 <code class="docutils literal notranslate"><span class="pre">type_varieties</span></code> example.</p>
-</div>
-<div class="section" id="represent-both-the-setpoint-and-readback-with-one-pvproperty">
-<h3>… represent both the setpoint and readback with one pvproperty?<a class="headerlink" href="#represent-both-the-setpoint-and-readback-with-one-pvproperty" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="represent-both-the-setpoint-and-readback-with-one-pvproperty">
+<h3>… represent both the setpoint and readback with one pvproperty?<a class="headerlink" href="#represent-both-the-setpoint-and-readback-with-one-pvproperty" title="Permalink to this heading">¶</a></h3>
 <p>EPICS V3 records mostly do not have support for this, and caproto does not try
 to improve upon the status quo.</p>
 <p>A common convention – areaDetector-style – where there are 2 PVs, one
@@ -1245,13 +1160,9 @@ re-usable and may be used to generate any number of such pairs.</p>
 <p>You can further customize the setpoint and readback keyword arguments
 by using <code class="docutils literal notranslate"><span class="pre">setpoint_kw</span></code> and <code class="docutils literal notranslate"><span class="pre">readback_kw</span></code>. For example, you can
 set different record types by specifying <code class="docutils literal notranslate"><span class="pre">setpoint_kw=dict(record=&quot;ao&quot;)</span></code>.</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.get_pv_pair_wrapper.html#caproto.server.get_pv_pair_wrapper" title="caproto.server.get_pv_pair_wrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.get_pv_pair_wrapper</span></code></a>([…])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.get_pv_pair_wrapper.html#caproto.server.get_pv_pair_wrapper" title="caproto.server.get_pv_pair_wrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.get_pv_pair_wrapper</span></code></a>([...])</p></td>
 <td><p>Generates a Subgroup class for a pair of PVs (setpoint and readback).</p></td>
 </tr>
 </tbody>
@@ -1261,14 +1172,14 @@ set different record types by specifying <code class="docutils literal notransla
 <p>The API of this changed in v0.7.0, making it easier to pass in class
 kwargs.</p>
 </div>
-</div>
-<div class="section" id="do-some-really-crazy-things-with-caproto">
-<h3>… do some really crazy things with caproto?<a class="headerlink" href="#do-some-really-crazy-things-with-caproto" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="do-some-really-crazy-things-with-caproto">
+<h3>… do some really crazy things with caproto?<a class="headerlink" href="#do-some-really-crazy-things-with-caproto" title="Permalink to this heading">¶</a></h3>
 <p>Take a look at the pathological IOC examples.  Take extra care not to run them
 in production!</p>
-</div>
-<div class="section" id="handle-records-and-what-are-the-limitations-there">
-<h3>… handle records and what are the limitations there?<a class="headerlink" href="#handle-records-and-what-are-the-limitations-there" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="handle-records-and-what-are-the-limitations-there">
+<h3>… handle records and what are the limitations there?<a class="headerlink" href="#handle-records-and-what-are-the-limitations-there" title="Permalink to this heading">¶</a></h3>
 <p>For any given pvproperty, you can specify a caproto-supported record type by
 way of the <code class="docutils literal notranslate"><span class="pre">record=''</span></code> keyword argument.</p>
 <p>Please note that none of the classes listed here implement the full
@@ -1282,9 +1193,9 @@ customize this functionality in your own implementations.</p>
 <li><p>In/out links do not work</p></li>
 <li><p>Many fields are not (yet) implemented</p></li>
 </ul>
-</div>
-<div class="section" id="add-a-client-to-monitor-other-pvs">
-<h3>… add a client to monitor other PVs?<a class="headerlink" href="#add-a-client-to-monitor-other-pvs" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="add-a-client-to-monitor-other-pvs">
+<h3>… add a client to monitor other PVs?<a class="headerlink" href="#add-a-client-to-monitor-other-pvs" title="Permalink to this heading">¶</a></h3>
 <p>As of the time of writing, the threading client is more well-tested than the
 asyncio client, and an example <code class="xref py py-mod docutils literal notranslate"><span class="pre">thread_client_monitor</span></code> was written
 around it.</p>
@@ -1303,7 +1214,7 @@ asyncio-only:</p>
 
 
 <span class="k">class</span> <span class="nc">MirrorClientIOC</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An IOC which mirrors the value, timestamp, and alarm status of a given PV</span>
 <span class="sd">    into the `mirrored` pvproperty.</span>
 
@@ -1363,13 +1274,9 @@ asyncio-only:</p>
     <span class="n">run</span><span class="p">(</span><span class="n">ioc</span><span class="o">.</span><span class="n">pvdb</span><span class="p">,</span> <span class="n">startup_hook</span><span class="o">=</span><span class="n">ioc</span><span class="o">.</span><span class="n">__ainit__</span><span class="p">,</span> <span class="o">**</span><span class="n">run_options</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.client_monitor_async.MirrorClientIOC.html#caproto.ioc_examples.client_monitor_async.MirrorClientIOC" title="caproto.ioc_examples.client_monitor_async.MirrorClientIOC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.client_monitor_async.MirrorClientIOC</span></code></a>(…)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.client_monitor_async.MirrorClientIOC.html#caproto.ioc_examples.client_monitor_async.MirrorClientIOC" title="caproto.ioc_examples.client_monitor_async.MirrorClientIOC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.client_monitor_async.MirrorClientIOC</span></code></a>(...)</p></td>
 <td><p>An IOC which mirrors the value, timestamp, and alarm status of a given PV into the <cite>mirrored</cite> pvproperty.</p></td>
 </tr>
 </tbody>
@@ -1382,7 +1289,7 @@ your IOC on the following example instead:</p>
 
 
 <span class="k">class</span> <span class="nc">Mirror</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Subscribe to a PV and serve its value.</span>
 
 <span class="sd">    The default prefix is ``mirror:``.</span>
@@ -1436,20 +1343,16 @@ your IOC on the following example instead:</p>
     <span class="n">run</span><span class="p">(</span><span class="n">ioc</span><span class="o">.</span><span class="n">pvdb</span><span class="p">,</span> <span class="o">**</span><span class="n">run_options</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.mirror.Mirror.html#caproto.ioc_examples.mirror.Mirror" title="caproto.ioc_examples.mirror.Mirror"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.mirror.Mirror</span></code></a>(*args, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.mirror.Mirror.html#caproto.ioc_examples.mirror.Mirror" title="caproto.ioc_examples.mirror.Mirror"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.mirror.Mirror</span></code></a>(*args, ...)</p></td>
 <td><p>Subscribe to a PV and serve its value.</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="get-custom-arguments-into-my-ioc">
-<h3>… get custom arguments into my IOC?<a class="headerlink" href="#get-custom-arguments-into-my-ioc" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="get-custom-arguments-into-my-ioc">
+<h3>… get custom arguments into my IOC?<a class="headerlink" href="#get-custom-arguments-into-my-ioc" title="Permalink to this heading">¶</a></h3>
 <p>At the moment, the easiest way to get a custom argument into an IOC is by
 specifying a macro with a default value to
 <a class="reference internal" href="generated/caproto.server.ioc_arg_parser.html#caproto.server.ioc_arg_parser" title="caproto.server.ioc_arg_parser"><code class="xref py py-func docutils literal notranslate"><span class="pre">caproto.server.ioc_arg_parser()</span></code></a>.</p>
@@ -1477,21 +1380,21 @@ in the <code class="docutils literal notranslate"><span class="pre">chirp</span>
 <p>If your needs are more advanced, feel free to reimplement the above functions.
 So long as you can instantiate your PVGroup and pass its pvdb to <code class="docutils literal notranslate"><span class="pre">run()</span></code>,
 caproto will not complain.</p>
-</div>
-<div class="section" id="use-macros-and-what-are-macros">
-<h3>… use macros? And what are macros?<a class="headerlink" href="#use-macros-and-what-are-macros" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="use-macros-and-what-are-macros">
+<h3>… use macros? And what are macros?<a class="headerlink" href="#use-macros-and-what-are-macros" title="Permalink to this heading">¶</a></h3>
 <p>Macros allow you to specify portions of PV names at IOC initialization-time
 instead of at PVGroup/pvproperty definition time.</p>
 <p>Macros can be used in addition to - or in place of - the default PV prefix.</p>
 <p>See the <a class="reference internal" href="generated/caproto.ioc_examples.macros.MacroifiedNames.html#caproto.ioc_examples.macros.MacroifiedNames" title="caproto.ioc_examples.macros.MacroifiedNames"><code class="xref py py-class docutils literal notranslate"><span class="pre">MacroifiedNames</span></code></a> for an example.</p>
-</div>
-<div class="section" id="make-a-bunch-of-caproto-iocs-without-all-the-boilerplate">
-<h3>… make a bunch of caproto IOCs without all the boilerplate?<a class="headerlink" href="#make-a-bunch-of-caproto-iocs-without-all-the-boilerplate" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="make-a-bunch-of-caproto-iocs-without-all-the-boilerplate">
+<h3>… make a bunch of caproto IOCs without all the boilerplate?<a class="headerlink" href="#make-a-bunch-of-caproto-iocs-without-all-the-boilerplate" title="Permalink to this heading">¶</a></h3>
 <p>Take a look at the cookiecutters.  You can generate a full Python package IOC
 template along with a startup script template pretty quickly with this tool.</p>
-</div>
-<div class="section" id="get-a-structured-view-of-my-pvgroup-on-the-client-side">
-<h3>… get a structured view of my PVGroup on the client side?<a class="headerlink" href="#get-a-structured-view-of-my-pvgroup-on-the-client-side" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="get-a-structured-view-of-my-pvgroup-on-the-client-side">
+<h3>… get a structured view of my PVGroup on the client side?<a class="headerlink" href="#get-a-structured-view-of-my-pvgroup-on-the-client-side" title="Permalink to this heading">¶</a></h3>
 <p>(This is a shameless plug for our other free tools…)</p>
 <p>Consider trying <a class="reference external" href="https://blueskyproject.io/">ophyd</a>. devices as the
 client-side interface to your server-side caproto IOC.</p>
@@ -1502,10 +1405,10 @@ by way of bluesky</p></li>
 <li><p>Auto-generate EPICS user interfaces with Typhos and PyDM</p></li>
 <li><p>Track and organize your devices by way of happi</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <p>Below, we will use caproto’s threading client to interact with caproto IOC.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">caproto.threading.client</span> <span class="kn">import</span> <span class="n">Context</span>
 
@@ -1514,8 +1417,8 @@ by way of bluesky</p></li>
 </div>
 <p>Of course, standard epics-base clients or other caproto clients may also be
 used.</p>
-<div class="section" id="simple-ioc">
-<h3>Simple IOC<a class="headerlink" href="#simple-ioc" title="Permalink to this headline">¶</a></h3>
+<section id="simple-ioc">
+<h3>Simple IOC<a class="headerlink" href="#simple-ioc" title="Permalink to this heading">¶</a></h3>
 <p>This IOC has two PVs that simply store a value.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">dedent</span>
@@ -1524,7 +1427,7 @@ used.</p>
 
 
 <span class="k">class</span> <span class="nc">SimpleIOC</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An IOC with three uncoupled read/writable PVs.</span>
 
 <span class="sd">    Scalar PVs</span>
@@ -1558,25 +1461,21 @@ used.</p>
     <span class="n">run</span><span class="p">(</span><span class="n">ioc</span><span class="o">.</span><span class="n">pvdb</span><span class="p">,</span> <span class="o">**</span><span class="n">run_options</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.simple.SimpleIOC.html#caproto.ioc_examples.simple.SimpleIOC" title="caproto.ioc_examples.simple.SimpleIOC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.simple.SimpleIOC</span></code></a>(prefix, *)</p></td>
 <td><p>An IOC with three uncoupled read/writable PVs.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m caproto.ioc_examples.simple --list-pvs
-<span class="o">[</span>I <span class="m">18</span>:08:47.628 server:93<span class="o">]</span> Server starting up...
-<span class="o">[</span>I <span class="m">18</span>:08:47.630 server:109<span class="o">]</span> Listening on <span class="m">0</span>.0.0.0:56840
-<span class="o">[</span>I <span class="m">18</span>:08:47.630 server:121<span class="o">]</span> Server startup complete.
-<span class="o">[</span>I <span class="m">18</span>:08:47.630 server:123<span class="o">]</span> PVs available:
-    simple:A
-    simple:B
-    simple:C
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>caproto.ioc_examples.simple<span class="w"> </span>--list-pvs
+<span class="o">[</span>I<span class="w"> </span><span class="m">18</span>:08:47.628<span class="w"> </span>server:93<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>starting<span class="w"> </span>up...
+<span class="o">[</span>I<span class="w"> </span><span class="m">18</span>:08:47.630<span class="w"> </span>server:109<span class="o">]</span><span class="w"> </span>Listening<span class="w"> </span>on<span class="w"> </span><span class="m">0</span>.0.0.0:56840
+<span class="o">[</span>I<span class="w"> </span><span class="m">18</span>:08:47.630<span class="w"> </span>server:121<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>startup<span class="w"> </span>complete.
+<span class="o">[</span>I<span class="w"> </span><span class="m">18</span>:08:47.630<span class="w"> </span>server:123<span class="o">]</span><span class="w"> </span>PVs<span class="w"> </span>available:
+<span class="w">    </span>simple:A
+<span class="w">    </span>simple:B
+<span class="w">    </span>simple:C
 </pre></div>
 </div>
 <p>Using the threading client context we created above, we can read these values
@@ -1605,9 +1504,9 @@ and write to them.</p>
 <span class="gh">Out[10]: </span><span class="go">ReadNotifyResponse(data=array([4, 5, 6], dtype=int32), data_type=&lt;ChannelType.LONG: 5&gt;, data_count=3, status=CAStatusCode(name=&#39;ECA_NORMAL&#39;, code=0, code_with_severity=1, severity=&lt;CASeverity.SUCCESS: 1&gt;, success=1, defunct=False, description=&#39;Normal successful completion&#39;), ioid=6, metadata=None)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="write-to-a-file-when-a-pv-is-written-to">
-<h3>Write to a File When a PV is Written To<a class="headerlink" href="#write-to-a-file-when-a-pv-is-written-to" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="write-to-a-file-when-a-pv-is-written-to">
+<h3>Write to a File When a PV is Written To<a class="headerlink" href="#write-to-a-file-when-a-pv-is-written-to" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="kn">import</span> <span class="nn">pathlib</span>
 <span class="kn">import</span> <span class="nn">tempfile</span>
@@ -1617,7 +1516,7 @@ and write to them.</p>
 
 
 <span class="k">class</span> <span class="nc">CustomWrite</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    When a PV is written to, write the new value into a file as a string.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -1652,13 +1551,13 @@ and write to them.</p>
     <span class="n">run</span><span class="p">(</span><span class="n">ioc</span><span class="o">.</span><span class="n">pvdb</span><span class="p">,</span> <span class="o">**</span><span class="n">run_options</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m caproto.ioc_examples.custom_write --list-pvs
-<span class="o">[</span>I <span class="m">18</span>:12:07.282 server:93<span class="o">]</span> Server starting up...
-<span class="o">[</span>I <span class="m">18</span>:12:07.284 server:109<span class="o">]</span> Listening on <span class="m">0</span>.0.0.0:57539
-<span class="o">[</span>I <span class="m">18</span>:12:07.284 server:121<span class="o">]</span> Server startup complete.
-<span class="o">[</span>I <span class="m">18</span>:12:07.284 server:123<span class="o">]</span> PVs available:
-    custom_write:A
-    custom_write:B
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>caproto.ioc_examples.custom_write<span class="w"> </span>--list-pvs
+<span class="o">[</span>I<span class="w"> </span><span class="m">18</span>:12:07.282<span class="w"> </span>server:93<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>starting<span class="w"> </span>up...
+<span class="o">[</span>I<span class="w"> </span><span class="m">18</span>:12:07.284<span class="w"> </span>server:109<span class="o">]</span><span class="w"> </span>Listening<span class="w"> </span>on<span class="w"> </span><span class="m">0</span>.0.0.0:57539
+<span class="o">[</span>I<span class="w"> </span><span class="m">18</span>:12:07.284<span class="w"> </span>server:121<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>startup<span class="w"> </span>complete.
+<span class="o">[</span>I<span class="w"> </span><span class="m">18</span>:12:07.284<span class="w"> </span>server:123<span class="o">]</span><span class="w"> </span>PVs<span class="w"> </span>available:
+<span class="w">    </span>custom_write:A
+<span class="w">    </span>custom_write:B
 </pre></div>
 </div>
 <p>On the machine where the server resides, we will see files update whenever any
@@ -1688,18 +1587,14 @@ client writes.</p>
 </div>
 <p>It is easy to imagine extending this example to write a socket or a serial
 device rather than a file.</p>
-</div>
-<div class="section" id="random-walk">
-<h3>Random Walk<a class="headerlink" href="#random-walk" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="random-walk">
+<h3>Random Walk<a class="headerlink" href="#random-walk" title="Permalink to this heading">¶</a></h3>
 <p>This example contains a PV <code class="docutils literal notranslate"><span class="pre">random_walk:x</span></code> that takes random steps at an
 update rate controlled by a second PV, <code class="docutils literal notranslate"><span class="pre">random_walk:dt</span></code>.</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.random_walk.RandomWalkIOC.html#caproto.ioc_examples.random_walk.RandomWalkIOC" title="caproto.ioc_examples.random_walk.RandomWalkIOC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.random_walk.RandomWalkIOC</span></code></a>(…)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.random_walk.RandomWalkIOC.html#caproto.ioc_examples.random_walk.RandomWalkIOC" title="caproto.ioc_examples.random_walk.RandomWalkIOC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.random_walk.RandomWalkIOC</span></code></a>(...)</p></td>
 <td><p>This example contains a PV <code class="docutils literal notranslate"><span class="pre">x</span></code> that takes random steps at an update rate controlled by a second PV, <code class="docutils literal notranslate"><span class="pre">dt</span></code>.</p></td>
 </tr>
 </tbody>
@@ -1712,7 +1607,7 @@ update rate controlled by a second PV, <code class="docutils literal notranslate
 
 
 <span class="k">class</span> <span class="nc">RandomWalkIOC</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This example contains a PV ``x`` that takes random steps at an update rate</span>
 <span class="sd">    controlled by a second PV, ``dt``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1721,7 +1616,7 @@ update rate controlled by a second PV, <code class="docutils literal notranslate
 
     <span class="nd">@x</span><span class="o">.</span><span class="n">startup</span>
     <span class="k">async</span> <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">async_lib</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This is a startup hook which periodically updates the value.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This is a startup hook which periodically updates the value.&quot;&quot;&quot;</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="c1"># Grab the current value from `self.x` and compute the next value:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">-</span> <span class="mf">1.0</span>
@@ -1761,20 +1656,16 @@ not specific to caproto. See for example
 <a class="reference external" href="https://stackoverflow.com/questions/46207991/what-does-yield-from-asyncio-sleepdelay-do">this StackOverflow post</a>
 for more information.</p>
 </div>
-</div>
-<div class="section" id="i-o-interrupt">
-<h3>I/O Interrupt<a class="headerlink" href="#i-o-interrupt" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="i-o-interrupt">
+<h3>I/O Interrupt<a class="headerlink" href="#i-o-interrupt" title="Permalink to this heading">¶</a></h3>
 <p>This example listens for key presses.</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.io_interrupt.start_io_interrupt_monitor.html#caproto.ioc_examples.io_interrupt.start_io_interrupt_monitor" title="caproto.ioc_examples.io_interrupt.start_io_interrupt_monitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.io_interrupt.start_io_interrupt_monitor</span></code></a>(…)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.io_interrupt.start_io_interrupt_monitor.html#caproto.ioc_examples.io_interrupt.start_io_interrupt_monitor" title="caproto.ioc_examples.io_interrupt.start_io_interrupt_monitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.io_interrupt.start_io_interrupt_monitor</span></code></a>(...)</p></td>
 <td><p>This function monitors the terminal it was run in for keystrokes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.io_interrupt.IOInterruptIOC.html#caproto.ioc_examples.io_interrupt.IOInterruptIOC" title="caproto.ioc_examples.io_interrupt.IOInterruptIOC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.io_interrupt.IOInterruptIOC</span></code></a>(…)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.io_interrupt.IOInterruptIOC.html#caproto.ioc_examples.io_interrupt.IOInterruptIOC" title="caproto.ioc_examples.io_interrupt.IOInterruptIOC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.io_interrupt.IOInterruptIOC</span></code></a>(...)</p></td>
 <td><p>An IOC that updates on keypress events.</p></td>
 </tr>
 </tbody>
@@ -1792,7 +1683,7 @@ for more information.</p>
 
 
 <span class="k">def</span> <span class="nf">start_io_interrupt_monitor</span><span class="p">(</span><span class="n">new_value_callback</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    This function monitors the terminal it was run in for keystrokes.</span>
 <span class="sd">    On each keystroke, it calls new_value_callback with the given keystroke.</span>
 
@@ -1840,7 +1731,7 @@ for more information.</p>
 
 
 <span class="k">class</span> <span class="nc">IOInterruptIOC</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An IOC that updates on keypress events.</span>
 
 <span class="sd">    PVs</span>
@@ -1891,49 +1782,45 @@ for more information.</p>
     <span class="n">run</span><span class="p">(</span><span class="n">ioc</span><span class="o">.</span><span class="n">pvdb</span><span class="p">,</span> <span class="o">**</span><span class="n">run_options</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m caproto.ioc_examples.io_interrupt --list-pvs
-<span class="o">[</span>I <span class="m">10</span>:18:57.643 server:132<span class="o">]</span> Server starting up...
-<span class="o">[</span>I <span class="m">10</span>:18:57.644 server:145<span class="o">]</span> Listening on <span class="m">0</span>.0.0.0:54583
-<span class="o">[</span>I <span class="m">10</span>:18:57.646 server:218<span class="o">]</span> Server startup complete.
-<span class="o">[</span>I <span class="m">10</span>:18:57.646 server:220<span class="o">]</span> PVs available:
-    io:keypress
-* keypress method called at server startup
-Started monitoring the keyboard outside of the async library
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>caproto.ioc_examples.io_interrupt<span class="w"> </span>--list-pvs
+<span class="o">[</span>I<span class="w"> </span><span class="m">10</span>:18:57.643<span class="w"> </span>server:132<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>starting<span class="w"> </span>up...
+<span class="o">[</span>I<span class="w"> </span><span class="m">10</span>:18:57.644<span class="w"> </span>server:145<span class="o">]</span><span class="w"> </span>Listening<span class="w"> </span>on<span class="w"> </span><span class="m">0</span>.0.0.0:54583
+<span class="o">[</span>I<span class="w"> </span><span class="m">10</span>:18:57.646<span class="w"> </span>server:218<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>startup<span class="w"> </span>complete.
+<span class="o">[</span>I<span class="w"> </span><span class="m">10</span>:18:57.646<span class="w"> </span>server:220<span class="o">]</span><span class="w"> </span>PVs<span class="w"> </span>available:
+<span class="w">    </span>io:keypress
+*<span class="w"> </span>keypress<span class="w"> </span>method<span class="w"> </span>called<span class="w"> </span>at<span class="w"> </span>server<span class="w"> </span>startup
+Started<span class="w"> </span>monitoring<span class="w"> </span>the<span class="w"> </span>keyboard<span class="w"> </span>outside<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>async<span class="w"> </span>library
 </pre></div>
 </div>
 <p>Typing causes updates to be sent to any client subscribed to <code class="docutils literal notranslate"><span class="pre">io:keypress</span></code>.
 If we monitoring using the commandline-client like so:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ caproto-monitor io:keypress
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>caproto-monitor<span class="w"> </span>io:keypress
 </pre></div>
 </div>
 <p>and go back to the server and type some keys:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>New keypress: <span class="s1">&#39;a&#39;</span>
-Saw new value on async side: <span class="s1">&#39;a&#39;</span>
-New keypress: <span class="s1">&#39;b&#39;</span>
-Saw new value on async side: <span class="s1">&#39;b&#39;</span>
-New keypress: <span class="s1">&#39;c&#39;</span>
-Saw new value on async side: <span class="s1">&#39;c&#39;</span>
-New keypress: <span class="s1">&#39;d&#39;</span>
-Saw new value on async side: <span class="s1">&#39;d&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>New<span class="w"> </span>keypress:<span class="w"> </span><span class="s1">&#39;a&#39;</span>
+Saw<span class="w"> </span>new<span class="w"> </span>value<span class="w"> </span>on<span class="w"> </span>async<span class="w"> </span>side:<span class="w"> </span><span class="s1">&#39;a&#39;</span>
+New<span class="w"> </span>keypress:<span class="w"> </span><span class="s1">&#39;b&#39;</span>
+Saw<span class="w"> </span>new<span class="w"> </span>value<span class="w"> </span>on<span class="w"> </span>async<span class="w"> </span>side:<span class="w"> </span><span class="s1">&#39;b&#39;</span>
+New<span class="w"> </span>keypress:<span class="w"> </span><span class="s1">&#39;c&#39;</span>
+Saw<span class="w"> </span>new<span class="w"> </span>value<span class="w"> </span>on<span class="w"> </span>async<span class="w"> </span>side:<span class="w"> </span><span class="s1">&#39;c&#39;</span>
+New<span class="w"> </span>keypress:<span class="w"> </span><span class="s1">&#39;d&#39;</span>
+Saw<span class="w"> </span>new<span class="w"> </span>value<span class="w"> </span>on<span class="w"> </span>async<span class="w"> </span>side:<span class="w"> </span><span class="s1">&#39;d&#39;</span>
 </pre></div>
 </div>
 <p>the client will receive the updates:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>io:keypress                               <span class="m">2018</span>-06-14 <span class="m">10</span>:19:04 <span class="o">[</span>b<span class="s1">&#39;d&#39;</span><span class="o">]</span>
-io:keypress                               <span class="m">2018</span>-06-14 <span class="m">10</span>:20:26 <span class="o">[</span>b<span class="s1">&#39;a&#39;</span><span class="o">]</span>
-io:keypress                               <span class="m">2018</span>-06-14 <span class="m">10</span>:20:26 <span class="o">[</span>b<span class="s1">&#39;s&#39;</span><span class="o">]</span>
-io:keypress                               <span class="m">2018</span>-06-14 <span class="m">10</span>:20:26 <span class="o">[</span>b<span class="s1">&#39;d&#39;</span><span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>io:keypress<span class="w">                               </span><span class="m">2018</span>-06-14<span class="w"> </span><span class="m">10</span>:19:04<span class="w"> </span><span class="o">[</span>b<span class="s1">&#39;d&#39;</span><span class="o">]</span>
+io:keypress<span class="w">                               </span><span class="m">2018</span>-06-14<span class="w"> </span><span class="m">10</span>:20:26<span class="w"> </span><span class="o">[</span>b<span class="s1">&#39;a&#39;</span><span class="o">]</span>
+io:keypress<span class="w">                               </span><span class="m">2018</span>-06-14<span class="w"> </span><span class="m">10</span>:20:26<span class="w"> </span><span class="o">[</span>b<span class="s1">&#39;s&#39;</span><span class="o">]</span>
+io:keypress<span class="w">                               </span><span class="m">2018</span>-06-14<span class="w"> </span><span class="m">10</span>:20:26<span class="w"> </span><span class="o">[</span>b<span class="s1">&#39;d&#39;</span><span class="o">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="macros-for-pv-names">
-<h3>Macros for PV names<a class="headerlink" href="#macros-for-pv-names" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+</section>
+<section id="macros-for-pv-names">
+<h3>Macros for PV names<a class="headerlink" href="#macros-for-pv-names" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.macros.MacroifiedNames.html#caproto.ioc_examples.macros.MacroifiedNames" title="caproto.ioc_examples.macros.MacroifiedNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.macros.MacroifiedNames</span></code></a>(…)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.macros.MacroifiedNames.html#caproto.ioc_examples.macros.MacroifiedNames" title="caproto.ioc_examples.macros.MacroifiedNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.macros.MacroifiedNames</span></code></a>(...)</p></td>
 <td><p>An IOC with PVs that have macro-ified names.</p></td>
 </tr>
 </tbody>
@@ -1945,7 +1832,7 @@ io:keypress                               <span class="m">2018</span>-06-14 <spa
 
 
 <span class="k">class</span> <span class="nc">MacroifiedNames</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An IOC with PVs that have macro-ified names.</span>
 
 <span class="sd">    Required macros: &quot;beamline&quot; and &quot;suffix&quot;</span>
@@ -1971,29 +1858,29 @@ io:keypress                               <span class="m">2018</span>-06-14 <spa
 </pre></div>
 </div>
 <p>The help string for this IOC contains two extra entries at the bottom:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m caproto.ioc_examples.macros -h
-usage: macros.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--prefix PREFIX<span class="o">]</span> <span class="o">[</span>-q <span class="p">|</span> -v<span class="o">]</span> <span class="o">[</span>--list-pvs<span class="o">]</span>
-                <span class="o">[</span>--async-lib <span class="o">{</span>asyncio,curio,trio<span class="o">}]</span>
-                <span class="o">[</span>--interfaces INTERFACES <span class="o">[</span>INTERFACES ...<span class="o">]]</span>
-                <span class="o">[</span>--beamline BEAMLINE<span class="o">]</span> <span class="o">[</span>--suffix SUFFIX<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>caproto.ioc_examples.macros<span class="w"> </span>-h
+usage:<span class="w"> </span>macros.py<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--prefix<span class="w"> </span>PREFIX<span class="o">]</span><span class="w"> </span><span class="o">[</span>-q<span class="w"> </span><span class="p">|</span><span class="w"> </span>-v<span class="o">]</span><span class="w"> </span><span class="o">[</span>--list-pvs<span class="o">]</span>
+<span class="w">                </span><span class="o">[</span>--async-lib<span class="w"> </span><span class="o">{</span>asyncio,curio,trio<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--interfaces<span class="w"> </span>INTERFACES<span class="w"> </span><span class="o">[</span>INTERFACES<span class="w"> </span>...<span class="o">]]</span>
+<span class="w">                </span><span class="o">[</span>--beamline<span class="w"> </span>BEAMLINE<span class="o">]</span><span class="w"> </span><span class="o">[</span>--suffix<span class="w"> </span>SUFFIX<span class="o">]</span>
 
-Run an IOC with PVs that have macro-ified names.
+Run<span class="w"> </span>an<span class="w"> </span>IOC<span class="w"> </span>with<span class="w"> </span>PVs<span class="w"> </span>that<span class="w"> </span>have<span class="w"> </span>macro-ified<span class="w"> </span>names.
 
-optional arguments:
+optional<span class="w"> </span>arguments:
 
 &lt;...snipped...&gt;
 
---beamline BEAMLINE   Macro substitution, optional
---suffix SUFFIX       Macro substitution, optional
+--beamline<span class="w"> </span>BEAMLINE<span class="w">   </span>Macro<span class="w"> </span>substitution,<span class="w"> </span>optional
+--suffix<span class="w"> </span>SUFFIX<span class="w">       </span>Macro<span class="w"> </span>substitution,<span class="w"> </span>optional
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m caproto.ioc_examples.macros --beamline XF31ID --suffix detector --list-pvs
-<span class="o">[</span>I <span class="m">18</span>:44:39.528 server:93<span class="o">]</span> Server starting up...
-<span class="o">[</span>I <span class="m">18</span>:44:39.530 server:109<span class="o">]</span> Listening on <span class="m">0</span>.0.0.0:56365
-<span class="o">[</span>I <span class="m">18</span>:44:39.531 server:121<span class="o">]</span> Server startup complete.
-<span class="o">[</span>I <span class="m">18</span>:44:39.531 server:123<span class="o">]</span> PVs available:
-    macros:XF31ID:detector.VAL
-    macros:XF31ID:detector.RBV
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>caproto.ioc_examples.macros<span class="w"> </span>--beamline<span class="w"> </span>XF31ID<span class="w"> </span>--suffix<span class="w"> </span>detector<span class="w"> </span>--list-pvs
+<span class="o">[</span>I<span class="w"> </span><span class="m">18</span>:44:39.528<span class="w"> </span>server:93<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>starting<span class="w"> </span>up...
+<span class="o">[</span>I<span class="w"> </span><span class="m">18</span>:44:39.530<span class="w"> </span>server:109<span class="o">]</span><span class="w"> </span>Listening<span class="w"> </span>on<span class="w"> </span><span class="m">0</span>.0.0.0:56365
+<span class="o">[</span>I<span class="w"> </span><span class="m">18</span>:44:39.531<span class="w"> </span>server:121<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>startup<span class="w"> </span>complete.
+<span class="o">[</span>I<span class="w"> </span><span class="m">18</span>:44:39.531<span class="w"> </span>server:123<span class="o">]</span><span class="w"> </span>PVs<span class="w"> </span>available:
+<span class="w">    </span>macros:XF31ID:detector.VAL
+<span class="w">    </span>macros:XF31ID:detector.RBV
 </pre></div>
 </div>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">pv</span><span class="p">,</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">get_pvs</span><span class="p">(</span><span class="s1">&#39;macros:XF31ID:detector.VAL&#39;</span><span class="p">)</span>
@@ -2003,9 +1890,9 @@ optional arguments:
 </pre></div>
 </div>
 <p>Observe that the command line arguments fill in the PV names.</p>
-</div>
-<div class="section" id="subgroups">
-<h3>Subgroups<a class="headerlink" href="#subgroups" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="subgroups">
+<h3>Subgroups<a class="headerlink" href="#subgroups" title="Permalink to this heading">¶</a></h3>
 <p>The PVGroup is designed to be nested, which provides a nice path toward future
 capability: IOCs that are natively “V7”, encoding semantic structure for PV
 Access clients and decomposing into flat PVs for Channel Access clients.</p>
@@ -2016,7 +1903,7 @@ Access clients and decomposing into flat PVs for Channel Access clients.</p>
 
 
 <span class="k">class</span> <span class="nc">MySubGroup</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Example group of PVs, where the prefix is defined on instantiation.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Example group of PVs, where the prefix is defined on instantiation.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">max_value</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -2069,68 +1956,70 @@ Access clients and decomposing into flat PVs for Channel Access clients.</p>
     <span class="n">run</span><span class="p">(</span><span class="n">ioc</span><span class="o">.</span><span class="n">pvdb</span><span class="p">,</span> <span class="o">**</span><span class="n">run_options</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m caproto.ioc_examples.subgroups --list-pvs
-random using the descriptor getter is: &lt;caproto.server.server.PvpropertyInteger object at 0x10928ffd0&gt;
-subgroup4 is: &lt;__main__.MyPVGroup.group4.subgroup4 object at 0x10928fe10&gt;
-subgroup4.random is: &lt;caproto.server.server.PvpropertyInteger object at 0x10928fef0&gt;
-<span class="o">[</span>I <span class="m">11</span>:08:35.074 server:132<span class="o">]</span> Server starting up...
-<span class="o">[</span>I <span class="m">11</span>:08:35.074 server:145<span class="o">]</span> Listening on <span class="m">0</span>.0.0.0:63336
-<span class="o">[</span>I <span class="m">11</span>:08:35.076 server:218<span class="o">]</span> Server startup complete.
-<span class="o">[</span>I <span class="m">11</span>:08:35.077 server:220<span class="o">]</span> PVs available:
-    subgroups:random
-    subgroups:RECORD_LIKE1.RTYP
-    subgroups:RECORD_LIKE1.VAL
-    subgroups:RECORD_LIKE1.DESC
-    subgroups:recordlike2.RTYP
-    subgroups:recordlike2.VAL
-    subgroups:recordlike2.DESC
-    subgroups:group1:random
-    subgroups:group2-random
-    subgroups:group3_prefix:random
-    subgroups:group4:subgroup4:random
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>caproto.ioc_examples.subgroups<span class="w"> </span>--list-pvs
+random<span class="w"> </span>using<span class="w"> </span>the<span class="w"> </span>descriptor<span class="w"> </span>getter<span class="w"> </span>is:<span class="w"> </span>&lt;caproto.server.server.PvpropertyInteger<span class="w"> </span>object<span class="w"> </span>at<span class="w"> </span>0x10928ffd0&gt;
+subgroup4<span class="w"> </span>is:<span class="w"> </span>&lt;__main__.MyPVGroup.group4.subgroup4<span class="w"> </span>object<span class="w"> </span>at<span class="w"> </span>0x10928fe10&gt;
+subgroup4.random<span class="w"> </span>is:<span class="w"> </span>&lt;caproto.server.server.PvpropertyInteger<span class="w"> </span>object<span class="w"> </span>at<span class="w"> </span>0x10928fef0&gt;
+<span class="o">[</span>I<span class="w"> </span><span class="m">11</span>:08:35.074<span class="w"> </span>server:132<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>starting<span class="w"> </span>up...
+<span class="o">[</span>I<span class="w"> </span><span class="m">11</span>:08:35.074<span class="w"> </span>server:145<span class="o">]</span><span class="w"> </span>Listening<span class="w"> </span>on<span class="w"> </span><span class="m">0</span>.0.0.0:63336
+<span class="o">[</span>I<span class="w"> </span><span class="m">11</span>:08:35.076<span class="w"> </span>server:218<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>startup<span class="w"> </span>complete.
+<span class="o">[</span>I<span class="w"> </span><span class="m">11</span>:08:35.077<span class="w"> </span>server:220<span class="o">]</span><span class="w"> </span>PVs<span class="w"> </span>available:
+<span class="w">    </span>subgroups:random
+<span class="w">    </span>subgroups:RECORD_LIKE1.RTYP
+<span class="w">    </span>subgroups:RECORD_LIKE1.VAL
+<span class="w">    </span>subgroups:RECORD_LIKE1.DESC
+<span class="w">    </span>subgroups:recordlike2.RTYP
+<span class="w">    </span>subgroups:recordlike2.VAL
+<span class="w">    </span>subgroups:recordlike2.DESC
+<span class="w">    </span>subgroups:group1:random
+<span class="w">    </span>subgroups:group2-random
+<span class="w">    </span>subgroups:group3_prefix:random
+<span class="w">    </span>subgroups:group4:subgroup4:random
 </pre></div>
 </div>
-</div>
-<div class="section" id="records">
-<span id="records-example"></span><h3>Records<a class="headerlink" href="#records" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="records">
+<span id="records-example"></span><h3>Records<a class="headerlink" href="#records" title="Permalink to this heading">¶</a></h3>
 <p>See <a class="reference internal" href="records.html"><span class="doc">Records</span></a>.</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.records.RecordMockingIOC.html#caproto.ioc_examples.records.RecordMockingIOC" title="caproto.ioc_examples.records.RecordMockingIOC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.records.RecordMockingIOC</span></code></a>(…)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.records.RecordMockingIOC.html#caproto.ioc_examples.records.RecordMockingIOC" title="caproto.ioc_examples.records.RecordMockingIOC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.records.RecordMockingIOC</span></code></a>(...)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
-<span class="kn">import</span> <span class="nn">caproto</span>
-<span class="kn">from</span> <span class="nn">caproto.server</span> <span class="kn">import</span> <span class="n">PVGroup</span><span class="p">,</span> <span class="n">ioc_arg_parser</span><span class="p">,</span> <span class="n">pvproperty</span><span class="p">,</span> <span class="n">run</span>
+<span class="kn">from</span> <span class="nn">caproto.server</span> <span class="kn">import</span> <span class="p">(</span><span class="n">PVGroup</span><span class="p">,</span> <span class="n">PvpropertyDouble</span><span class="p">,</span> <span class="n">PvpropertyInteger</span><span class="p">,</span>
+                            <span class="n">PvpropertyString</span><span class="p">,</span> <span class="n">ioc_arg_parser</span><span class="p">,</span> <span class="n">pvproperty</span><span class="p">,</span> <span class="n">run</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">caproto.server.records</span> <span class="kn">import</span> <span class="n">AiFields</span><span class="p">,</span> <span class="n">AoFields</span>
 
 
 <span class="k">class</span> <span class="nc">RecordMockingIOC</span><span class="p">(</span><span class="n">PVGroup</span><span class="p">):</span>
     <span class="c1"># Define three records, an analog input (ai) record:</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">record</span><span class="o">=</span><span class="s1">&#39;ai&#39;</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">PvpropertyDouble</span><span class="p">[</span><span class="n">AiFields</span><span class="p">],</span> <span class="n">record</span><span class="o">=</span><span class="n">AiFields</span><span class="p">)</span>
     <span class="c1"># And an analog output (ao) record:</span>
-    <span class="n">B</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">record</span><span class="o">=</span><span class="s1">&#39;ao&#39;</span><span class="p">,</span>
-                   <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">PvpropertyDouble</span><span class="p">,</span> <span class="n">record</span><span class="o">=</span><span class="n">AoFields</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
     <span class="c1"># and an ai with all the bells and whistles</span>
-    <span class="n">C</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-                   <span class="n">record</span><span class="o">=</span><span class="s1">&#39;ai&#39;</span><span class="p">,</span>
-                   <span class="n">upper_alarm_limit</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
-                   <span class="n">lower_alarm_limit</span><span class="o">=-</span><span class="mf">2.0</span><span class="p">,</span>
-                   <span class="n">upper_warning_limit</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-                   <span class="n">lower_warning_limit</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">,</span>
-                   <span class="n">upper_ctrl_limit</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
-                   <span class="n">lower_ctrl_limit</span><span class="o">=-</span><span class="mf">3.0</span><span class="p">,</span>
-                   <span class="n">units</span><span class="o">=</span><span class="s2">&quot;mm&quot;</span><span class="p">,</span>
-                   <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-                   <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;The C pvproperty&#39;</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">record</span><span class="o">=</span><span class="s2">&quot;ai&quot;</span><span class="p">,</span>
+        <span class="n">upper_alarm_limit</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+        <span class="n">lower_alarm_limit</span><span class="o">=-</span><span class="mf">2.0</span><span class="p">,</span>
+        <span class="n">upper_warning_limit</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">lower_warning_limit</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">upper_ctrl_limit</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
+        <span class="n">lower_ctrl_limit</span><span class="o">=-</span><span class="mf">3.0</span><span class="p">,</span>
+        <span class="n">units</span><span class="o">=</span><span class="s2">&quot;mm&quot;</span><span class="p">,</span>
+        <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;The C pvproperty&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="c1"># In the above, you&#39;ll note that we still support referencing records by</span>
+    <span class="c1"># their (string) name.  we recommend that you use the field classes (e.g.,</span>
+    <span class="c1"># AiFields) to be more explicit and allow your static analyzer to help</span>
+    <span class="c1"># check your code.</span>
 
     <span class="nd">@B</span><span class="o">.</span><span class="n">putter</span>
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">B</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_b_val_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">:</span> <span class="n">PvpropertyDouble</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="c1"># Mocked record will pick up the alarm status simply by us raising</span>
             <span class="c1"># an exception in the putter:</span>
@@ -2139,7 +2028,7 @@ subgroup4.random is: &lt;caproto.server.server.PvpropertyInteger object at 0x109
     <span class="c1"># It&#39;s also possible to modify some of the behavior of fields on a per-</span>
     <span class="c1"># record basis. The following function is called whenever A.RVAL is put to:</span>
     <span class="nd">@A</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">current_raw_value</span><span class="o">.</span><span class="n">putter</span>
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">A</span><span class="p">(</span><span class="n">fields</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_a_raw_put</span><span class="p">(</span><span class="n">fields</span><span class="p">:</span> <span class="n">AiFields</span><span class="p">,</span> <span class="n">instance</span><span class="p">:</span> <span class="n">PvpropertyInteger</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="c1"># However, somewhat confusingly, &#39;self&#39; in this case is the fields</span>
         <span class="c1"># associated with &#39;A&#39;. To access the IOC (i.e., the main PV group)</span>
         <span class="c1"># use the following:</span>
@@ -2148,25 +2037,25 @@ subgroup4.random is: &lt;caproto.server.server.PvpropertyInteger object at 0x109
         <span class="k">await</span> <span class="n">ioc</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="k">await</span> <span class="n">ioc</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
-    <span class="c1"># Similarly, you can refer to the fields by their usual PV name:</span>
-    <span class="nd">@B</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">RVAL</span><span class="o">.</span><span class="n">putter</span>
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">B</span><span class="p">(</span><span class="n">fields</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="nd">@B</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">current_raw_value</span><span class="o">.</span><span class="n">putter</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_b_raw_put</span><span class="p">(</span><span class="n">fields</span><span class="p">,</span> <span class="n">instance</span><span class="p">:</span> <span class="n">PvpropertyInteger</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="n">ioc</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">group</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B.RVAL: Writing modified values to A, B&#39;</span><span class="p">)</span>
         <span class="k">await</span> <span class="n">ioc</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
         <span class="k">await</span> <span class="n">ioc</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span>
 
     <span class="c1"># Now that the field specification has been set on B, it can be reused:</span>
-    <span class="n">D</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
-                   <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-                   <span class="n">field_spec</span><span class="o">=</span><span class="n">B</span><span class="o">.</span><span class="n">field_spec</span><span class="p">)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">field_spec</span><span class="o">=</span><span class="n">B</span><span class="o">.</span><span class="n">field_spec</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">PvpropertyDouble</span>
+    <span class="p">)</span>
     <span class="c1"># D will also be reported as an &#39;ao&#39; record like B, as it uses the same</span>
     <span class="c1"># field specification.</span>
 
-    <span class="n">E</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;this is a test&#39;</span><span class="p">,</span>
-                   <span class="n">record</span><span class="o">=</span><span class="s1">&#39;stringin&#39;</span><span class="p">,</span>
-                   <span class="n">dtype</span><span class="o">=</span><span class="n">caproto</span><span class="o">.</span><span class="n">ChannelType</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>
-                   <span class="p">)</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="s2">&quot;this is a test&quot;</span><span class="p">,</span>
+        <span class="n">record</span><span class="o">=</span><span class="s2">&quot;stringin&quot;</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">PvpropertyString</span><span class="p">,</span>
+    <span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
@@ -2191,103 +2080,87 @@ subgroup4.random is: &lt;caproto.server.server.PvpropertyInteger object at 0x109
     <span class="n">run</span><span class="p">(</span><span class="n">ioc</span><span class="o">.</span><span class="n">pvdb</span><span class="p">,</span> <span class="o">**</span><span class="n">run_options</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m caproto.ioc_examples.records --list-pvs
-PVs: <span class="o">[</span><span class="s1">&#39;mock:A&#39;</span>, <span class="s1">&#39;mock:B&#39;</span><span class="o">]</span>
-Fields of B: <span class="o">[</span><span class="s1">&#39;ACKS&#39;</span>, <span class="s1">&#39;ACKT&#39;</span>, <span class="s1">&#39;ASG&#39;</span>, <span class="s1">&#39;DESC&#39;</span>, <span class="s1">&#39;DISA&#39;</span>, <span class="s1">&#39;DISP&#39;</span>, <span class="s1">&#39;DISS&#39;</span>, <span class="s1">&#39;DISV&#39;</span>, <span class="s1">&#39;DTYP&#39;</span>, <span class="s1">&#39;EVNT&#39;</span>, <span class="s1">&#39;FLNK&#39;</span>, <span class="s1">&#39;LCNT&#39;</span>, <span class="s1">&#39;NAME&#39;</span>, <span class="s1">&#39;NSEV&#39;</span>, <span class="s1">&#39;NSTA&#39;</span>, <span class="s1">&#39;PACT&#39;</span>, <span class="s1">&#39;PHAS&#39;</span>, <span class="s1">&#39;PINI&#39;</span>, <span class="s1">&#39;PRIO&#39;</span>, <span class="s1">&#39;PROC&#39;</span>, <span class="s1">&#39;PUTF&#39;</span>, <span class="s1">&#39;RPRO&#39;</span>, <span class="s1">&#39;SCAN&#39;</span>, <span class="s1">&#39;SDIS&#39;</span>, <span class="s1">&#39;SEVR&#39;</span>, <span class="s1">&#39;TPRO&#39;</span>, <span class="s1">&#39;TSE&#39;</span>, <span class="s1">&#39;TSEL&#39;</span>, <span class="s1">&#39;UDF&#39;</span>, <span class="s1">&#39;RTYP&#39;</span>, <span class="s1">&#39;STAT&#39;</span>, <span class="s1">&#39;RVAL&#39;</span>, <span class="s1">&#39;INIT&#39;</span>, <span class="s1">&#39;MLST&#39;</span>, <span class="s1">&#39;LALM&#39;</span>, <span class="s1">&#39;ALST&#39;</span>, <span class="s1">&#39;LBRK&#39;</span>, <span class="s1">&#39;ORAW&#39;</span>, <span class="s1">&#39;ROFF&#39;</span>, <span class="s1">&#39;SIMM&#39;</span>, <span class="s1">&#39;SVAL&#39;</span>, <span class="s1">&#39;HYST&#39;</span>, <span class="s1">&#39;HIGH&#39;</span>, <span class="s1">&#39;HSV&#39;</span>, <span class="s1">&#39;HIHI&#39;</span>, <span class="s1">&#39;HHSV&#39;</span>, <span class="s1">&#39;LOLO&#39;</span>, <span class="s1">&#39;LLSV&#39;</span>, <span class="s1">&#39;LOW&#39;</span>, <span class="s1">&#39;LSV&#39;</span>, <span class="s1">&#39;AOFF&#39;</span>, <span class="s1">&#39;ASLO&#39;</span>, <span class="s1">&#39;EGUF&#39;</span>, <span class="s1">&#39;EGUL&#39;</span>, <span class="s1">&#39;LINR&#39;</span>, <span class="s1">&#39;EOFF&#39;</span>, <span class="s1">&#39;ESLO&#39;</span>, <span class="s1">&#39;SMOO&#39;</span>, <span class="s1">&#39;ADEL&#39;</span>, <span class="s1">&#39;PREC&#39;</span>, <span class="s1">&#39;EGU&#39;</span>, <span class="s1">&#39;HOPR&#39;</span>, <span class="s1">&#39;LOPR&#39;</span>, <span class="s1">&#39;MDEL&#39;</span>, <span class="s1">&#39;INP&#39;</span>, <span class="s1">&#39;SIOL&#39;</span>, <span class="s1">&#39;SIML&#39;</span>, <span class="s1">&#39;SIMS&#39;</span><span class="o">]</span>
-<span class="o">[</span>I <span class="m">11</span>:07:48.635 server:132<span class="o">]</span> Server starting up...
-<span class="o">[</span>I <span class="m">11</span>:07:48.636 server:145<span class="o">]</span> Listening on <span class="m">0</span>.0.0.0:49637
-<span class="o">[</span>I <span class="m">11</span>:07:48.638 server:218<span class="o">]</span> Server startup complete.
-<span class="o">[</span>I <span class="m">11</span>:07:48.638 server:220<span class="o">]</span> PVs available:
-    mock:A
-    mock:B
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>caproto.ioc_examples.records<span class="w"> </span>--list-pvs
+PVs:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;mock:A&#39;</span>,<span class="w"> </span><span class="s1">&#39;mock:B&#39;</span><span class="o">]</span>
+Fields<span class="w"> </span>of<span class="w"> </span>B:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;ACKS&#39;</span>,<span class="w"> </span><span class="s1">&#39;ACKT&#39;</span>,<span class="w"> </span><span class="s1">&#39;ASG&#39;</span>,<span class="w"> </span><span class="s1">&#39;DESC&#39;</span>,<span class="w"> </span><span class="s1">&#39;DISA&#39;</span>,<span class="w"> </span><span class="s1">&#39;DISP&#39;</span>,<span class="w"> </span><span class="s1">&#39;DISS&#39;</span>,<span class="w"> </span><span class="s1">&#39;DISV&#39;</span>,<span class="w"> </span><span class="s1">&#39;DTYP&#39;</span>,<span class="w"> </span><span class="s1">&#39;EVNT&#39;</span>,<span class="w"> </span><span class="s1">&#39;FLNK&#39;</span>,<span class="w"> </span><span class="s1">&#39;LCNT&#39;</span>,<span class="w"> </span><span class="s1">&#39;NAME&#39;</span>,<span class="w"> </span><span class="s1">&#39;NSEV&#39;</span>,<span class="w"> </span><span class="s1">&#39;NSTA&#39;</span>,<span class="w"> </span><span class="s1">&#39;PACT&#39;</span>,<span class="w"> </span><span class="s1">&#39;PHAS&#39;</span>,<span class="w"> </span><span class="s1">&#39;PINI&#39;</span>,<span class="w"> </span><span class="s1">&#39;PRIO&#39;</span>,<span class="w"> </span><span class="s1">&#39;PROC&#39;</span>,<span class="w"> </span><span class="s1">&#39;PUTF&#39;</span>,<span class="w"> </span><span class="s1">&#39;RPRO&#39;</span>,<span class="w"> </span><span class="s1">&#39;SCAN&#39;</span>,<span class="w"> </span><span class="s1">&#39;SDIS&#39;</span>,<span class="w"> </span><span class="s1">&#39;SEVR&#39;</span>,<span class="w"> </span><span class="s1">&#39;TPRO&#39;</span>,<span class="w"> </span><span class="s1">&#39;TSE&#39;</span>,<span class="w"> </span><span class="s1">&#39;TSEL&#39;</span>,<span class="w"> </span><span class="s1">&#39;UDF&#39;</span>,<span class="w"> </span><span class="s1">&#39;RTYP&#39;</span>,<span class="w"> </span><span class="s1">&#39;STAT&#39;</span>,<span class="w"> </span><span class="s1">&#39;RVAL&#39;</span>,<span class="w"> </span><span class="s1">&#39;INIT&#39;</span>,<span class="w"> </span><span class="s1">&#39;MLST&#39;</span>,<span class="w"> </span><span class="s1">&#39;LALM&#39;</span>,<span class="w"> </span><span class="s1">&#39;ALST&#39;</span>,<span class="w"> </span><span class="s1">&#39;LBRK&#39;</span>,<span class="w"> </span><span class="s1">&#39;ORAW&#39;</span>,<span class="w"> </span><span class="s1">&#39;ROFF&#39;</span>,<span class="w"> </span><span class="s1">&#39;SIMM&#39;</span>,<span class="w"> </span><span class="s1">&#39;SVAL&#39;</span>,<span class="w"> </span><span class="s1">&#39;HYST&#39;</span>,<span class="w"> </span><span class="s1">&#39;HIGH&#39;</span>,<span class="w"> </span><span class="s1">&#39;HSV&#39;</span>,<span class="w"> </span><span class="s1">&#39;HIHI&#39;</span>,<span class="w"> </span><span class="s1">&#39;HHSV&#39;</span>,<span class="w"> </span><span class="s1">&#39;LOLO&#39;</span>,<span class="w"> </span><span class="s1">&#39;LLSV&#39;</span>,<span class="w"> </span><span class="s1">&#39;LOW&#39;</span>,<span class="w"> </span><span class="s1">&#39;LSV&#39;</span>,<span class="w"> </span><span class="s1">&#39;AOFF&#39;</span>,<span class="w"> </span><span class="s1">&#39;ASLO&#39;</span>,<span class="w"> </span><span class="s1">&#39;EGUF&#39;</span>,<span class="w"> </span><span class="s1">&#39;EGUL&#39;</span>,<span class="w"> </span><span class="s1">&#39;LINR&#39;</span>,<span class="w"> </span><span class="s1">&#39;EOFF&#39;</span>,<span class="w"> </span><span class="s1">&#39;ESLO&#39;</span>,<span class="w"> </span><span class="s1">&#39;SMOO&#39;</span>,<span class="w"> </span><span class="s1">&#39;ADEL&#39;</span>,<span class="w"> </span><span class="s1">&#39;PREC&#39;</span>,<span class="w"> </span><span class="s1">&#39;EGU&#39;</span>,<span class="w"> </span><span class="s1">&#39;HOPR&#39;</span>,<span class="w"> </span><span class="s1">&#39;LOPR&#39;</span>,<span class="w"> </span><span class="s1">&#39;MDEL&#39;</span>,<span class="w"> </span><span class="s1">&#39;INP&#39;</span>,<span class="w"> </span><span class="s1">&#39;SIOL&#39;</span>,<span class="w"> </span><span class="s1">&#39;SIML&#39;</span>,<span class="w"> </span><span class="s1">&#39;SIMS&#39;</span><span class="o">]</span>
+<span class="o">[</span>I<span class="w"> </span><span class="m">11</span>:07:48.635<span class="w"> </span>server:132<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>starting<span class="w"> </span>up...
+<span class="o">[</span>I<span class="w"> </span><span class="m">11</span>:07:48.636<span class="w"> </span>server:145<span class="o">]</span><span class="w"> </span>Listening<span class="w"> </span>on<span class="w"> </span><span class="m">0</span>.0.0.0:49637
+<span class="o">[</span>I<span class="w"> </span><span class="m">11</span>:07:48.638<span class="w"> </span>server:218<span class="o">]</span><span class="w"> </span>Server<span class="w"> </span>startup<span class="w"> </span>complete.
+<span class="o">[</span>I<span class="w"> </span><span class="m">11</span>:07:48.638<span class="w"> </span>server:220<span class="o">]</span><span class="w"> </span>PVs<span class="w"> </span>available:
+<span class="w">    </span>mock:A
+<span class="w">    </span>mock:B
 </pre></div>
 </div>
-</div>
-<div class="section" id="mini-beamline">
-<h3>Mini-Beamline<a class="headerlink" href="#mini-beamline" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mini-beamline">
+<h3>Mini-Beamline<a class="headerlink" href="#mini-beamline" title="Permalink to this heading">¶</a></h3>
 <p>Simulate your own mini beamline with this IOC.</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.mini_beamline.html#module-caproto.ioc_examples.mini_beamline" title="caproto.ioc_examples.mini_beamline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.mini_beamline</span></code></a></p></td>
 <td><p>This example is quite large.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.mini_beamline.MiniBeamline.html#caproto.ioc_examples.mini_beamline.MiniBeamline" title="caproto.ioc_examples.mini_beamline.MiniBeamline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.mini_beamline.MiniBeamline</span></code></a>(…)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.mini_beamline.MiniBeamline.html#caproto.ioc_examples.mini_beamline.MiniBeamline" title="caproto.ioc_examples.mini_beamline.MiniBeamline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.mini_beamline.MiniBeamline</span></code></a>(...)</p></td>
 <td><p>A collection of detectors coupled to motors and an oscillating beam current.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.mini_beamline.PinHole.html#caproto.ioc_examples.mini_beamline.PinHole" title="caproto.ioc_examples.mini_beamline.PinHole"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.mini_beamline.PinHole</span></code></a>(…)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.mini_beamline.PinHole.html#caproto.ioc_examples.mini_beamline.PinHole" title="caproto.ioc_examples.mini_beamline.PinHole"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.mini_beamline.PinHole</span></code></a>(...)</p></td>
 <td><p>A pinhole simulation device.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.mini_beamline.Edge.html#caproto.ioc_examples.mini_beamline.Edge" title="caproto.ioc_examples.mini_beamline.Edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.mini_beamline.Edge</span></code></a>(…)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.mini_beamline.Edge.html#caproto.ioc_examples.mini_beamline.Edge" title="caproto.ioc_examples.mini_beamline.Edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.mini_beamline.Edge</span></code></a>(...)</p></td>
 <td><p>An edge simulation device.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.mini_beamline.Slit.html#caproto.ioc_examples.mini_beamline.Slit" title="caproto.ioc_examples.mini_beamline.Slit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.mini_beamline.Slit</span></code></a>(…)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.mini_beamline.Slit.html#caproto.ioc_examples.mini_beamline.Slit" title="caproto.ioc_examples.mini_beamline.Slit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.mini_beamline.Slit</span></code></a>(...)</p></td>
 <td><p>A slit simulation device.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.mini_beamline.MovingDot.html#caproto.ioc_examples.mini_beamline.MovingDot" title="caproto.ioc_examples.mini_beamline.MovingDot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.mini_beamline.MovingDot</span></code></a>(…)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.mini_beamline.MovingDot.html#caproto.ioc_examples.mini_beamline.MovingDot" title="caproto.ioc_examples.mini_beamline.MovingDot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.mini_beamline.MovingDot</span></code></a>(...)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="more">
-<h3>More…<a class="headerlink" href="#more" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="more">
+<h3>More…<a class="headerlink" href="#more" title="Permalink to this heading">¶</a></h3>
 <p>Take a look around
 <a class="reference external" href="https://github.com/caproto/caproto/tree/master/caproto/ioc_examples">the ioc_examples subpackage</a> for more examples not covered here.</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.enums.EnumIOC.html#caproto.ioc_examples.enums.EnumIOC" title="caproto.ioc_examples.enums.EnumIOC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.enums.EnumIOC</span></code></a>(prefix, *)</p></td>
 <td><p>An IOC with some enums.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.autosave.AutosavedSimpleIOC.html#caproto.ioc_examples.autosave.AutosavedSimpleIOC" title="caproto.ioc_examples.autosave.AutosavedSimpleIOC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.autosave.AutosavedSimpleIOC</span></code></a>(…)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.autosave.AutosavedSimpleIOC.html#caproto.ioc_examples.autosave.AutosavedSimpleIOC" title="caproto.ioc_examples.autosave.AutosavedSimpleIOC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.autosave.AutosavedSimpleIOC</span></code></a>(...)</p></td>
 <td><p>An IOC with three uncoupled read/writable PVs</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.decay.Decay.html#caproto.ioc_examples.decay.Decay" title="caproto.ioc_examples.decay.Decay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.decay.Decay</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Simulates an exponential decay to a set point.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.scan_rate.ScanRateIOC.html#caproto.ioc_examples.scan_rate.ScanRateIOC" title="caproto.ioc_examples.scan_rate.ScanRateIOC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.scan_rate.ScanRateIOC</span></code></a>(…)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ioc_examples.scan_rate.ScanRateIOC.html#caproto.ioc_examples.scan_rate.ScanRateIOC" title="caproto.ioc_examples.scan_rate.ScanRateIOC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ioc_examples.scan_rate.ScanRateIOC</span></code></a>(...)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="helpers">
-<h2>Helpers<a class="headerlink" href="#helpers" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="helpers">
+<h2>Helpers<a class="headerlink" href="#helpers" title="Permalink to this heading">¶</a></h2>
 <p>caproto offers several “helper” subgroups (<a class="reference internal" href="generated/caproto.server.SubGroup.html#caproto.server.SubGroup" title="caproto.server.SubGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubGroup</span></code></a>)
 that are of general use, and could be considered part of the “caproto server
 standard library”, so to speak.</p>
-<div class="section" id="autosave">
-<h3>Autosave<a class="headerlink" href="#autosave" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<section id="autosave">
+<h3>Autosave<a class="headerlink" href="#autosave" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.autosave.AutosaveHelper.html#caproto.server.autosave.AutosaveHelper" title="caproto.server.autosave.AutosaveHelper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AutosaveHelper</span></code></a>(*args, file_manager, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.autosave.AutosaveHelper.html#caproto.server.autosave.AutosaveHelper" title="caproto.server.autosave.AutosaveHelper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AutosaveHelper</span></code></a>(*args[, file_manager])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.autosave.RotatingFileManager.html#caproto.server.autosave.RotatingFileManager" title="caproto.server.autosave.RotatingFileManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RotatingFileManager</span></code></a>(filename, *[, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.autosave.RotatingFileManager.html#caproto.server.autosave.RotatingFileManager" title="caproto.server.autosave.RotatingFileManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RotatingFileManager</span></code></a>(filename, *[, ...])</p></td>
 <td><p>Save to a primary filename, while rotating out old copies.</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="status-statistics">
-<h3>Status / Statistics<a class="headerlink" href="#status-statistics" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+</section>
+<section id="status-statistics">
+<h3>Status / Statistics<a class="headerlink" href="#status-statistics" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.stats.StatusHelper.html#caproto.server.stats.StatusHelper" title="caproto.server.stats.StatusHelper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StatusHelper</span></code></a>(prefix, *[, macros, parent, name])</p></td>
 <td><p>An IocStats-like tool for caproto IOCs.</p></td>
@@ -2298,61 +2171,44 @@ standard library”, so to speak.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.stats.PeriodicStatusHelper.html#caproto.server.stats.PeriodicStatusHelper" title="caproto.server.stats.PeriodicStatusHelper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodicStatusHelper</span></code></a>(*args, **kwargs)</p></td>
 <td><p>An IocStats-like tool for caproto IOCs.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.stats.MemoryTracingHelper.html#caproto.server.stats.MemoryTracingHelper" title="caproto.server.stats.MemoryTracingHelper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MemoryTracingHelper</span></code></a>(*args, filters, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.stats.MemoryTracingHelper.html#caproto.server.stats.MemoryTracingHelper" title="caproto.server.stats.MemoryTracingHelper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MemoryTracingHelper</span></code></a>(*args[, filters])</p></td>
 <td><p>A helper which quickly allows for tracing memory usage and allocations on a caproto server instance.</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="generated/caproto.server.PVGroup.html" class="btn btn-neutral float-right" title="caproto.server.PVGroup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="loggers.html" class="btn btn-neutral float-left" title="Logging" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/caproto.server.PVGroup.html" class="btn btn-neutral float-right" title="caproto.server.PVGroup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Daniel Allan.
-
-    </p>
+    <p>&#169; Copyright 2021, Daniel Allan.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

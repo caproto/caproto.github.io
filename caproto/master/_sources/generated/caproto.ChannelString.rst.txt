@@ -55,6 +55,7 @@
     
        ~ChannelString.alarm
        ~ChannelString.data_type
+       ~ChannelString.default_value
        ~ChannelString.epics_timestamp
        ~ChannelString.length
        ~ChannelString.long_string_max_length
@@ -63,6 +64,7 @@
        ~ChannelString.status
        ~ChannelString.timestamp
        ~ChannelString.value
+       ~ChannelString.max_subscription_backlog
     
 
     

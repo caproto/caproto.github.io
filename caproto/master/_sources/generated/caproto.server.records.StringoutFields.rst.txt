@@ -36,7 +36,7 @@
         *  - access_security_group
            - ``ASG``
            - Access Security Group
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(29)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -45,7 +45,7 @@
         *  - alarm_acknowledge_severity
            - ``ACKS``
            - Alarm Ack Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -54,7 +54,7 @@
         *  - alarm_acknowledge_transient
            - ``ACKT``
            - Alarm Ack Transient
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -63,7 +63,7 @@
         *  - alarm_status
            - ``STAT``
            - Alarm Status
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -72,7 +72,7 @@
         *  - current_alarm_severity
            - ``SEVR``
            - Alarm Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -81,7 +81,7 @@
         *  - dbputfield_process
            - ``PUTF``
            - dbPutField process
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -90,7 +90,7 @@
         *  - description
            - ``DESC``
            - Descriptor
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(41)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -99,7 +99,7 @@
         *  - desired_output_loc
            - ``DOL``
            - Desired Output Loc
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.StringoutFields`
            - 
@@ -107,7 +107,7 @@
         *  - device_type
            - ``DTYP``
            - Device Type
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -115,7 +115,7 @@
         *  - disable
            - ``DISA``
            - Disable
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -123,7 +123,7 @@
         *  - disable_alarm_severity
            - ``DISS``
            - Disable Alarm Sevrty
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -131,7 +131,7 @@
         *  - disable_putfield
            - ``DISP``
            - Disable putField
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -139,7 +139,7 @@
         *  - disable_value
            - ``DISV``
            - Disable Value
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -147,7 +147,7 @@
         *  - event_name
            - ``EVNT``
            - Event Name
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(40)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -156,7 +156,7 @@
         *  - forward_link
            - ``FLNK``
            - Forward Process Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -164,7 +164,7 @@
         *  - invalid_output_action
            - ``IVOA``
            - INVALID output action
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.StringoutFields`
            - 
@@ -172,7 +172,7 @@
         *  - invalid_output_value
            - ``IVOV``
            - INVALID output value
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(40)
                  Inherited from :class:`~caproto.server.records.base.StringoutFields`
@@ -181,7 +181,7 @@
         *  - lock_count
            - ``LCNT``
            - Lock Count
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -190,7 +190,7 @@
         *  - new_alarm_severity
            - ``NSEV``
            - New Alarm Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -199,7 +199,7 @@
         *  - new_alarm_status
            - ``NSTA``
            - New Alarm Status
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -208,7 +208,7 @@
         *  - output_mode_select
            - ``OMSL``
            - Output Mode Select
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.StringoutFields`
            - 
@@ -216,7 +216,7 @@
         *  - output_specification
            - ``OUT``
            - Output Specification
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.StringoutFields`
            - 
@@ -224,7 +224,7 @@
         *  - post_archive_monitors
            - ``APST``
            - Post Archive Monitors
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.StringoutFields`
            - 
@@ -232,7 +232,7 @@
         *  - post_value_monitors
            - ``MPST``
            - Post Value Monitors
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.StringoutFields`
            - 
@@ -240,7 +240,7 @@
         *  - prev_simulation_mode
            - ``OLDSIMM``
            - Prev. Simulation Mode
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.StringoutFields`
@@ -249,7 +249,7 @@
         *  - previous_value
            - ``OVAL``
            - Previous Value
-           - CHAR 
+           - PvpropertyCharRO 
            - 
                  **Read-only**
                  Length(40)
@@ -259,7 +259,7 @@
         *  - process_at_iocinit
            - ``PINI``
            - Process at iocInit
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -267,7 +267,7 @@
         *  - process_record
            - ``PROC``
            - Force Processing
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -275,7 +275,7 @@
         *  - record_active
            - ``PACT``
            - Record active
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -284,7 +284,7 @@
         *  - record_name
            - ``NAME``
            - Record Name
-           - CHAR 
+           - PvpropertyCharRO 
            - 
                  **Read-only**
                  Length(61)
@@ -294,7 +294,7 @@
         *  - record_type
            - ``RTYP``
            - Record type
-           - STRING 
+           - PvpropertyStringRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
@@ -302,8 +302,8 @@
     
         *  - reprocess
            - ``RPRO``
-           - Reprocess 
-           - CHAR 
+           - Reprocess
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -312,7 +312,7 @@
         *  - scan_phase
            - ``PHAS``
            - Scan Phase
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -320,7 +320,7 @@
         *  - scan_rate
            - ``SCAN``
            - Scan Mechanism
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -328,7 +328,7 @@
         *  - scanning_disable
            - ``SDIS``
            - Scanning Disable
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -336,7 +336,7 @@
         *  - scheduling_priority
            - ``PRIO``
            - Scheduling Priority
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -344,7 +344,7 @@
         *  - sim_mode_async_delay
            - ``SDLY``
            - Sim. Mode Async Delay
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.StringoutFields`
            - 
@@ -352,7 +352,7 @@
         *  - sim_mode_scan
            - ``SSCN``
            - Sim. Mode Scan
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.StringoutFields`
            - 
@@ -360,7 +360,7 @@
         *  - simulation_mode
            - ``SIMM``
            - Simulation Mode
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.StringoutFields`
            - 
@@ -368,7 +368,7 @@
         *  - simulation_mode_link
            - ``SIML``
            - Simulation Mode Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.StringoutFields`
            - 
@@ -376,7 +376,7 @@
         *  - simulation_mode_severity
            - ``SIMS``
            - Simulation Mode Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.StringoutFields`
            - 
@@ -384,7 +384,7 @@
         *  - simulation_output_link
            - ``SIOL``
            - Simulation Output Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.StringoutFields`
            - 
@@ -392,7 +392,7 @@
         *  - time_stamp_event
            - ``TSE``
            - Time Stamp Event
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -400,7 +400,7 @@
         *  - time_stamp_link
            - ``TSEL``
            - Time Stamp Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -408,7 +408,7 @@
         *  - trace_processing
            - ``TPRO``
            - Trace Processing
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -416,7 +416,7 @@
         *  - undefined
            - ``UDF``
            - Undefined
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -424,7 +424,7 @@
         *  - undefined_alarm_severity
            - ``UDFS``
            - Undefined Alarm Sevrty
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -459,6 +459,11 @@
        ~StringoutFields.scan_rate_sec
        ~StringoutFields.type_map
        ~StringoutFields.type_map_read_only
+       ~StringoutFields.parent
+       ~StringoutFields.pvdb
+       ~StringoutFields.attr_pvdb
+       ~StringoutFields.attr_to_pvname
+       ~StringoutFields.groups
     
 
     

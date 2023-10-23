@@ -33,6 +33,12 @@
     
        ~SubGroup.group
        ~SubGroup.group_dict
+       ~SubGroup.attr_separator
+       ~SubGroup.base
+       ~SubGroup.group_cls
+       ~SubGroup.init_kwargs
+       ~SubGroup.macros
+       ~SubGroup.prefix
     
 
     

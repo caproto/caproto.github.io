@@ -41,6 +41,10 @@
        ~PVGroup.default_values
        ~PVGroup.type_map
        ~PVGroup.type_map_read_only
+       ~PVGroup.pvdb
+       ~PVGroup.attr_pvdb
+       ~PVGroup.attr_to_pvname
+       ~PVGroup.groups
     
 
     

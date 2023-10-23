@@ -94,6 +94,10 @@
        ~AutosavedSimpleIOC.default_values
        ~AutosavedSimpleIOC.type_map
        ~AutosavedSimpleIOC.type_map_read_only
+       ~AutosavedSimpleIOC.pvdb
+       ~AutosavedSimpleIOC.attr_pvdb
+       ~AutosavedSimpleIOC.attr_to_pvname
+       ~AutosavedSimpleIOC.groups
     
 
     

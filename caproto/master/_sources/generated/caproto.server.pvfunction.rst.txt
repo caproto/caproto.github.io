@@ -41,6 +41,12 @@
        ~pvfunction.default_names
        ~pvfunction.group
        ~pvfunction.group_dict
+       ~pvfunction.attr_separator
+       ~pvfunction.base
+       ~pvfunction.group_cls
+       ~pvfunction.init_kwargs
+       ~pvfunction.macros
+       ~pvfunction.prefix
     
 
     

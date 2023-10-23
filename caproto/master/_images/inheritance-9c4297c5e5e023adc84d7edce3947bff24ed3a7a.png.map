@@ -1,0 +1,7 @@
+<map id="inheritance55846495b7" name="inheritance55846495b7">
+<area shape="rect" id="node1" href="caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="49,5,247,31"/>
+<area shape="rect" id="node2" href="caproto.ChannelEnum.html#caproto.ChannelEnum" target="_top" title="ENUM data which can be sent over a channel." alt="" coords="5,79,211,104"/>
+<area shape="rect" id="node4" href="caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" target="_top" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="235,79,501,104"/>
+<area shape="rect" id="node3" href="#caproto.server.PvpropertyBoolEnum" target="_top" title="Read&#45;write ENUM data for pvproperty, with Off/On as default strings." alt="" coords="87,152,387,177"/>
+<area shape="rect" id="node5" title="Abstract base class for generic types." alt="" coords="309,5,427,31"/>
+</map>

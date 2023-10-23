@@ -22,6 +22,12 @@
 
     
     
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~AsyncLibraryLayer.sleep
+    
     
 
     
@@ -31,9 +37,10 @@
     .. autosummary::
 
     
+       ~AsyncLibraryLayer.name
+       ~AsyncLibraryLayer.Event
        ~AsyncLibraryLayer.ThreadsafeQueue
        ~AsyncLibraryLayer.library
-       ~AsyncLibraryLayer.name
     
 
     

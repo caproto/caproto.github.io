@@ -61,6 +61,10 @@
        ~ScanRateIOC.default_values
        ~ScanRateIOC.type_map
        ~ScanRateIOC.type_map_read_only
+       ~ScanRateIOC.pvdb
+       ~ScanRateIOC.attr_pvdb
+       ~ScanRateIOC.attr_to_pvname
+       ~ScanRateIOC.groups
     
 
     
@@ -69,7 +73,7 @@
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/ioc_examples/scan_rate.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/ioc_examples/scan_rate.py
         :language: python
         :linenos:
         :dedent: 4

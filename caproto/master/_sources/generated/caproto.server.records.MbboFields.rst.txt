@@ -36,7 +36,7 @@
         *  - access_security_group
            - ``ASG``
            - Access Security Group
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(29)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -45,7 +45,7 @@
         *  - alarm_acknowledge_severity
            - ``ACKS``
            - Alarm Ack Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -54,7 +54,7 @@
         *  - alarm_acknowledge_transient
            - ``ACKT``
            - Alarm Ack Transient
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -63,7 +63,7 @@
         *  - alarm_status
            - ``STAT``
            - Alarm Status
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -72,7 +72,7 @@
         *  - change_of_state_sevr
            - ``COSV``
            - Change of State Sevr
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -80,7 +80,7 @@
         *  - current_alarm_severity
            - ``SEVR``
            - Alarm Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -89,7 +89,7 @@
         *  - dbputfield_process
            - ``PUTF``
            - dbPutField process
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -98,7 +98,7 @@
         *  - description
            - ``DESC``
            - Descriptor
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(41)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -107,7 +107,7 @@
         *  - desired_output_loc
            - ``DOL``
            - Desired Output Loc
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -115,7 +115,7 @@
         *  - device_type
            - ``DTYP``
            - Device Type
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -123,7 +123,7 @@
         *  - disable
            - ``DISA``
            - Disable
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -131,7 +131,7 @@
         *  - disable_alarm_severity
            - ``DISS``
            - Disable Alarm Sevrty
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -139,7 +139,7 @@
         *  - disable_putfield
            - ``DISP``
            - Disable putField
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -147,7 +147,7 @@
         *  - disable_value
            - ``DISV``
            - Disable Value
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -155,7 +155,7 @@
         *  - eight_string
            - ``EIST``
            - Eight String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -166,7 +166,7 @@
         *  - eight_value
            - ``EIVL``
            - Eight Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -174,7 +174,7 @@
         *  - eleven_string
            - ``ELST``
            - Eleven String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -185,7 +185,7 @@
         *  - eleven_value
            - ``ELVL``
            - Eleven Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -193,7 +193,7 @@
         *  - event_name
            - ``EVNT``
            - Event Name
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(40)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -202,7 +202,7 @@
         *  - fifteen_string
            - ``FFST``
            - Fifteen String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -213,7 +213,7 @@
         *  - fifteen_value
            - ``FFVL``
            - Fifteen Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -221,7 +221,7 @@
         *  - five_string
            - ``FVST``
            - Five String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -232,7 +232,7 @@
         *  - five_value
            - ``FVVL``
            - Five Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -240,7 +240,7 @@
         *  - forward_link
            - ``FLNK``
            - Forward Process Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -248,7 +248,7 @@
         *  - four_string
            - ``FRST``
            - Four String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -259,7 +259,7 @@
         *  - four_value
            - ``FRVL``
            - Four Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -267,7 +267,7 @@
         *  - fourteen_string
            - ``FTST``
            - Fourteen String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -278,7 +278,7 @@
         *  - fourteen_value
            - ``FTVL``
            - Fourteen Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -286,7 +286,7 @@
         *  - hardware_mask
            - ``MASK``
            - Hardware Mask
-           - LONG 
+           - PvpropertyIntegerRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -295,7 +295,7 @@
         *  - invalid_outpt_action
            - ``IVOA``
            - INVALID outpt action
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -303,7 +303,7 @@
         *  - invalid_output_value
            - ``IVOV``
            - INVALID output value
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -311,7 +311,7 @@
         *  - last_value_alarmed
            - ``LALM``
            - Last Value Alarmed
-           - INT 
+           - PvpropertyShortRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -320,7 +320,7 @@
         *  - last_value_monitored
            - ``MLST``
            - Last Value Monitored
-           - INT 
+           - PvpropertyShortRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -329,7 +329,7 @@
         *  - lock_count
            - ``LCNT``
            - Lock Count
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -338,7 +338,7 @@
         *  - new_alarm_severity
            - ``NSEV``
            - New Alarm Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -347,7 +347,7 @@
         *  - new_alarm_status
            - ``NSTA``
            - New Alarm Status
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -356,7 +356,7 @@
         *  - nine_string
            - ``NIST``
            - Nine String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -367,7 +367,7 @@
         *  - nine_value
            - ``NIVL``
            - Nine Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -375,7 +375,7 @@
         *  - number_of_bits
            - ``NOBT``
            - Number of Bits
-           - INT 
+           - PvpropertyShortRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -384,7 +384,7 @@
         *  - one_string
            - ``ONST``
            - One String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -395,7 +395,7 @@
         *  - one_value
            - ``ONVL``
            - One Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -403,7 +403,7 @@
         *  - output_mode_select
            - ``OMSL``
            - Output Mode Select
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -411,7 +411,7 @@
         *  - output_specification
            - ``OUT``
            - Output Specification
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -419,7 +419,7 @@
         *  - prev_raw_value
            - ``ORAW``
            - Prev Raw Value
-           - LONG 
+           - PvpropertyIntegerRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -428,7 +428,7 @@
         *  - prev_readback_value
            - ``ORBV``
            - Prev Readback Value
-           - LONG 
+           - PvpropertyIntegerRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -437,7 +437,7 @@
         *  - prev_simulation_mode
            - ``OLDSIMM``
            - Prev. Simulation Mode
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -446,7 +446,7 @@
         *  - process_at_iocinit
            - ``PINI``
            - Process at iocInit
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -454,7 +454,7 @@
         *  - process_record
            - ``PROC``
            - Force Processing
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -462,7 +462,7 @@
         *  - raw_value
            - ``RVAL``
            - Raw Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
                  **Put**
@@ -471,7 +471,7 @@
         *  - readback_value
            - ``RBV``
            - Readback Value
-           - LONG 
+           - PvpropertyIntegerRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -480,7 +480,7 @@
         *  - record_active
            - ``PACT``
            - Record active
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -489,7 +489,7 @@
         *  - record_name
            - ``NAME``
            - Record Name
-           - CHAR 
+           - PvpropertyCharRO 
            - 
                  **Read-only**
                  Length(61)
@@ -499,7 +499,7 @@
         *  - record_type
            - ``RTYP``
            - Record type
-           - STRING 
+           - PvpropertyStringRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
@@ -507,8 +507,8 @@
     
         *  - reprocess
            - ``RPRO``
-           - Reprocess 
-           - CHAR 
+           - Reprocess
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -517,7 +517,7 @@
         *  - scan_phase
            - ``PHAS``
            - Scan Phase
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -525,7 +525,7 @@
         *  - scan_rate
            - ``SCAN``
            - Scan Mechanism
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -533,7 +533,7 @@
         *  - scanning_disable
            - ``SDIS``
            - Scanning Disable
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -541,7 +541,7 @@
         *  - scheduling_priority
            - ``PRIO``
            - Scheduling Priority
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -549,7 +549,7 @@
         *  - seven_string
            - ``SVST``
            - Seven String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -560,7 +560,7 @@
         *  - seven_value
            - ``SVVL``
            - Seven Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -568,7 +568,7 @@
         *  - shift
            - ``SHFT``
            - Shift
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -576,7 +576,7 @@
         *  - sim_mode_async_delay
            - ``SDLY``
            - Sim. Mode Async Delay
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -584,7 +584,7 @@
         *  - sim_mode_scan
            - ``SSCN``
            - Sim. Mode Scan
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -592,7 +592,7 @@
         *  - simulation_mode
            - ``SIMM``
            - Simulation Mode
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -600,7 +600,7 @@
         *  - simulation_mode_link
            - ``SIML``
            - Simulation Mode Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -608,7 +608,7 @@
         *  - simulation_mode_severity
            - ``SIMS``
            - Simulation Mode Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -616,7 +616,7 @@
         *  - simulation_output_link
            - ``SIOL``
            - Simulation Output Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -624,7 +624,7 @@
         *  - six_string
            - ``SXST``
            - Six String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -635,7 +635,7 @@
         *  - six_value
            - ``SXVL``
            - Six Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -643,7 +643,7 @@
         *  - state_eight_severity
            - ``EISV``
            - State Eight Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -651,7 +651,7 @@
         *  - state_eleven_severity
            - ``ELSV``
            - State Eleven Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -659,7 +659,7 @@
         *  - state_fifteen_sevr
            - ``FFSV``
            - State Fifteen Sevr
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -667,7 +667,7 @@
         *  - state_five_severity
            - ``FVSV``
            - State Five Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -675,7 +675,7 @@
         *  - state_four_severity
            - ``FRSV``
            - State Four Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -683,7 +683,7 @@
         *  - state_fourteen_sevr
            - ``FTSV``
            - State Fourteen Sevr
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -691,7 +691,7 @@
         *  - state_nine_severity
            - ``NISV``
            - State Nine Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -699,7 +699,7 @@
         *  - state_one_severity
            - ``ONSV``
            - State One Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -707,7 +707,7 @@
         *  - state_seven_severity
            - ``SVSV``
            - State Seven Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -715,7 +715,7 @@
         *  - state_six_severity
            - ``SXSV``
            - State Six Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -723,7 +723,7 @@
         *  - state_ten_severity
            - ``TESV``
            - State Ten Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -731,7 +731,7 @@
         *  - state_thirteen_sevr
            - ``TTSV``
            - State Thirteen Sevr
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -739,7 +739,7 @@
         *  - state_three_severity
            - ``THSV``
            - State Three Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -747,7 +747,7 @@
         *  - state_twelve_severity
            - ``TVSV``
            - State Twelve Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -755,7 +755,7 @@
         *  - state_two_severity
            - ``TWSV``
            - State Two Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -763,7 +763,7 @@
         *  - state_zero_severity
            - ``ZRSV``
            - State Zero Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -771,7 +771,7 @@
         *  - states_defined
            - ``SDEF``
            - States Defined
-           - INT 
+           - PvpropertyShortRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -780,7 +780,7 @@
         *  - ten_string
            - ``TEST``
            - Ten String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -791,7 +791,7 @@
         *  - ten_value
            - ``TEVL``
            - Ten Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -799,7 +799,7 @@
         *  - thirteen_string
            - ``TTST``
            - Thirteen String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -810,7 +810,7 @@
         *  - thirteen_value
            - ``TTVL``
            - Thirteen Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -818,7 +818,7 @@
         *  - three_string
            - ``THST``
            - Three String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -829,7 +829,7 @@
         *  - three_value
            - ``THVL``
            - Three Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -837,7 +837,7 @@
         *  - time_stamp_event
            - ``TSE``
            - Time Stamp Event
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -845,7 +845,7 @@
         *  - time_stamp_link
            - ``TSEL``
            - Time Stamp Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -853,7 +853,7 @@
         *  - trace_processing
            - ``TPRO``
            - Trace Processing
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -861,7 +861,7 @@
         *  - twelve_string
            - ``TVST``
            - Twelve String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -872,7 +872,7 @@
         *  - twelve_value
            - ``TVVL``
            - Twelve Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -880,7 +880,7 @@
         *  - two_string
            - ``TWST``
            - Two String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -891,7 +891,7 @@
         *  - two_value
            - ``TWVL``
            - Two Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -899,7 +899,7 @@
         *  - undefined
            - ``UDF``
            - Undefined
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -907,7 +907,7 @@
         *  - undefined_alarm_severity
            - ``UDFS``
            - Undefined Alarm Sevrty
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -915,7 +915,7 @@
         *  - unknown_state_sevr
            - ``UNSV``
            - Unknown State Sevr
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -923,7 +923,7 @@
         *  - zero_string
            - ``ZRST``
            - Zero String
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(26)
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
@@ -932,7 +932,7 @@
         *  - zero_value
            - ``ZRVL``
            - Zero Value
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.MbboFields`
            - 
@@ -967,6 +967,11 @@
        ~MbboFields.scan_rate_sec
        ~MbboFields.type_map
        ~MbboFields.type_map_read_only
+       ~MbboFields.parent
+       ~MbboFields.pvdb
+       ~MbboFields.attr_pvdb
+       ~MbboFields.attr_to_pvname
+       ~MbboFields.groups
     
 
     
@@ -975,149 +980,149 @@
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71
     .. method:: eleven_string.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71
     .. method:: fifteen_string.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71
     .. method:: five_string.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71
     .. method:: four_string.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71
     .. method:: fourteen_string.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71
     .. method:: nine_string.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71
     .. method:: one_string.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71
     .. method:: seven_string.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71
     .. method:: six_string.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71
     .. method:: ten_string.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71
     .. method:: thirteen_string.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71
     .. method:: three_string.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71
     .. method:: twelve_string.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71
     .. method:: two_string.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 63
-        :lines: 63-68
+        :lineno-start: 66
+        :lines: 66-71

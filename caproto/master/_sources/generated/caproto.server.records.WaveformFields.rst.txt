@@ -36,7 +36,7 @@
         *  - access_security_group
            - ``ASG``
            - Access Security Group
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(29)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -45,7 +45,7 @@
         *  - alarm_acknowledge_severity
            - ``ACKS``
            - Alarm Ack Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -54,7 +54,7 @@
         *  - alarm_acknowledge_transient
            - ``ACKT``
            - Alarm Ack Transient
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -63,7 +63,7 @@
         *  - alarm_status
            - ``STAT``
            - Alarm Status
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -72,7 +72,7 @@
         *  - busy_indicator
            - ``BUSY``
            - Busy Indicator
-           - INT 
+           - PvpropertyShortRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
@@ -81,7 +81,7 @@
         *  - current_alarm_severity
            - ``SEVR``
            - Alarm Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -90,7 +90,7 @@
         *  - dbputfield_process
            - ``PUTF``
            - dbPutField process
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -99,7 +99,7 @@
         *  - description
            - ``DESC``
            - Descriptor
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(41)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -108,7 +108,7 @@
         *  - device_type
            - ``DTYP``
            - Device Type
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -116,7 +116,7 @@
         *  - disable
            - ``DISA``
            - Disable
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -124,7 +124,7 @@
         *  - disable_alarm_severity
            - ``DISS``
            - Disable Alarm Sevrty
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -132,7 +132,7 @@
         *  - disable_putfield
            - ``DISP``
            - Disable putField
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -140,7 +140,7 @@
         *  - disable_value
            - ``DISV``
            - Disable Value
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -148,7 +148,7 @@
         *  - display_precision
            - ``PREC``
            - Display Precision
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
                  **Get**
@@ -158,7 +158,7 @@
         *  - engineering_units
            - ``EGU``
            - Engineering Units
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(16)
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
@@ -167,7 +167,7 @@
         *  - event_name
            - ``EVNT``
            - Event Name
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(40)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -176,7 +176,7 @@
         *  - field_type_of_value
            - ``FTVL``
            - Field Type of Value
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
@@ -185,7 +185,7 @@
         *  - forward_link
            - ``FLNK``
            - Forward Process Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -193,7 +193,7 @@
         *  - hash_of_onchange_data
            - ``HASH``
            - Hash of OnChange data.
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
            - 
@@ -201,7 +201,7 @@
         *  - high_operating_range
            - ``HOPR``
            - High Operating Range
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
                  **Get**
@@ -211,7 +211,7 @@
         *  - input_specification
            - ``INP``
            - Input Specification
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
            - 
@@ -219,7 +219,7 @@
         *  - lock_count
            - ``LCNT``
            - Lock Count
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -228,7 +228,7 @@
         *  - low_operating_range
            - ``LOPR``
            - Low Operating Range
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
                  **Get**
@@ -238,7 +238,7 @@
         *  - new_alarm_severity
            - ``NSEV``
            - New Alarm Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -247,7 +247,7 @@
         *  - new_alarm_status
            - ``NSTA``
            - New Alarm Status
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -256,7 +256,7 @@
         *  - number_elements_read
            - ``NORD``
            - Number elements read
-           - LONG 
+           - PvpropertyIntegerRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
@@ -265,7 +265,7 @@
         *  - number_of_elements
            - ``NELM``
            - Number of Elements
-           - LONG 
+           - PvpropertyIntegerRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
@@ -275,7 +275,7 @@
         *  - post_archive_monitors
            - ``APST``
            - Post Archive Monitors
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
            - 
@@ -283,7 +283,7 @@
         *  - post_value_monitors
            - ``MPST``
            - Post Value Monitors
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
            - 
@@ -291,7 +291,7 @@
         *  - prev_simulation_mode
            - ``OLDSIMM``
            - Prev. Simulation Mode
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
@@ -300,7 +300,7 @@
         *  - process_at_iocinit
            - ``PINI``
            - Process at iocInit
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -308,7 +308,7 @@
         *  - process_record
            - ``PROC``
            - Force Processing
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -316,7 +316,7 @@
         *  - rearm_the_waveform
            - ``RARM``
            - Rearm the waveform
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
            - 
@@ -324,7 +324,7 @@
         *  - record_active
            - ``PACT``
            - Record active
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -333,7 +333,7 @@
         *  - record_name
            - ``NAME``
            - Record Name
-           - CHAR 
+           - PvpropertyCharRO 
            - 
                  **Read-only**
                  Length(61)
@@ -343,7 +343,7 @@
         *  - record_type
            - ``RTYP``
            - Record type
-           - STRING 
+           - PvpropertyStringRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
@@ -351,8 +351,8 @@
     
         *  - reprocess
            - ``RPRO``
-           - Reprocess 
-           - CHAR 
+           - Reprocess
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -361,7 +361,7 @@
         *  - scan_phase
            - ``PHAS``
            - Scan Phase
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -369,7 +369,7 @@
         *  - scan_rate
            - ``SCAN``
            - Scan Mechanism
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -377,7 +377,7 @@
         *  - scanning_disable
            - ``SDIS``
            - Scanning Disable
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -385,7 +385,7 @@
         *  - scheduling_priority
            - ``PRIO``
            - Scheduling Priority
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -393,7 +393,7 @@
         *  - sim_mode_async_delay
            - ``SDLY``
            - Sim. Mode Async Delay
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
            - 
@@ -401,7 +401,7 @@
         *  - sim_mode_scan
            - ``SSCN``
            - Sim. Mode Scan
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
            - 
@@ -409,7 +409,7 @@
         *  - simulation_input_link
            - ``SIOL``
            - Simulation Input Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
            - 
@@ -417,7 +417,7 @@
         *  - simulation_mode
            - ``SIMM``
            - Simulation Mode
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
            - 
@@ -425,7 +425,7 @@
         *  - simulation_mode_link
            - ``SIML``
            - Simulation Mode Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
            - 
@@ -433,7 +433,7 @@
         *  - simulation_mode_severity
            - ``SIMS``
            - Simulation Mode Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.WaveformFields`
            - 
@@ -441,7 +441,7 @@
         *  - time_stamp_event
            - ``TSE``
            - Time Stamp Event
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -449,7 +449,7 @@
         *  - time_stamp_link
            - ``TSEL``
            - Time Stamp Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -457,7 +457,7 @@
         *  - trace_processing
            - ``TPRO``
            - Trace Processing
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -465,7 +465,7 @@
         *  - undefined
            - ``UDF``
            - Undefined
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -473,7 +473,7 @@
         *  - undefined_alarm_severity
            - ``UDFS``
            - Undefined Alarm Sevrty
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -508,6 +508,11 @@
        ~WaveformFields.scan_rate_sec
        ~WaveformFields.type_map
        ~WaveformFields.type_map_read_only
+       ~WaveformFields.parent
+       ~WaveformFields.pvdb
+       ~WaveformFields.attr_pvdb
+       ~WaveformFields.attr_to_pvname
+       ~WaveformFields.groups
     
 
     
@@ -516,39 +521,39 @@
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43
     .. method:: high_operating_range.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43
     .. method:: low_operating_range.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43
     .. method:: number_of_elements.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43

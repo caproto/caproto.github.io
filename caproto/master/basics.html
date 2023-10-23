@@ -1,99 +1,51 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Writing Your Own Channel Access Client &mdash; caproto 0+untagged.1.g1e2dad8 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-  <link rel="stylesheet" href="_static/inheritance.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>Writing Your Own Channel Access Client &mdash; caproto 0+untagged.1.g5a2cae9 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/inheritance.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/doctr-versions-menu.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=cb2fa7bc"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="_static/docs-versions-menu.js?v=302f4f97"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Core API Documentation" href="api.html" />
     <link rel="prev" title="caproto.trio.server.start_server" href="generated/caproto.trio.server.start_server.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home"> caproto
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            caproto
           </a>
-
-          
-            
-            
               <div class="version">
-                0+untagged.1.g1e2dad8
+                0+untagged.1.g5a2cae9
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install Caproto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clients.html">Clients</a></li>
@@ -102,7 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
 </ul>
-<p class="caption"><span class="caption-text">IOCs</span></p>
+<p class="caption" role="heading"><span class="caption-text">IOCs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="records.html">Records</a></li>
@@ -110,7 +62,7 @@
 <li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="server_api.html">Server API</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
+<p class="caption" role="heading"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Writing Your Own Channel Access Client</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#channel-access-basics">Channel Access Basics</a><ul>
@@ -127,14 +79,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Core API Documentation</a></li>
 </ul>
-<p class="caption"><span class="caption-text">pvAccess</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pva/index.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pva/clients.html">Synchronous Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pva/iocs.html">Input-Output Controllers (IOCs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pva/api.html">PVAccess API</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Appendix</span></p>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="protocol-compliance.html">Details of our Protocol Compliance for CA Nerds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
@@ -142,78 +87,37 @@
 <li class="toctree-l1"><a class="reference internal" href="containers.html">Caproto-in-a-box</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">caproto</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Writing Your Own Channel Access Client</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Writing Your Own Channel Access Client</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/basics.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="writing-your-own-channel-access-client">
-<h1>Writing Your Own Channel Access Client<a class="headerlink" href="#writing-your-own-channel-access-client" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="writing-your-own-channel-access-client">
+<h1>Writing Your Own Channel Access Client<a class="headerlink" href="#writing-your-own-channel-access-client" title="Permalink to this heading">¶</a></h1>
 <p>Caproto can be used to implement both Channel Access clients and servers. To
 give a flavor for how the API works, we’ll demonstrate a simple, synchronous
 client.</p>
-<div class="section" id="channel-access-basics">
-<h2>Channel Access Basics<a class="headerlink" href="#channel-access-basics" title="Permalink to this headline">¶</a></h2>
+<section id="channel-access-basics">
+<h2>Channel Access Basics<a class="headerlink" href="#channel-access-basics" title="Permalink to this heading">¶</a></h2>
 <p>A Channel Access client reads and writes values to <em>Channels</em> available from
 servers on its network. It locates these servers using UDP broadcasts. It
 communicates with an individual server via one or more TCP connections, which
@@ -221,24 +125,24 @@ it calls <em>Virtual Circuits</em>.</p>
 <p>In this example, our client will talk to a example IOC provided by caproto,
 but this same code could talk to any Channel Access server.</p>
 <p>In a separate shell, start one of caproto’s demo IOCs.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m caproto.ioc_examples.random_walk
-PVs: <span class="o">[</span><span class="s1">&#39;random_walk:dt&#39;</span>, <span class="s1">&#39;random_walk:x&#39;</span><span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>caproto.ioc_examples.random_walk
+PVs:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;random_walk:dt&#39;</span>,<span class="w"> </span><span class="s1">&#39;random_walk:x&#39;</span><span class="o">]</span>
 </pre></div>
 </div>
 <p>In a second separate shell, start a repeater process. You may see output like
 this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ caproto-repeater
-<span class="o">[</span>I <span class="m">18</span>:04:30.686 repeater:84<span class="o">]</span> Repeater is listening on <span class="m">0</span>.0.0.0:5065
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>caproto-repeater
+<span class="o">[</span>I<span class="w"> </span><span class="m">18</span>:04:30.686<span class="w"> </span>repeater:84<span class="o">]</span><span class="w"> </span>Repeater<span class="w"> </span>is<span class="w"> </span>listening<span class="w"> </span>on<span class="w"> </span><span class="m">0</span>.0.0.0:5065
 </pre></div>
 </div>
 <p>or this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ caproto-repeater
-<span class="o">[</span>I <span class="m">18</span>:04:08.790 repeater:189<span class="o">]</span> Another repeater is already running<span class="p">;</span> exiting.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>caproto-repeater
+<span class="o">[</span>I<span class="w"> </span><span class="m">18</span>:04:08.790<span class="w"> </span>repeater:189<span class="o">]</span><span class="w"> </span>Another<span class="w"> </span>repeater<span class="w"> </span>is<span class="w"> </span>already<span class="w"> </span>running<span class="p">;</span><span class="w"> </span>exiting.
 </pre></div>
 </div>
 <p>Either is fine.</p>
-<div class="section" id="registering-with-the-repeater">
-<h3>Registering with the Repeater<a class="headerlink" href="#registering-with-the-repeater" title="Permalink to this headline">¶</a></h3>
+<section id="registering-with-the-repeater">
+<h3>Registering with the Repeater<a class="headerlink" href="#registering-with-the-repeater" title="Permalink to this heading">¶</a></h3>
 <p>To begin, we need a socket configured for UDP broadcasting. Caproto provides a
 convenient utility for doing this in a way that works on all platforms.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">caproto</span>
@@ -329,9 +233,9 @@ Channel Access protocol.</p>
 <p>When we call <a class="reference internal" href="api.html#caproto.Broadcaster.process_commands" title="caproto.Broadcaster.process_commands"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Broadcaster.process_commands()</span></code></a>, the Broadcaster does the
 same thing is did for <a class="reference internal" href="api.html#caproto.Broadcaster.send" title="caproto.Broadcaster.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Broadcaster.send()</span></code></a> in reverse: if one of the
 received commands is illegal, it raises <a class="reference internal" href="api.html#caproto.RemoteProtocolError" title="caproto.RemoteProtocolError"><code class="xref py py-class docutils literal notranslate"><span class="pre">RemoteProtocolError</span></code></a>.</p>
-</div>
-<div class="section" id="searching-for-a-channel">
-<h3>Searching for a Channel<a class="headerlink" href="#searching-for-a-channel" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="searching-for-a-channel">
+<h3>Searching for a Channel<a class="headerlink" href="#searching-for-a-channel" title="Permalink to this heading">¶</a></h3>
 <p>Say we’re looking for a channel (“Process Variable”) with a typically lyrical
 EPICS name like <code class="xref py py-data docutils literal notranslate"><span class="pre">&quot;random_walk:dt&quot;</span></code>. Some server on our
 network provides this channel.</p>
@@ -384,15 +288,15 @@ broadcast (UDP datagram), so we pass them to <a class="reference internal" href=
 <span class="gp">In [28]: </span><span class="n">address</span> <span class="o">=</span> <span class="n">caproto</span><span class="o">.</span><span class="n">extract_address</span><span class="p">(</span><span class="n">search_response</span><span class="p">)</span>
 
 <span class="gp">In [29]: </span><span class="n">address</span>
-<span class="gh">Out[29]: </span><span class="go">(&#39;10.1.0.149&#39;, 5064)</span>
+<span class="gh">Out[29]: </span><span class="go">(&#39;10.1.0.157&#39;, 5064)</span>
 </pre></div>
 </div>
 <p>Now we have the address of a server that has the channel we’re interested in.
 Next, we’ll set aside the broadcaster and initiate TCP communication with this
 particular server.</p>
-</div>
-<div class="section" id="creating-a-channel">
-<h3>Creating a Channel<a class="headerlink" href="#creating-a-channel" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="creating-a-channel">
+<h3>Creating a Channel<a class="headerlink" href="#creating-a-channel" title="Permalink to this heading">¶</a></h3>
 <p>Create a TCP connection with the server at the <code class="docutils literal notranslate"><span class="pre">address</span></code> we found above.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [30]: </span><span class="kn">import</span> <span class="nn">socket</span>
 
@@ -473,9 +377,9 @@ TCP connections to the same server, each with its own VirtualCircuit, and
 designate them with different <em>priority</em> (specified in our
 <a class="reference internal" href="api.html#caproto.VersionRequest" title="caproto.VersionRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">VersionRequest</span></code></a>). This why we need the concept of a VirtualCircuit:
 there can be multiple VirtualCircuits between peers.</p>
-</div>
-<div class="section" id="reading-and-writing-values">
-<h3>Reading and Writing Values<a class="headerlink" href="#reading-and-writing-values" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="reading-and-writing-values">
+<h3>Reading and Writing Values<a class="headerlink" href="#reading-and-writing-values" title="Permalink to this heading">¶</a></h3>
 <p>Read:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [46]: </span><span class="n">send</span><span class="p">(</span><span class="n">caproto</span><span class="o">.</span><span class="n">ReadNotifyRequest</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="n">create_chan_response</span><span class="o">.</span><span class="n">data_type</span><span class="p">,</span>
 <span class="gp">   ....: </span>                               <span class="n">data_count</span><span class="o">=</span><span class="n">create_chan_response</span><span class="o">.</span><span class="n">data_count</span><span class="p">,</span>
@@ -511,9 +415,9 @@ asked for the “native” data type and count that the server reported in its
 </ul>
 <p>The command also accepts a <code class="docutils literal notranslate"><span class="pre">metadata</span></code> parameter for data types that include
 metadata. See <a class="reference internal" href="api.html#payload-data-types"><span class="std std-ref">Payload Data Types</span></a> for details.</p>
-</div>
-<div class="section" id="subscribing-to-events-updates">
-<h3>Subscribing to “Events” (Updates)<a class="headerlink" href="#subscribing-to-events-updates" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="subscribing-to-events-updates">
+<h3>Subscribing to “Events” (Updates)<a class="headerlink" href="#subscribing-to-events-updates" title="Permalink to this heading">¶</a></h3>
 <p>Ask the server to send responses every time the value of the Channel changes.
 As with reading, above, we have the option of requesting a specific data type
 or element count, but we’ll use the “native” parameters.</p>
@@ -546,9 +450,9 @@ the subscription:</p>
 <span class="gh">Out[54]: </span><span class="go">deque([EventAddResponse(data=(repr: tuple index out of range), data_type=&lt;ChannelType.DOUBLE: 6&gt;, data_count=1, status=(repr: 0), subscriptionid=0, metadata=(repr: tuple index out of range))])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="closing-the-channel">
-<h3>Closing the Channel<a class="headerlink" href="#closing-the-channel" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="closing-the-channel">
+<h3>Closing the Channel<a class="headerlink" href="#closing-the-channel" title="Permalink to this heading">¶</a></h3>
 <p>To clean up, close the Channel.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [55]: </span><span class="n">send</span><span class="p">(</span><span class="n">caproto</span><span class="o">.</span><span class="n">ClearChannelRequest</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span> <span class="n">cid</span><span class="p">))</span>
 
@@ -560,10 +464,10 @@ the subscription:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="simplify-bookkeeping-with-channels">
-<h2>Simplify Bookkeeping with Channels<a class="headerlink" href="#simplify-bookkeeping-with-channels" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="simplify-bookkeeping-with-channels">
+<h2>Simplify Bookkeeping with Channels<a class="headerlink" href="#simplify-bookkeeping-with-channels" title="Permalink to this heading">¶</a></h2>
 <p>In the example above, we handled a <a class="reference internal" href="api.html#caproto.VirtualCircuit" title="caproto.VirtualCircuit"><code class="xref py py-class docutils literal notranslate"><span class="pre">VirtualCircuit</span></code></a> and several
 different commands. The <a class="reference internal" href="api.html#caproto.VirtualCircuit" title="caproto.VirtualCircuit"><code class="xref py py-class docutils literal notranslate"><span class="pre">VirtualCircuit</span></code></a> policed our adherence to the
 Channel Access protocol by watching incoming and outgoing commands and tracking
@@ -640,55 +544,38 @@ VirtualCircuit and then send it over the socket. These are just easy ways to
 generate valid commands — with auto-generated unique IDs filled in — which
 you may or may not then choose to send. The state machines are not updated
 until (unless) the command is actually sent.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="api.html" class="btn btn-neutral float-right" title="Core API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="generated/caproto.trio.server.start_server.html" class="btn btn-neutral float-left" title="caproto.trio.server.start_server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="Core API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Daniel Allan.
-
-    </p>
+    <p>&#169; Copyright 2021, Daniel Allan.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

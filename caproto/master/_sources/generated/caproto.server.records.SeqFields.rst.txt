@@ -36,7 +36,7 @@
         *  - access_security_group
            - ``ASG``
            - Access Security Group
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(29)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -45,7 +45,7 @@
         *  - alarm_acknowledge_severity
            - ``ACKS``
            - Alarm Ack Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -54,7 +54,7 @@
         *  - alarm_acknowledge_transient
            - ``ACKT``
            - Alarm Ack Transient
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -63,7 +63,7 @@
         *  - alarm_status
            - ``STAT``
            - Alarm Status
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -72,7 +72,7 @@
         *  - current_alarm_severity
            - ``SEVR``
            - Alarm Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -81,7 +81,7 @@
         *  - dbputfield_process
            - ``PUTF``
            - dbPutField process
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -90,7 +90,7 @@
         *  - delay_0
            - ``DLY0``
            - Delay 0
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -98,7 +98,7 @@
         *  - delay_1
            - ``DLY1``
            - Delay 1
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -106,7 +106,7 @@
         *  - delay_10
            - ``DLYA``
            - Delay 10
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -114,7 +114,7 @@
         *  - delay_11
            - ``DLYB``
            - Delay 11
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -122,7 +122,7 @@
         *  - delay_12
            - ``DLYC``
            - Delay 12
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -130,7 +130,7 @@
         *  - delay_13
            - ``DLYD``
            - Delay 13
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -138,7 +138,7 @@
         *  - delay_14
            - ``DLYE``
            - Delay 14
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -146,7 +146,7 @@
         *  - delay_15
            - ``DLYF``
            - Delay 15
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -154,7 +154,7 @@
         *  - delay_2
            - ``DLY2``
            - Delay 2
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -162,7 +162,7 @@
         *  - delay_3
            - ``DLY3``
            - Delay 3
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -170,7 +170,7 @@
         *  - delay_4
            - ``DLY4``
            - Delay 4
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -178,7 +178,7 @@
         *  - delay_5
            - ``DLY5``
            - Delay 5
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -186,7 +186,7 @@
         *  - delay_6
            - ``DLY6``
            - Delay 6
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -194,7 +194,7 @@
         *  - delay_7
            - ``DLY7``
            - Delay 7
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -202,7 +202,7 @@
         *  - delay_8
            - ``DLY8``
            - Delay 8
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -210,7 +210,7 @@
         *  - delay_9
            - ``DLY9``
            - Delay 9
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -218,7 +218,7 @@
         *  - description
            - ``DESC``
            - Descriptor
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(41)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -227,7 +227,7 @@
         *  - device_type
            - ``DTYP``
            - Device Type
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -235,7 +235,7 @@
         *  - disable
            - ``DISA``
            - Disable
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -243,7 +243,7 @@
         *  - disable_alarm_severity
            - ``DISS``
            - Disable Alarm Sevrty
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -251,7 +251,7 @@
         *  - disable_putfield
            - ``DISP``
            - Disable putField
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -259,7 +259,7 @@
         *  - disable_value
            - ``DISV``
            - Disable Value
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -267,7 +267,7 @@
         *  - display_precision
            - ``PREC``
            - Display Precision
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
                  **Get**
@@ -277,7 +277,7 @@
         *  - event_name
            - ``EVNT``
            - Event Name
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(40)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -286,7 +286,7 @@
         *  - forward_link
            - ``FLNK``
            - Forward Process Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -294,7 +294,7 @@
         *  - input_link1
            - ``DOL1``
            - Input link1
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -302,7 +302,7 @@
         *  - input_link_0
            - ``DOL0``
            - Input link 0
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -310,7 +310,7 @@
         *  - input_link_10
            - ``DOLA``
            - Input link 10
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -318,7 +318,7 @@
         *  - input_link_11
            - ``DOLB``
            - Input link 11
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -326,7 +326,7 @@
         *  - input_link_12
            - ``DOLC``
            - Input link 12
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -334,7 +334,7 @@
         *  - input_link_13
            - ``DOLD``
            - Input link 13
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -342,7 +342,7 @@
         *  - input_link_14
            - ``DOLE``
            - Input link 14
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -350,7 +350,7 @@
         *  - input_link_15
            - ``DOLF``
            - Input link 15
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -358,7 +358,7 @@
         *  - input_link_2
            - ``DOL2``
            - Input link 2
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -366,7 +366,7 @@
         *  - input_link_3
            - ``DOL3``
            - Input link 3
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -374,7 +374,7 @@
         *  - input_link_4
            - ``DOL4``
            - Input link 4
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -382,7 +382,7 @@
         *  - input_link_5
            - ``DOL5``
            - Input link 5
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -390,7 +390,7 @@
         *  - input_link_6
            - ``DOL6``
            - Input link 6
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -398,7 +398,7 @@
         *  - input_link_7
            - ``DOL7``
            - Input link 7
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -406,7 +406,7 @@
         *  - input_link_8
            - ``DOL8``
            - Input link 8
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -414,7 +414,7 @@
         *  - input_link_9
            - ``DOL9``
            - Input link 9
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -422,7 +422,7 @@
         *  - link_selection
            - ``SELN``
            - Link Selection
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -430,7 +430,7 @@
         *  - link_selection_loc
            - ``SELL``
            - Link Selection Loc
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -438,7 +438,7 @@
         *  - lock_count
            - ``LCNT``
            - Lock Count
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -447,7 +447,7 @@
         *  - new_alarm_severity
            - ``NSEV``
            - New Alarm Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -456,7 +456,7 @@
         *  - new_alarm_status
            - ``NSTA``
            - New Alarm Status
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -465,7 +465,7 @@
         *  - offset_for_specified
            - ``OFFS``
            - Offset for Specified
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -473,7 +473,7 @@
         *  - old_selection
            - ``OLDN``
            - Old Selection
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -481,7 +481,7 @@
         *  - output_link_0
            - ``LNK0``
            - Output Link 0
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -489,7 +489,7 @@
         *  - output_link_1
            - ``LNK1``
            - Output Link 1
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -497,7 +497,7 @@
         *  - output_link_10
            - ``LNKA``
            - Output Link 10
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -505,7 +505,7 @@
         *  - output_link_11
            - ``LNKB``
            - Output Link 11
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -513,7 +513,7 @@
         *  - output_link_12
            - ``LNKC``
            - Output Link 12
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -521,7 +521,7 @@
         *  - output_link_13
            - ``LNKD``
            - Output Link 13
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -529,7 +529,7 @@
         *  - output_link_14
            - ``LNKE``
            - Output Link 14
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -537,7 +537,7 @@
         *  - output_link_15
            - ``LNKF``
            - Output Link 15
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -545,7 +545,7 @@
         *  - output_link_2
            - ``LNK2``
            - Output Link 2
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -553,7 +553,7 @@
         *  - output_link_3
            - ``LNK3``
            - Output Link 3
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -561,7 +561,7 @@
         *  - output_link_4
            - ``LNK4``
            - Output Link 4
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -569,7 +569,7 @@
         *  - output_link_5
            - ``LNK5``
            - Output Link 5
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -577,7 +577,7 @@
         *  - output_link_6
            - ``LNK6``
            - Output Link 6
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -585,7 +585,7 @@
         *  - output_link_7
            - ``LNK7``
            - Output Link 7
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -593,7 +593,7 @@
         *  - output_link_8
            - ``LNK8``
            - Output Link 8
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -601,7 +601,7 @@
         *  - output_link_9
            - ``LNK9``
            - Output Link 9
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -609,7 +609,7 @@
         *  - process_at_iocinit
            - ``PINI``
            - Process at iocInit
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -617,7 +617,7 @@
         *  - process_record
            - ``PROC``
            - Force Processing
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -625,7 +625,7 @@
         *  - record_active
            - ``PACT``
            - Record active
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -634,7 +634,7 @@
         *  - record_name
            - ``NAME``
            - Record Name
-           - CHAR 
+           - PvpropertyCharRO 
            - 
                  **Read-only**
                  Length(61)
@@ -644,7 +644,7 @@
         *  - record_type
            - ``RTYP``
            - Record type
-           - STRING 
+           - PvpropertyStringRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
@@ -652,8 +652,8 @@
     
         *  - reprocess
            - ``RPRO``
-           - Reprocess 
-           - CHAR 
+           - Reprocess
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -662,7 +662,7 @@
         *  - scan_phase
            - ``PHAS``
            - Scan Phase
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -670,7 +670,7 @@
         *  - scan_rate
            - ``SCAN``
            - Scan Mechanism
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -678,7 +678,7 @@
         *  - scanning_disable
            - ``SDIS``
            - Scanning Disable
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -686,7 +686,7 @@
         *  - scheduling_priority
            - ``PRIO``
            - Scheduling Priority
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -694,7 +694,7 @@
         *  - select_mechanism
            - ``SELM``
            - Select Mechanism
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -702,7 +702,7 @@
         *  - shift_for_mask_mode
            - ``SHFT``
            - Shift for Mask mode
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -710,7 +710,7 @@
         *  - time_stamp_event
            - ``TSE``
            - Time Stamp Event
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -718,7 +718,7 @@
         *  - time_stamp_link
            - ``TSEL``
            - Time Stamp Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -726,7 +726,7 @@
         *  - trace_processing
            - ``TPRO``
            - Trace Processing
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -734,7 +734,7 @@
         *  - undefined
            - ``UDF``
            - Undefined
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -742,7 +742,7 @@
         *  - undefined_alarm_severity
            - ``UDFS``
            - Undefined Alarm Sevrty
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -750,7 +750,7 @@
         *  - value_0
            - ``DO0``
            - Value 0
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -758,7 +758,7 @@
         *  - value_1
            - ``DO1``
            - Value 1
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -766,7 +766,7 @@
         *  - value_10
            - ``DOA``
            - Value 10
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -774,7 +774,7 @@
         *  - value_11
            - ``DOB``
            - Value 11
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -782,7 +782,7 @@
         *  - value_12
            - ``DOC``
            - Value 12
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -790,7 +790,7 @@
         *  - value_13
            - ``DOD``
            - Value 13
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -798,7 +798,7 @@
         *  - value_14
            - ``DOE``
            - Value 14
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -806,7 +806,7 @@
         *  - value_15
            - ``DOF``
            - Value 15
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -814,7 +814,7 @@
         *  - value_2
            - ``DO2``
            - Value 2
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -822,7 +822,7 @@
         *  - value_3
            - ``DO3``
            - Value 3
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -830,7 +830,7 @@
         *  - value_4
            - ``DO4``
            - Value 4
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -838,7 +838,7 @@
         *  - value_5
            - ``DO5``
            - Value 5
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -846,7 +846,7 @@
         *  - value_6
            - ``DO6``
            - Value 6
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -854,7 +854,7 @@
         *  - value_7
            - ``DO7``
            - Value 7
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -862,7 +862,7 @@
         *  - value_8
            - ``DO8``
            - Value 8
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -870,7 +870,7 @@
         *  - value_9
            - ``DO9``
            - Value 9
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SeqFields`
            - 
@@ -905,6 +905,11 @@
        ~SeqFields.scan_rate_sec
        ~SeqFields.type_map
        ~SeqFields.type_map_read_only
+       ~SeqFields.parent
+       ~SeqFields.pvdb
+       ~SeqFields.attr_pvdb
+       ~SeqFields.attr_to_pvname
+       ~SeqFields.groups
     
 
     
@@ -913,9 +918,9 @@
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43

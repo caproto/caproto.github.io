@@ -56,6 +56,7 @@
     
        ~PvpropertyFloatRO.alarm
        ~PvpropertyFloatRO.data_type
+       ~PvpropertyFloatRO.default_value
        ~PvpropertyFloatRO.epics_timestamp
        ~PvpropertyFloatRO.length
        ~PvpropertyFloatRO.lower_alarm_limit
@@ -73,6 +74,20 @@
        ~PvpropertyFloatRO.upper_disp_limit
        ~PvpropertyFloatRO.upper_warning_limit
        ~PvpropertyFloatRO.value
+       ~PvpropertyFloatRO.field_inst
+       ~PvpropertyFloatRO.fields
+       ~PvpropertyFloatRO.getter
+       ~PvpropertyFloatRO.group
+       ~PvpropertyFloatRO.log
+       ~PvpropertyFloatRO.name
+       ~PvpropertyFloatRO.putter
+       ~PvpropertyFloatRO.pvname
+       ~PvpropertyFloatRO.pvspec
+       ~PvpropertyFloatRO.record_type
+       ~PvpropertyFloatRO.scan
+       ~PvpropertyFloatRO.shutdown
+       ~PvpropertyFloatRO.startup
+       ~PvpropertyFloatRO.max_subscription_backlog
     
 
     

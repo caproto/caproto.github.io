@@ -63,6 +63,10 @@
        ~IOInterruptIOC.default_values
        ~IOInterruptIOC.type_map
        ~IOInterruptIOC.type_map_read_only
+       ~IOInterruptIOC.pvdb
+       ~IOInterruptIOC.attr_pvdb
+       ~IOInterruptIOC.attr_to_pvname
+       ~IOInterruptIOC.groups
     
 
     
@@ -77,7 +81,7 @@
         <summary>Source code: keypress.startup</summary>
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/ioc_examples/io_interrupt.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/ioc_examples/io_interrupt.py
         :language: python
         :linenos:
         :dedent: 0

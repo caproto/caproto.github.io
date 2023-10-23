@@ -69,6 +69,10 @@
        ~AutosaveHelper.period
        ~AutosaveHelper.type_map
        ~AutosaveHelper.type_map_read_only
+       ~AutosaveHelper.pvdb
+       ~AutosaveHelper.attr_pvdb
+       ~AutosaveHelper.attr_to_pvname
+       ~AutosaveHelper.groups
     
 
     
@@ -89,12 +93,12 @@
         <summary>Source code: autosave_hook.startup</summary>
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/autosave.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/autosave.py
         :language: python
         :linenos:
         :dedent: 0
-        :lineno-start: 218
-        :lines: 218-230
+        :lineno-start: 219
+        :lines: 219-231
 
     .. raw:: html
 

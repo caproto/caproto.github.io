@@ -81,6 +81,10 @@
        ~EnumIOC.default_values
        ~EnumIOC.type_map
        ~EnumIOC.type_map_read_only
+       ~EnumIOC.pvdb
+       ~EnumIOC.attr_pvdb
+       ~EnumIOC.attr_to_pvname
+       ~EnumIOC.groups
     
 
     

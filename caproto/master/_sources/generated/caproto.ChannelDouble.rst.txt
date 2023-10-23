@@ -55,6 +55,7 @@
     
        ~ChannelDouble.alarm
        ~ChannelDouble.data_type
+       ~ChannelDouble.default_value
        ~ChannelDouble.epics_timestamp
        ~ChannelDouble.length
        ~ChannelDouble.lower_alarm_limit
@@ -72,6 +73,7 @@
        ~ChannelDouble.upper_disp_limit
        ~ChannelDouble.upper_warning_limit
        ~ChannelDouble.value
+       ~ChannelDouble.max_subscription_backlog
     
 
     

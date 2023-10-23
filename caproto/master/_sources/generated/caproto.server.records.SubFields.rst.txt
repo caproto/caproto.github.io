@@ -36,7 +36,7 @@
         *  - access_security_group
            - ``ASG``
            - Access Security Group
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(29)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -45,7 +45,7 @@
         *  - alarm_acknowledge_severity
            - ``ACKS``
            - Alarm Ack Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -54,7 +54,7 @@
         *  - alarm_acknowledge_transient
            - ``ACKT``
            - Alarm Ack Transient
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -63,7 +63,7 @@
         *  - alarm_deadband
            - ``HYST``
            - Alarm Deadband
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -71,7 +71,7 @@
         *  - alarm_status
            - ``STAT``
            - Alarm Status
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -80,7 +80,7 @@
         *  - archive_deadband
            - ``ADEL``
            - Archive Deadband
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
                  **Get**
@@ -90,7 +90,7 @@
         *  - bad_return_severity
            - ``BRSV``
            - Bad Return Severity
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -98,7 +98,7 @@
         *  - current_alarm_severity
            - ``SEVR``
            - Alarm Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -107,7 +107,7 @@
         *  - dbputfield_process
            - ``PUTF``
            - dbPutField process
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -116,7 +116,7 @@
         *  - description
            - ``DESC``
            - Descriptor
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(41)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -125,7 +125,7 @@
         *  - device_type
            - ``DTYP``
            - Device Type
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -133,7 +133,7 @@
         *  - disable
            - ``DISA``
            - Disable
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -141,7 +141,7 @@
         *  - disable_alarm_severity
            - ``DISS``
            - Disable Alarm Sevrty
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -149,7 +149,7 @@
         *  - disable_putfield
            - ``DISP``
            - Disable putField
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -157,7 +157,7 @@
         *  - disable_value
            - ``DISV``
            - Disable Value
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -165,7 +165,7 @@
         *  - display_precision
            - ``PREC``
            - Display Precision
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
                  **Get**
@@ -175,7 +175,7 @@
         *  - engineering_units
            - ``EGU``
            - Engineering Units
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(16)
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -184,7 +184,7 @@
         *  - event_name
            - ``EVNT``
            - Event Name
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(40)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -193,7 +193,7 @@
         *  - forward_link
            - ``FLNK``
            - Forward Process Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -247,7 +247,7 @@
         *  - init_routine_name
            - ``INAM``
            - Init Routine Name
-           - CHAR 
+           - PvpropertyCharRO 
            - 
                  **Read-only**
                  Length(40)
@@ -257,7 +257,7 @@
         *  - input_a
            - ``INPA``
            - Input A
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -265,7 +265,7 @@
         *  - input_b
            - ``INPB``
            - Input B
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -273,7 +273,7 @@
         *  - input_c
            - ``INPC``
            - Input C
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -281,7 +281,7 @@
         *  - input_d
            - ``INPD``
            - Input D
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -289,7 +289,7 @@
         *  - input_e
            - ``INPE``
            - Input E
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -297,7 +297,7 @@
         *  - input_f
            - ``INPF``
            - Input F
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -305,7 +305,7 @@
         *  - input_g
            - ``INPG``
            - Input G
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -313,7 +313,7 @@
         *  - input_h
            - ``INPH``
            - Input H
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -321,7 +321,7 @@
         *  - input_i
            - ``INPI``
            - Input I
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -329,7 +329,7 @@
         *  - input_j
            - ``INPJ``
            - Input J
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -337,7 +337,7 @@
         *  - input_k
            - ``INPK``
            - Input K
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -345,7 +345,7 @@
         *  - input_l
            - ``INPL``
            - Input L
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -353,7 +353,7 @@
         *  - last_value_alarmed
            - ``LALM``
            - Last Value Alarmed
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -362,7 +362,7 @@
         *  - last_value_archived
            - ``ALST``
            - Last Value Archived
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -371,7 +371,7 @@
         *  - last_value_monitored
            - ``MLST``
            - Last Value Monitored
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -380,7 +380,7 @@
         *  - lock_count
            - ``LCNT``
            - Lock Count
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -435,7 +435,7 @@
         *  - monitor_deadband
            - ``MDEL``
            - Monitor Deadband
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
                  **Get**
@@ -445,7 +445,7 @@
         *  - new_alarm_severity
            - ``NSEV``
            - New Alarm Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -454,7 +454,7 @@
         *  - new_alarm_status
            - ``NSTA``
            - New Alarm Status
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -463,7 +463,7 @@
         *  - prev_value_of_a
            - ``LA``
            - Prev Value of A
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -472,7 +472,7 @@
         *  - prev_value_of_b
            - ``LB``
            - Prev Value of B
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -481,7 +481,7 @@
         *  - prev_value_of_c
            - ``LC``
            - Prev Value of C
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -490,7 +490,7 @@
         *  - prev_value_of_d
            - ``LD``
            - Prev Value of D
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -499,7 +499,7 @@
         *  - prev_value_of_e
            - ``LE``
            - Prev Value of E
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -508,7 +508,7 @@
         *  - prev_value_of_f
            - ``LF``
            - Prev Value of F
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -517,7 +517,7 @@
         *  - prev_value_of_g
            - ``LG``
            - Prev Value of G
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -526,7 +526,7 @@
         *  - prev_value_of_h
            - ``LH``
            - Prev Value of H
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -535,7 +535,7 @@
         *  - prev_value_of_i
            - ``LI``
            - Prev Value of I
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -544,7 +544,7 @@
         *  - prev_value_of_j
            - ``LJ``
            - Prev Value of J
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -553,7 +553,7 @@
         *  - prev_value_of_k
            - ``LK``
            - Prev Value of K
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -562,7 +562,7 @@
         *  - prev_value_of_l
            - ``LL``
            - Prev Value of L
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -571,7 +571,7 @@
         *  - process_at_iocinit
            - ``PINI``
            - Process at iocInit
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -579,7 +579,7 @@
         *  - process_record
            - ``PROC``
            - Force Processing
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -587,7 +587,7 @@
         *  - record_active
            - ``PACT``
            - Record active
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -596,7 +596,7 @@
         *  - record_name
            - ``NAME``
            - Record Name
-           - CHAR 
+           - PvpropertyCharRO 
            - 
                  **Read-only**
                  Length(61)
@@ -606,7 +606,7 @@
         *  - record_type
            - ``RTYP``
            - Record type
-           - STRING 
+           - PvpropertyStringRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
@@ -614,8 +614,8 @@
     
         *  - reprocess
            - ``RPRO``
-           - Reprocess 
-           - CHAR 
+           - Reprocess
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -624,7 +624,7 @@
         *  - scan_phase
            - ``PHAS``
            - Scan Phase
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -632,7 +632,7 @@
         *  - scan_rate
            - ``SCAN``
            - Scan Mechanism
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -640,7 +640,7 @@
         *  - scanning_disable
            - ``SDIS``
            - Scanning Disable
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -648,7 +648,7 @@
         *  - scheduling_priority
            - ``PRIO``
            - Scheduling Priority
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -656,7 +656,7 @@
         *  - subroutine_name
            - ``SNAM``
            - Subroutine Name
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(40)
                  Inherited from :class:`~caproto.server.records.base.SubFields`
@@ -665,7 +665,7 @@
         *  - time_stamp_event
            - ``TSE``
            - Time Stamp Event
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -673,7 +673,7 @@
         *  - time_stamp_link
            - ``TSEL``
            - Time Stamp Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -681,7 +681,7 @@
         *  - trace_processing
            - ``TPRO``
            - Trace Processing
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -689,7 +689,7 @@
         *  - undefined
            - ``UDF``
            - Undefined
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -697,7 +697,7 @@
         *  - undefined_alarm_severity
            - ``UDFS``
            - Undefined Alarm Sevrty
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -705,7 +705,7 @@
         *  - value_of_input_a
            - ``A``
            - Value of Input A
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -713,7 +713,7 @@
         *  - value_of_input_b
            - ``B``
            - Value of Input B
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -721,7 +721,7 @@
         *  - value_of_input_c
            - ``C``
            - Value of Input C
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -729,7 +729,7 @@
         *  - value_of_input_d
            - ``D``
            - Value of Input D
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -737,7 +737,7 @@
         *  - value_of_input_e
            - ``E``
            - Value of Input E
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -745,7 +745,7 @@
         *  - value_of_input_f
            - ``F``
            - Value of Input F
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -753,7 +753,7 @@
         *  - value_of_input_g
            - ``G``
            - Value of Input G
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -761,7 +761,7 @@
         *  - value_of_input_h
            - ``H``
            - Value of Input H
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -769,7 +769,7 @@
         *  - value_of_input_i
            - ``I``
            - Value of Input I
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -777,7 +777,7 @@
         *  - value_of_input_j
            - ``J``
            - Value of Input J
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -785,7 +785,7 @@
         *  - value_of_input_k
            - ``K``
            - Value of Input K
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -793,7 +793,7 @@
         *  - value_of_input_l
            - ``L``
            - Value of Input L
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.SubFields`
            - 
@@ -828,6 +828,11 @@
        ~SubFields.scan_rate_sec
        ~SubFields.type_map
        ~SubFields.type_map_read_only
+       ~SubFields.parent
+       ~SubFields.pvdb
+       ~SubFields.attr_pvdb
+       ~SubFields.attr_to_pvname
+       ~SubFields.groups
     
 
     
@@ -836,89 +841,89 @@
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43
     .. method:: display_precision.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43
     .. method:: high_alarm_limit.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43
     .. method:: high_operating_range.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43
     .. method:: hihi_alarm_limit.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43
     .. method:: lolo_alarm_limit.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43
     .. method:: low_alarm_limit.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43
     .. method:: low_operating_range.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43
     .. method:: monitor_deadband.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43

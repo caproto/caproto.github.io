@@ -92,6 +92,10 @@
        ~MiniBeamline.default_values
        ~MiniBeamline.type_map
        ~MiniBeamline.type_map_read_only
+       ~MiniBeamline.pvdb
+       ~MiniBeamline.attr_pvdb
+       ~MiniBeamline.attr_to_pvname
+       ~MiniBeamline.groups
     
 
     

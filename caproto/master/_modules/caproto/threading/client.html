@@ -1,97 +1,48 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>caproto.threading.client &mdash; caproto 0+untagged.1.g1e2dad8 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/inheritance.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>caproto.threading.client &mdash; caproto 0+untagged.1.g5a2cae9 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/inheritance.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/doctr-versions-menu.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=cb2fa7bc"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../../../_static/docs-versions-menu.js?v=302f4f97"></script>
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> caproto
           
-
-          
+          <a href="../../../index.html" class="icon icon-home">
+            caproto
           </a>
-
-          
-            
-            
               <div class="version">
-                0+untagged.1.g1e2dad8
+                0+untagged.1.g5a2cae9
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install Caproto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../clients.html">Clients</a></li>
@@ -100,7 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../loggers.html">Logging</a></li>
 </ul>
-<p class="caption"><span class="caption-text">IOCs</span></p>
+<p class="caption" role="heading"><span class="caption-text">IOCs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../iocs.html">Input-Output Controllers (IOCs)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../records.html">Records</a></li>
@@ -108,19 +59,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../own_docs.html">Writing Your Own Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../server_api.html">Server API</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Channel Access Sans I/O</span></p>
+<p class="caption" role="heading"><span class="caption-text">Channel Access Sans I/O</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../basics.html">Writing Your Own Channel Access Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api.html">Core API Documentation</a></li>
 </ul>
-<p class="caption"><span class="caption-text">pvAccess</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../pva/index.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../pva/clients.html">Synchronous Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../pva/iocs.html">Input-Output Controllers (IOCs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../pva/api.html">PVAccess API</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Appendix</span></p>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../protocol-compliance.html">Details of our Protocol Compliance for CA Nerds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
@@ -128,69 +72,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../containers.html">Caproto-in-a-box</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">caproto</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-      <li>caproto.threading.client</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">caproto.threading.client</li>
       <li class="wy-breadcrumbs-aside">
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for caproto.threading.client</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Regarding threads...</span>
 <span class="c1"># The SharedBroadcaster has:</span>
@@ -337,7 +242,7 @@
 
 
 <span class="k">class</span> <span class="nc">SelectorThread</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This is used internally by the Context and the VirtualCircuitManager.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -361,7 +266,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">running</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;Selector thread is running&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Selector thread is running&#39;&#39;&#39;</span>
         <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_close_event</span><span class="o">.</span><span class="n">is_set</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -378,6 +283,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">add_socket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sock</span><span class="p">,</span> <span class="n">target_obj</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">)</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_socket_map_lock</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">sock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket_to_id</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="n">CaprotoValueError</span><span class="p">(</span><span class="s1">&#39;Socket already added&#39;</span><span class="p">)</span>
@@ -413,7 +319,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_unregister_sockets</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;Selector poll loop&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Selector poll loop&#39;&#39;&#39;</span>
         <span class="n">avail_buf</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_socket_map_lock</span><span class="p">:</span>
@@ -451,6 +357,22 @@
                     <span class="n">bytes_available</span> <span class="o">=</span> <span class="n">socket_bytes_available</span><span class="p">(</span>
                         <span class="n">sock</span><span class="p">,</span> <span class="n">available_buffer</span><span class="o">=</span><span class="n">avail_buf</span><span class="p">)</span>
                     <span class="n">bytes_recv</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="n">sock</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="n">bytes_available</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ConnectionResetError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">sock</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">:</span>
+                        <span class="c1"># Win32: &quot;On a UDP-datagram socket this error indicates</span>
+                        <span class="c1"># a previous send operation resulted in an ICMP Port</span>
+                        <span class="c1"># Unreachable message.&quot;</span>
+                        <span class="c1">#</span>
+                        <span class="c1"># https://docs.microsoft.com/en-us/windows/win32/api/winsock/nf-winsock-recvfrom</span>
+                        <span class="n">obj</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+                            <span class="s2">&quot;UDP socket indicates previous send failed </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                            <span class="n">obj</span><span class="p">,</span>
+                            <span class="n">ex</span>
+                        <span class="p">)</span>
+                        <span class="k">continue</span>
+
+                    <span class="n">obj</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Removing </span><span class="si">%s</span><span class="s2"> due to </span><span class="si">%s</span><span class="s2"> (</span><span class="si">%s</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ex</span><span class="p">,</span> <span class="n">ex</span><span class="o">.</span><span class="n">errno</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">remove_socket</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
                 <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">ex</span><span class="o">.</span><span class="n">errno</span> <span class="o">!=</span> <span class="n">errno</span><span class="o">.</span><span class="n">EAGAIN</span><span class="p">:</span>
                         <span class="c1"># register as a disconnection</span>
@@ -481,7 +403,7 @@
 
 <div class="viewcode-block" id="SharedBroadcaster"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.SharedBroadcaster">[docs]</a><span class="k">class</span> <span class="nc">SharedBroadcaster</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">registration_retry_time</span><span class="o">=</span><span class="mf">10.0</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        A broadcaster client which can be shared among multiple Contexts</span>
 
 <span class="sd">        Parameters</span>
@@ -589,7 +511,7 @@
 
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">udp_sock</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">bytes_to_send</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
             <span class="n">host</span><span class="p">,</span> <span class="n">specified_port</span> <span class="o">=</span> <span class="n">addr</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> while sending </span><span class="si">%d</span><span class="s1"> bytes to </span><span class="si">%s</span><span class="s1">:</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span>
                                <span class="n">ex</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bytes_to_send</span><span class="p">),</span> <span class="n">host</span><span class="p">,</span> <span class="n">specified_port</span><span class="p">)</span>
@@ -635,7 +557,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_retry_unanswered_searches_thread</span><span class="o">.</span><span class="n">join</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="SharedBroadcaster.send"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.SharedBroadcaster.send">[docs]</a>    <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">commands</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Process a command and transport it over the UDP socket.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">bytes_to_send</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="o">*</span><span class="n">commands</span><span class="p">)</span>
@@ -647,8 +569,11 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
                 <span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> commands </span><span class="si">%d</span><span class="s1">B&#39;</span><span class="p">,</span>
                 <span class="nb">len</span><span class="p">(</span><span class="n">commands</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">bytes_to_send</span><span class="p">),</span> <span class="n">extra</span><span class="o">=</span><span class="n">tags</span><span class="p">)</span>
+            <span class="n">sock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">udp_sock</span>
+            <span class="k">if</span> <span class="n">sock</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">udp_sock</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">bytes_to_send</span><span class="p">,</span> <span class="n">host_tuple</span><span class="p">)</span>
+                <span class="n">sock</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">bytes_to_send</span><span class="p">,</span> <span class="n">host_tuple</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
                 <span class="n">host</span><span class="p">,</span> <span class="n">specified_port</span> <span class="o">=</span> <span class="n">host_tuple</span>
                 <span class="k">raise</span> <span class="n">CaprotoNetworkError</span><span class="p">(</span>
@@ -684,7 +609,7 @@
         <span class="k">return</span> <span class="n">address</span></div>
 
 <div class="viewcode-block" id="SharedBroadcaster.search"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.SharedBroadcaster.search">[docs]</a>    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results_queue</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Search for PV names.</span>
 
 <span class="sd">        The ``results_queue`` will receive ``(address, names)`` (the address of</span>
@@ -736,7 +661,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_search_now</span><span class="o">.</span><span class="n">set</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="SharedBroadcaster.cancel"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.SharedBroadcaster.cancel">[docs]</a>    <span class="k">def</span> <span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Cancel searches for these names.</span>
 
 <span class="sd">        Parameters</span>
@@ -753,7 +678,7 @@
                     <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">unanswered_searches</span><span class="p">[</span><span class="n">search_id</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="SharedBroadcaster.search_now"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.SharedBroadcaster.search_now">[docs]</a>    <span class="k">def</span> <span class="nf">search_now</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Force the Broadcaster to reissue all unanswered search requests now.</span>
 
 <span class="sd">        Left to its own devices, the Broadcaster will do this at regular</span>
@@ -880,7 +805,7 @@
                 <span class="n">item</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">retirement_deadline</span>
 
 <div class="viewcode-block" id="SharedBroadcaster.time_since_last_heard"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.SharedBroadcaster.time_since_last_heard">[docs]</a>    <span class="k">def</span> <span class="nf">time_since_last_heard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Map each known server address to seconds since its last message.</span>
 
 <span class="sd">        The time is reset to 0 whenever we receive a TCP message related to</span>
@@ -986,7 +911,7 @@
                                 <span class="s2">&quot;automatically begin attempting to reconnect &quot;</span>
                                 <span class="s2">&quot;to a responsive server.&quot;</span><span class="p">,</span>
                                 <span class="o">*</span><span class="n">address</span><span class="p">,</span> <span class="n">circuit_manager</span><span class="p">)</span>
-                            <span class="n">circuit_manager</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+                            <span class="n">circuit_manager</span><span class="o">.</span><span class="n">_disconnected</span><span class="p">()</span>
                     <span class="n">checking</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
                 <span class="c1"># else:</span>
                 <span class="c1">#     # We are still waiting to give the server time to respond</span>
@@ -996,7 +921,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Broadcaster check for unresponsive servers loop has exited.&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_retry_unanswered_searches</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Periodically (re-)send a SearchRequest for all unanswered searches.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1081,7 +1006,7 @@
 
 
 <div class="viewcode-block" id="Context"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.Context">[docs]</a><span class="k">class</span> <span class="nc">Context</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Encapsulates the state and connections of a client</span>
 
 <span class="sd">    Parameters</span>
@@ -1159,7 +1084,7 @@
                 <span class="sa">f</span><span class="s2">&quot;searches_pending=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">unanswered_searches</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;circuits=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circuit_managers</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;pvs=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pvs</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;idle=</span><span class="si">{</span><span class="nb">len</span><span class="p">([</span><span class="mi">1</span> <span class="k">for</span> <span class="n">pv</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pvs</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">pv</span><span class="o">.</span><span class="n">_idle</span><span class="p">])</span><span class="si">}</span><span class="s2">&gt;&quot;</span><span class="p">)</span>
+                <span class="sa">f</span><span class="s2">&quot;idle=</span><span class="si">{</span><span class="nb">len</span><span class="p">([</span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">pv</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">pvs</span><span class="o">.</span><span class="n">values</span><span class="p">()</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">pv</span><span class="o">.</span><span class="n">_idle</span><span class="p">])</span><span class="si">}</span><span class="s2">&gt;&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span>
@@ -1170,7 +1095,7 @@
 <div class="viewcode-block" id="Context.get_pvs"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.Context.get_pvs">[docs]</a>    <span class="k">def</span> <span class="nf">get_pvs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">connection_state_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">access_rights_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">CONTEXT_DEFAULT_TIMEOUT</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return a list of PV objects.</span>
 
 <span class="sd">        These objects may not be connected at first. Channel creation occurs on</span>
@@ -1323,7 +1248,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Context search-results processing thread has exited.&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">get_circuit_manager</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">priority</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return a VirtualCircuitManager for this address, priority. (It manages</span>
 <span class="sd">        a caproto.VirtualCircuit and a TCP socket.)</span>
 
@@ -1429,7 +1354,7 @@
 
 
 <div class="viewcode-block" id="VirtualCircuitManager"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.VirtualCircuitManager">[docs]</a><span class="k">class</span> <span class="nc">VirtualCircuitManager</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Encapsulates a VirtualCircuit, a TCP socket, and additional state</span>
 
 <span class="sd">    This object should never be instantiated directly by user code. It is used</span>
@@ -1507,22 +1432,16 @@
     <span class="k">def</span> <span class="nf">connected</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">states</span><span class="p">[</span><span class="n">ca</span><span class="o">.</span><span class="n">CLIENT</span><span class="p">]</span> <span class="ow">is</span> <span class="n">ca</span><span class="o">.</span><span class="n">CONNECTED</span>
 
-    <span class="k">def</span> <span class="nf">_socket_send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">buffers_to_send</span><span class="p">):</span>
-        <span class="s1">&#39;Send a list of buffers over the socket&#39;</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">sendmsg</span><span class="p">(</span><span class="n">buffers_to_send</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">BlockingIOError</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">ca</span><span class="o">.</span><span class="n">SendAllRetry</span><span class="p">()</span>
-
 <div class="viewcode-block" id="VirtualCircuitManager.send"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.VirtualCircuitManager.send">[docs]</a>    <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">commands</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># Turn the crank: inform the VirtualCircuit that these commands will</span>
         <span class="c1"># be send, and convert them to buffers.</span>
-        <span class="n">buffers_to_send</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="o">*</span><span class="n">commands</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">extra</span><span class="p">)</span>
-        <span class="c1"># Send bytes over the wire using some caproto utilities.</span>
-        <span class="n">ca</span><span class="o">.</span><span class="n">send_all</span><span class="p">(</span><span class="n">buffers_to_send</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_socket_send</span><span class="p">)</span></div>
+        <span class="n">sock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket</span>
+        <span class="k">if</span> <span class="n">sock</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">buffers_to_send</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="o">*</span><span class="n">commands</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">extra</span><span class="p">)</span>
+            <span class="n">sock</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">buffers_to_send</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="VirtualCircuitManager.received"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.VirtualCircuitManager.received">[docs]</a>    <span class="k">def</span> <span class="nf">received</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bytes_recv</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Receive and process and next command from the virtual circuit.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Receive and process and next command from the virtual circuit.</span>
 
 <span class="sd">        This will be run on the recv thread&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">last_tcp_receipt</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
@@ -1537,7 +1456,7 @@
         <span class="k">return</span> <span class="n">num_bytes_needed</span></div>
 
 <div class="viewcode-block" id="VirtualCircuitManager.events_off"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.VirtualCircuitManager.events_off">[docs]</a>    <span class="k">def</span> <span class="nf">events_off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Suspend updates to all subscriptions on this circuit.</span>
 
 <span class="sd">        This may be useful if the server produces updates faster than the</span>
@@ -1546,7 +1465,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">EventsOffRequest</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="VirtualCircuitManager.events_on"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.VirtualCircuitManager.events_on">[docs]</a>    <span class="k">def</span> <span class="nf">events_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reactive updates to all subscriptions on this circuit.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">EventsOnRequest</span><span class="p">())</span></div>
@@ -1739,7 +1658,7 @@
 
 
 <div class="viewcode-block" id="PV"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.PV">[docs]</a><span class="k">class</span> <span class="nc">PV</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents one PV, specified by a name and priority.</span>
 
 <span class="sd">    This object may exist prior to connection and persists across any</span>
@@ -1758,7 +1677,7 @@
                  <span class="s1">&#39;__weakref__&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">priority</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        These must be instantiated by a Context, never directly.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
@@ -1782,7 +1701,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Effective default timeout.</span>
 
 <span class="sd">        Valid values are:</span>
@@ -1862,7 +1781,7 @@
         <span class="k">return</span> <span class="n">channel</span><span class="o">.</span><span class="n">states</span><span class="p">[</span><span class="n">ca</span><span class="o">.</span><span class="n">CLIENT</span><span class="p">]</span> <span class="ow">is</span> <span class="n">ca</span><span class="o">.</span><span class="n">CONNECTED</span>
 
 <div class="viewcode-block" id="PV.wait_for_search"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.PV.wait_for_search">[docs]</a>    <span class="k">def</span> <span class="nf">wait_for_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Wait for this PV to be found.</span>
 
 <span class="sd">        This does not wait for the PV&#39;s Channel to be created; it merely waits</span>
@@ -1885,7 +1804,7 @@
 
 <div class="viewcode-block" id="PV.wait_for_connection"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.PV.wait_for_connection">[docs]</a>    <span class="nd">@ensure_connected</span>
     <span class="k">def</span> <span class="nf">wait_for_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Wait for this PV to be connected.</span>
 
 <span class="sd">        Parameters</span>
@@ -1898,7 +1817,7 @@
         <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="PV.go_idle"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.PV.go_idle">[docs]</a>    <span class="k">def</span> <span class="nf">go_idle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Request to clear this Channel to reduce load on client and server.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Request to clear this Channel to reduce load on client and server.</span>
 
 <span class="sd">        A new Channel will be automatically, silently created the next time any</span>
 <span class="sd">        method requiring a connection is called. Thus, this saves some memory</span>
@@ -1936,7 +1855,7 @@
     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">,</span>
              <span class="n">data_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">notify</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Request a fresh reading.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Request a fresh reading.</span>
 
 <span class="sd">        Can do one or both of:</span>
 <span class="sd">        - Block while waiting for the response, and return it.</span>
@@ -2009,7 +1928,7 @@
     <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
               <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">,</span>
               <span class="n">notify</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_count</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Write a new value. Optionally, request confirmation from the server.</span>
 
 <span class="sd">        Can do one or both of:</span>
@@ -2094,7 +2013,7 @@
 
 <div class="viewcode-block" id="PV.subscribe"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.PV.subscribe">[docs]</a>    <span class="k">def</span> <span class="nf">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                   <span class="n">low</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Start a new subscription to which user callback may be added.</span>
 
 <span class="sd">        Parameters</span>
@@ -2155,7 +2074,7 @@
 
 <div class="viewcode-block" id="PV.time_since_last_heard"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.PV.time_since_last_heard">[docs]</a>    <span class="nd">@ensure_connected</span>
     <span class="k">def</span> <span class="nf">time_since_last_heard</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Seconds since last message from the server that provides this channel.</span>
 
 <span class="sd">        The time is reset to 0 whenever we receive a TCP message related to</span>
@@ -2222,7 +2141,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This is a fast operation that submits jobs to the Context&#39;s</span>
 <span class="sd">        ThreadPoolExecutor and then returns.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -2253,7 +2172,7 @@
 
 
 <div class="viewcode-block" id="Subscription"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.Subscription">[docs]</a><span class="k">class</span> <span class="nc">Subscription</span><span class="p">(</span><span class="n">CallbackHandler</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents one subscription, specified by a PV and configurational parameters</span>
 
 <span class="sd">    It may fan out to zero, one, or multiple user-registered callback</span>
@@ -2287,7 +2206,7 @@
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;Subscription to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pv</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2">, id=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">subscriptionid</span><span class="si">}</span><span class="s2">&gt;&quot;</span>
 
     <span class="k">def</span> <span class="nf">_subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This is called automatically after the first callback is added.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This is called automatically after the first callback is added.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pv</span><span class="o">.</span><span class="n">circuit_manager</span>
         <span class="k">if</span> <span class="n">cm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -2325,7 +2244,7 @@
         <span class="k">return</span> <span class="n">command</span>
 
 <div class="viewcode-block" id="Subscription.clear"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.Subscription.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Remove all callbacks.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">callback_lock</span><span class="p">:</span>
@@ -2335,7 +2254,7 @@
         <span class="c1"># self._unsubscribe for us.</span>
 
     <span class="k">def</span> <span class="nf">_unsubscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">common</span><span class="o">.</span><span class="n">PV_DEFAULT_TIMEOUT</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This is automatically called if the number of callbacks goes to 0.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">callback_lock</span><span class="p">:</span>
@@ -2366,7 +2285,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">most_recent_response</span> <span class="o">=</span> <span class="n">command</span>
 
 <div class="viewcode-block" id="Subscription.add_callback"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.Subscription.add_callback">[docs]</a>    <span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a callback to receive responses.</span>
 
 <span class="sd">        Parameters</span>
@@ -2417,7 +2336,7 @@
         <span class="k">return</span> <span class="n">cb_id</span></div>
 
 <div class="viewcode-block" id="Subscription.remove_callback"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.Subscription.remove_callback">[docs]</a>    <span class="k">def</span> <span class="nf">remove_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Remove callback using token that was returned by :meth:`add_callback`.</span>
 
 <span class="sd">        Parameters</span>
@@ -2442,7 +2361,7 @@
 
 
 <div class="viewcode-block" id="Batch"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.Batch">[docs]</a><span class="k">class</span> <span class="nc">Batch</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Accumulate requests and then issue them all in batch.</span>
 
 <span class="sd">    Parameters</span>
@@ -2477,7 +2396,7 @@
         <span class="k">return</span> <span class="bp">self</span>
 
 <div class="viewcode-block" id="Batch.read"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.Batch.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pv</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_count</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Request a fresh reading as part of a batched request.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Request a fresh reading as part of a batched request.</span>
 
 <span class="sd">        Notice that, unlike :meth:`PV.read`, the callback is required. (There</span>
 <span class="sd">        is no other way to get the result back from a batched read.)</span>
@@ -2508,7 +2427,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_ioid_infos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ioid_info</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Batch.write"><a class="viewcode-back" href="../../../threading-client.html#caproto.threading.client.Batch.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pv</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_count</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Write a new value as part of a batched request.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write a new value as part of a batched request.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -2560,46 +2479,30 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Daniel Allan.
-
-    </p>
+    <p>&#169; Copyright 2021, Daniel Allan.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

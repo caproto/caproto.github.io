@@ -92,6 +92,10 @@
        ~Decay.default_values
        ~Decay.type_map
        ~Decay.type_map_read_only
+       ~Decay.pvdb
+       ~Decay.attr_pvdb
+       ~Decay.attr_to_pvname
+       ~Decay.groups
     
 
     

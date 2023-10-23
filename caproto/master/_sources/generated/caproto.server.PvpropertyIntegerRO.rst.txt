@@ -56,6 +56,7 @@
     
        ~PvpropertyIntegerRO.alarm
        ~PvpropertyIntegerRO.data_type
+       ~PvpropertyIntegerRO.default_value
        ~PvpropertyIntegerRO.epics_timestamp
        ~PvpropertyIntegerRO.length
        ~PvpropertyIntegerRO.lower_alarm_limit
@@ -72,6 +73,20 @@
        ~PvpropertyIntegerRO.upper_disp_limit
        ~PvpropertyIntegerRO.upper_warning_limit
        ~PvpropertyIntegerRO.value
+       ~PvpropertyIntegerRO.field_inst
+       ~PvpropertyIntegerRO.fields
+       ~PvpropertyIntegerRO.getter
+       ~PvpropertyIntegerRO.group
+       ~PvpropertyIntegerRO.log
+       ~PvpropertyIntegerRO.name
+       ~PvpropertyIntegerRO.putter
+       ~PvpropertyIntegerRO.pvname
+       ~PvpropertyIntegerRO.pvspec
+       ~PvpropertyIntegerRO.record_type
+       ~PvpropertyIntegerRO.scan
+       ~PvpropertyIntegerRO.shutdown
+       ~PvpropertyIntegerRO.startup
+       ~PvpropertyIntegerRO.max_subscription_backlog
     
 
     

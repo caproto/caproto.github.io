@@ -97,6 +97,10 @@
        ~Edge.default_values
        ~Edge.type_map
        ~Edge.type_map_read_only
+       ~Edge.pvdb
+       ~Edge.attr_pvdb
+       ~Edge.attr_to_pvname
+       ~Edge.groups
     
 
     
@@ -105,7 +109,7 @@
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/ioc_examples/mini_beamline.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/ioc_examples/mini_beamline.py
         :language: python
         :linenos:
         :dedent: 4

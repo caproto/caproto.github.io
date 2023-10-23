@@ -216,6 +216,10 @@
        ~PeriodicStatusHelper.default_values
        ~PeriodicStatusHelper.type_map
        ~PeriodicStatusHelper.type_map_read_only
+       ~PeriodicStatusHelper.pvdb
+       ~PeriodicStatusHelper.attr_pvdb
+       ~PeriodicStatusHelper.attr_to_pvname
+       ~PeriodicStatusHelper.groups
     
 
     
@@ -224,7 +228,7 @@
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/stats.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/stats.py
         :language: python
         :linenos:
         :dedent: 4
@@ -234,7 +238,7 @@
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/stats.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/stats.py
         :language: python
         :linenos:
         :dedent: 4
@@ -250,7 +254,7 @@
         <summary>Source code: update_period.startup</summary>
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/stats.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/stats.py
         :language: python
         :linenos:
         :dedent: 0

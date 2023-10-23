@@ -97,6 +97,10 @@
        ~PinHole.default_values
        ~PinHole.type_map
        ~PinHole.type_map_read_only
+       ~PinHole.pvdb
+       ~PinHole.attr_pvdb
+       ~PinHole.attr_to_pvname
+       ~PinHole.groups
     
 
     
@@ -105,7 +109,7 @@
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/ioc_examples/mini_beamline.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/ioc_examples/mini_beamline.py
         :language: python
         :linenos:
         :dedent: 4

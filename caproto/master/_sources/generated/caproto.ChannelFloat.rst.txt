@@ -55,6 +55,7 @@
     
        ~ChannelFloat.alarm
        ~ChannelFloat.data_type
+       ~ChannelFloat.default_value
        ~ChannelFloat.epics_timestamp
        ~ChannelFloat.length
        ~ChannelFloat.lower_alarm_limit
@@ -72,6 +73,7 @@
        ~ChannelFloat.upper_disp_limit
        ~ChannelFloat.upper_warning_limit
        ~ChannelFloat.value
+       ~ChannelFloat.max_subscription_backlog
     
 
     

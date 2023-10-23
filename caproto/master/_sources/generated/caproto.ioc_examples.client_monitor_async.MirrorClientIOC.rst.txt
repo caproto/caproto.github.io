@@ -60,6 +60,10 @@
        ~MirrorClientIOC.default_values
        ~MirrorClientIOC.type_map
        ~MirrorClientIOC.type_map_read_only
+       ~MirrorClientIOC.pvdb
+       ~MirrorClientIOC.attr_pvdb
+       ~MirrorClientIOC.attr_to_pvname
+       ~MirrorClientIOC.groups
     
 
     

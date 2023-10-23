@@ -36,7 +36,7 @@
         *  - access_security_group
            - ``ASG``
            - Access Security Group
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(29)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -45,7 +45,7 @@
         *  - alarm_acknowledge_severity
            - ``ACKS``
            - Alarm Ack Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -54,7 +54,7 @@
         *  - alarm_acknowledge_transient
            - ``ACKT``
            - Alarm Ack Transient
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -63,7 +63,7 @@
         *  - alarm_status
            - ``STAT``
            - Alarm Status
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -72,7 +72,7 @@
         *  - buffering_algorithm
            - ``BALG``
            - Buffering Algorithm
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
            - 
@@ -80,7 +80,7 @@
         *  - compress_value_buffer
            - ``CVB``
            - Compress Value Buffer
-           - DOUBLE 
+           - PvpropertyDoubleRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
@@ -89,7 +89,7 @@
         *  - compressed_array_inx
            - ``INX``
            - Compressed Array Inx
-           - LONG 
+           - PvpropertyIntegerRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
@@ -98,7 +98,7 @@
         *  - compression_algorithm
            - ``ALG``
            - Compression Algorithm
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
            - 
@@ -106,7 +106,7 @@
         *  - current_alarm_severity
            - ``SEVR``
            - Alarm Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -115,7 +115,7 @@
         *  - dbputfield_process
            - ``PUTF``
            - dbPutField process
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -124,7 +124,7 @@
         *  - description
            - ``DESC``
            - Descriptor
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(41)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -133,7 +133,7 @@
         *  - device_type
            - ``DTYP``
            - Device Type
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -141,7 +141,7 @@
         *  - disable
            - ``DISA``
            - Disable
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -149,7 +149,7 @@
         *  - disable_alarm_severity
            - ``DISS``
            - Disable Alarm Sevrty
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -157,7 +157,7 @@
         *  - disable_putfield
            - ``DISP``
            - Disable putField
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -165,7 +165,7 @@
         *  - disable_value
            - ``DISV``
            - Disable Value
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -173,7 +173,7 @@
         *  - display_precision
            - ``PREC``
            - Display Precision
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
                  **Get**
@@ -183,7 +183,7 @@
         *  - engineering_units
            - ``EGU``
            - Engineering Units
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(16)
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
@@ -192,7 +192,7 @@
         *  - event_name
            - ``EVNT``
            - Event Name
-           - CHAR 
+           - PvpropertyChar 
            - 
                  Length(40)
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -201,7 +201,7 @@
         *  - forward_link
            - ``FLNK``
            - Forward Process Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -209,7 +209,7 @@
         *  - high_operating_range
            - ``HOPR``
            - High Operating Range
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
                  **Get**
@@ -219,7 +219,7 @@
         *  - init_high_interest_lim
            - ``IHIL``
            - Init High Interest Lim
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
            - 
@@ -227,7 +227,7 @@
         *  - init_low_interest_lim
            - ``ILIL``
            - Init Low Interest Lim
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
            - 
@@ -235,7 +235,7 @@
         *  - input_specification
            - ``INP``
            - Input Specification
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
            - 
@@ -243,7 +243,7 @@
         *  - lock_count
            - ``LCNT``
            - Lock Count
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -252,7 +252,7 @@
         *  - low_operating_range
            - ``LOPR``
            - Low Operating Range
-           - DOUBLE 
+           - PvpropertyDouble 
            - 
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
                  **Get**
@@ -262,7 +262,7 @@
         *  - n_to_1_compression
            - ``N``
            - N to 1 Compression
-           - LONG 
+           - PvpropertyInteger 
            - 
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
            - 
@@ -270,7 +270,7 @@
         *  - new_alarm_severity
            - ``NSEV``
            - New Alarm Severity
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -279,7 +279,7 @@
         *  - new_alarm_status
            - ``NSTA``
            - New Alarm Status
-           - ENUM 
+           - PvpropertyEnumRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -288,7 +288,7 @@
         *  - number_of_elements_in_working_buffer
            - ``INPN``
            - Number of elements in Working Buffer
-           - LONG 
+           - PvpropertyIntegerRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
@@ -297,7 +297,7 @@
         *  - number_of_values
            - ``NSAM``
            - Number of Values
-           - LONG 
+           - PvpropertyIntegerRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
@@ -306,7 +306,7 @@
         *  - number_used
            - ``NUSE``
            - Number Used
-           - LONG 
+           - PvpropertyIntegerRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
@@ -315,7 +315,7 @@
         *  - offset
            - ``OFF``
            - Offset
-           - LONG 
+           - PvpropertyIntegerRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
@@ -324,7 +324,7 @@
         *  - old_number_used
            - ``OUSE``
            - Old Number Used
-           - LONG 
+           - PvpropertyIntegerRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
@@ -333,7 +333,7 @@
         *  - process_at_iocinit
            - ``PINI``
            - Process at iocInit
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -341,7 +341,7 @@
         *  - process_record
            - ``PROC``
            - Force Processing
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -349,7 +349,7 @@
         *  - record_active
            - ``PACT``
            - Record active
-           - CHAR 
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -358,7 +358,7 @@
         *  - record_name
            - ``NAME``
            - Record Name
-           - CHAR 
+           - PvpropertyCharRO 
            - 
                  **Read-only**
                  Length(61)
@@ -368,7 +368,7 @@
         *  - record_type
            - ``RTYP``
            - Record type
-           - STRING 
+           - PvpropertyStringRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
@@ -376,8 +376,8 @@
     
         *  - reprocess
            - ``RPRO``
-           - Reprocess 
-           - CHAR 
+           - Reprocess
+           - PvpropertyByteRO 
            - 
                  **Read-only**
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
@@ -386,7 +386,7 @@
         *  - reset
            - ``RES``
            - Reset
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.CompressFields`
            - 
@@ -394,7 +394,7 @@
         *  - scan_phase
            - ``PHAS``
            - Scan Phase
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -402,7 +402,7 @@
         *  - scan_rate
            - ``SCAN``
            - Scan Mechanism
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -410,7 +410,7 @@
         *  - scanning_disable
            - ``SDIS``
            - Scanning Disable
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -418,7 +418,7 @@
         *  - scheduling_priority
            - ``PRIO``
            - Scheduling Priority
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -426,7 +426,7 @@
         *  - time_stamp_event
            - ``TSE``
            - Time Stamp Event
-           - INT 
+           - PvpropertyShort 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -434,7 +434,7 @@
         *  - time_stamp_link
            - ``TSEL``
            - Time Stamp Link
-           - STRING 
+           - PvpropertyString 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -442,7 +442,7 @@
         *  - trace_processing
            - ``TPRO``
            - Trace Processing
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -450,7 +450,7 @@
         *  - undefined
            - ``UDF``
            - Undefined
-           - CHAR 
+           - PvpropertyByte 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -458,7 +458,7 @@
         *  - undefined_alarm_severity
            - ``UDFS``
            - Undefined Alarm Sevrty
-           - ENUM 
+           - PvpropertyEnum 
            - 
                  Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
            - 
@@ -493,6 +493,11 @@
        ~CompressFields.scan_rate_sec
        ~CompressFields.type_map
        ~CompressFields.type_map_read_only
+       ~CompressFields.parent
+       ~CompressFields.pvdb
+       ~CompressFields.attr_pvdb
+       ~CompressFields.attr_to_pvname
+       ~CompressFields.groups
     
 
     
@@ -501,29 +506,29 @@
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43
     .. method:: high_operating_range.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43
     .. method:: low_operating_range.getter(self, instance)
         
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
         :language: python
         :linenos:
         :dedent: 4
-        :lineno-start: 38
-        :lines: 38-40
+        :lineno-start: 41
+        :lines: 41-43

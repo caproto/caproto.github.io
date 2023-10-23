@@ -147,6 +147,10 @@
        ~BasicStatusHelper.default_values
        ~BasicStatusHelper.type_map
        ~BasicStatusHelper.type_map_read_only
+       ~BasicStatusHelper.pvdb
+       ~BasicStatusHelper.attr_pvdb
+       ~BasicStatusHelper.attr_to_pvname
+       ~BasicStatusHelper.groups
     
 
     
@@ -161,7 +165,7 @@
         <summary>Source code: process_id.startup</summary>
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/server/stats.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/stats.py
         :language: python
         :linenos:
         :dedent: 0

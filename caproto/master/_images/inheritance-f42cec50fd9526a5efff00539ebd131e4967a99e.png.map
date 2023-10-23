@@ -1,0 +1,16 @@
+<map id="inheritancef5300b3804" name="inheritancef5300b3804">
+<area shape="rect" id="node1" href="generated/caproto.ChannelByte.html#caproto.ChannelByte" target="_top" title="8&#45;bit unencoded CHAR data plus metadata which can be sent over a channel." alt="" coords="14,79,119,104"/>
+<area shape="rect" id="node10" href="generated/caproto.server.PvpropertyByte.html#caproto.server.PvpropertyByte" target="_top" title="Read&#45;write 8&#45;bit CHAR data for pvproperty for bytes." alt="" coords="5,152,128,177"/>
+<area shape="rect" id="node2" href="generated/caproto.ChannelChar.html#caproto.ChannelChar" target="_top" title="8&#45;bit encoded CHAR data plus metadata which can be sent over a channel." alt="" coords="499,79,605,104"/>
+<area shape="rect" id="node11" href="generated/caproto.server.PvpropertyChar.html#caproto.server.PvpropertyChar" target="_top" title="Read&#45;write 8&#45;bit CHAR data for pvproperty with string encoding." alt="" coords="491,152,613,177"/>
+<area shape="rect" id="node3" href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="296,5,403,31"/>
+<area shape="rect" id="node9" href="generated/caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" target="_top" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="345,79,469,104"/>
+<area shape="rect" id="node4" href="generated/caproto.ChannelDouble.html#caproto.ChannelDouble" target="_top" title="64&#45;bit floating point data and metadata which can be sent over a channel." alt="" coords="646,79,767,104"/>
+<area shape="rect" id="node12" href="generated/caproto.server.PvpropertyDouble.html#caproto.server.PvpropertyDouble" target="_top" title="Read&#45;write DOUBLE data for pvproperty (64 bits)." alt="" coords="637,152,776,177"/>
+<area shape="rect" id="node5" href="generated/caproto.ChannelEnum.html#caproto.ChannelEnum" target="_top" title="ENUM data which can be sent over a channel." alt="" coords="192,79,304,104"/>
+<area shape="rect" id="node8" href="generated/caproto.server.PvpropertyBoolEnum.html#caproto.server.PvpropertyBoolEnum" target="_top" title="Read&#45;write ENUM data for pvproperty, with Off/On as default strings." alt="" coords="153,152,311,177"/>
+<area shape="rect" id="node13" href="generated/caproto.server.PvpropertyEnum.html#caproto.server.PvpropertyEnum" target="_top" title="Read&#45;write ENUM data for pvproperty." alt="" coords="336,152,467,177"/>
+<area shape="rect" id="node6" href="generated/caproto.ChannelString.html#caproto.ChannelString" target="_top" title="8&#45;bit encoded string data plus metadata which can be sent over a channel." alt="" coords="809,79,922,104"/>
+<area shape="rect" id="node14" href="generated/caproto.server.PvpropertyString.html#caproto.server.PvpropertyString" target="_top" title="Read&#45;write STRING data for pvproperty (up to 40 chars)." alt="" coords="800,152,931,177"/>
+<area shape="rect" id="node7" title="Abstract base class for generic types." alt="" coords="427,5,499,31"/>
+</map>

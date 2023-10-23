@@ -56,6 +56,7 @@
     
        ~PvpropertyByteRO.alarm
        ~PvpropertyByteRO.data_type
+       ~PvpropertyByteRO.default_value
        ~PvpropertyByteRO.epics_timestamp
        ~PvpropertyByteRO.length
        ~PvpropertyByteRO.lower_alarm_limit
@@ -72,6 +73,20 @@
        ~PvpropertyByteRO.upper_disp_limit
        ~PvpropertyByteRO.upper_warning_limit
        ~PvpropertyByteRO.value
+       ~PvpropertyByteRO.field_inst
+       ~PvpropertyByteRO.fields
+       ~PvpropertyByteRO.getter
+       ~PvpropertyByteRO.group
+       ~PvpropertyByteRO.log
+       ~PvpropertyByteRO.name
+       ~PvpropertyByteRO.putter
+       ~PvpropertyByteRO.pvname
+       ~PvpropertyByteRO.pvspec
+       ~PvpropertyByteRO.record_type
+       ~PvpropertyByteRO.scan
+       ~PvpropertyByteRO.shutdown
+       ~PvpropertyByteRO.startup
+       ~PvpropertyByteRO.max_subscription_backlog
     
 
     

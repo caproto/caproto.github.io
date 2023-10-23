@@ -56,6 +56,7 @@
     
        ~PvpropertyCharRO.alarm
        ~PvpropertyCharRO.data_type
+       ~PvpropertyCharRO.default_value
        ~PvpropertyCharRO.epics_timestamp
        ~PvpropertyCharRO.length
        ~PvpropertyCharRO.long_string_max_length
@@ -64,6 +65,20 @@
        ~PvpropertyCharRO.status
        ~PvpropertyCharRO.timestamp
        ~PvpropertyCharRO.value
+       ~PvpropertyCharRO.field_inst
+       ~PvpropertyCharRO.fields
+       ~PvpropertyCharRO.getter
+       ~PvpropertyCharRO.group
+       ~PvpropertyCharRO.log
+       ~PvpropertyCharRO.name
+       ~PvpropertyCharRO.putter
+       ~PvpropertyCharRO.pvname
+       ~PvpropertyCharRO.pvspec
+       ~PvpropertyCharRO.record_type
+       ~PvpropertyCharRO.scan
+       ~PvpropertyCharRO.shutdown
+       ~PvpropertyCharRO.startup
+       ~PvpropertyCharRO.max_subscription_backlog
     
 
     

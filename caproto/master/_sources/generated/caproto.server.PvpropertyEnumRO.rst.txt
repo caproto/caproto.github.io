@@ -57,6 +57,7 @@
     
        ~PvpropertyEnumRO.alarm
        ~PvpropertyEnumRO.data_type
+       ~PvpropertyEnumRO.default_value
        ~PvpropertyEnumRO.enum_strings
        ~PvpropertyEnumRO.epics_timestamp
        ~PvpropertyEnumRO.length
@@ -66,6 +67,20 @@
        ~PvpropertyEnumRO.status
        ~PvpropertyEnumRO.timestamp
        ~PvpropertyEnumRO.value
+       ~PvpropertyEnumRO.field_inst
+       ~PvpropertyEnumRO.fields
+       ~PvpropertyEnumRO.getter
+       ~PvpropertyEnumRO.group
+       ~PvpropertyEnumRO.log
+       ~PvpropertyEnumRO.name
+       ~PvpropertyEnumRO.putter
+       ~PvpropertyEnumRO.pvname
+       ~PvpropertyEnumRO.pvspec
+       ~PvpropertyEnumRO.record_type
+       ~PvpropertyEnumRO.scan
+       ~PvpropertyEnumRO.shutdown
+       ~PvpropertyEnumRO.startup
+       ~PvpropertyEnumRO.max_subscription_backlog
     
 
     

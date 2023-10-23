@@ -57,6 +57,7 @@
     
        ~PvpropertyBoolEnum.alarm
        ~PvpropertyBoolEnum.data_type
+       ~PvpropertyBoolEnum.default_value
        ~PvpropertyBoolEnum.enum_strings
        ~PvpropertyBoolEnum.epics_timestamp
        ~PvpropertyBoolEnum.length
@@ -66,6 +67,20 @@
        ~PvpropertyBoolEnum.status
        ~PvpropertyBoolEnum.timestamp
        ~PvpropertyBoolEnum.value
+       ~PvpropertyBoolEnum.field_inst
+       ~PvpropertyBoolEnum.fields
+       ~PvpropertyBoolEnum.getter
+       ~PvpropertyBoolEnum.group
+       ~PvpropertyBoolEnum.log
+       ~PvpropertyBoolEnum.name
+       ~PvpropertyBoolEnum.putter
+       ~PvpropertyBoolEnum.pvname
+       ~PvpropertyBoolEnum.pvspec
+       ~PvpropertyBoolEnum.record_type
+       ~PvpropertyBoolEnum.scan
+       ~PvpropertyBoolEnum.shutdown
+       ~PvpropertyBoolEnum.startup
+       ~PvpropertyBoolEnum.max_subscription_backlog
     
 
     

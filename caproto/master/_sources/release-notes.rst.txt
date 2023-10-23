@@ -2,6 +2,77 @@
 Release History
 ***************
 
+v1.0.1 (2023-03-29)
+===================
+
+Added / Fixed
+-------------
+
+* Timeout no longer ignored in pyepics_compat's caget_many (@mcnanneyd, #806)
+* New example: Lakeshore temperature controller (@gwbischof, #809)
+
+
+v1.0.0 (2022-09-01)
+===================
+
+Breaking Changes
+----------------
+
+- Python 3.6 and Python 3.7 support has been dropped. Python 3.8 through Python
+  3.10 are now targeted for support.
+- PVAccess support has been removed, and caproto returns to being solely an
+  EPICS Channel Access library.
+- Top-level utility functions for accessing pvAccess environment variables
+  are now deprecated and will be reverted to pre-pvAccess (no protocol argument
+  allowed) signatures in a future release.
+
+Added / Fixed
+-------------
+
+- Fixes for all Windows clients, servers, and the repeater relating to PV
+  searches. ``recvfrom`` was occasionally raising ``ConnectionResetError``,
+  which on Windows only means that: "... a previous send operation resulted in
+  an ICMP Port Unreachable message."  This is not fatal in caproto's case and
+  can safely be ignored (or worked around, in the case of asyncio).
+  https://docs.microsoft.com/en-us/windows/win32/api/winsock/nf-winsock-recvfrom
+- Fixed pickle/copy for ChannelData subclasses
+- Fixed synchronous repeater bind address to INADDR_ANY ("0.0.0.0").  Binding
+  to a specific interface meant that on Windows the repeater could not use
+  its client-is-alive detection mechanism by binding to the client port as
+  the bind would always succeed.
+- Updated method ``get_data_class()`` in PVSpec so that type maps are correct for
+  read-only.
+- Use RotatingFileManager filename when restoring autosave.
+- Provide defaults for user limits in motor record simulation.
+- pvproperty no longer broken when decorating methods with docstring.
+- Type annotations have been added to ``caproto.server.server``.
+    - ``pvproperty`` and ``PVSpec`` may now use the data class directly, instead of
+      requiring an internal mapping of data type to class. For example,
+      ``pvproperty(..., dtype=PvpropertyInteger)`` is allowed alongside the
+      existing and less explicit ``pvproperty(..., dtype=int)``.
+    - Using such classes directly comes with the added benefit of type
+      inference with your IDE's language server / static analyzer. pyright and
+      similar should be much happier with caproto IOCs that use ``pvproperty``
+      such that linting of attributes on pvproperty instances, features as "Go
+      to source", and code completion are now possible.
+
+Development
+-----------
+
+- Adjusted continuous integration jobs to reflect new supported versions.
+- Improved test suite reliability on continuous integration.
+- Removed buffer-slicing tools and tests in a refactor to avoid ``sendmsg`` on
+  all platforms and async libraries.
+- Removed some old windows compatibility patches in
+  ``caproto._windows_compat``, and avoided monkey-patching for curio by moving
+  its Windows-facing ``curio.run`` modification to
+  ``caproto.curio.utils.curio_run``.
+- Test suite has some built-in timeout-handling functionality on a
+  per-async-library basis, avoiding exiting the entire test suite on Windows
+  (due to limitations of ``pytest-timeout``).
+- Trio socket handling has been updated to follow better practices for recent
+  trio versions.
+
 v0.8.1 (2021-06-03)
 ===================
 

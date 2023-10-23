@@ -56,6 +56,7 @@
     
        ~PvpropertyShort.alarm
        ~PvpropertyShort.data_type
+       ~PvpropertyShort.default_value
        ~PvpropertyShort.epics_timestamp
        ~PvpropertyShort.length
        ~PvpropertyShort.lower_alarm_limit
@@ -72,6 +73,20 @@
        ~PvpropertyShort.upper_disp_limit
        ~PvpropertyShort.upper_warning_limit
        ~PvpropertyShort.value
+       ~PvpropertyShort.field_inst
+       ~PvpropertyShort.fields
+       ~PvpropertyShort.getter
+       ~PvpropertyShort.group
+       ~PvpropertyShort.log
+       ~PvpropertyShort.name
+       ~PvpropertyShort.putter
+       ~PvpropertyShort.pvname
+       ~PvpropertyShort.pvspec
+       ~PvpropertyShort.record_type
+       ~PvpropertyShort.scan
+       ~PvpropertyShort.shutdown
+       ~PvpropertyShort.startup
+       ~PvpropertyShort.max_subscription_backlog
     
 
     

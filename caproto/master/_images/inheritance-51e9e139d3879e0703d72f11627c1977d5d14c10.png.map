@@ -1,7 +1,0 @@
-<map id="inheritancec99d770163" name="inheritancec99d770163">
-<area shape="rect" id="node1" href="caproto.ChannelChar.html#caproto.ChannelChar" target="_top" title="8&#45;bit encoded CHAR data plus metadata which can be sent over a channel." alt="" coords="358,79,557,104"/>
-<area shape="rect" id="node3" href="#caproto.server.PvpropertyCharRO" target="_top" title="Read&#45;only 8&#45;bit CHAR data for pvproperty with string encoding." alt="" coords="172,152,455,177"/>
-<area shape="rect" id="node2" href="caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="358,5,557,31"/>
-<area shape="rect" id="node4" href="caproto.server.PvpropertyReadOnlyData.html#caproto.server.PvpropertyReadOnlyData" target="_top" title="A mixin class which marks this data as read&#45;only from channel access." alt="" coords="5,79,333,104"/>
-<area shape="rect" id="node5" href="caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" target="_top" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="37,5,302,31"/>
-</map>

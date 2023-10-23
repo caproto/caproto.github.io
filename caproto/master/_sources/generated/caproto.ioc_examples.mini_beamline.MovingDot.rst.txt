@@ -129,6 +129,10 @@
        ~MovingDot.sigmay
        ~MovingDot.type_map
        ~MovingDot.type_map_read_only
+       ~MovingDot.pvdb
+       ~MovingDot.attr_pvdb
+       ~MovingDot.attr_to_pvname
+       ~MovingDot.groups
     
 
     

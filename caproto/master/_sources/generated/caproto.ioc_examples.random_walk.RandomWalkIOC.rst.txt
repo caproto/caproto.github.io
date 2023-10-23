@@ -68,6 +68,10 @@
        ~RandomWalkIOC.default_values
        ~RandomWalkIOC.type_map
        ~RandomWalkIOC.type_map_read_only
+       ~RandomWalkIOC.pvdb
+       ~RandomWalkIOC.attr_pvdb
+       ~RandomWalkIOC.attr_to_pvname
+       ~RandomWalkIOC.groups
     
 
     
@@ -84,7 +88,7 @@
         <summary>Source code: x.startup</summary>
 
     
-    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/caproto/ioc_examples/random_walk.py
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/ioc_examples/random_walk.py
         :language: python
         :linenos:
         :dedent: 0
