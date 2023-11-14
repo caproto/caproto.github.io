@@ -1,0 +1,41 @@
+﻿caproto.server.server.FieldProxy
+================================
+
+
+.. currentmodule:: caproto.server.server
+
+.. inheritance-diagram:: FieldProxy
+
+.. autoclass:: FieldProxy
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~FieldProxy.getter
+       ~FieldProxy.putter
+       ~FieldProxy.scan
+       ~FieldProxy.shutdown
+       ~FieldProxy.startup
+    
+    
+
+    
+    
+    
+
+    

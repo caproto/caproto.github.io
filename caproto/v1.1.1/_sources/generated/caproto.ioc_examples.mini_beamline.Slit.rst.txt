@@ -1,0 +1,117 @@
+﻿caproto.ioc\_examples.mini\_beamline.Slit
+=========================================
+
+
+.. currentmodule:: caproto.ioc_examples.mini_beamline
+
+.. inheritance-diagram:: Slit
+
+.. autoclass:: Slit
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+    .. list-table:: Slit pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - det
+           - ``det``
+           - Scalar detector value
+           - float 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.ioc_examples.mini_beamline._JitterDetector`
+           - 
+    
+        *  - exp
+           - ``exp``
+           - Exponential value
+           - float 
+           - 
+                 Inherited from :class:`~caproto.ioc_examples.mini_beamline._JitterDetector`
+                 **Put**
+           - 
+    
+        *  - mtr
+           - ``mtr``
+           - Motor
+           - float (:class:`ai <caproto.server.records.records.AiFields>`)
+           - 
+                 Inherited from :class:`~caproto.ioc_examples.mini_beamline._JitterDetector`
+                 **Startup**
+                 **Put**
+           - 
+    
+        *  - mtr_tick_rate
+           - ``mtr_tick_rate``
+           - Update tick rate
+           - float 
+           - 
+                 Inherited from :class:`~caproto.ioc_examples.mini_beamline._JitterDetector`
+           - 
+    
+        *  - vel
+           - ``vel``
+           - Velocity
+           - float 
+           - 
+                 Inherited from :class:`~caproto.ioc_examples.mini_beamline._JitterDetector`
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~Slit.group_read
+       ~Slit.group_write
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~Slit.default_values
+       ~Slit.type_map
+       ~Slit.type_map_read_only
+       ~Slit.pvdb
+       ~Slit.attr_pvdb
+       ~Slit.attr_to_pvname
+       ~Slit.groups
+    
+
+    
+    .. rubric:: pvproperty methods
+    .. method:: mtr.startup(self, instance, async_lib)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/ioc_examples/mini_beamline.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 90
+        :lines: 90-93

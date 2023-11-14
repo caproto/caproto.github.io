@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>caproto.server.scan_wrapper &mdash; caproto 1.1.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/inheritance.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=7a812f30"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/docs-versions-menu.js?v=302f4f97"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="caproto.server.pvproperty" href="caproto.server.pvproperty.html" />
+    <link rel="prev" title="caproto.server.PVGroup" href="caproto.server.PVGroup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            caproto
+          </a>
+              <div class="version">
+                1.1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install Caproto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clients.html">Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shark.html">Shark (pcap/tcpdump parsing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loggers.html">Logging</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IOCs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../records.html">Records</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookiecutter.html">IOC Template Cookiecutters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../server_api.html">Server API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#data-containers">Data Containers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../server_api.html#high-level-api-pvproperty-magic">High-level API / pvproperty magic</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.PVSpec.html">caproto.server.PVSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.expand_macros.html">caproto.server.expand_macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.PVGroup.html">caproto.server.PVGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.pvproperty.html">caproto.server.pvproperty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.PvpropertyData.html">caproto.server.PvpropertyData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.SubGroup.html">caproto.server.SubGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.pvfunction.html">caproto.server.pvfunction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.expand_macros.html">caproto.server.expand_macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caproto.server.get_pv_pair_wrapper.html">caproto.server.get_pv_pair_wrapper</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">caproto.server.scan_wrapper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#caproto.server.scan_wrapper"><code class="docutils literal notranslate"><span class="pre">scan_wrapper()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../server_api.html#command-line-helpers">Command-line Helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../server_api.html#advanced-internal">Advanced / Internal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#library-agnostic-server-core">Library-agnostic server core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#asyncio-server">asyncio server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#curio-server">Curio server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#trio-server">Trio server</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Channel Access Sans I/O</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">Writing Your Own Channel Access Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Core API Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../protocol-compliance.html">Details of our Protocol Compliance for CA Nerds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers.html">Caproto-in-a-box</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">caproto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../iocs.html">Input-Output Controllers (IOCs)</a></li>
+      <li class="breadcrumb-item active">caproto.server.scan_wrapper</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/caproto.server.scan_wrapper.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="caproto-server-scan-wrapper">
+<h1>caproto.server.scan_wrapper<a class="headerlink" href="#caproto-server-scan-wrapper" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="caproto.server.scan_wrapper">
+<span class="sig-prename descclassname"><span class="pre">caproto.server.</span></span><span class="sig-name descname"><span class="pre">scan_wrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtract_elapsed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_on_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">failure_severity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AlarmSeverity</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">AlarmSeverity.MAJOR_ALARM</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_scan_field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/server/server.html#scan_wrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.server.scan_wrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrap a function intended for <cite>pvproperty.scan</cite> with common logic to
+periodically call it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>scan_function</strong><span class="classifier">async callable</span></dt><dd><dl class="simple">
+<dt>The scan function to wrap, with expected signature:</dt><dd><p>(group, instance, async_library)</p>
+</dd>
+</dl>
+</dd>
+<dt><strong>period</strong><span class="classifier">float</span></dt><dd><p>Wait <cite>period</cite> seconds between calls to the scanned function</p>
+</dd>
+<dt><strong>subtract_elapsed</strong><span class="classifier">bool, optional</span></dt><dd><p>Subtract the elapsed time of the previous call from the period for
+the subsequent iteration</p>
+</dd>
+<dt><strong>stop_on_error</strong><span class="classifier">bool, optional</span></dt><dd><p>Fail (and stop scanning) when unhandled exceptions occur</p>
+</dd>
+<dt><strong>use_scan_field</strong><span class="classifier">bool, optional</span></dt><dd><p>Use the .SCAN field if this pvproperty is a mocked record.  Raises
+ValueError if <code class="docutils literal notranslate"><span class="pre">record</span></code> is not used.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>wrapped</strong><span class="classifier">callable</span></dt><dd><p>The wrapped <code class="docutils literal notranslate"><span class="pre">scan</span></code> function.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="caproto.server.PVGroup.html" class="btn btn-neutral float-left" title="caproto.server.PVGroup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="caproto.server.pvproperty.html" class="btn btn-neutral float-right" title="caproto.server.pvproperty" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Daniel Allan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

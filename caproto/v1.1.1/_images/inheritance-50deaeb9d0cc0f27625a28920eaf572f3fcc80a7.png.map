@@ -1,0 +1,9 @@
+<map id="inheritanceb44652354d" name="inheritanceb44652354d">
+<area shape="rect" id="node1" href="caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="61,5,259,31"/>
+<area shape="rect" id="node2" title="Base class for numeric data types with limits." alt="" coords="6,79,229,104"/>
+<area shape="rect" id="node4" href="caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" target="_top" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="258,79,523,104"/>
+<area shape="rect" id="node3" href="caproto.ChannelShort.html#caproto.ChannelShort" target="_top" title="16&#45;bit SHORT integer data and metadata which can be sent over a channel." alt="" coords="5,152,208,177"/>
+<area shape="rect" id="node7" href="#caproto.server.PvpropertyShortRO" target="_top" title="Read&#45;only SHORT/INT data for pvproperty (16 bits)." alt="" coords="107,225,394,251"/>
+<area shape="rect" id="node6" href="caproto.server.PvpropertyReadOnlyData.html#caproto.server.PvpropertyReadOnlyData" target="_top" title="A mixin class which marks this data as read&#45;only from channel access." alt="" coords="232,152,560,177"/>
+<area shape="rect" id="node5" title="Abstract base class for generic types." alt="" coords="332,5,449,31"/>
+</map>

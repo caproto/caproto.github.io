@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>caproto.trio.server &mdash; caproto 1.1.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/inheritance.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=7a812f30"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../../../_static/docs-versions-menu.js?v=302f4f97"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            caproto
+          </a>
+              <div class="version">
+                1.1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install Caproto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clients.html">Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../loggers.html">Logging</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IOCs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../records.html">Records</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookiecutter.html">IOC Template Cookiecutters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../server_api.html">Server API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Channel Access Sans I/O</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../basics.html">Writing Your Own Channel Access Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">Core API Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../protocol-compliance.html">Details of our Protocol Compliance for CA Nerds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release-notes.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../containers.html">Caproto-in-a-box</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">caproto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">caproto.trio.server</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for caproto.trio.server</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">functools</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+
+<span class="kn">import</span> <span class="nn">trio</span>
+<span class="kn">from</span> <span class="nn">trio</span> <span class="kn">import</span> <span class="n">socket</span>
+
+<span class="kn">import</span> <span class="nn">caproto</span> <span class="k">as</span> <span class="nn">ca</span>
+
+<span class="kn">from</span> <span class="nn">.._utils</span> <span class="kn">import</span> <span class="n">safe_getsockname</span>
+<span class="kn">from</span> <span class="nn">..server</span> <span class="kn">import</span> <span class="n">AsyncLibraryLayer</span>
+<span class="kn">from</span> <span class="nn">..server.common</span> <span class="kn">import</span> <span class="n">Context</span> <span class="k">as</span> <span class="n">_Context</span>
+<span class="kn">from</span> <span class="nn">..server.common</span> <span class="kn">import</span> <span class="n">DisconnectedCircuit</span><span class="p">,</span> <span class="n">LoopExit</span>
+<span class="kn">from</span> <span class="nn">..server.common</span> <span class="kn">import</span> <span class="n">VirtualCircuit</span> <span class="k">as</span> <span class="n">_VirtualCircuit</span>
+<span class="kn">from</span> <span class="nn">.util</span> <span class="kn">import</span> <span class="n">open_memory_channel</span>
+
+
+<div class="viewcode-block" id="ServerExit"><a class="viewcode-back" href="../../../generated/caproto.trio.server.ServerExit.html#caproto.trio.server.ServerExit">[docs]</a><span class="k">class</span> <span class="nc">ServerExit</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="o">...</span></div>
+
+
+<div class="viewcode-block" id="Event"><a class="viewcode-back" href="../../../generated/caproto.trio.server.Event.html#caproto.trio.server.Event">[docs]</a><span class="k">class</span> <span class="nc">Event</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The class wraps `trio.Event` and implements `Event.clear()`</span>
+<span class="sd">    method that is used in the code, but deprecated in `trio`.</span>
+<span class="sd">    The event is cleared by creating the new event that if the</span>
+<span class="sd">    event is set. If the event is not set, then old event is left.</span>
+<span class="sd">    The class is not intended to be thread safe.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_event</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_create_event</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_event</span> <span class="o">=</span> <span class="n">trio</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Clearing of the event is implemented by creating a new</span>
+<span class="sd">        event if the event is set. It is assumed that if the event</span>
+<span class="sd">        is set, then it is not waited on.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_create_event</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">is_set</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event</span><span class="o">.</span><span class="n">is_set</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">trio</span><span class="o">.</span><span class="n">move_on_after</span><span class="p">(</span><span class="n">timeout</span><span class="p">):</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+            <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<span class="k">def</span> <span class="nf">_universal_queue</span><span class="p">(</span><span class="n">max_len</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">UniversalQueue</span><span class="p">:</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_send</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_recv</span> <span class="o">=</span> <span class="n">open_memory_channel</span><span class="p">(</span><span class="n">max_len</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+            <span class="n">trio</span><span class="o">.</span><span class="n">from_thread</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_send</span><span class="o">.</span><span class="n">send</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+        <span class="k">async</span> <span class="k">def</span> <span class="nf">async_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_send</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">trio</span><span class="o">.</span><span class="n">from_thread</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_recv</span><span class="o">.</span><span class="n">receive</span><span class="p">)</span>
+
+        <span class="k">async</span> <span class="k">def</span> <span class="nf">async_get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_recv</span><span class="o">.</span><span class="n">receive</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">UniversalQueue</span>
+
+
+<div class="viewcode-block" id="TrioAsyncLayer"><a class="viewcode-back" href="../../../generated/caproto.trio.server.TrioAsyncLayer.html#caproto.trio.server.TrioAsyncLayer">[docs]</a><span class="k">class</span> <span class="nc">TrioAsyncLayer</span><span class="p">(</span><span class="n">AsyncLibraryLayer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ThreadsafeQueue</span> <span class="o">=</span> <span class="n">_universal_queue</span><span class="p">()</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;trio&#39;</span>
+    <span class="n">ThreadsafeQueue</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">Event</span> <span class="o">=</span> <span class="n">Event</span>
+    <span class="n">library</span> <span class="o">=</span> <span class="n">trio</span>
+    <span class="n">sleep</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">trio</span><span class="o">.</span><span class="n">sleep</span><span class="p">)</span></div>
+
+
+<span class="k">class</span> <span class="nc">TrioSocketStreamCompat</span><span class="p">:</span>
+    <span class="n">_sock</span><span class="p">:</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span>  <span class="c1"># trio._socket._SocketType</span>
+    <span class="n">_stream</span><span class="p">:</span> <span class="n">trio</span><span class="o">.</span><span class="n">SocketStream</span>
+    <span class="n">_token</span><span class="p">:</span> <span class="n">trio</span><span class="o">.</span><span class="n">lowlevel</span><span class="o">.</span><span class="n">TrioToken</span>
+    <span class="n">_send_lock</span><span class="p">:</span> <span class="n">trio</span><span class="o">.</span><span class="n">StrictFIFOLock</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sock</span><span class="p">:</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="n">trio</span><span class="o">.</span><span class="n">lowlevel</span><span class="o">.</span><span class="n">TrioToken</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span> <span class="o">=</span> <span class="n">sock</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stream</span> <span class="o">=</span> <span class="n">trio</span><span class="o">.</span><span class="n">SocketStream</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_token</span> <span class="o">=</span> <span class="n">token</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_lock</span> <span class="o">=</span> <span class="n">trio</span><span class="o">.</span><span class="n">StrictFIFOLock</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">recv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_bytes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stream</span><span class="o">.</span><span class="n">receive_some</span><span class="p">(</span><span class="n">max_bytes</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">_close</span><span class="p">():</span>
+            <span class="n">trio</span><span class="o">.</span><span class="n">from_thread</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_stream</span><span class="o">.</span><span class="n">aclose</span><span class="p">,</span> <span class="n">trio_token</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_token</span><span class="p">)</span>
+
+        <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">_close</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">getsockname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">send_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_send_lock</span><span class="p">:</span>
+                <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stream</span><span class="o">.</span><span class="n">send_all</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">trio</span><span class="o">.</span><span class="n">BrokenResourceError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DisconnectedCircuit</span><span class="p">(</span><span class="s2">&quot;Disconnected while sending to client&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="VirtualCircuit"><a class="viewcode-back" href="../../../generated/caproto.trio.server.VirtualCircuit.html#caproto.trio.server.VirtualCircuit">[docs]</a><span class="k">class</span> <span class="nc">VirtualCircuit</span><span class="p">(</span><span class="n">_VirtualCircuit</span><span class="p">):</span>
+    <span class="s2">&quot;Wraps a caproto.VirtualCircuit with a trio client.&quot;</span>
+    <span class="n">TaskCancelled</span> <span class="o">=</span> <span class="n">trio</span><span class="o">.</span><span class="n">Cancelled</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">circuit</span><span class="p">,</span> <span class="n">client</span><span class="p">:</span> <span class="n">TrioSocketStreamCompat</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">nursery</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">QueueFull</span> <span class="o">=</span> <span class="n">trio</span><span class="o">.</span><span class="n">WouldBlock</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">command_chan</span> <span class="o">=</span> <span class="n">open_memory_channel</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">MAX_COMMAND_BACKLOG</span><span class="p">)</span>
+
+        <span class="c1"># For compatibility with server common:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command_queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_chan</span><span class="o">.</span><span class="n">send</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_command_condition</span> <span class="o">=</span> <span class="n">trio</span><span class="o">.</span><span class="n">Condition</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscription_chan</span> <span class="o">=</span> <span class="n">open_memory_channel</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">MAX_TOTAL_SUBSCRIPTION_BACKLOG</span><span class="p">)</span>
+
+        <span class="c1"># For compatibility with server common:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscription_queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscription_chan</span><span class="o">.</span><span class="n">send</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events_on</span> <span class="o">=</span> <span class="n">Event</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">command_queue_loop</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subscription_queue_loop</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_send_buffers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">buffers</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Send ``buffers`` over the wire.&quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">send_all</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">buffers</span><span class="p">))</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">command_queue_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_status</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+        <span class="n">send</span><span class="p">,</span> <span class="n">recv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_chan</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="n">send</span><span class="p">:</span>
+            <span class="k">async</span> <span class="k">with</span> <span class="n">recv</span><span class="p">:</span>
+                <span class="n">task_status</span><span class="o">.</span><span class="n">started</span><span class="p">()</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">async</span> <span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">recv</span><span class="p">:</span>
+                        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_command_queue_iteration</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="o">*</span><span class="n">response</span><span class="p">)</span>
+                        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wake_new_command</span><span class="p">()</span>
+                <span class="k">except</span> <span class="n">DisconnectedCircuit</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_disconnect</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">circuit</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">circuit_disconnected</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">trio</span><span class="o">.</span><span class="n">Cancelled</span><span class="p">:</span>
+                    <span class="o">...</span>
+                <span class="k">except</span> <span class="n">LoopExit</span><span class="p">:</span>
+                    <span class="o">...</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">subscription_queue_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_status</span><span class="p">):</span>
+        <span class="n">task_status</span><span class="o">.</span><span class="n">started</span><span class="p">()</span>
+        <span class="k">await</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">subscription_queue_loop</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">get_from_sub_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># Timeouts work very differently between our server implementations,</span>
+        <span class="c1"># so we do this little stub in its own method.</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">recv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscription_chan</span>
+        <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="k">await</span> <span class="n">recv</span><span class="o">.</span><span class="n">receive</span><span class="p">()</span>
+
+        <span class="k">with</span> <span class="n">trio</span><span class="o">.</span><span class="n">move_on_after</span><span class="p">(</span><span class="n">timeout</span><span class="p">):</span>
+            <span class="k">return</span> <span class="k">await</span> <span class="n">recv</span><span class="o">.</span><span class="n">receive</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_on_disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Executed when disconnection detected&quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_on_disconnect</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_start_write_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle_write</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span><span class="o">.</span><span class="n">start_soon</span><span class="p">(</span><span class="n">handle_write</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_wake_new_command</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_command_condition</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">new_command_condition</span><span class="o">.</span><span class="n">notify_all</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Context"><a class="viewcode-back" href="../../../generated/caproto.trio.server.Context.html#caproto.trio.server.Context">[docs]</a><span class="k">class</span> <span class="nc">Context</span><span class="p">(</span><span class="n">_Context</span><span class="p">):</span>
+    <span class="n">CircuitClass</span> <span class="o">=</span> <span class="n">VirtualCircuit</span>
+    <span class="n">async_layer</span> <span class="o">=</span> <span class="n">TrioAsyncLayer</span>
+    <span class="n">ServerExit</span> <span class="o">=</span> <span class="n">ServerExit</span>
+    <span class="n">TaskCancelled</span> <span class="o">=</span> <span class="n">trio</span><span class="o">.</span><span class="n">Cancelled</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pvdb</span><span class="p">,</span> <span class="n">interfaces</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pvdb</span><span class="p">,</span> <span class="n">interfaces</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command_chan</span> <span class="o">=</span> <span class="n">open_memory_channel</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">MAX_COMMAND_BACKLOG</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command_bundle_queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_chan</span><span class="o">.</span><span class="n">send</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscription_chan</span> <span class="o">=</span> <span class="n">open_memory_channel</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">MAX_TOTAL_SUBSCRIPTION_BACKLOG</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscription_queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscription_chan</span><span class="o">.</span><span class="n">send</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beacon_sock</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">bcast_socket</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">broadcaster_udp_server_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_status</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">interface</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span><span class="p">:</span>
+            <span class="n">udp_sock</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">bcast_socket</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">await</span> <span class="n">udp_sock</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">interface</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ca_server_port</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;UDP bind failure on interface </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
+                                   <span class="n">interface</span><span class="p">)</span>
+                <span class="k">raise</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">server_addresses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">safe_getsockname</span><span class="p">(</span><span class="n">udp_sock</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;UDP socket bound on </span><span class="si">%s</span><span class="s1">:</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span>
+                           <span class="bp">self</span><span class="o">.</span><span class="n">ca_server_port</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">udp_socks</span><span class="p">[</span><span class="n">interface</span><span class="p">]</span> <span class="o">=</span> <span class="n">udp_sock</span>
+
+        <span class="k">for</span> <span class="n">interface</span><span class="p">,</span> <span class="n">udp_sock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">udp_socks</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Broadcasting on </span><span class="si">%s</span><span class="s1">:</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span>
+                           <span class="bp">self</span><span class="o">.</span><span class="n">ca_server_port</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span><span class="o">.</span><span class="n">start_soon</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_core_broadcaster_loop</span><span class="p">,</span> <span class="n">udp_sock</span><span class="p">)</span>
+
+        <span class="n">task_status</span><span class="o">.</span><span class="n">started</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">broadcaster_queue_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_status</span><span class="p">):</span>
+        <span class="n">send</span><span class="p">,</span> <span class="n">recv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_chan</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="n">send</span><span class="p">:</span>
+            <span class="k">async</span> <span class="k">with</span> <span class="n">recv</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">task_status</span><span class="o">.</span><span class="n">started</span><span class="p">()</span>
+                    <span class="k">async</span> <span class="k">for</span> <span class="n">addr</span><span class="p">,</span> <span class="n">commands</span> <span class="ow">in</span> <span class="n">recv</span><span class="p">:</span>
+                        <span class="k">await</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_broadcaster_queue_iteration</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">commands</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">trio</span><span class="o">.</span><span class="n">Cancelled</span><span class="p">:</span>
+                    <span class="o">...</span>
+                <span class="k">except</span> <span class="n">LoopExit</span><span class="p">:</span>
+                    <span class="o">...</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">subscription_queue_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_status</span><span class="p">):</span>
+        <span class="n">send</span><span class="p">,</span> <span class="n">recv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscription_chan</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="n">send</span><span class="p">:</span>
+            <span class="k">async</span> <span class="k">with</span> <span class="n">recv</span><span class="p">:</span>
+                <span class="n">task_status</span><span class="o">.</span><span class="n">started</span><span class="p">()</span>
+                <span class="k">async</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">recv</span><span class="p">:</span>
+                    <span class="n">sub_specs</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">sub</span> <span class="o">=</span> <span class="n">item</span>
+                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subscription_queue_iteration</span><span class="p">(</span>
+                        <span class="n">sub_specs</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">sub</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">broadcast_beacon_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_status</span><span class="p">):</span>
+        <span class="n">task_status</span><span class="o">.</span><span class="n">started</span><span class="p">()</span>
+        <span class="k">await</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">broadcast_beacon_loop</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">server_accept_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listen_sock</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">task_status</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">listen_sock</span><span class="o">.</span><span class="n">listen</span><span class="p">()</span>
+            <span class="n">task_status</span><span class="o">.</span><span class="n">started</span><span class="p">()</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">trio_sock</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="k">await</span> <span class="n">listen_sock</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+                <span class="n">stream</span> <span class="o">=</span> <span class="n">TrioSocketStreamCompat</span><span class="p">(</span>
+                    <span class="n">sock</span><span class="o">=</span><span class="n">trio_sock</span><span class="p">,</span>
+                    <span class="n">token</span><span class="o">=</span><span class="n">trio</span><span class="o">.</span><span class="n">lowlevel</span><span class="o">.</span><span class="n">current_trio_token</span><span class="p">()</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span><span class="o">.</span><span class="n">start_soon</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">tcp_handler</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">addr</span>
+                <span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">listen_sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">log_pv_names</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">startup_hook</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="s1">&#39;Start the server&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Trio server starting up...&#39;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">async</span> <span class="k">with</span> <span class="n">trio</span><span class="o">.</span><span class="n">open_nursery</span><span class="p">()</span> <span class="k">as</span> <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">ca</span><span class="o">.</span><span class="n">get_beacon_address_list</span><span class="p">():</span>
+                    <span class="n">sock</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">bcast_socket</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
+                    <span class="k">await</span> <span class="n">sock</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
+                    <span class="n">interface</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">safe_getsockname</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">beacon_socks</span><span class="p">[</span><span class="n">address</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">sock</span><span class="p">)</span>
+
+                <span class="k">async</span> <span class="k">def</span> <span class="nf">make_socket</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
+                    <span class="n">s</span> <span class="o">=</span> <span class="n">trio</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
+                    <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">interface</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
+                    <span class="k">return</span> <span class="n">s</span>
+
+                <span class="n">res</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bind_tcp_sockets_with_consistent_port_number</span><span class="p">(</span>
+                    <span class="n">make_socket</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tcp_sockets</span> <span class="o">=</span> <span class="n">res</span>
+
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">broadcaster_udp_server_loop</span><span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">broadcaster_queue_loop</span><span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subscription_queue_loop</span><span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">broadcast_beacon_loop</span><span class="p">)</span>
+
+                <span class="c1"># Only after all loops have been started, begin listening:</span>
+                <span class="k">for</span> <span class="n">interface</span><span class="p">,</span> <span class="n">listen_sock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tcp_sockets</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Listening on </span><span class="si">%s</span><span class="s2">:</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
+                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server_accept_loop</span><span class="p">,</span>
+                                             <span class="n">listen_sock</span><span class="p">)</span>
+
+                <span class="n">async_lib</span> <span class="o">=</span> <span class="n">TrioAsyncLayer</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="n">startup_hook</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Calling startup hook </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
+                                   <span class="n">startup_hook</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+
+                    <span class="k">async</span> <span class="k">def</span> <span class="nf">_startup</span><span class="p">(</span><span class="n">task_status</span><span class="p">):</span>
+                        <span class="n">task_status</span><span class="o">.</span><span class="n">started</span><span class="p">()</span>
+                        <span class="k">await</span> <span class="n">startup_hook</span><span class="p">(</span><span class="n">async_lib</span><span class="p">)</span>
+
+                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">_startup</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">method</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startup_methods</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Calling startup method </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+                    <span class="k">async</span> <span class="k">def</span> <span class="nf">_startup</span><span class="p">(</span><span class="n">task_status</span><span class="p">):</span>
+                        <span class="n">task_status</span><span class="o">.</span><span class="n">started</span><span class="p">()</span>
+                        <span class="k">await</span> <span class="n">method</span><span class="p">(</span><span class="n">async_lib</span><span class="p">)</span>
+
+                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">_startup</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Server startup complete.&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">log_pv_names</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;PVs available:</span><span class="se">\n</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pvdb</span><span class="p">))</span>
+        <span class="k">except</span> <span class="n">trio</span><span class="o">.</span><span class="n">Cancelled</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Server task cancelled. Will shut down.&#39;</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Server exiting....&#39;</span><span class="p">)</span>
+            <span class="n">async_lib</span> <span class="o">=</span> <span class="n">TrioAsyncLayer</span><span class="p">()</span>
+            <span class="k">async</span> <span class="k">with</span> <span class="n">trio</span><span class="o">.</span><span class="n">open_nursery</span><span class="p">()</span> <span class="k">as</span> <span class="n">nursery</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">method</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_methods</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Calling shutdown method </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+                    <span class="k">async</span> <span class="k">def</span> <span class="nf">shutdown</span><span class="p">(</span><span class="n">task_status</span><span class="p">):</span>
+                        <span class="n">task_status</span><span class="o">.</span><span class="n">started</span><span class="p">()</span>
+                        <span class="k">await</span> <span class="n">method</span><span class="p">(</span><span class="n">async_lib</span><span class="p">)</span>
+
+                    <span class="k">await</span> <span class="n">nursery</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">shutdown</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">sock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tcp_sockets</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">sock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">udp_socks</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">_interface</span><span class="p">,</span> <span class="n">sock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">beacon_socks</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s1">&#39;Stop the server&#39;</span>
+        <span class="n">nursery</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nursery</span>
+        <span class="k">if</span> <span class="n">nursery</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">nursery</span><span class="o">.</span><span class="n">cancel_scope</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="start_server"><a class="viewcode-back" href="../../../generated/caproto.trio.server.start_server.html#caproto.trio.server.start_server">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">start_server</span><span class="p">(</span><span class="n">pvdb</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">interfaces</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log_pv_names</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                       <span class="n">startup_hook</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Start a trio server with a given PV database&#39;&#39;&#39;</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">pvdb</span><span class="p">,</span> <span class="n">interfaces</span><span class="o">=</span><span class="n">interfaces</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+        <span class="n">log_pv_names</span><span class="o">=</span><span class="n">log_pv_names</span><span class="p">,</span>
+        <span class="n">startup_hook</span><span class="o">=</span><span class="n">startup_hook</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="run"><a class="viewcode-back" href="../../../generated/caproto.trio.server.run.html#caproto.trio.server.run">[docs]</a><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">pvdb</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">interfaces</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log_pv_names</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">startup_hook</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Run an IOC, given its PV database dictionary.</span>
+
+<span class="sd">    A synchronous function that runs server, catches KeyboardInterrupt at exit.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pvdb : dict</span>
+<span class="sd">        The PV database.</span>
+
+<span class="sd">    interfaces : list, optional</span>
+<span class="sd">        List of interfaces to listen on.</span>
+
+<span class="sd">    log_pv_names : bool, optional</span>
+<span class="sd">        Log PV names at startup.</span>
+
+<span class="sd">    startup_hook : coroutine, optional</span>
+<span class="sd">        Hook to call at startup with the ``async_lib`` shim.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">trio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+            <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span>
+                <span class="n">start_server</span><span class="p">,</span>
+                <span class="n">pvdb</span><span class="p">,</span>
+                <span class="n">interfaces</span><span class="o">=</span><span class="n">interfaces</span><span class="p">,</span>
+                <span class="n">log_pv_names</span><span class="o">=</span><span class="n">log_pv_names</span><span class="p">,</span>
+                <span class="n">startup_hook</span><span class="o">=</span><span class="n">startup_hook</span><span class="p">,</span>
+            <span class="p">))</span>
+    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+        <span class="k">return</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Daniel Allan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

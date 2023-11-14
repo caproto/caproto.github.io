@@ -1,0 +1,83 @@
+﻿caproto.server.PvpropertyReadOnlyData
+=====================================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: PvpropertyReadOnlyData
+
+.. autoclass:: PvpropertyReadOnlyData
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PvpropertyReadOnlyData.auth_read
+       ~PvpropertyReadOnlyData.auth_write
+       ~PvpropertyReadOnlyData.calculate_length
+       ~PvpropertyReadOnlyData.check_access
+       ~PvpropertyReadOnlyData.get_field
+       ~PvpropertyReadOnlyData.is_compatible_array
+       ~PvpropertyReadOnlyData.post_state_change
+       ~PvpropertyReadOnlyData.pre_state_change
+       ~PvpropertyReadOnlyData.preprocess_value
+       ~PvpropertyReadOnlyData.publish
+       ~PvpropertyReadOnlyData.read
+       ~PvpropertyReadOnlyData.subscribe
+       ~PvpropertyReadOnlyData.unsubscribe
+       ~PvpropertyReadOnlyData.update_fields
+       ~PvpropertyReadOnlyData.verify_value
+       ~PvpropertyReadOnlyData.write
+       ~PvpropertyReadOnlyData.write_from_dbr
+       ~PvpropertyReadOnlyData.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PvpropertyReadOnlyData.alarm
+       ~PvpropertyReadOnlyData.data_type
+       ~PvpropertyReadOnlyData.default_value
+       ~PvpropertyReadOnlyData.epics_timestamp
+       ~PvpropertyReadOnlyData.length
+       ~PvpropertyReadOnlyData.max_length
+       ~PvpropertyReadOnlyData.severity
+       ~PvpropertyReadOnlyData.status
+       ~PvpropertyReadOnlyData.timestamp
+       ~PvpropertyReadOnlyData.value
+       ~PvpropertyReadOnlyData.field_inst
+       ~PvpropertyReadOnlyData.fields
+       ~PvpropertyReadOnlyData.getter
+       ~PvpropertyReadOnlyData.group
+       ~PvpropertyReadOnlyData.log
+       ~PvpropertyReadOnlyData.name
+       ~PvpropertyReadOnlyData.putter
+       ~PvpropertyReadOnlyData.pvname
+       ~PvpropertyReadOnlyData.pvspec
+       ~PvpropertyReadOnlyData.record_type
+       ~PvpropertyReadOnlyData.scan
+       ~PvpropertyReadOnlyData.shutdown
+       ~PvpropertyReadOnlyData.startup
+       ~PvpropertyReadOnlyData.max_subscription_backlog
+    
+
+    

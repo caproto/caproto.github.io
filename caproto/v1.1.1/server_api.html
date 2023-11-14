@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Server API &mdash; caproto 1.1.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/inheritance.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=7a812f30"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="_static/docs-versions-menu.js?v=302f4f97"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="caproto.ChannelData" href="generated/caproto.ChannelData.html" />
+    <link rel="prev" title="Writing Your Own Documentation" href="own_docs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            caproto
+          </a>
+              <div class="version">
+                1.1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install Caproto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients.html">Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shark.html">Shark (pcap/tcpdump parsing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loggers.html">Logging</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IOCs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="records.html">Records</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">IOC Template Cookiecutters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Server API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-containers">Data Containers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#core">Core</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#numeric-data">Numeric Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#string-or-byte-data">String or Byte Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#base-class">Base Class</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pvpropertydata">PvpropertyData</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.PvpropertyData.html">caproto.server.PvpropertyData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#read-write">Read/write</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#read-only">Read-only</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#high-level-api-pvproperty-magic">High-level API / pvproperty magic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/caproto.server.PVSpec.html">caproto.server.PVSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/caproto.server.expand_macros.html">caproto.server.expand_macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/caproto.server.PVGroup.html">caproto.server.PVGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/caproto.server.pvproperty.html">caproto.server.pvproperty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/caproto.server.PvpropertyData.html">caproto.server.PvpropertyData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/caproto.server.SubGroup.html">caproto.server.SubGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/caproto.server.pvfunction.html">caproto.server.pvfunction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/caproto.server.expand_macros.html">caproto.server.expand_macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/caproto.server.get_pv_pair_wrapper.html">caproto.server.get_pv_pair_wrapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/caproto.server.scan_wrapper.html">caproto.server.scan_wrapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-helpers">Command-line Helpers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.template_arg_parser.html">caproto.server.template_arg_parser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.ioc_arg_parser.html">caproto.server.ioc_arg_parser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.run.html">caproto.server.run</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-internal">Advanced / Internal</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.server.FieldProxy.html">caproto.server.server.FieldProxy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.server.FieldSpec.html">caproto.server.server.FieldSpec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.server.NestedPvproperty.html">caproto.server.server.NestedPvproperty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.server.PVGroupMeta.html">caproto.server.server.PVGroupMeta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#library-agnostic-server-core">Library-agnostic server core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#core-classes">Core Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.AsyncLibraryLayer.html">caproto.server.AsyncLibraryLayer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.common.Subscription.html">caproto.server.common.Subscription</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.common.SubscriptionSpec.html">caproto.server.common.SubscriptionSpec</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#base-classes">Base Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.common.Context.html">caproto.server.common.Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.common.VirtualCircuit.html">caproto.server.common.VirtualCircuit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#exceptions">Exceptions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.common.DisconnectedCircuit.html">caproto.server.common.DisconnectedCircuit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.server.common.LoopExit.html">caproto.server.common.LoopExit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#asyncio-server">asyncio server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-classes">Implementation classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.asyncio.server.AsyncioAsyncLayer.html">caproto.asyncio.server.AsyncioAsyncLayer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.asyncio.server.Context.html">caproto.asyncio.server.Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.asyncio.server.Event.html">caproto.asyncio.server.Event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.asyncio.server.ServerExit.html">caproto.asyncio.server.ServerExit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.asyncio.server.VirtualCircuit.html">caproto.asyncio.server.VirtualCircuit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#helper-functions">Helper functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.asyncio.server.run.html">caproto.asyncio.server.run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.asyncio.server.start_server.html">caproto.asyncio.server.start_server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#curio-server">Curio server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Implementation classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.curio.server.CurioAsyncLayer.html">caproto.curio.server.CurioAsyncLayer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.curio.server.Context.html">caproto.curio.server.Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.curio.server.Event.html">caproto.curio.server.Event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.curio.server.ServerExit.html">caproto.curio.server.ServerExit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.curio.server.VirtualCircuit.html">caproto.curio.server.VirtualCircuit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Helper functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.curio.server.run.html">caproto.curio.server.run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.curio.server.start_server.html">caproto.curio.server.start_server</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#miscellaneous">Miscellaneous</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.curio.server.QueueWithFullError.html">caproto.curio.server.QueueWithFullError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.curio.server.QueueFull.html">caproto.curio.server.QueueFull</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.curio.server.UniversalQueue.html">caproto.curio.server.UniversalQueue</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#trio-server">Trio server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Implementation classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.trio.server.TrioAsyncLayer.html">caproto.trio.server.TrioAsyncLayer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.trio.server.Context.html">caproto.trio.server.Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.trio.server.Event.html">caproto.trio.server.Event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.trio.server.ServerExit.html">caproto.trio.server.ServerExit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.trio.server.VirtualCircuit.html">caproto.trio.server.VirtualCircuit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Helper functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.trio.server.run.html">caproto.trio.server.run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/caproto.trio.server.start_server.html">caproto.trio.server.start_server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Channel Access Sans I/O</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Writing Your Own Channel Access Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Core API Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="protocol-compliance.html">Details of our Protocol Compliance for CA Nerds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="containers.html">Caproto-in-a-box</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">caproto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Server API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/server_api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="server-api">
+<h1>Server API<a class="headerlink" href="#server-api" title="Permalink to this heading">¶</a></h1>
+<section id="data-containers">
+<h2>Data Containers<a class="headerlink" href="#data-containers" title="Permalink to this heading">¶</a></h2>
+<section id="core">
+<h3>Core<a class="headerlink" href="#core" title="Permalink to this heading">¶</a></h3>
+<p>The following are the underlying, lowest-level classes for holding data which
+can be sent over an EPICS V3 channel in caproto.</p>
+<section id="numeric-data">
+<h4>Numeric Data<a class="headerlink" href="#numeric-data" title="Permalink to this heading">¶</a></h4>
+<div class="graphviz"><img src="_images/inheritance-8a7387fd4095fd111269e5a5b1bdc288cbe07c3b.png" alt="Inheritance diagram of caproto.ChannelData, caproto.ChannelDouble, caproto.ChannelFloat, caproto.ChannelInteger, caproto.ChannelShort" usemap="#inheritance0f1f8116e6" class="inheritance graphviz" /></div>
+<map id="inheritance0f1f8116e6" name="inheritance0f1f8116e6">
+<area shape="rect" id="node1" href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="221,5,327,31"/>
+<area shape="rect" id="node2" href="generated/caproto.ChannelDouble.html#caproto.ChannelDouble" target="_top" title="64&#45;bit floating point data and metadata which can be sent over a channel." alt="" coords="5,152,127,177"/>
+<area shape="rect" id="node4" href="generated/caproto.ChannelFloat.html#caproto.ChannelFloat" target="_top" title="32&#45;bit floating point data and metadata which can be sent over a channel." alt="" coords="151,152,259,177"/>
+<area shape="rect" id="node5" href="generated/caproto.ChannelInteger.html#caproto.ChannelInteger" target="_top" title="32&#45;bit LONG integer data and metadata which can be sent over a channel." alt="" coords="283,152,404,177"/>
+<area shape="rect" id="node6" href="generated/caproto.ChannelShort.html#caproto.ChannelShort" target="_top" title="16&#45;bit SHORT integer data and metadata which can be sent over a channel." alt="" coords="429,152,538,177"/>
+</map><table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelData.html#caproto.ChannelData" title="caproto.ChannelData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelData</span></code></a>(*[, alarm, value, ...])</p></td>
+<td><p>Base class holding data and metadata which can be sent across a Channel.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ChannelDouble.html#caproto.ChannelDouble" title="caproto.ChannelDouble"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelDouble</span></code></a>(*[, precision])</p></td>
+<td><p>64-bit floating point data and metadata which can be sent over a channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelFloat.html#caproto.ChannelFloat" title="caproto.ChannelFloat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelFloat</span></code></a>(*[, precision])</p></td>
+<td><p>32-bit floating point data and metadata which can be sent over a channel.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ChannelInteger.html#caproto.ChannelInteger" title="caproto.ChannelInteger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelInteger</span></code></a>(*, value[, units, ...])</p></td>
+<td><p>32-bit LONG integer data and metadata which can be sent over a channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelShort.html#caproto.ChannelShort" title="caproto.ChannelShort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelShort</span></code></a>(*, value[, units, ...])</p></td>
+<td><p>16-bit SHORT integer data and metadata which can be sent over a channel.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="string-or-byte-data">
+<h4>String or Byte Data<a class="headerlink" href="#string-or-byte-data" title="Permalink to this heading">¶</a></h4>
+<div class="graphviz"><img src="_images/inheritance-dec0ed1b8f4d77be7e476b275154c5c3b4871e03.png" alt="Inheritance diagram of caproto.ChannelByte, caproto.ChannelChar, caproto.ChannelEnum, caproto.ChannelString" usemap="#inheritance95902393fd" class="inheritance graphviz" /></div>
+<map id="inheritance95902393fd" name="inheritance95902393fd">
+<area shape="rect" id="node1" href="generated/caproto.ChannelByte.html#caproto.ChannelByte" target="_top" title="8&#45;bit unencoded CHAR data plus metadata which can be sent over a channel." alt="" coords="18,152,123,177"/>
+<area shape="rect" id="node3" href="generated/caproto.ChannelChar.html#caproto.ChannelChar" target="_top" title="8&#45;bit encoded CHAR data plus metadata which can be sent over a channel." alt="" coords="161,79,266,104"/>
+<area shape="rect" id="node4" href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="225,5,332,31"/>
+<area shape="rect" id="node5" href="generated/caproto.ChannelEnum.html#caproto.ChannelEnum" target="_top" title="ENUM data which can be sent over a channel." alt="" coords="289,79,401,104"/>
+<area shape="rect" id="node6" href="generated/caproto.ChannelString.html#caproto.ChannelString" target="_top" title="8&#45;bit encoded string data plus metadata which can be sent over a channel." alt="" coords="426,79,539,104"/>
+</map><table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelByte.html#caproto.ChannelByte" title="caproto.ChannelByte"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelByte</span></code></a>(*[, string_encoding, ...])</p></td>
+<td><p>8-bit unencoded CHAR data plus metadata which can be sent over a channel.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ChannelChar.html#caproto.ChannelChar" title="caproto.ChannelChar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelChar</span></code></a>(*[, alarm, value, ...])</p></td>
+<td><p>8-bit encoded CHAR data plus metadata which can be sent over a channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.ChannelEnum.html#caproto.ChannelEnum" title="caproto.ChannelEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelEnum</span></code></a>(*[, enum_strings])</p></td>
+<td><p>ENUM data which can be sent over a channel.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.ChannelString.html#caproto.ChannelString" title="caproto.ChannelString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.ChannelString</span></code></a>(*[, alarm, value, ...])</p></td>
+<td><p>8-bit encoded string data plus metadata which can be sent over a channel.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="base-class">
+<h4>Base Class<a class="headerlink" href="#base-class" title="Permalink to this heading">¶</a></h4>
+<p>The above share methods from their common (internal) base class
+<a class="reference internal" href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData" title="caproto._data.ChannelData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChannelData</span></code></a>.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData" title="caproto._data.ChannelData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelData</span></code></a>(*[, alarm, value, timestamp, ...])</p></td>
+<td><p>Base class holding data and metadata which can be sent across a Channel.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pvpropertydata">
+<h3>PvpropertyData<a class="headerlink" href="#pvpropertydata" title="Permalink to this heading">¶</a></h3>
+<p>pvproperty builds on top of ChannelData with the following classes, separated
+by whether or not they are read-only.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" title="caproto.server.PvpropertyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyData</span></code></a>(*, pvname, ...)</p></td>
+<td><p>A top-level class for mixing in with <cite>ChannelData</cite> subclasses.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="read-write">
+<h4>Read/write<a class="headerlink" href="#read-write" title="Permalink to this heading">¶</a></h4>
+<div class="graphviz"><img src="_images/inheritance-f42cec50fd9526a5efff00539ebd131e4967a99e.png" alt="Inheritance diagram of caproto.server.PvpropertyBoolEnum, caproto.server.PvpropertyByte, caproto.server.PvpropertyChar, caproto.server.PvpropertyData, caproto.server.PvpropertyDouble, caproto.server.PvpropertyEnum, caproto.server.PvpropertyString" usemap="#inheritancef5300b3804" class="inheritance graphviz" /></div>
+<map id="inheritancef5300b3804" name="inheritancef5300b3804">
+<area shape="rect" id="node1" href="generated/caproto.ChannelByte.html#caproto.ChannelByte" target="_top" title="8&#45;bit unencoded CHAR data plus metadata which can be sent over a channel." alt="" coords="14,79,119,104"/>
+<area shape="rect" id="node10" href="generated/caproto.server.PvpropertyByte.html#caproto.server.PvpropertyByte" target="_top" title="Read&#45;write 8&#45;bit CHAR data for pvproperty for bytes." alt="" coords="5,152,128,177"/>
+<area shape="rect" id="node2" href="generated/caproto.ChannelChar.html#caproto.ChannelChar" target="_top" title="8&#45;bit encoded CHAR data plus metadata which can be sent over a channel." alt="" coords="499,79,605,104"/>
+<area shape="rect" id="node11" href="generated/caproto.server.PvpropertyChar.html#caproto.server.PvpropertyChar" target="_top" title="Read&#45;write 8&#45;bit CHAR data for pvproperty with string encoding." alt="" coords="491,152,613,177"/>
+<area shape="rect" id="node3" href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="296,5,403,31"/>
+<area shape="rect" id="node9" href="generated/caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" target="_top" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="345,79,469,104"/>
+<area shape="rect" id="node4" href="generated/caproto.ChannelDouble.html#caproto.ChannelDouble" target="_top" title="64&#45;bit floating point data and metadata which can be sent over a channel." alt="" coords="646,79,767,104"/>
+<area shape="rect" id="node12" href="generated/caproto.server.PvpropertyDouble.html#caproto.server.PvpropertyDouble" target="_top" title="Read&#45;write DOUBLE data for pvproperty (64 bits)." alt="" coords="637,152,776,177"/>
+<area shape="rect" id="node5" href="generated/caproto.ChannelEnum.html#caproto.ChannelEnum" target="_top" title="ENUM data which can be sent over a channel." alt="" coords="192,79,304,104"/>
+<area shape="rect" id="node8" href="generated/caproto.server.PvpropertyBoolEnum.html#caproto.server.PvpropertyBoolEnum" target="_top" title="Read&#45;write ENUM data for pvproperty, with Off/On as default strings." alt="" coords="153,152,311,177"/>
+<area shape="rect" id="node13" href="generated/caproto.server.PvpropertyEnum.html#caproto.server.PvpropertyEnum" target="_top" title="Read&#45;write ENUM data for pvproperty." alt="" coords="336,152,467,177"/>
+<area shape="rect" id="node6" href="generated/caproto.ChannelString.html#caproto.ChannelString" target="_top" title="8&#45;bit encoded string data plus metadata which can be sent over a channel." alt="" coords="809,79,922,104"/>
+<area shape="rect" id="node14" href="generated/caproto.server.PvpropertyString.html#caproto.server.PvpropertyString" target="_top" title="Read&#45;write STRING data for pvproperty (up to 40 chars)." alt="" coords="800,152,931,177"/>
+</map><table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyBoolEnum.html#caproto.server.PvpropertyBoolEnum" title="caproto.server.PvpropertyBoolEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyBoolEnum</span></code></a>(*[, ...])</p></td>
+<td><p>Read-write ENUM data for pvproperty, with Off/On as default strings.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyByte.html#caproto.server.PvpropertyByte" title="caproto.server.PvpropertyByte"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyByte</span></code></a>(*, pvname, ...)</p></td>
+<td><p>Read-write 8-bit CHAR data for pvproperty for bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyChar.html#caproto.server.PvpropertyChar" title="caproto.server.PvpropertyChar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyChar</span></code></a>(*, pvname, ...)</p></td>
+<td><p>Read-write 8-bit CHAR data for pvproperty with string encoding.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyDouble.html#caproto.server.PvpropertyDouble" title="caproto.server.PvpropertyDouble"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyDouble</span></code></a>(*, pvname, ...)</p></td>
+<td><p>Read-write DOUBLE data for pvproperty (64 bits).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyEnum.html#caproto.server.PvpropertyEnum" title="caproto.server.PvpropertyEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyEnum</span></code></a>(*[, ...])</p></td>
+<td><p>Read-write ENUM data for pvproperty.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyFloat.html#caproto.server.PvpropertyFloat" title="caproto.server.PvpropertyFloat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyFloat</span></code></a>(*, pvname, ...)</p></td>
+<td><p>Read-write FLOAT data for pvproperty (32 bits).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyInteger.html#caproto.server.PvpropertyInteger" title="caproto.server.PvpropertyInteger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyInteger</span></code></a>(*, pvname, ...)</p></td>
+<td><p>Read-write LONG data for pvproperty (32 bits).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyReadOnlyData.html#caproto.server.PvpropertyReadOnlyData" title="caproto.server.PvpropertyReadOnlyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyReadOnlyData</span></code></a>(*, ...)</p></td>
+<td><p>A mixin class which marks this data as read-only from channel access.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyShort.html#caproto.server.PvpropertyShort" title="caproto.server.PvpropertyShort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyShort</span></code></a>(*, pvname, ...)</p></td>
+<td><p>Read-write SHORT/INT data for pvproperty (16 bits).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyString.html#caproto.server.PvpropertyString" title="caproto.server.PvpropertyString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyString</span></code></a>(*, pvname, ...)</p></td>
+<td><p>Read-write STRING data for pvproperty (up to 40 chars).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="read-only">
+<h4>Read-only<a class="headerlink" href="#read-only" title="Permalink to this heading">¶</a></h4>
+<p>Read-only data classes mix in with
+<a class="reference internal" href="generated/caproto.server.PvpropertyReadOnlyData.html#caproto.server.PvpropertyReadOnlyData" title="caproto.server.PvpropertyReadOnlyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PvpropertyReadOnlyData</span></code></a>.</p>
+<div class="graphviz"><img src="_images/inheritance-7d9604efd5663112b8d420ff4608a9976482f15f.png" alt="Inheritance diagram of caproto.server.PvpropertyBoolEnumRO, caproto.server.PvpropertyByteRO, caproto.server.PvpropertyCharRO, caproto.server.PvpropertyData, caproto.server.PvpropertyDoubleRO, caproto.server.PvpropertyEnumRO, caproto.server.PvpropertyStringRO" usemap="#inheritance834168d9bf" class="inheritance graphviz" /></div>
+<map id="inheritance834168d9bf" name="inheritance834168d9bf">
+<area shape="rect" id="node1" href="generated/caproto.ChannelByte.html#caproto.ChannelByte" target="_top" title="8&#45;bit unencoded CHAR data plus metadata which can be sent over a channel." alt="" coords="24,152,129,177"/>
+<area shape="rect" id="node10" href="generated/caproto.server.PvpropertyByteRO.html#caproto.server.PvpropertyByteRO" target="_top" title="Read&#45;only 8&#45;bit CHAR data for pvproperty for bytes." alt="" coords="5,225,148,251"/>
+<area shape="rect" id="node2" href="generated/caproto.ChannelChar.html#caproto.ChannelChar" target="_top" title="8&#45;bit encoded CHAR data plus metadata which can be sent over a channel." alt="" coords="568,152,673,177"/>
+<area shape="rect" id="node11" href="generated/caproto.server.PvpropertyCharRO.html#caproto.server.PvpropertyCharRO" target="_top" title="Read&#45;only 8&#45;bit CHAR data for pvproperty with string encoding." alt="" coords="549,225,692,251"/>
+<area shape="rect" id="node3" href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="341,5,447,31"/>
+<area shape="rect" id="node12" href="generated/caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" target="_top" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="388,79,512,104"/>
+<area shape="rect" id="node4" href="generated/caproto.ChannelDouble.html#caproto.ChannelDouble" target="_top" title="64&#45;bit floating point data and metadata which can be sent over a channel." alt="" coords="735,152,856,177"/>
+<area shape="rect" id="node13" href="generated/caproto.server.PvpropertyDoubleRO.html#caproto.server.PvpropertyDoubleRO" target="_top" title="Read&#45;only DOUBLE data for pvproperty (64 bits)." alt="" coords="716,225,875,251"/>
+<area shape="rect" id="node5" href="generated/caproto.ChannelEnum.html#caproto.ChannelEnum" target="_top" title="ENUM data which can be sent over a channel." alt="" coords="213,152,325,177"/>
+<area shape="rect" id="node8" href="generated/caproto.server.PvpropertyBoolEnumRO.html#caproto.server.PvpropertyBoolEnumRO" target="_top" title="Read&#45;only ENUM data for pvproperty, with Off/On as default strings." alt="" coords="173,225,351,251"/>
+<area shape="rect" id="node14" href="generated/caproto.server.PvpropertyEnumRO.html#caproto.server.PvpropertyEnumRO" target="_top" title="Read&#45;only ENUM data for pvproperty." alt="" coords="375,225,525,251"/>
+<area shape="rect" id="node6" href="generated/caproto.ChannelString.html#caproto.ChannelString" target="_top" title="8&#45;bit encoded string data plus metadata which can be sent over a channel." alt="" coords="917,152,1031,177"/>
+<area shape="rect" id="node15" href="generated/caproto.server.PvpropertyStringRO.html#caproto.server.PvpropertyStringRO" target="_top" title="Read&#45;only STRING data for pvproperty (up to 40 chars)." alt="" coords="899,225,1049,251"/>
+<area shape="rect" id="node9" href="generated/caproto.server.PvpropertyReadOnlyData.html#caproto.server.PvpropertyReadOnlyData" target="_top" title="A mixin class which marks this data as read&#45;only from channel access." alt="" coords="357,152,543,177"/>
+</map><table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyBoolEnumRO.html#caproto.server.PvpropertyBoolEnumRO" title="caproto.server.PvpropertyBoolEnumRO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyBoolEnumRO</span></code></a>(*[, ...])</p></td>
+<td><p>Read-only ENUM data for pvproperty, with Off/On as default strings.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyByteRO.html#caproto.server.PvpropertyByteRO" title="caproto.server.PvpropertyByteRO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyByteRO</span></code></a>(*, pvname, ...)</p></td>
+<td><p>Read-only 8-bit CHAR data for pvproperty for bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyCharRO.html#caproto.server.PvpropertyCharRO" title="caproto.server.PvpropertyCharRO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyCharRO</span></code></a>(*, pvname, ...)</p></td>
+<td><p>Read-only 8-bit CHAR data for pvproperty with string encoding.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyDoubleRO.html#caproto.server.PvpropertyDoubleRO" title="caproto.server.PvpropertyDoubleRO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyDoubleRO</span></code></a>(*, pvname, ...)</p></td>
+<td><p>Read-only DOUBLE data for pvproperty (64 bits).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyEnumRO.html#caproto.server.PvpropertyEnumRO" title="caproto.server.PvpropertyEnumRO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyEnumRO</span></code></a>(*[, ...])</p></td>
+<td><p>Read-only ENUM data for pvproperty.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyFloatRO.html#caproto.server.PvpropertyFloatRO" title="caproto.server.PvpropertyFloatRO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyFloatRO</span></code></a>(*, pvname, ...)</p></td>
+<td><p>Read-only FLOAT data for pvproperty (32 bits).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyIntegerRO.html#caproto.server.PvpropertyIntegerRO" title="caproto.server.PvpropertyIntegerRO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyIntegerRO</span></code></a>(*, ...[, ...])</p></td>
+<td><p>Read-only LONG data for pvproperty (32 bits).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyShortRO.html#caproto.server.PvpropertyShortRO" title="caproto.server.PvpropertyShortRO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyShortRO</span></code></a>(*, pvname, ...)</p></td>
+<td><p>Read-only SHORT/INT data for pvproperty (16 bits).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyStringRO.html#caproto.server.PvpropertyStringRO" title="caproto.server.PvpropertyStringRO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyStringRO</span></code></a>(*, pvname, ...)</p></td>
+<td><p>Read-only STRING data for pvproperty (up to 40 chars).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="high-level-api-pvproperty-magic">
+<h2>High-level API / pvproperty magic<a class="headerlink" href="#high-level-api-pvproperty-magic" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PVSpec.html#caproto.server.PVSpec" title="caproto.server.PVSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PVSpec</span></code></a>([get, put, startup, ...])</p></td>
+<td><p>Create new instance of PVSpec(get, put, startup, shutdown, attr, name, dtype, value, max_length, alarm_group, read_only, doc, fields, scan, record, cls_kwargs)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.expand_macros.html#caproto.server.expand_macros" title="caproto.server.expand_macros"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.expand_macros</span></code></a>(pv, macros)</p></td>
+<td><p>Expand a PV name with Python {format-style} macros</p></td>
+</tr>
+</tbody>
+</table>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PVGroup.html#caproto.server.PVGroup" title="caproto.server.PVGroup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PVGroup</span></code></a>(prefix, *[, macros, ...])</p></td>
+<td><p>Class which groups a set of PVs for a high-level caproto server</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.pvproperty.html#caproto.server.pvproperty" title="caproto.server.pvproperty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.pvproperty</span></code></a>([get, put, ...])</p></td>
+<td><p>A property-like descriptor for specifying a PV in a <cite>PVGroup</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" title="caproto.server.PvpropertyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.PvpropertyData</span></code></a>(*, pvname, ...)</p></td>
+<td><p>A top-level class for mixing in with <cite>ChannelData</cite> subclasses.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.SubGroup.html#caproto.server.SubGroup" title="caproto.server.SubGroup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.SubGroup</span></code></a>([group, prefix, ...])</p></td>
+<td><p>A property-like descriptor for specifying a subgroup in a PVGroup.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.pvfunction.html#caproto.server.pvfunction" title="caproto.server.pvfunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.pvfunction</span></code></a>([func, default, ...])</p></td>
+<td><p>A descriptor for making an RPC-like function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.expand_macros.html#caproto.server.expand_macros" title="caproto.server.expand_macros"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.expand_macros</span></code></a>(pv, macros)</p></td>
+<td><p>Expand a PV name with Python {format-style} macros</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.get_pv_pair_wrapper.html#caproto.server.get_pv_pair_wrapper" title="caproto.server.get_pv_pair_wrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.get_pv_pair_wrapper</span></code></a>([...])</p></td>
+<td><p>Generates a Subgroup class for a pair of PVs (setpoint and readback).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.scan_wrapper.html#caproto.server.scan_wrapper" title="caproto.server.scan_wrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.scan_wrapper</span></code></a>(scan_function, ...)</p></td>
+<td><p>Wrap a function intended for <cite>pvproperty.scan</cite> with common logic to periodically call it.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="command-line-helpers">
+<h3>Command-line Helpers<a class="headerlink" href="#command-line-helpers" title="Permalink to this heading">¶</a></h3>
+<p>Tools for helping to generate command-line argument parsers for use with
+IOCs.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.template_arg_parser.html#caproto.server.template_arg_parser" title="caproto.server.template_arg_parser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.template_arg_parser</span></code></a>(*, desc, ...)</p></td>
+<td><p>Construct a template arg parser for starting up an IOC</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.ioc_arg_parser.html#caproto.server.ioc_arg_parser" title="caproto.server.ioc_arg_parser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.ioc_arg_parser</span></code></a>(*, desc, ...)</p></td>
+<td><p>A reusable ArgumentParser for basic example IOCs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.run.html#caproto.server.run" title="caproto.server.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.run</span></code></a>(pvdb, *[, module_name, ...])</p></td>
+<td><p>Run an IOC, given its PV database dictionary and async-library module name.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="advanced-internal">
+<h3>Advanced / Internal<a class="headerlink" href="#advanced-internal" title="Permalink to this heading">¶</a></h3>
+<p>The following are related to the internal mechanisms that PVGroup and
+pvproperty rely on.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.server.FieldProxy.html#caproto.server.server.FieldProxy" title="caproto.server.server.FieldProxy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.server.FieldProxy</span></code></a>(field_spec, ...)</p></td>
+<td><p>A proxy class which allows access to <code class="docutils literal notranslate"><span class="pre">pvproperty.fields.Field</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.server.FieldSpec.html#caproto.server.server.FieldSpec" title="caproto.server.server.FieldSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.server.FieldSpec</span></code></a>(prop, *, ...)</p></td>
+<td><p>A field specification for a pvproperty record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.server.NestedPvproperty.html#caproto.server.server.NestedPvproperty" title="caproto.server.server.NestedPvproperty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.server.NestedPvproperty</span></code></a>([...])</p></td>
+<td><p>Nested pvproperty which allows decorator usage in parent class</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.server.PVGroupMeta.html#caproto.server.server.PVGroupMeta" title="caproto.server.server.PVGroupMeta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.server.PVGroupMeta</span></code></a>(name, ...)</p></td>
+<td><p>Metaclass that finds all pvproperties</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="library-agnostic-server-core">
+<h2>Library-agnostic server core<a class="headerlink" href="#library-agnostic-server-core" title="Permalink to this heading">¶</a></h2>
+<section id="core-classes">
+<h3>Core Classes<a class="headerlink" href="#core-classes" title="Permalink to this heading">¶</a></h3>
+<p>These are mostly as-is by all server implementations.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.AsyncLibraryLayer.html#caproto.server.AsyncLibraryLayer" title="caproto.server.AsyncLibraryLayer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.AsyncLibraryLayer</span></code></a>()</p></td>
+<td><p>Library compatibility layer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.common.Subscription.html#caproto.server.common.Subscription" title="caproto.server.common.Subscription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.common.Subscription</span></code></a>(mask, ...)</p></td>
+<td><p>Create new instance of Subscription(mask, channel_filter, circuit, channel, data_type, data_count, subscriptionid, db_entry)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.common.SubscriptionSpec.html#caproto.server.common.SubscriptionSpec" title="caproto.server.common.SubscriptionSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.common.SubscriptionSpec</span></code></a>(...)</p></td>
+<td><p>Create new instance of SubscriptionSpec(db_entry, data_type_name, mask, channel_filter)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="base-classes">
+<h3>Base Classes<a class="headerlink" href="#base-classes" title="Permalink to this heading">¶</a></h3>
+<p>These are intended to be subclassed to implement support for a new async
+library.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.common.Context.html#caproto.server.common.Context" title="caproto.server.common.Context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.common.Context</span></code></a>(pvdb[, interfaces])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.common.VirtualCircuit.html#caproto.server.common.VirtualCircuit" title="caproto.server.common.VirtualCircuit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.common.VirtualCircuit</span></code></a>(...)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exceptions">
+<h3>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.server.common.DisconnectedCircuit.html#caproto.server.common.DisconnectedCircuit" title="caproto.server.common.DisconnectedCircuit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.common.DisconnectedCircuit</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.server.common.LoopExit.html#caproto.server.common.LoopExit" title="caproto.server.common.LoopExit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.server.common.LoopExit</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="asyncio-server">
+<h2>asyncio server<a class="headerlink" href="#asyncio-server" title="Permalink to this heading">¶</a></h2>
+<section id="implementation-classes">
+<h3>Implementation classes<a class="headerlink" href="#implementation-classes" title="Permalink to this heading">¶</a></h3>
+<p>Classes built on top of the library-agnostic core, used to implement asyncio
+functionality.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.asyncio.server.AsyncioAsyncLayer.html#caproto.asyncio.server.AsyncioAsyncLayer" title="caproto.asyncio.server.AsyncioAsyncLayer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.asyncio.server.AsyncioAsyncLayer</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.asyncio.server.Context.html#caproto.asyncio.server.Context" title="caproto.asyncio.server.Context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.asyncio.server.Context</span></code></a>(pvdb[, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.asyncio.server.Event.html#caproto.asyncio.server.Event" title="caproto.asyncio.server.Event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.asyncio.server.Event</span></code></a></p></td>
+<td><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncioEvent</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.asyncio.server.ServerExit.html#caproto.asyncio.server.ServerExit" title="caproto.asyncio.server.ServerExit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.asyncio.server.ServerExit</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.asyncio.server.VirtualCircuit.html#caproto.asyncio.server.VirtualCircuit" title="caproto.asyncio.server.VirtualCircuit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.asyncio.server.VirtualCircuit</span></code></a>(...[, ...])</p></td>
+<td><p>Wraps a caproto.VirtualCircuit with an asyncio client.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="helper-functions">
+<h3>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.asyncio.server.run.html#caproto.asyncio.server.run" title="caproto.asyncio.server.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.asyncio.server.run</span></code></a>(pvdb, *[, ...])</p></td>
+<td><p>Run an IOC, given its PV database dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.asyncio.server.start_server.html#caproto.asyncio.server.start_server" title="caproto.asyncio.server.start_server"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.asyncio.server.start_server</span></code></a>(pvdb, *)</p></td>
+<td><p>Start an asyncio server with a given PV database</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="curio-server">
+<h2>Curio server<a class="headerlink" href="#curio-server" title="Permalink to this heading">¶</a></h2>
+<section id="id1">
+<h3>Implementation classes<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<p>Classes built on top of the library-agnostic core, used to implement asyncio
+functionality.</p>
+<div class="graphviz"><img src="_images/inheritance-4428a94f9e44f2c24795157b105aa6283a76388d.png" alt="Inheritance diagram of caproto.curio.server.Context, caproto.curio.server.VirtualCircuit" usemap="#inheritancefaeb25c514" class="inheritance graphviz" /></div>
+<map id="inheritancefaeb25c514" name="inheritancefaeb25c514">
+<area shape="rect" id="node1" href="generated/caproto.curio.server.Context.html#caproto.curio.server.Context" target="_top" title="caproto.curio.server.Context" alt="" coords="17,79,224,104"/>
+<area shape="rect" id="node2" href="generated/caproto.server.common.Context.html#caproto.server.common.Context" target="_top" title="caproto.server.common.Context" alt="" coords="5,5,236,31"/>
+<area shape="rect" id="node3" href="generated/caproto.curio.server.VirtualCircuit.html#caproto.curio.server.VirtualCircuit" target="_top" title="Wraps a caproto.VirtualCircuit with a curio client." alt="" coords="273,79,513,104"/>
+<area shape="rect" id="node4" href="generated/caproto.server.common.VirtualCircuit.html#caproto.server.common.VirtualCircuit" target="_top" title="caproto.server.common.VirtualCircuit" alt="" coords="260,5,525,31"/>
+</map><table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.curio.server.CurioAsyncLayer.html#caproto.curio.server.CurioAsyncLayer" title="caproto.curio.server.CurioAsyncLayer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.curio.server.CurioAsyncLayer</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.curio.server.Context.html#caproto.curio.server.Context" title="caproto.curio.server.Context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.curio.server.Context</span></code></a>(pvdb[, interfaces])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.curio.server.Event.html#caproto.curio.server.Event" title="caproto.curio.server.Event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.curio.server.Event</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.curio.server.ServerExit.html#caproto.curio.server.ServerExit" title="caproto.curio.server.ServerExit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.curio.server.ServerExit</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.curio.server.VirtualCircuit.html#caproto.curio.server.VirtualCircuit" title="caproto.curio.server.VirtualCircuit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.curio.server.VirtualCircuit</span></code></a>(circuit, ...)</p></td>
+<td><p>Wraps a caproto.VirtualCircuit with a curio client.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h3>Helper functions<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.curio.server.run.html#caproto.curio.server.run" title="caproto.curio.server.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.curio.server.run</span></code></a>(pvdb, *[, ...])</p></td>
+<td><p>Run an IOC, given its PV database dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.curio.server.start_server.html#caproto.curio.server.start_server" title="caproto.curio.server.start_server"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.curio.server.start_server</span></code></a>(pvdb, *[, ...])</p></td>
+<td><p>Start a curio server with a given PV database</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="miscellaneous">
+<h3>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.curio.server.QueueWithFullError.html#caproto.curio.server.QueueWithFullError" title="caproto.curio.server.QueueWithFullError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.curio.server.QueueWithFullError</span></code></a>([...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.curio.server.QueueFull.html#caproto.curio.server.QueueFull" title="caproto.curio.server.QueueFull"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.curio.server.QueueFull</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.curio.server.UniversalQueue.html#caproto.curio.server.UniversalQueue" title="caproto.curio.server.UniversalQueue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.curio.server.UniversalQueue</span></code></a>(*[, ...])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="trio-server">
+<h2>Trio server<a class="headerlink" href="#trio-server" title="Permalink to this heading">¶</a></h2>
+<section id="id3">
+<h3>Implementation classes<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<p>Classes built on top of the library-agnostic core, used to implement asyncio
+functionality.</p>
+<div class="graphviz"><img src="_images/inheritance-c11ef925d35a108f88b912e0e7975b84b2058fc9.png" alt="Inheritance diagram of caproto.trio.server.Context, caproto.trio.server.VirtualCircuit" usemap="#inheritance9266b6718d" class="inheritance graphviz" /></div>
+<map id="inheritance9266b6718d" name="inheritance9266b6718d">
+<area shape="rect" id="node1" href="generated/caproto.server.common.Context.html#caproto.server.common.Context" target="_top" title="caproto.server.common.Context" alt="" coords="5,5,236,31"/>
+<area shape="rect" id="node3" href="generated/caproto.trio.server.Context.html#caproto.trio.server.Context" target="_top" title="caproto.trio.server.Context" alt="" coords="23,79,219,104"/>
+<area shape="rect" id="node2" href="generated/caproto.server.common.VirtualCircuit.html#caproto.server.common.VirtualCircuit" target="_top" title="caproto.server.common.VirtualCircuit" alt="" coords="260,5,525,31"/>
+<area shape="rect" id="node4" href="generated/caproto.trio.server.VirtualCircuit.html#caproto.trio.server.VirtualCircuit" target="_top" title="Wraps a caproto.VirtualCircuit with a trio client." alt="" coords="277,79,508,104"/>
+</map><table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.trio.server.TrioAsyncLayer.html#caproto.trio.server.TrioAsyncLayer" title="caproto.trio.server.TrioAsyncLayer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.trio.server.TrioAsyncLayer</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.trio.server.Context.html#caproto.trio.server.Context" title="caproto.trio.server.Context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.trio.server.Context</span></code></a>(pvdb[, interfaces])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.trio.server.Event.html#caproto.trio.server.Event" title="caproto.trio.server.Event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.trio.server.Event</span></code></a>()</p></td>
+<td><p>The class wraps <cite>trio.Event</cite> and implements <cite>Event.clear()</cite> method that is used in the code, but deprecated in <cite>trio</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.trio.server.ServerExit.html#caproto.trio.server.ServerExit" title="caproto.trio.server.ServerExit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.trio.server.ServerExit</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.trio.server.VirtualCircuit.html#caproto.trio.server.VirtualCircuit" title="caproto.trio.server.VirtualCircuit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.trio.server.VirtualCircuit</span></code></a>(circuit, ...)</p></td>
+<td><p>Wraps a caproto.VirtualCircuit with a trio client.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h3>Helper functions<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/caproto.trio.server.run.html#caproto.trio.server.run" title="caproto.trio.server.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.trio.server.run</span></code></a>(pvdb, *[, ...])</p></td>
+<td><p>Run an IOC, given its PV database dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/caproto.trio.server.start_server.html#caproto.trio.server.start_server" title="caproto.trio.server.start_server"><code class="xref py py-obj docutils literal notranslate"><span class="pre">caproto.trio.server.start_server</span></code></a>(pvdb, *[, ...])</p></td>
+<td><p>Start a trio server with a given PV database</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="own_docs.html" class="btn btn-neutral float-left" title="Writing Your Own Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/caproto.ChannelData.html" class="btn btn-neutral float-right" title="caproto.ChannelData" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Daniel Allan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+﻿caproto.server.PvpropertyDouble
+===============================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: PvpropertyDouble
+
+.. autoclass:: PvpropertyDouble
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PvpropertyDouble.auth_read
+       ~PvpropertyDouble.auth_write
+       ~PvpropertyDouble.calculate_length
+       ~PvpropertyDouble.check_access
+       ~PvpropertyDouble.get_field
+       ~PvpropertyDouble.is_compatible_array
+       ~PvpropertyDouble.post_state_change
+       ~PvpropertyDouble.pre_state_change
+       ~PvpropertyDouble.preprocess_value
+       ~PvpropertyDouble.publish
+       ~PvpropertyDouble.read
+       ~PvpropertyDouble.subscribe
+       ~PvpropertyDouble.unsubscribe
+       ~PvpropertyDouble.update_fields
+       ~PvpropertyDouble.verify_value
+       ~PvpropertyDouble.write
+       ~PvpropertyDouble.write_from_dbr
+       ~PvpropertyDouble.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PvpropertyDouble.alarm
+       ~PvpropertyDouble.data_type
+       ~PvpropertyDouble.default_value
+       ~PvpropertyDouble.epics_timestamp
+       ~PvpropertyDouble.length
+       ~PvpropertyDouble.lower_alarm_limit
+       ~PvpropertyDouble.lower_ctrl_limit
+       ~PvpropertyDouble.lower_disp_limit
+       ~PvpropertyDouble.lower_warning_limit
+       ~PvpropertyDouble.max_length
+       ~PvpropertyDouble.precision
+       ~PvpropertyDouble.severity
+       ~PvpropertyDouble.status
+       ~PvpropertyDouble.timestamp
+       ~PvpropertyDouble.units
+       ~PvpropertyDouble.upper_alarm_limit
+       ~PvpropertyDouble.upper_ctrl_limit
+       ~PvpropertyDouble.upper_disp_limit
+       ~PvpropertyDouble.upper_warning_limit
+       ~PvpropertyDouble.value
+       ~PvpropertyDouble.field_inst
+       ~PvpropertyDouble.fields
+       ~PvpropertyDouble.getter
+       ~PvpropertyDouble.group
+       ~PvpropertyDouble.log
+       ~PvpropertyDouble.name
+       ~PvpropertyDouble.putter
+       ~PvpropertyDouble.pvname
+       ~PvpropertyDouble.pvspec
+       ~PvpropertyDouble.record_type
+       ~PvpropertyDouble.scan
+       ~PvpropertyDouble.shutdown
+       ~PvpropertyDouble.startup
+       ~PvpropertyDouble.max_subscription_backlog
+    
+
+    

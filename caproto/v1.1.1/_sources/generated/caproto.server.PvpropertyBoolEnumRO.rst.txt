@@ -1,0 +1,86 @@
+﻿caproto.server.PvpropertyBoolEnumRO
+===================================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: PvpropertyBoolEnumRO
+
+.. autoclass:: PvpropertyBoolEnumRO
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PvpropertyBoolEnumRO.auth_read
+       ~PvpropertyBoolEnumRO.auth_write
+       ~PvpropertyBoolEnumRO.calculate_length
+       ~PvpropertyBoolEnumRO.check_access
+       ~PvpropertyBoolEnumRO.get_field
+       ~PvpropertyBoolEnumRO.get_raw_value
+       ~PvpropertyBoolEnumRO.is_compatible_array
+       ~PvpropertyBoolEnumRO.post_state_change
+       ~PvpropertyBoolEnumRO.pre_state_change
+       ~PvpropertyBoolEnumRO.preprocess_value
+       ~PvpropertyBoolEnumRO.publish
+       ~PvpropertyBoolEnumRO.read
+       ~PvpropertyBoolEnumRO.subscribe
+       ~PvpropertyBoolEnumRO.unsubscribe
+       ~PvpropertyBoolEnumRO.update_fields
+       ~PvpropertyBoolEnumRO.verify_value
+       ~PvpropertyBoolEnumRO.write
+       ~PvpropertyBoolEnumRO.write_from_dbr
+       ~PvpropertyBoolEnumRO.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PvpropertyBoolEnumRO.alarm
+       ~PvpropertyBoolEnumRO.data_type
+       ~PvpropertyBoolEnumRO.default_value
+       ~PvpropertyBoolEnumRO.enum_strings
+       ~PvpropertyBoolEnumRO.epics_timestamp
+       ~PvpropertyBoolEnumRO.length
+       ~PvpropertyBoolEnumRO.max_length
+       ~PvpropertyBoolEnumRO.raw_value
+       ~PvpropertyBoolEnumRO.severity
+       ~PvpropertyBoolEnumRO.status
+       ~PvpropertyBoolEnumRO.timestamp
+       ~PvpropertyBoolEnumRO.value
+       ~PvpropertyBoolEnumRO.field_inst
+       ~PvpropertyBoolEnumRO.fields
+       ~PvpropertyBoolEnumRO.getter
+       ~PvpropertyBoolEnumRO.group
+       ~PvpropertyBoolEnumRO.log
+       ~PvpropertyBoolEnumRO.name
+       ~PvpropertyBoolEnumRO.putter
+       ~PvpropertyBoolEnumRO.pvname
+       ~PvpropertyBoolEnumRO.pvspec
+       ~PvpropertyBoolEnumRO.record_type
+       ~PvpropertyBoolEnumRO.scan
+       ~PvpropertyBoolEnumRO.shutdown
+       ~PvpropertyBoolEnumRO.startup
+       ~PvpropertyBoolEnumRO.max_subscription_backlog
+    
+
+    

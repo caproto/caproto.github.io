@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>caproto.server.records.records &mdash; caproto 1.1.1 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/inheritance.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=7a812f30"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../../../../_static/docs-versions-menu.js?v=302f4f97"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            caproto
+          </a>
+              <div class="version">
+                1.1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Install Caproto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../clients.html">Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../shark.html">Shark (pcap/tcpdump parsing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../loggers.html">Logging</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IOCs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../records.html">Records</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cookiecutter.html">IOC Template Cookiecutters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../server_api.html">Server API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Channel Access Sans I/O</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../basics.html">Writing Your Own Channel Access Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">Core API Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../protocol-compliance.html">Details of our Protocol Compliance for CA Nerds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release-notes.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../containers.html">Caproto-in-a-box</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">caproto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">caproto.server.records.records</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for caproto.server.records.records</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Contains PVGroups representing all fields of EPICS base records.</span>
+
+<span class="sd">This file contains implementation functionality on top of the record instances</span>
+<span class="sd">found in :mod:`caproto.server.records.base` - a module auto-generated from</span>
+<span class="sd">a reference EPICS DBD file.</span>
+
+<span class="sd">Any customizations required for fields should be done in this file.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">ClassVar</span>
+
+<span class="kn">from</span> <span class="nn">..._data</span> <span class="kn">import</span> <span class="n">ChannelData</span>
+<span class="kn">from</span> <span class="nn">..server</span> <span class="kn">import</span> <span class="n">PvpropertyStringRO</span><span class="p">,</span> <span class="n">pvproperty</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">base</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">link_enum_strings</span><span class="p">,</span> <span class="n">link_parent_attribute</span><span class="p">,</span> <span class="n">register_record</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="RecordFieldGroup"><a class="viewcode-back" href="../../../../generated/caproto.server.records.RecordFieldGroup.html#caproto.server.records.RecordFieldGroup">[docs]</a><span class="k">class</span> <span class="nc">RecordFieldGroup</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">RecordFieldGroup</span>
+    <span class="n">_record_type</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">parent</span><span class="p">:</span> <span class="n">ChannelData</span>
+
+    <span class="c1"># Add some handling onto the autogenerated code above:</span>
+    <span class="n">record_type</span> <span class="o">=</span> <span class="n">pvproperty</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;RTYP&#39;</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">PvpropertyStringRO</span><span class="p">,</span>
+        <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Record type&#39;</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+
+        <span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span>
+        <span class="c1"># set .NAME</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">record_name</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">pvname</span>
+        <span class="c1"># set .RTYP</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">record_type</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_record_type</span>
+
+        <span class="c1"># automatic alarm handling</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_alarm</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">alarm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_alarm</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flags</span><span class="p">):</span>
+        <span class="c1"># if SubscriptionType.DBE_ALARM in flags:</span>
+        <span class="c1"># TODO this needs tweaking - proof of concept at the moment</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">alarm_acknowledge_transient</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_alarm</span><span class="o">.</span><span class="n">must_acknowledge_transient</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">alarm_acknowledge_severity</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_alarm</span><span class="o">.</span><span class="n">severity_to_acknowledge</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">alarm_status</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_alarm</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_alarm_severity</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_alarm</span><span class="o">.</span><span class="n">severity</span><span class="p">)</span>
+
+    <span class="nd">@_base</span><span class="o">.</span><span class="n">scan_rate</span><span class="o">.</span><span class="n">putter</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">scan_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">scan_string</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scan_rate</span><span class="o">.</span><span class="n">enum_strings</span><span class="p">[</span><span class="n">value</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">value</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">scan_string</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;I/O Intr&#39;</span><span class="p">,</span> <span class="s1">&#39;Passive&#39;</span><span class="p">,</span> <span class="s1">&#39;Event&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_scan_rate_sec</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_scan_rate_sec</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">scan_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="s1">&#39;scan_rate&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">scan_rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scan_rate_sec</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">scan_rate_sec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s1">&#39;Record scan rate, in seconds (read-only)&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scan_rate_sec</span>
+
+    <span class="nd">@_base</span><span class="o">.</span><span class="n">process_record</span><span class="o">.</span><span class="n">putter</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">process_record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">description</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">value_write_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;An overridable hook for the parent value having been updated.&quot;&quot;&quot;</span>
+        <span class="o">...</span></div>
+
+
+<div class="viewcode-block" id="AiFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.AiFields.html#caproto.server.records.AiFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">AiFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">AiFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">AiFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span>
+        <span class="s1">&#39;precision&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">archive_deadband</span><span class="p">,</span> <span class="s1">&#39;log_atol&#39;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">monitor_deadband</span><span class="p">,</span> <span class="s1">&#39;value_atol&#39;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AsubFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.AsubFields.html#caproto.server.records.AsubFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">AsubFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">AsubFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">AsubFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AaiFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.AaiFields.html#caproto.server.records.AaiFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">AaiFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">AaiFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">AaiFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">high_operating_range</span><span class="p">,</span> <span class="s2">&quot;upper_ctrl_limit&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">low_operating_range</span><span class="p">,</span> <span class="s2">&quot;lower_ctrl_limit&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">number_of_elements</span><span class="p">,</span> <span class="s2">&quot;max_length&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AaoFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.AaoFields.html#caproto.server.records.AaoFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">AaoFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">AaoFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">AaoFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">high_operating_range</span><span class="p">,</span> <span class="s2">&quot;upper_ctrl_limit&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">low_operating_range</span><span class="p">,</span> <span class="s2">&quot;lower_ctrl_limit&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">number_of_elements</span><span class="p">,</span> <span class="s2">&quot;max_length&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AoFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.AoFields.html#caproto.server.records.AoFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">AoFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">AoFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">AoFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">archive_deadband</span><span class="p">,</span> <span class="s2">&quot;log_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">monitor_deadband</span><span class="p">,</span> <span class="s2">&quot;value_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AsynFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.AsynFields.html#caproto.server.records.AsynFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">AsynFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">AsynFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">AsynFields</span></div>
+
+
+<div class="viewcode-block" id="BiFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.BiFields.html#caproto.server.records.BiFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">BiFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">BiFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">BiFields</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">zero_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">one_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="nd">@_base</span><span class="o">.</span><span class="n">raw_value</span><span class="o">.</span><span class="n">putter</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">raw_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">value</span>
+        <span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">value_write_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">raw_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">get_raw_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">raw_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_value</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">raw_value</span><span class="p">,</span> <span class="n">verify_value</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BoFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.BoFields.html#caproto.server.records.BoFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">BoFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">BoFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">BoFields</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">zero_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">one_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="nd">@_base</span><span class="o">.</span><span class="n">raw_value</span><span class="o">.</span><span class="n">putter</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">raw_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">value</span>
+        <span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">value_write_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">raw_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">get_raw_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">raw_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_value</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">raw_value</span><span class="p">,</span> <span class="n">verify_value</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CalcFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.CalcFields.html#caproto.server.records.CalcFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">CalcFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">CalcFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">CalcFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">archive_deadband</span><span class="p">,</span> <span class="s2">&quot;log_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">monitor_deadband</span><span class="p">,</span> <span class="s2">&quot;value_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CalcoutFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.CalcoutFields.html#caproto.server.records.CalcoutFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">CalcoutFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">CalcoutFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">CalcoutFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">archive_deadband</span><span class="p">,</span> <span class="s2">&quot;log_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">monitor_deadband</span><span class="p">,</span> <span class="s2">&quot;value_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CompressFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.CompressFields.html#caproto.server.records.CompressFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">CompressFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">CompressFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">CompressFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">high_operating_range</span><span class="p">,</span> <span class="s2">&quot;upper_ctrl_limit&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">low_operating_range</span><span class="p">,</span> <span class="s2">&quot;lower_ctrl_limit&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DfanoutFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.DfanoutFields.html#caproto.server.records.DfanoutFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">DfanoutFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">DfanoutFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">DfanoutFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">archive_deadband</span><span class="p">,</span> <span class="s2">&quot;log_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">monitor_deadband</span><span class="p">,</span> <span class="s2">&quot;value_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="EventFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.EventFields.html#caproto.server.records.EventFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">EventFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">EventFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">EventFields</span></div>
+
+
+<div class="viewcode-block" id="FanoutFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.FanoutFields.html#caproto.server.records.FanoutFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">FanoutFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">FanoutFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">FanoutFields</span></div>
+
+
+<div class="viewcode-block" id="HistogramFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.HistogramFields.html#caproto.server.records.HistogramFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">HistogramFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">HistogramFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">HistogramFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">high_operating_range</span><span class="p">,</span> <span class="s2">&quot;upper_ctrl_limit&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">low_operating_range</span><span class="p">,</span> <span class="s2">&quot;lower_ctrl_limit&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Int64inFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.Int64inFields.html#caproto.server.records.Int64inFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">Int64inFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">Int64inFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">Int64inFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">archive_deadband</span><span class="p">,</span> <span class="s2">&quot;log_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">monitor_deadband</span><span class="p">,</span> <span class="s2">&quot;value_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Int64outFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.Int64outFields.html#caproto.server.records.Int64outFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">Int64outFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">Int64outFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">Int64outFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">archive_deadband</span><span class="p">,</span> <span class="s2">&quot;log_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">monitor_deadband</span><span class="p">,</span> <span class="s2">&quot;value_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LonginFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.LonginFields.html#caproto.server.records.LonginFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">LonginFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LonginFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">LonginFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">archive_deadband</span><span class="p">,</span> <span class="s2">&quot;log_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">monitor_deadband</span><span class="p">,</span> <span class="s2">&quot;value_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LongoutFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.LongoutFields.html#caproto.server.records.LongoutFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">LongoutFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LongoutFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">LongoutFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">archive_deadband</span><span class="p">,</span> <span class="s2">&quot;log_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">monitor_deadband</span><span class="p">,</span> <span class="s2">&quot;value_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LsiFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.LsiFields.html#caproto.server.records.LsiFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">LsiFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LsiFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">LsiFields</span></div>
+
+
+<div class="viewcode-block" id="LsoFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.LsoFields.html#caproto.server.records.LsoFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">LsoFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">LsoFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">LsoFields</span></div>
+
+
+<div class="viewcode-block" id="MbbiFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.MbbiFields.html#caproto.server.records.MbbiFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">MbbiFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">MbbiFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">MbbiFields</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">zero_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">one_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">two_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">three_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">four_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">five_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">six_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">seven_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">eight_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">nine_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">ten_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">eleven_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">twelve_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">thirteen_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">fourteen_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">fifteen_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+    <span class="nd">@_base</span><span class="o">.</span><span class="n">raw_value</span><span class="o">.</span><span class="n">putter</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">raw_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">value</span>
+        <span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">value_write_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">raw_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">get_raw_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">raw_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_value</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">raw_value</span><span class="p">,</span> <span class="n">verify_value</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MbbidirectFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.MbbidirectFields.html#caproto.server.records.MbbidirectFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">MbbidirectFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">MbbidirectFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">MbbidirectFields</span></div>
+
+
+<div class="viewcode-block" id="MbboFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.MbboFields.html#caproto.server.records.MbboFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">MbboFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">MbboFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">MbboFields</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">one_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">two_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">three_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">four_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">five_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">six_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">seven_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">eight_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">nine_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">ten_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">eleven_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">twelve_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">thirteen_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">fourteen_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">link_enum_strings</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">fifteen_string</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+    <span class="nd">@_base</span><span class="o">.</span><span class="n">raw_value</span><span class="o">.</span><span class="n">putter</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">raw_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">value</span>
+        <span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">value_write_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">raw_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">get_raw_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">raw_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_value</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">raw_value</span><span class="p">,</span> <span class="n">verify_value</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MbbodirectFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.MbbodirectFields.html#caproto.server.records.MbbodirectFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">MbbodirectFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">MbbodirectFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">MbbodirectFields</span></div>
+
+
+<div class="viewcode-block" id="MotorFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.MotorFields.html#caproto.server.records.MotorFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">MotorFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">MotorFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">MotorFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">archive_deadband</span><span class="p">,</span> <span class="s2">&quot;log_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">monitor_deadband</span><span class="p">,</span> <span class="s2">&quot;value_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PermissiveFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.PermissiveFields.html#caproto.server.records.PermissiveFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">PermissiveFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">PermissiveFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">PermissiveFields</span></div>
+
+
+<div class="viewcode-block" id="PrintfFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.PrintfFields.html#caproto.server.records.PrintfFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">PrintfFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">PrintfFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">PrintfFields</span></div>
+
+
+<div class="viewcode-block" id="SelFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.SelFields.html#caproto.server.records.SelFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">SelFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">SelFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">SelFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">archive_deadband</span><span class="p">,</span> <span class="s2">&quot;log_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">monitor_deadband</span><span class="p">,</span> <span class="s2">&quot;value_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SeqFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.SeqFields.html#caproto.server.records.SeqFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">SeqFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">SeqFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">SeqFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="StateFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.StateFields.html#caproto.server.records.StateFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">StateFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">StateFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">StateFields</span></div>
+
+
+<div class="viewcode-block" id="StringinFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.StringinFields.html#caproto.server.records.StringinFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">StringinFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">StringinFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">StringinFields</span></div>
+
+
+<div class="viewcode-block" id="StringoutFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.StringoutFields.html#caproto.server.records.StringoutFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">StringoutFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">StringoutFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">StringoutFields</span></div>
+
+
+<div class="viewcode-block" id="SubFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.SubFields.html#caproto.server.records.SubFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">SubFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">SubFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">SubFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">archive_deadband</span><span class="p">,</span> <span class="s2">&quot;log_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">monitor_deadband</span><span class="p">,</span> <span class="s2">&quot;value_atol&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SubarrayFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.SubarrayFields.html#caproto.server.records.SubarrayFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">SubarrayFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">SubarrayFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">SubarrayFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">high_operating_range</span><span class="p">,</span> <span class="s2">&quot;upper_ctrl_limit&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">low_operating_range</span><span class="p">,</span> <span class="s2">&quot;lower_ctrl_limit&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">maximum_elements</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">number_of_elements</span><span class="p">,</span> <span class="s2">&quot;max_length&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WaveformFields"><a class="viewcode-back" href="../../../../generated/caproto.server.records.WaveformFields.html#caproto.server.records.WaveformFields">[docs]</a><span class="nd">@register_record</span>
+<span class="k">class</span> <span class="nc">WaveformFields</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">WaveformFields</span><span class="p">,</span> <span class="n">RecordFieldGroup</span><span class="p">):</span>
+    <span class="n">_base</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">WaveformFields</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">display_precision</span><span class="p">,</span> <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">high_operating_range</span><span class="p">,</span> <span class="s2">&quot;upper_ctrl_limit&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">low_operating_range</span><span class="p">,</span> <span class="s2">&quot;lower_ctrl_limit&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link_parent_attribute</span><span class="p">(</span>
+        <span class="n">_base</span><span class="o">.</span><span class="n">number_of_elements</span><span class="p">,</span> <span class="s2">&quot;max_length&quot;</span><span class="p">,</span> <span class="n">use_setattr</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Daniel Allan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

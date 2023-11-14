@@ -1,0 +1,103 @@
+﻿caproto.ioc\_examples.random\_walk.RandomWalkIOC
+================================================
+
+
+.. currentmodule:: caproto.ioc_examples.random_walk
+
+.. inheritance-diagram:: RandomWalkIOC
+
+.. autoclass:: RandomWalkIOC
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+    .. list-table:: RandomWalkIOC pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - dt
+           - ``dt``
+           - Delta time [sec]
+           - float 
+           - 
+           - 
+    
+        *  - x
+           - ``x``
+           - The random float value
+           - float 
+           - 
+                 **Startup**
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~RandomWalkIOC.group_read
+       ~RandomWalkIOC.group_write
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~RandomWalkIOC.default_values
+       ~RandomWalkIOC.type_map
+       ~RandomWalkIOC.type_map_read_only
+       ~RandomWalkIOC.pvdb
+       ~RandomWalkIOC.attr_pvdb
+       ~RandomWalkIOC.attr_to_pvname
+       ~RandomWalkIOC.groups
+    
+
+    
+    .. rubric:: pvproperty methods
+    .. method:: x.startup(self, instance, async_lib)
+        
+    This is a startup hook which periodically updates the value.
+    
+
+    
+    .. raw:: html
+
+        <details>
+        <summary>Source code: x.startup</summary>
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/ioc_examples/random_walk.py
+        :language: python
+        :linenos:
+        :dedent: 0
+        :lineno-start: 16
+        :lines: 16-27
+
+    .. raw:: html
+
+        </details>
+        <br/>
+
+    

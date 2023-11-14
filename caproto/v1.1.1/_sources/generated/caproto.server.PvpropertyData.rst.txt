@@ -1,0 +1,83 @@
+﻿caproto.server.PvpropertyData
+=============================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: PvpropertyData
+
+.. autoclass:: PvpropertyData
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PvpropertyData.auth_read
+       ~PvpropertyData.auth_write
+       ~PvpropertyData.calculate_length
+       ~PvpropertyData.check_access
+       ~PvpropertyData.get_field
+       ~PvpropertyData.is_compatible_array
+       ~PvpropertyData.post_state_change
+       ~PvpropertyData.pre_state_change
+       ~PvpropertyData.preprocess_value
+       ~PvpropertyData.publish
+       ~PvpropertyData.read
+       ~PvpropertyData.subscribe
+       ~PvpropertyData.unsubscribe
+       ~PvpropertyData.update_fields
+       ~PvpropertyData.verify_value
+       ~PvpropertyData.write
+       ~PvpropertyData.write_from_dbr
+       ~PvpropertyData.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PvpropertyData.alarm
+       ~PvpropertyData.data_type
+       ~PvpropertyData.default_value
+       ~PvpropertyData.epics_timestamp
+       ~PvpropertyData.length
+       ~PvpropertyData.max_length
+       ~PvpropertyData.severity
+       ~PvpropertyData.status
+       ~PvpropertyData.timestamp
+       ~PvpropertyData.value
+       ~PvpropertyData.field_inst
+       ~PvpropertyData.fields
+       ~PvpropertyData.getter
+       ~PvpropertyData.group
+       ~PvpropertyData.log
+       ~PvpropertyData.name
+       ~PvpropertyData.putter
+       ~PvpropertyData.pvname
+       ~PvpropertyData.pvspec
+       ~PvpropertyData.record_type
+       ~PvpropertyData.scan
+       ~PvpropertyData.shutdown
+       ~PvpropertyData.startup
+       ~PvpropertyData.max_subscription_backlog
+    
+
+    

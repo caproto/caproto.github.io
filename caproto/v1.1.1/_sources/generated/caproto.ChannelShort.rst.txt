@@ -1,0 +1,78 @@
+﻿caproto.ChannelShort
+====================
+
+
+.. currentmodule:: caproto
+
+.. inheritance-diagram:: ChannelShort
+
+.. autoclass:: ChannelShort
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~ChannelShort.auth_read
+       ~ChannelShort.auth_write
+       ~ChannelShort.calculate_length
+       ~ChannelShort.check_access
+       ~ChannelShort.is_compatible_array
+       ~ChannelShort.post_state_change
+       ~ChannelShort.pre_state_change
+       ~ChannelShort.preprocess_value
+       ~ChannelShort.publish
+       ~ChannelShort.read
+       ~ChannelShort.subscribe
+       ~ChannelShort.unsubscribe
+       ~ChannelShort.update_fields
+       ~ChannelShort.verify_value
+       ~ChannelShort.write
+       ~ChannelShort.write_from_dbr
+       ~ChannelShort.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~ChannelShort.alarm
+       ~ChannelShort.data_type
+       ~ChannelShort.default_value
+       ~ChannelShort.epics_timestamp
+       ~ChannelShort.length
+       ~ChannelShort.lower_alarm_limit
+       ~ChannelShort.lower_ctrl_limit
+       ~ChannelShort.lower_disp_limit
+       ~ChannelShort.lower_warning_limit
+       ~ChannelShort.max_length
+       ~ChannelShort.severity
+       ~ChannelShort.status
+       ~ChannelShort.timestamp
+       ~ChannelShort.units
+       ~ChannelShort.upper_alarm_limit
+       ~ChannelShort.upper_ctrl_limit
+       ~ChannelShort.upper_disp_limit
+       ~ChannelShort.upper_warning_limit
+       ~ChannelShort.value
+       ~ChannelShort.max_subscription_backlog
+    
+
+    

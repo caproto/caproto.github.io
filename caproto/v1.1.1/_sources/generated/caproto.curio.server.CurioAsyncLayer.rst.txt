@@ -1,0 +1,43 @@
+﻿caproto.curio.server.CurioAsyncLayer
+====================================
+
+
+.. currentmodule:: caproto.curio.server
+
+.. inheritance-diagram:: CurioAsyncLayer
+
+.. autoclass:: CurioAsyncLayer
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~CurioAsyncLayer.sleep
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~CurioAsyncLayer.name
+    
+
+    

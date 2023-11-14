@@ -1,0 +1,6 @@
+<map id="inheritancefaeb25c514" name="inheritancefaeb25c514">
+<area shape="rect" id="node1" href="generated/caproto.curio.server.Context.html#caproto.curio.server.Context" target="_top" title="caproto.curio.server.Context" alt="" coords="17,79,224,104"/>
+<area shape="rect" id="node2" href="generated/caproto.server.common.Context.html#caproto.server.common.Context" target="_top" title="caproto.server.common.Context" alt="" coords="5,5,236,31"/>
+<area shape="rect" id="node3" href="generated/caproto.curio.server.VirtualCircuit.html#caproto.curio.server.VirtualCircuit" target="_top" title="Wraps a caproto.VirtualCircuit with a curio client." alt="" coords="273,79,513,104"/>
+<area shape="rect" id="node4" href="generated/caproto.server.common.VirtualCircuit.html#caproto.server.common.VirtualCircuit" target="_top" title="caproto.server.common.VirtualCircuit" alt="" coords="260,5,525,31"/>
+</map>
