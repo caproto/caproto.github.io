@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Threading Client &mdash; caproto 0+untagged.1.g46020e4 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="_static/inheritance.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Threading Client &mdash; caproto 0+untagged.1.g238189f documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="_static/inheritance.css?v=90d6b3b9" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=ecc4ad36"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="_static/docs-versions-menu.js?v=302f4f97"></script>
+      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=e5d04ec7"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="_static/docs-versions-menu.js?v=302f4f97"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -35,9 +35,6 @@
           <a href="index.html" class="icon icon-home">
             caproto
           </a>
-              <div class="version">
-                0+untagged.1.g46020e4
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -201,13 +198,13 @@ raw bytes of that response are:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">richer_res</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
 
 <span class="gp">In [12]: </span><span class="n">richer_res</span><span class="o">.</span><span class="n">metadata</span>
-<span class="gh">Out[12]: </span><span class="go">DBR_TIME_DOUBLE(status=&lt;AlarmStatus.NO_ALARM: 0&gt;, severity=&lt;AlarmSeverity.NO_ALARM: 0&gt;, timestamp=1699663254.787825)</span>
+<span class="gh">Out[12]: </span><span class="go">DBR_TIME_DOUBLE(status=&lt;AlarmStatus.NO_ALARM: 0&gt;, severity=&lt;AlarmSeverity.NO_ALARM: 0&gt;, timestamp=1730170312.355449)</span>
 
 <span class="gp">In [13]: </span><span class="n">richer_res</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">timestamp</span>
-<span class="gh">Out[13]: </span><span class="go">1699663254.787825</span>
+<span class="gh">Out[13]: </span><span class="go">1730170312.355449</span>
 
 <span class="gp">In [14]: </span><span class="n">richer_res</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">stamp</span><span class="o">.</span><span class="n">as_datetime</span><span class="p">()</span>  <span class="c1"># a convenience method</span>
-<span class="gh">Out[14]: </span><span class="go">datetime.datetime(2023, 11, 11, 0, 40, 54, 787825)</span>
+<span class="gh">Out[14]: </span><span class="go">datetime.datetime(2024, 10, 29, 2, 51, 52, 355449)</span>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#caproto.threading.client.PV.read" title="caproto.threading.client.PV.read"><code class="xref py py-meth docutils literal notranslate"><span class="pre">PV.read()</span></code></a> for more information on the values accepted by the
@@ -221,7 +218,7 @@ data structures.</p>
 <span class="gh">Out[15]: </span><span class="go">MessageHeader(command=15, payload_size=8, data_type=6, data_count=1, parameter1=1, parameter2=0)</span>
 
 <span class="gp">In [16]: </span><span class="n">res</span><span class="o">.</span><span class="n">buffers</span>  <span class="c1"># a collection of one or more buffers</span>
-<span class="gh">Out[16]: </span><span class="go">(b&#39;&#39;, &lt;memory at 0x7fa530d584c0&gt;)</span>
+<span class="gh">Out[16]: </span><span class="go">(b&#39;&#39;, &lt;memory at 0x7fafc8b8f7c0&gt;)</span>
 </pre></div>
 </div>
 <p>They were received directly from the socket into these structure with no
@@ -320,10 +317,10 @@ define a second callback:</p>
 
 <span class="gp">In [26]: </span><span class="n">values</span>
 <span class="gh">Out[26]: </span>
-<span class="go">[-0.5758120832124882,</span>
-<span class="go"> -0.36120185281543393,</span>
-<span class="go"> -1.187092143158,</span>
-<span class="go"> -0.40130485330461063]</span>
+<span class="go">[0.8707213217975123,</span>
+<span class="go"> 1.744152876724244,</span>
+<span class="go"> 0.819886132685171,</span>
+<span class="go"> -0.06414457646208604]</span>
 </pre></div>
 </div>
 <p>At any point we can remove a specific callback function:</p>
@@ -402,7 +399,7 @@ upon exiting the <code class="docutils literal notranslate"><span class="pre">wi
 background thread. As the responses come in, the <code class="docutils literal notranslate"><span class="pre">results</span></code> dictionary will be
 updated.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [35]: </span><span class="n">results</span>
-<span class="gh">Out[35]: </span><span class="go">{&#39;random_walk:x&#39;: array([-0.40130485]), &#39;random_walk:dt&#39;: array([1.])}</span>
+<span class="gh">Out[35]: </span><span class="go">{&#39;random_walk:x&#39;: array([-0.06414458]), &#39;random_walk:dt&#39;: array([1.])}</span>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#caproto.threading.client.Batch" title="caproto.threading.client.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> for more.</p>
@@ -415,7 +412,7 @@ requested. In order to reduce the load on the network, a PV can be temporarily
 made “idle” (disconnected). It will silently, automatically reconnect the next
 time it is used.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [36]: </span><span class="n">x</span>
-<span class="gh">Out[36]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 address=(&#39;10.1.0.19&#39;, 5064), circuit_state=States.CONNECTED, channel_state=States.CONNECTED&gt;</span>
+<span class="gh">Out[36]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 address=(&#39;10.1.0.105&#39;, 5064), circuit_state=States.CONNECTED, channel_state=States.CONNECTED&gt;</span>
 
 <span class="gp">In [37]: </span><span class="n">x</span><span class="o">.</span><span class="n">go_idle</span><span class="p">()</span>
 
@@ -423,10 +420,10 @@ time it is used.</p>
 <span class="gh">Out[38]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 (idle)&gt;</span>
 
 <span class="gp">In [39]: </span><span class="n">x</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="gh">Out[39]: </span><span class="go">ReadNotifyResponse(data=array([-1.12695722]), data_type=&lt;ChannelType.DOUBLE: 6&gt;, data_count=1, status=CAStatusCode(name=&#39;ECA_NORMAL&#39;, code=0, code_with_severity=1, severity=&lt;CASeverity.SUCCESS: 1&gt;, success=1, defunct=False, description=&#39;Normal successful completion&#39;), ioid=5, metadata=None)</span>
+<span class="gh">Out[39]: </span><span class="go">ReadNotifyResponse(data=array([-0.60032316]), data_type=&lt;ChannelType.DOUBLE: 6&gt;, data_count=1, status=CAStatusCode(name=&#39;ECA_NORMAL&#39;, code=0, code_with_severity=1, severity=&lt;CASeverity.SUCCESS: 1&gt;, success=1, defunct=False, description=&#39;Normal successful completion&#39;), ioid=5, metadata=None)</span>
 
 <span class="gp">In [40]: </span><span class="n">x</span>
-<span class="gh">Out[40]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 address=(&#39;10.1.0.19&#39;, 5064), circuit_state=States.CONNECTED, channel_state=States.CONNECTED&gt;</span>
+<span class="gh">Out[40]: </span><span class="go">&lt;PV name=&#39;random_walk:x&#39; priority=0 address=(&#39;10.1.0.105&#39;, 5064), circuit_state=States.CONNECTED, channel_state=States.CONNECTED&gt;</span>
 </pre></div>
 </div>
 <p>Notice that when the PV was read it automatically reconnected, requiring no
