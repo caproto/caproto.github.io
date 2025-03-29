@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>caproto.server.autosave.RotatingFileManager &mdash; caproto 1.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../_static/inheritance.css?v=90d6b3b9" />
+
+  
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=4c8675c2"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../_static/docs-versions-menu.js?v=302f4f97"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="caproto.server.stats.StatusHelper" href="caproto.server.stats.StatusHelper.html" />
+    <link rel="prev" title="caproto.server.autosave.AutosaveHelper" href="caproto.server.autosave.AutosaveHelper.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            caproto
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install Caproto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clients.html">Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shark.html">Shark (pcap/tcpdump parsing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loggers.html">Logging</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IOCs</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../iocs.html">Input-Output Controllers (IOCs)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#why-write-an-ioc-using-caproto">Why Write an IOC Using Caproto?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#using-the-ioc-examples">Using the IOC Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#pvgroup">PVGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#pvproperty">pvproperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#general-tips">General Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#help">Help!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#how-do-i">How do I…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iocs.html#examples">Examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../iocs.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../iocs.html#autosave">Autosave</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="caproto.server.autosave.AutosaveHelper.html">caproto.server.autosave.AutosaveHelper</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">caproto.server.autosave.RotatingFileManager</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../iocs.html#status-statistics">Status / Statistics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../records.html">Records</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookiecutter.html">IOC Template Cookiecutters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server_api.html">Server API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Channel Access Sans I/O</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">Writing Your Own Channel Access Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Core API Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../protocol-compliance.html">Details of our Protocol Compliance for CA Nerds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers.html">Caproto-in-a-box</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">caproto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../iocs.html">Input-Output Controllers (IOCs)</a></li>
+      <li class="breadcrumb-item active">caproto.server.autosave.RotatingFileManager</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/caproto.server.autosave.RotatingFileManager.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="caproto-server-autosave-rotatingfilemanager">
+<h1>caproto.server.autosave.RotatingFileManager<a class="headerlink" href="#caproto-server-autosave-rotatingfilemanager" title="Permalink to this heading">¶</a></h1>
+<div class="graphviz"><img src="../_images/inheritance-1515a0e74f368d347c373b55b062ee344e74e1ea.png" alt="Inheritance diagram of RotatingFileManager" usemap="#inheritance4db8f45224" class="inheritance graphviz" /></div>
+<map id="inheritance4db8f45224" name="inheritance4db8f45224">
+<area shape="rect" id="node1" href="#caproto.server.autosave.RotatingFileManager" target="_top" title="Save to a primary filename, while rotating out old copies." alt="" coords="5,5,324,31"/>
+</map><dl class="py class">
+<dt class="sig sig-object py" id="caproto.server.autosave.RotatingFileManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">caproto.server.autosave.</span></span><span class="sig-name descname"><span class="pre">RotatingFileManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_files_per_day=5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_file_age=30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_suffix='_%Y%m%d-%H%M%S'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger=&lt;Logger</span> <span class="pre">caproto.server.autosave</span> <span class="pre">(WARNING)&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/server/autosave.html#RotatingFileManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.server.autosave.RotatingFileManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save to a primary filename, while rotating out old copies.</p>
+<p>Automatically prunes old copies of the file beyond a certain age or a
+maximum file count (overall or per day).</p>
+<p>Files will first be pruned by the overall age cutoff, then on a per day
+basis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>The primary filename that should be used.</p>
+</dd>
+<dt><strong>max_files_per_day</strong><span class="classifier">int, optional</span></dt><dd><p>Remove the oldest files in a given day.</p>
+</dd>
+<dt><strong>max_file_age</strong><span class="classifier">int, optional</span></dt><dd><p>Prune files beyond this cutoff.</p>
+</dd>
+<dt><strong>date_suffix</strong><span class="classifier">str, optional</span></dt><dd><p>Defaults to “_%Y%m%d-%H%M%S” - used by strftime/strptime.</p>
+</dd>
+<dt><strong>logger</strong><span class="classifier">logging.Logger, optional</span></dt><dd><p>The logger instance to use for messages.  Defaults to the module
+logger.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prune_files</span></code>()</p></td>
+<td><p>Prune files that are outside of the configured maximum times.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotate_in_file</span></code>(fn)</p></td>
+<td><p>Move a valid file from another location to <cite>self.filename</cite> and prune.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">directory</span></code></p></td>
+<td><p>The directory holding the save file.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">files_by_age</span></code></p></td>
+<td><p>Get a dictionary of {age_timedelta: filename}.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">glob_string</span></code></p></td>
+<td><p>The glob string which can be used to find matching files.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">date_suffix</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">filename</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">log</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_file_age</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_files_per_day</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="caproto.server.autosave.AutosaveHelper.html" class="btn btn-neutral float-left" title="caproto.server.autosave.AutosaveHelper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="caproto.server.stats.StatusHelper.html" class="btn btn-neutral float-right" title="caproto.server.stats.StatusHelper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Daniel Allan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

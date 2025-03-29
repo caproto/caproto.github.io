@@ -1,0 +1,6 @@
+﻿caproto.asyncio.server.start\_server
+====================================
+
+.. currentmodule:: caproto.asyncio.server
+
+.. autofunction:: start_server

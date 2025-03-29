@@ -1,0 +1,8 @@
+<map id="inheritance95902393fd" name="inheritance95902393fd">
+<area shape="rect" id="node1" href="generated/caproto.ChannelByte.html#caproto.ChannelByte" target="_top" title="8&#45;bit unencoded CHAR data plus metadata which can be sent over a channel." alt="" coords="18,152,123,177"/>
+<area shape="rect" id="node2" title="Base class for numeric data types with limits." alt="" coords="5,79,136,104"/>
+<area shape="rect" id="node3" href="generated/caproto.ChannelChar.html#caproto.ChannelChar" target="_top" title="8&#45;bit encoded CHAR data plus metadata which can be sent over a channel." alt="" coords="161,79,266,104"/>
+<area shape="rect" id="node4" href="generated/caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="225,5,332,31"/>
+<area shape="rect" id="node5" href="generated/caproto.ChannelEnum.html#caproto.ChannelEnum" target="_top" title="ENUM data which can be sent over a channel." alt="" coords="289,79,401,104"/>
+<area shape="rect" id="node6" href="generated/caproto.ChannelString.html#caproto.ChannelString" target="_top" title="8&#45;bit encoded string data plus metadata which can be sent over a channel." alt="" coords="426,79,539,104"/>
+</map>

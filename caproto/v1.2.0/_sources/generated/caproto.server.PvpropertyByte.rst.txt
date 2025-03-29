@@ -1,0 +1,92 @@
+﻿caproto.server.PvpropertyByte
+=============================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: PvpropertyByte
+
+.. autoclass:: PvpropertyByte
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PvpropertyByte.auth_read
+       ~PvpropertyByte.auth_write
+       ~PvpropertyByte.calculate_length
+       ~PvpropertyByte.check_access
+       ~PvpropertyByte.get_field
+       ~PvpropertyByte.is_compatible_array
+       ~PvpropertyByte.post_state_change
+       ~PvpropertyByte.pre_state_change
+       ~PvpropertyByte.preprocess_value
+       ~PvpropertyByte.publish
+       ~PvpropertyByte.read
+       ~PvpropertyByte.subscribe
+       ~PvpropertyByte.unsubscribe
+       ~PvpropertyByte.update_fields
+       ~PvpropertyByte.verify_value
+       ~PvpropertyByte.write
+       ~PvpropertyByte.write_from_dbr
+       ~PvpropertyByte.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PvpropertyByte.alarm
+       ~PvpropertyByte.data_type
+       ~PvpropertyByte.default_value
+       ~PvpropertyByte.epics_timestamp
+       ~PvpropertyByte.length
+       ~PvpropertyByte.lower_alarm_limit
+       ~PvpropertyByte.lower_ctrl_limit
+       ~PvpropertyByte.lower_disp_limit
+       ~PvpropertyByte.lower_warning_limit
+       ~PvpropertyByte.max_length
+       ~PvpropertyByte.severity
+       ~PvpropertyByte.status
+       ~PvpropertyByte.timestamp
+       ~PvpropertyByte.units
+       ~PvpropertyByte.upper_alarm_limit
+       ~PvpropertyByte.upper_ctrl_limit
+       ~PvpropertyByte.upper_disp_limit
+       ~PvpropertyByte.upper_warning_limit
+       ~PvpropertyByte.value
+       ~PvpropertyByte.field_inst
+       ~PvpropertyByte.fields
+       ~PvpropertyByte.getter
+       ~PvpropertyByte.group
+       ~PvpropertyByte.log
+       ~PvpropertyByte.name
+       ~PvpropertyByte.putter
+       ~PvpropertyByte.pvname
+       ~PvpropertyByte.pvspec
+       ~PvpropertyByte.record_type
+       ~PvpropertyByte.scan
+       ~PvpropertyByte.shutdown
+       ~PvpropertyByte.startup
+       ~PvpropertyByte.max_subscription_backlog
+    
+
+    

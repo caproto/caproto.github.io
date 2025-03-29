@@ -1,0 +1,8 @@
+<map id="inheritanceb52772cfde" name="inheritanceb52772cfde">
+<area shape="rect" id="node1" href="caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="90,5,289,31"/>
+<area shape="rect" id="node2" href="caproto.ChannelEnum.html#caproto.ChannelEnum" target="_top" title="ENUM data which can be sent over a channel." alt="" coords="5,152,211,177"/>
+<area shape="rect" id="node3" href="caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" target="_top" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="251,79,517,104"/>
+<area shape="rect" id="node5" href="#caproto.server.PvpropertyEnumRO" target="_top" title="Read&#45;only ENUM data for pvproperty." alt="" coords="108,225,399,251"/>
+<area shape="rect" id="node6" href="caproto.server.PvpropertyReadOnlyData.html#caproto.server.PvpropertyReadOnlyData" target="_top" title="A mixin class which marks this data as read&#45;only from channel access." alt="" coords="235,152,563,177"/>
+<area shape="rect" id="node4" title="Abstract base class for generic types." alt="" coords="325,5,443,31"/>
+</map>

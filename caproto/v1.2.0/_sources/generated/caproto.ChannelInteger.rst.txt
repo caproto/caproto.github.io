@@ -1,0 +1,78 @@
+﻿caproto.ChannelInteger
+======================
+
+
+.. currentmodule:: caproto
+
+.. inheritance-diagram:: ChannelInteger
+
+.. autoclass:: ChannelInteger
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~ChannelInteger.auth_read
+       ~ChannelInteger.auth_write
+       ~ChannelInteger.calculate_length
+       ~ChannelInteger.check_access
+       ~ChannelInteger.is_compatible_array
+       ~ChannelInteger.post_state_change
+       ~ChannelInteger.pre_state_change
+       ~ChannelInteger.preprocess_value
+       ~ChannelInteger.publish
+       ~ChannelInteger.read
+       ~ChannelInteger.subscribe
+       ~ChannelInteger.unsubscribe
+       ~ChannelInteger.update_fields
+       ~ChannelInteger.verify_value
+       ~ChannelInteger.write
+       ~ChannelInteger.write_from_dbr
+       ~ChannelInteger.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~ChannelInteger.alarm
+       ~ChannelInteger.data_type
+       ~ChannelInteger.default_value
+       ~ChannelInteger.epics_timestamp
+       ~ChannelInteger.length
+       ~ChannelInteger.lower_alarm_limit
+       ~ChannelInteger.lower_ctrl_limit
+       ~ChannelInteger.lower_disp_limit
+       ~ChannelInteger.lower_warning_limit
+       ~ChannelInteger.max_length
+       ~ChannelInteger.severity
+       ~ChannelInteger.status
+       ~ChannelInteger.timestamp
+       ~ChannelInteger.units
+       ~ChannelInteger.upper_alarm_limit
+       ~ChannelInteger.upper_ctrl_limit
+       ~ChannelInteger.upper_disp_limit
+       ~ChannelInteger.upper_warning_limit
+       ~ChannelInteger.value
+       ~ChannelInteger.max_subscription_backlog
+    
+
+    

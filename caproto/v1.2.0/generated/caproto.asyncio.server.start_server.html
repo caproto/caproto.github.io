@@ -1,0 +1,157 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>caproto.asyncio.server.start_server &mdash; caproto 1.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../_static/inheritance.css?v=90d6b3b9" />
+
+  
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=4c8675c2"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../_static/docs-versions-menu.js?v=302f4f97"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="caproto.curio.server.CurioAsyncLayer" href="caproto.curio.server.CurioAsyncLayer.html" />
+    <link rel="prev" title="caproto.asyncio.server.run" href="caproto.asyncio.server.run.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            caproto
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install Caproto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clients.html">Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../servers.html">Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environment_variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shark.html">Shark (pcap/tcpdump parsing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loggers.html">Logging</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IOCs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../iocs.html">Input-Output Controllers (IOCs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../records.html">Records</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookiecutter.html">IOC Template Cookiecutters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../own_docs.html">Writing Your Own Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../server_api.html">Server API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#data-containers">Data Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#high-level-api-pvproperty-magic">High-level API / pvproperty magic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#library-agnostic-server-core">Library-agnostic server core</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../server_api.html#asyncio-server">asyncio server</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../server_api.html#implementation-classes">Implementation classes</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../server_api.html#helper-functions">Helper functions</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="caproto.asyncio.server.run.html">caproto.asyncio.server.run</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">caproto.asyncio.server.start_server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#curio-server">Curio server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server_api.html#trio-server">Trio server</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Channel Access Sans I/O</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">Writing Your Own Channel Access Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Core API Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../protocol-compliance.html">Details of our Protocol Compliance for CA Nerds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers.html">Caproto-in-a-box</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">caproto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../server_api.html">Server API</a></li>
+      <li class="breadcrumb-item active">caproto.asyncio.server.start_server</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/caproto.asyncio.server.start_server.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="caproto-asyncio-server-start-server">
+<h1>caproto.asyncio.server.start_server<a class="headerlink" href="#caproto-asyncio-server-start-server" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="caproto.asyncio.server.start_server">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">caproto.asyncio.server.</span></span><span class="sig-name descname"><span class="pre">start_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pvdb</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interfaces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_pv_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startup_hook</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/caproto/asyncio/server.html#start_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#caproto.asyncio.server.start_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start an asyncio server with a given PV database</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="caproto.asyncio.server.run.html" class="btn btn-neutral float-left" title="caproto.asyncio.server.run" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="caproto.curio.server.CurioAsyncLayer.html" class="btn btn-neutral float-right" title="caproto.curio.server.CurioAsyncLayer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Daniel Allan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

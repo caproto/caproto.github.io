@@ -1,0 +1,8 @@
+<map id="inheritanceab96c0a9c3" name="inheritanceab96c0a9c3">
+<area shape="rect" id="node1" href="caproto._data.ChannelData.html#caproto._data.ChannelData" target="_top" title="Base class holding data and metadata which can be sent across a Channel." alt="" coords="143,5,341,31"/>
+<area shape="rect" id="node3" title="Base class for numeric data types with limits." alt="" coords="57,79,280,104"/>
+<area shape="rect" id="node4" href="caproto.server.PvpropertyData.html#caproto.server.PvpropertyData" target="_top" title="A top&#45;level class for mixing in with `ChannelData` subclasses." alt="" coords="244,152,509,177"/>
+<area shape="rect" id="node2" href="caproto.ChannelInteger.html#caproto.ChannelInteger" target="_top" title="32&#45;bit LONG integer data and metadata which can be sent over a channel." alt="" coords="5,152,220,177"/>
+<area shape="rect" id="node6" href="#caproto.server.PvpropertyInteger" target="_top" title="Read&#45;write LONG data for pvproperty (32 bits)." alt="" coords="237,225,517,251"/>
+<area shape="rect" id="node5" title="Abstract base class for generic types." alt="" coords="369,79,486,104"/>
+</map>

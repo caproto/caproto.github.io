@@ -1,0 +1,6 @@
+﻿caproto.server.expand\_macros
+=============================
+
+.. currentmodule:: caproto.server
+
+.. autofunction:: expand_macros

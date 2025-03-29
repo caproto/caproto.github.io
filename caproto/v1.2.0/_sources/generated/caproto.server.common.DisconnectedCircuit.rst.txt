@@ -1,0 +1,6 @@
+﻿caproto.server.common.DisconnectedCircuit
+=========================================
+
+.. currentmodule:: caproto.server.common
+
+.. autoexception:: DisconnectedCircuit

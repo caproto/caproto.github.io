@@ -1,0 +1,99 @@
+﻿caproto.ioc\_examples.records.RecordMockingIOC
+==============================================
+
+
+.. currentmodule:: caproto.ioc_examples.records
+
+.. inheritance-diagram:: RecordMockingIOC
+
+.. autoclass:: RecordMockingIOC
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+    .. list-table:: RecordMockingIOC pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - A
+           - ``A``
+           - 
+           - PvpropertyDouble (:class:`ai <caproto.server.records.records.AiFields>`)
+           - 
+           - 
+    
+        *  - B
+           - ``B``
+           - 
+           - PvpropertyDouble (:class:`ao <caproto.server.records.records.AoFields>`)
+           - 
+                 **Put**
+           - 
+    
+        *  - C
+           - ``C``
+           - The C pvproperty
+           - float (:class:`ai <caproto.server.records.records.AiFields>`)
+           - 
+           - 
+    
+        *  - D
+           - ``D``
+           - 
+           - PvpropertyDouble (:class:`ao <caproto.server.records.records.AoFields>`)
+           - 
+           - 
+    
+        *  - E
+           - ``E``
+           - 
+           - PvpropertyString (:class:`stringin <caproto.server.records.records.StringinFields>`)
+           - 
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~RecordMockingIOC.group_read
+       ~RecordMockingIOC.group_write
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~RecordMockingIOC.default_values
+       ~RecordMockingIOC.type_map
+       ~RecordMockingIOC.type_map_read_only
+       ~RecordMockingIOC.pvdb
+       ~RecordMockingIOC.attr_pvdb
+       ~RecordMockingIOC.attr_to_pvname
+       ~RecordMockingIOC.groups
+    
+
+    
+    .. rubric:: pvproperty methods

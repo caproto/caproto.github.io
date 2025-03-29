@@ -1,0 +1,6 @@
+﻿caproto.curio.server.start\_server
+==================================
+
+.. currentmodule:: caproto.curio.server
+
+.. autofunction:: start_server

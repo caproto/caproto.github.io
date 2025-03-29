@@ -1,0 +1,46 @@
+﻿caproto.server.AsyncLibraryLayer
+================================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: AsyncLibraryLayer
+
+.. autoclass:: AsyncLibraryLayer
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~AsyncLibraryLayer.sleep
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~AsyncLibraryLayer.name
+       ~AsyncLibraryLayer.Event
+       ~AsyncLibraryLayer.ThreadsafeQueue
+       ~AsyncLibraryLayer.library
+    
+
+    

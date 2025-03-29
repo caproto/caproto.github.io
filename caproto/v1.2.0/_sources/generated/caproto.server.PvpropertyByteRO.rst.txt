@@ -1,0 +1,92 @@
+﻿caproto.server.PvpropertyByteRO
+===============================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: PvpropertyByteRO
+
+.. autoclass:: PvpropertyByteRO
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PvpropertyByteRO.auth_read
+       ~PvpropertyByteRO.auth_write
+       ~PvpropertyByteRO.calculate_length
+       ~PvpropertyByteRO.check_access
+       ~PvpropertyByteRO.get_field
+       ~PvpropertyByteRO.is_compatible_array
+       ~PvpropertyByteRO.post_state_change
+       ~PvpropertyByteRO.pre_state_change
+       ~PvpropertyByteRO.preprocess_value
+       ~PvpropertyByteRO.publish
+       ~PvpropertyByteRO.read
+       ~PvpropertyByteRO.subscribe
+       ~PvpropertyByteRO.unsubscribe
+       ~PvpropertyByteRO.update_fields
+       ~PvpropertyByteRO.verify_value
+       ~PvpropertyByteRO.write
+       ~PvpropertyByteRO.write_from_dbr
+       ~PvpropertyByteRO.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PvpropertyByteRO.alarm
+       ~PvpropertyByteRO.data_type
+       ~PvpropertyByteRO.default_value
+       ~PvpropertyByteRO.epics_timestamp
+       ~PvpropertyByteRO.length
+       ~PvpropertyByteRO.lower_alarm_limit
+       ~PvpropertyByteRO.lower_ctrl_limit
+       ~PvpropertyByteRO.lower_disp_limit
+       ~PvpropertyByteRO.lower_warning_limit
+       ~PvpropertyByteRO.max_length
+       ~PvpropertyByteRO.severity
+       ~PvpropertyByteRO.status
+       ~PvpropertyByteRO.timestamp
+       ~PvpropertyByteRO.units
+       ~PvpropertyByteRO.upper_alarm_limit
+       ~PvpropertyByteRO.upper_ctrl_limit
+       ~PvpropertyByteRO.upper_disp_limit
+       ~PvpropertyByteRO.upper_warning_limit
+       ~PvpropertyByteRO.value
+       ~PvpropertyByteRO.field_inst
+       ~PvpropertyByteRO.fields
+       ~PvpropertyByteRO.getter
+       ~PvpropertyByteRO.group
+       ~PvpropertyByteRO.log
+       ~PvpropertyByteRO.name
+       ~PvpropertyByteRO.putter
+       ~PvpropertyByteRO.pvname
+       ~PvpropertyByteRO.pvspec
+       ~PvpropertyByteRO.record_type
+       ~PvpropertyByteRO.scan
+       ~PvpropertyByteRO.shutdown
+       ~PvpropertyByteRO.startup
+       ~PvpropertyByteRO.max_subscription_backlog
+    
+
+    

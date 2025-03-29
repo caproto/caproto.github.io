@@ -1,0 +1,86 @@
+﻿caproto.server.PvpropertyBoolEnum
+=================================
+
+
+.. currentmodule:: caproto.server
+
+.. inheritance-diagram:: PvpropertyBoolEnum
+
+.. autoclass:: PvpropertyBoolEnum
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~PvpropertyBoolEnum.auth_read
+       ~PvpropertyBoolEnum.auth_write
+       ~PvpropertyBoolEnum.calculate_length
+       ~PvpropertyBoolEnum.check_access
+       ~PvpropertyBoolEnum.get_field
+       ~PvpropertyBoolEnum.get_raw_value
+       ~PvpropertyBoolEnum.is_compatible_array
+       ~PvpropertyBoolEnum.post_state_change
+       ~PvpropertyBoolEnum.pre_state_change
+       ~PvpropertyBoolEnum.preprocess_value
+       ~PvpropertyBoolEnum.publish
+       ~PvpropertyBoolEnum.read
+       ~PvpropertyBoolEnum.subscribe
+       ~PvpropertyBoolEnum.unsubscribe
+       ~PvpropertyBoolEnum.update_fields
+       ~PvpropertyBoolEnum.verify_value
+       ~PvpropertyBoolEnum.write
+       ~PvpropertyBoolEnum.write_from_dbr
+       ~PvpropertyBoolEnum.write_metadata
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~PvpropertyBoolEnum.alarm
+       ~PvpropertyBoolEnum.data_type
+       ~PvpropertyBoolEnum.default_value
+       ~PvpropertyBoolEnum.enum_strings
+       ~PvpropertyBoolEnum.epics_timestamp
+       ~PvpropertyBoolEnum.length
+       ~PvpropertyBoolEnum.max_length
+       ~PvpropertyBoolEnum.raw_value
+       ~PvpropertyBoolEnum.severity
+       ~PvpropertyBoolEnum.status
+       ~PvpropertyBoolEnum.timestamp
+       ~PvpropertyBoolEnum.value
+       ~PvpropertyBoolEnum.field_inst
+       ~PvpropertyBoolEnum.fields
+       ~PvpropertyBoolEnum.getter
+       ~PvpropertyBoolEnum.group
+       ~PvpropertyBoolEnum.log
+       ~PvpropertyBoolEnum.name
+       ~PvpropertyBoolEnum.putter
+       ~PvpropertyBoolEnum.pvname
+       ~PvpropertyBoolEnum.pvspec
+       ~PvpropertyBoolEnum.record_type
+       ~PvpropertyBoolEnum.scan
+       ~PvpropertyBoolEnum.shutdown
+       ~PvpropertyBoolEnum.startup
+       ~PvpropertyBoolEnum.max_subscription_backlog
+    
+
+    

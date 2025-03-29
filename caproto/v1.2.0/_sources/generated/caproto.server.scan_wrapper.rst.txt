@@ -1,0 +1,6 @@
+﻿caproto.server.scan\_wrapper
+============================
+
+.. currentmodule:: caproto.server
+
+.. autofunction:: scan_wrapper

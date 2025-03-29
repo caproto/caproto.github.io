@@ -1,0 +1,580 @@
+﻿caproto.server.records.BoFields
+===============================
+
+
+.. currentmodule:: caproto.server.records
+
+.. inheritance-diagram:: BoFields
+
+.. autoclass:: BoFields
+
+    .. if not using autodoc, add this here: automethod:: __init__
+
+    
+
+    
+    
+        .. note:: To use this, specify
+                  ``record="bo"`` in a
+                  :class:`pvproperty`.
+    
+    
+
+    
+    
+    .. list-table:: BoFields pvproperties
+        :header-rows: 1
+        :widths: auto
+
+        *  - Attribute
+           - Suffix
+           - Docs
+           - Type
+           - Notes
+           - Alarm Group
+    
+        *  - access_security_group
+           - ``ASG``
+           - Access Security Group
+           - PvpropertyChar 
+           - 
+                 Length(29)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_severity
+           - ``ACKS``
+           - Alarm Ack Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_acknowledge_transient
+           - ``ACKT``
+           - Alarm Ack Transient
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - alarm_status
+           - ``STAT``
+           - Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - change_of_state_sevr
+           - ``COSV``
+           - Change of State Sevr
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - current_alarm_severity
+           - ``SEVR``
+           - Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - dbputfield_process
+           - ``PUTF``
+           - dbPutField process
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - description
+           - ``DESC``
+           - Descriptor
+           - PvpropertyChar 
+           - 
+                 Length(41)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - desired_output_loc
+           - ``DOL``
+           - Desired Output Loc
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - device_type
+           - ``DTYP``
+           - Device Type
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable
+           - ``DISA``
+           - Disable
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_alarm_severity
+           - ``DISS``
+           - Disable Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_putfield
+           - ``DISP``
+           - Disable putField
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - disable_value
+           - ``DISV``
+           - Disable Value
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - event_name
+           - ``EVNT``
+           - Event Name
+           - PvpropertyChar 
+           - 
+                 Length(40)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - forward_link
+           - ``FLNK``
+           - Forward Process Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - hardware_mask
+           - ``MASK``
+           - Hardware Mask
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - invalid_outpt_action
+           - ``IVOA``
+           - INVALID outpt action
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - invalid_output_value
+           - ``IVOV``
+           - INVALID output value
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - last_value_alarmed
+           - ``LALM``
+           - Last Value Alarmed
+           - PvpropertyShortRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - last_value_monitored
+           - ``MLST``
+           - Last Value Monitored
+           - PvpropertyShortRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - lock_count
+           - ``LCNT``
+           - Lock Count
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_severity
+           - ``NSEV``
+           - New Alarm Severity
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - new_alarm_status
+           - ``NSTA``
+           - New Alarm Status
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - one_error_severity
+           - ``OSV``
+           - One Error Severity
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - one_name
+           - ``ONAM``
+           - One Name
+           - PvpropertyChar 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+                 **Get**
+                 **Put**
+           - 
+    
+        *  - output_mode_select
+           - ``OMSL``
+           - Output Mode Select
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - output_specification
+           - ``OUT``
+           - Output Specification
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - prev_raw_value
+           - ``ORAW``
+           - prev Raw Value
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - prev_readback_value
+           - ``ORBV``
+           - Prev Readback Value
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - prev_simulation_mode
+           - ``OLDSIMM``
+           - Prev. Simulation Mode
+           - PvpropertyEnumRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - process_at_iocinit
+           - ``PINI``
+           - Process at iocInit
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - process_record
+           - ``PROC``
+           - Force Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - raw_value
+           - ``RVAL``
+           - Raw Value
+           - PvpropertyInteger 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+                 **Put**
+           - 
+    
+        *  - readback_value
+           - ``RBV``
+           - Readback Value
+           - PvpropertyIntegerRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - record_active
+           - ``PACT``
+           - Record active
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_name
+           - ``NAME``
+           - Record Name
+           - PvpropertyCharRO 
+           - 
+                 **Read-only**
+                 Length(61)
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - record_type
+           - ``RTYP``
+           - Record type
+           - PvpropertyStringRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.records.RecordFieldGroup`
+           - 
+    
+        *  - reprocess
+           - ``RPRO``
+           - Reprocess
+           - PvpropertyByteRO 
+           - 
+                 **Read-only**
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_phase
+           - ``PHAS``
+           - Scan Phase
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scan_rate
+           - ``SCAN``
+           - Scan Mechanism
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scanning_disable
+           - ``SDIS``
+           - Scanning Disable
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - scheduling_priority
+           - ``PRIO``
+           - Scheduling Priority
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - seconds_to_hold_high
+           - ``HIGH``
+           - Seconds to Hold High
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - sim_mode_async_delay
+           - ``SDLY``
+           - Sim. Mode Async Delay
+           - PvpropertyDouble 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - sim_mode_scan
+           - ``SSCN``
+           - Sim. Mode Scan
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - simulation_mode
+           - ``SIMM``
+           - Simulation Mode
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - simulation_mode_link
+           - ``SIML``
+           - Simulation Mode Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - simulation_mode_severity
+           - ``SIMS``
+           - Simulation Mode Severity
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - simulation_output_link
+           - ``SIOL``
+           - Simulation Output Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - time_stamp_event
+           - ``TSE``
+           - Time Stamp Event
+           - PvpropertyShort 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - time_stamp_link
+           - ``TSEL``
+           - Time Stamp Link
+           - PvpropertyString 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - trace_processing
+           - ``TPRO``
+           - Trace Processing
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined
+           - ``UDF``
+           - Undefined
+           - PvpropertyByte 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - undefined_alarm_severity
+           - ``UDFS``
+           - Undefined Alarm Sevrty
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.RecordFieldGroup`
+           - 
+    
+        *  - zero_error_severity
+           - ``ZSV``
+           - Zero Error Severity
+           - PvpropertyEnum 
+           - 
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+           - 
+    
+        *  - zero_name
+           - ``ZNAM``
+           - Zero Name
+           - PvpropertyChar 
+           - 
+                 Length(26)
+                 Inherited from :class:`~caproto.server.records.base.BoFields`
+                 **Get**
+                 **Put**
+           - 
+    
+    
+
+    
+    
+
+    
+    
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+       ~BoFields.group_read
+       ~BoFields.group_write
+       ~BoFields.publish
+       ~BoFields.value_write_hook
+    
+    
+
+    
+    
+    .. rubric:: Attributes
+
+    .. autosummary::
+
+    
+       ~BoFields.default_values
+       ~BoFields.has_val_field
+       ~BoFields.scan_rate_sec
+       ~BoFields.type_map
+       ~BoFields.type_map_read_only
+       ~BoFields.parent
+       ~BoFields.pvdb
+       ~BoFields.attr_pvdb
+       ~BoFields.attr_to_pvname
+       ~BoFields.groups
+    
+
+    
+    .. rubric:: pvproperty methods
+    .. method:: one_name.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 66
+        :lines: 66-71
+    .. method:: zero_name.getter(self, instance)
+        
+
+    
+    .. literalinclude:: /../../../../../../../opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/caproto/server/records/utils.py
+        :language: python
+        :linenos:
+        :dedent: 4
+        :lineno-start: 66
+        :lines: 66-71
